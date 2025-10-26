@@ -1,0 +1,43 @@
+body {
+    margin: 0px auto;
+    width: 97%;
+    height: 100vh;
+    border-left: 2px ridge black;
+    border-right: 2px ridge black;
+}
+
+header {
+    margin-left: 10px;
+    margin-right: 10px;
+    border: inset;
+}
+
+h1 {
+    color: black;
+    font-size: x-large;
+    padding: 10px;
+    background-color: whitesmoke;
+    margin: 15px 0px 0px 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+h2 {
+    color: darkslategrey;
+    font-weight: 100;
+    font-size: larger;
+    height: 10px;
+    line-height: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+p {
+    color: darkcyan;
+    text-align: left;
+    line-height: 20px;
+    padding: 10px;
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: auto;
+}
