@@ -1,7 +1,7 @@
 body {
     margin: 0px auto;
     width: 97%;
-    height: 100vh;
+    height: 100%;
     border-left: 2px ridge black;
     border-right: 2px ridge black;
 }
