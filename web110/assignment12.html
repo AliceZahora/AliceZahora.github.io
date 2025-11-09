@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web 110 - Fall 2025: Assignment 12">
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <title> Web 110 Assignment 12 </title>
+        <style>
+            main {
+                margin-left: 10px;
+            }
+            canvas {
+                border: 1px black solid;
+            }
+        </style>
+        <script>
+            window.onload = fillContents;
+            var date = new Date();
+
+            function fillContents()
+            {
+                document.getElementById("nameHead").innerHTML = "Alice Zahora";
+                document.getElementById("dateTime").innerHTML = Date();
+
+                var canvas1 = document.getElementById("drawName");
+                var ctx1 = canvas1.getContext("2d");
+                ctx1.font = "40px Times New Roman";
+                ctx1.fillText("Alice Zahora", 150, 200);
+
+                var canvas2 = document.getElementById("drawShape");
+                var ctx2 = canvas2.getContext("2d");
+                ctx2.beginPath();
+                ctx2.arc(100, 100, 50, 0, 2 * Math.PI);
+                ctx2.fillRect(150, 150, 170, 140);
+                ctx2.moveTo(155, 300);
+                ctx2.lineTo(155, 350);
+                ctx2.moveTo(315, 300);
+                ctx2.lineTo(315, 350);
+                ctx2.moveTo(325, 140);
+                ctx2.lineTo(360, 100);
+                ctx2.moveTo(70, 80);
+                ctx2.lineTo(70, 110);
+                ctx2.moveTo(100, 50);
+                ctx2.lineTo(120, 30);
+                ctx2.moveTo(120, 30);
+                ctx2.lineTo(130, 60);
+                ctx2.stroke();
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1 id="nameHead"></h1>
+            <h2> Web 110 Assignment 11 </h2>
+        </header>
+        <main>
+            <p id="dateTime"></p>
+            <canvas id="drawName" width="500" height="400"></canvas>
+            <canvas id="drawShape" width="500" height="400"></canvas>
+            <h3> Summary Paragraph </h3>
+            <p>
+                &nbsp;  Due to its integral position as one of the three core aspects of web coding, knowing
+                how to utilize JavaScript is a much-needed skill. This lesson introduced numerous usages for
+                said language. Inserting information into HTML elements, dynamically retrieving and displaying
+                the date, and drawing graphics on canvases -- each showcased through the activities and each an
+                important ability to have. For example, the information displayed on pages is often not static,
+                needing to be updated or depending on outside factors to be set. This is made possible with JavaScript,
+                as taught in the activities. The language is intertwined strongly with website building, and for that
+                reason, its presence will more often than not grace any future projects. Therefore, the lessons will
+                serve as useful tools not just now, but for a long time going forward.
+            </p>
+        </main>
+    </body>
+</html>
