@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <meta name = "description" content = "Web110 - Fall 2025: Assignment 13">
+        <link rel = "stylesheet" href = "style.css" type = "text/css">
+        <title> Web110 Assign 13 </title>
+        <style>
+            li {
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1> Alice Zahora </h1>
+            <h2> Web110 Assignment 13 </h2>
+        </header>
+        <main>
+            <p>
+                <ul>
+                    <li> SELECT * <br/> FROM CUSTOMERS; </li>
+                    <li> SELECT CustomerID, CustomerName <br/> FROM Customers; </li>
+                    <li> SELECT CustomerName, Address, City, PostalCode <br/> FROM Customers <br/> WHERE Country = "UK"; </li>
+                    <li> SELECT ContactName, CustomerName <br/> FROM Customers <br/> ORDER BY ContactName; </li>
+                    <li> SELECT COUNT(*) <br/> FROM Customers; </li>
+                    <li> SELECT Country, COUNT(*) AS Customers <br/> FROM Customers <br> GROUP BY Country; </li>
+                    <li> SELECT Country, COUNT(*) AS Customers <br/> FROM Customers <br/> GROUP BY Country
+                        <br/> ORDER BY COUNT(*) DESC, Country ASC; </li>
+                    <li> SELECT Country, COUNT(*) AS Customers <br/> FROM Customers <br/> GROUP BY Country
+                        <br/> HAVING (COUNT(*)) > 5 <br/> ORDER BY COUNT(*) DESC, Country ASC; </li>
+                </ul>
+                <hr>
+                <ul>
+                    <li> INSERT INTO Shippers <br/> VALUES (4, "On Time Delivery", "(503) 555 0123"); </li>
+                    <li> UPDATE Products <br/> SET Price = (Price + 1); </li>
+                    <li> UPDATE Products <br/> SET Price = (Price - 1); </li>
+                    <li> UPDATE Shippers <br/> SET ShipperName = "On-Time Delivery" <br/> WHERE ShipperName = "On Time Delivery" </li>
+                    <li> DELETE FROM Shippers <br/> WHERE ShipperName = "On-Time Delivery" </li>
+                </ul>
+            </p>
+            <h3 style = "margin-left: 10px;"> Summary Paragraph </h3>
+            <p style = "margin-left: 10px; width: 60%">
+                &nbsp; Databases are vital parts of today’s technological world. Because of this,
+                it is very important to know how to utilize SQL -- the standard language for databases -- in
+                order to view, manipulate, and integrate data. In order to record information in the tables, one
+                must understand how to use commands such as INSERT, DELETE, UPDATE, etc. Similarly, to organize the
+                entries and which ones are outputted, one needs to be familiar with commands such as SELECT, ORDER BY,
+                WHERE, etc. These activities allow for practice with these aforementioned tools.
+            </p>
+        </main>
+    </body>
+</html>
