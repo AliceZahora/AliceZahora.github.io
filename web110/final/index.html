@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web110 Final Project">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <title> Web110 Final Project </title>
+    </head>
+    <body>
+        <header>
+            <h1> Alice Zahora </h1>
+            <h2> Web110 Final Project - CSS </h2>
+        </header>
+        <nav>
+            <a href="index.html"> Intro To CSS </a>
+            <a href="properties.html"> Basic CSS Properties </a>
+            <a href="combinators.html"> Combinators </a>
+            <a href="pclasses.html"> Pseudo Classes </a>
+        </nav>
+        <main>
+            <h3> What is CSS? </h3>
+            <p>
+                CSS, or Cascading Style Sheets, is what is used to define the styling of a page. With this language, webpages can be
+                transformed into organized, aesthetic, and clearly navigable sites through the manipulation of layout, design, etc.
+            </p>
+            <div id="info">
+                <div id="implementation">
+                    <h3> Implementation </h3>
+                    <p>
+                        &emsp; CSS can be either inline, internal, or external. For the first, simply place your CSS inside your html element tag.
+                        For example:
+                        <pre>
+                            &bull;  &lt;p style='background-color: red'&gt;
+                        </pre>
+                        &emsp; Internal integration requires opening and closing "style" tags in the "head" section of your html. For example:
+                        <pre>
+                            &bull;  &lt;head&gt;
+                                    &lt;style&gt;
+                                        p {
+                                            background-color: red;
+                                        }
+                                    &lt;/style&gt;
+                            &lt;/head&gt;
+                        </pre>
+                        &emsp; External integration requires a seperate file for your CSS and a link to that sheet within your "head" tag. For example:
+                        <pre>
+                            &bull;  &lt;head&gt;
+                                    &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+                                &lt;/head&gt;
+                        </pre>
+                    </p>
+                </div>
+                <div id="terms">
+                    <h3> Important Terms </h3>
+                    <ul>
+                        <li> <b> Selectors: </b> <i> Define which elements should be affected </i></li>
+                        <li> <b> Declarations: </b> <i> Placed between curly braces after selector, sets of property-value pairs separated by a semi-colon </i></li>
+                        <li> <b> Properties: </b> <i> Attribute categories to be applied to selected elements </i></li>
+                        <li> <b> Values: </b> <i> What the properties should be set equal to </i></li>
+                        <li> <b> Combinators: </b> <i> Used with Selectors to make selection more specific, defines relationships between elements </i></li>
+                        <li> <b> Pseudo Classes: </b> <i> Used with Selectors to make selection more specific, defines state of element </i></li>
+                    </ul>
+                </div>
+                <div id="selectors">
+                    <h3> Selectors </h3>
+                    <ul>
+                        <li> <b> Tag: </b> <i> &nbsp;tagName </i>
+                        <li> <b> ID: </b> <i> &nbsp;#idName </i>
+                        <li> <b> Class: </b> <i> &nbsp;.className </i>
+                        <li> <b> All: </b> <i> &nbsp;* </i>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p> Copyright&copy; 2025 </p>
+        </footer>
+    </body>
+</html>

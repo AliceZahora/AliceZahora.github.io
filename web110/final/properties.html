@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web110 Final Project">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <title> Web110 Final Project </title>
+
+        <script>
+            function changeCSS(element)
+            {
+                var selected = element.options[element.selectedIndex].value;
+                var type1 = document.getElementById("type1");
+                var type2 = document.getElementById("type2");
+                var type3 = document.getElementById("type3");
+                ///REPLACE WITH CHILDREN[0]
+                var children = document.getElementById("examples").children;
+
+                //none
+                for(var i = 0; i != 4; i++)
+                {
+                    children[i].firstElementChild.innerHTML = "Here's a paragraph, try styling it more!";
+                    children[i].lastElementChild.removeAttribute("style");
+                    children[i].lastElementChild.innerHTML = "I'm a paragraph!";
+                    type3.style.display = "inline";
+                    type4.style.display = "none";
+                }
+                //colors
+                if(selected == 1)
+                {
+                    type1.firstElementChild.innerHTML = "Now with 'color: cornflowerblue' styling!";
+                    type1.lastElementChild.style.color = "cornflowerblue";
+                    type1.lastElementChild.innerHTML = "This property sets the actual text color!";
+
+                    type2.firstElementChild.innerHTML = "Now with 'background-color: cornflowerblue' styling!";
+                    type2.lastElementChild.style.backgroundColor = "cornflowerblue";
+                    type2.lastElementChild.innerHTML = "This property sets the background color of the element!";
+
+                    type3.style.display = "none";
+                }
+                //text
+                if(selected == 2)
+                {
+                    type4.style.display = "inline";
+
+                    type1.firstElementChild.innerHTML = "Now with 'font-family: 'Times New Roman', Times, serif' styling!";
+                    type1.lastElementChild.style.fontFamily = "Times New Roman, Times, serif";
+                    type1.lastElementChild.innerHTML = "This property sets the font of the text!";
+
+                    type2.firstElementChild.innerHTML = "Now with 'font-size: 25px' styling!";
+                    type2.lastElementChild.style.fontSize = "25px";
+                    type2.lastElementChild.innerHTML = "This property sets the font size of the text!";
+
+                    type3.firstElementChild.innerHTML = "Now with 'font-weight: bold' styling!";
+                    type3.lastElementChild.style.fontWeight = "bold";
+                    type3.lastElementChild.innerHTML = "This property sets the weight/boldness of the text!";
+
+                    type4.firstElementChild.innerHTML = "Now with 'text-shadow: 5px 5px 5px cornflowerblue' styling!";
+                    type4.lastElementChild.style.textShadow = "5px 5px 5px cornflowerblue";
+                    type4.lastElementChild.innerHTML = "This property adds a shadow to text! You can specify horizontal and vertical offset as well as blur radius and color";
+                }
+                //size
+                if(selected == 3)
+                {
+                    type1.firstElementChild.innerHTML = "Now with 'height: 500px' styling!";
+                    type1.lastElementChild.style.height = "500px";
+                    type1.lastElementChild.innerHTML = "This property sets the height of the element!";
+
+                    type2.firstElementChild.innerHTML = "Now with 'width: 500px' styling!";
+                    type2.lastElementChild.style.width = "500px";
+                    type2.lastElementChild.innerHTML = "This property sets the width of the element!";
+
+                    type3.style.display = "none";
+                }
+                //spacing
+                if(selected == 4)
+                {
+                    type1.firstElementChild.innerHTML = "Now with 'margin-left: 100px' styling!";
+                    type1.lastElementChild.style.marginLeft = "100px";
+                    type1.lastElementChild.innerHTML = "This property sets the outer margin for the left side of the element!";
+
+                    type2.firstElementChild.innerHTML = "Now with 'padding-left: 100px' styling!";
+                    type2.lastElementChild.style.paddingLeft = "100px";
+                    type2.lastElementChild.innerHTML = "This property sets the inner padding for the left side of the element!";
+
+                    type3.firstElementChild.innerHTML = "Now with 'margin: auto' styling! <br> (width set to 100px to help illustrate)";
+                    type3.lastElementChild.style.margin = "auto";
+                    type3.lastElementChild.style.width = "100px";
+                    type3.lastElementChild.innerHTML = "Extra tip! 'margin: auto' can help center your content";
+                }
+                //borders
+                if(selected == 5)
+                {
+                    type4.style.display = "inline";
+
+                    type1.firstElementChild.innerHTML = "Now with 'border-style: dashed' styling!";
+                    type1.lastElementChild.style.borderStyle = "dashed";
+                    type1.lastElementChild.innerHTML = "This property sets the style of the border, aka the type of line outlining the element!";
+
+                    type2.firstElementChild.innerHTML = "Now with 'border-color: cornflowerblue' styling!";
+                    type2.lastElementChild.style.borderStyle = "solid";
+                    type2.lastElementChild.style.borderColor = "cornflowerblue";
+                    type2.lastElementChild.innerHTML = "This property sets the color of the border for an element!";
+
+                    type3.firstElementChild.innerHTML = "Now with 'border-width: 5px' styling!";
+                    type3.lastElementChild.style.borderStyle = "solid";
+                    type3.lastElementChild.style.borderWidth = "5px";
+                    type3.lastElementChild.innerHTML = "This property sets the thickness of the border for an element!";
+
+                    type4.firstElementChild.innerHTML = "Now with 'border: 5px dashed cornflowerblue' styling!";
+                    type4.lastElementChild.style.border = "5px dashed cornflowerblue";
+                    type4.lastElementChild.innerHTML = "This is the shorthand that combines the previous three properties!!";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1> Alice Zahora </h1>
+            <h2> Web110 Final Project - CSS </h2>
+        </header>
+        <nav>
+            <a href="index.html"> Intro To CSS </a>
+            <a href="properties.html"> Basic CSS Properties </a>
+            <a href="combinators.html"> Combinators </a>
+            <a href="pclasses.html"> Pseudo Classes </a>
+        </nav>
+        <main>
+            <div>
+                <h3> Select Your CSS Here! </h3>
+                <select onchange="changeCSS(this)">
+                    <option value="0"> None </option>
+                    <option value="1"> Colors </option>
+                    <option value="2"> Text Styling </option>
+                    <option value="3"> Sizes </option>
+                    <option value="4"> Spacing </option>
+                    <option value="5"> Border </option>
+                </select>
+            </div>
+            <div id="examples">
+                <div id="type1">
+                    <h3> Here's a paragraph, try styling it more! </h3>
+                    <hr>
+                    <p> I'm a paragraph! </p>
+                </div>
+                <div id="type2">
+                    <h3> Here's a paragraph, try styling it more! </h3>
+                    <hr>
+                    <p> I'm a paragraph! </p>
+                </div>
+                <div id="type3">
+                    <h3> Here's a paragraph, try styling it more! </h3>
+                    <hr>
+                    <p> I'm a paragraph! </p>
+                </div>
+                <div id="type4" style="display: none;">
+                    <h3> Here's a paragraph, try styling it more! </h3>
+                    <hr>
+                    <p> I'm a paragraph! </p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p> Copyright&copy; 2025 </p>
+        </footer>
+    </body>
+</html>

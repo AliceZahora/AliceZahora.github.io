@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web110 Final Project">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <title> Web110 Final Project </title>
+        <style>
+
+        </style>
+        <script>
+            function changeCSS(element)
+            {
+                var selected = element.options[element.selectedIndex].value;
+                var selectText = document.getElementById("selectText");
+                var style = document.getElementsByTagName("style")[0];
+
+                var a = document.querySelectorAll("#examples2 a");
+                var label = document.querySelectorAll("#examples2 label");
+
+                for(var i = 0; i!= 4; i++)
+                {
+                    a[i].innerHTML = "I'm p" + (i + 1) + "'s Child! My ID is 'a" + (i + 1) + "'";
+                    label[i].innerHTML = "I'm p" + (i + 1) + "'s Child! My ID is 'check" + (i + 1) + "'";
+                }
+
+                //none
+                style.innerHTML = "";
+                selectText.innerHTML = "<b> Selection is now: </b> &nbsp;";
+
+                //first child
+                if(selected == 1)
+                {
+                    style.innerHTML = "#examples2 > div:first-child { background-color: cornflowerblue !important; }";
+                    selectText.innerHTML += "#examples2 > div:first-child { background-color: cornflowerblue; }";
+                }
+                //nth child
+                if(selected == 2)
+                {
+                    style.innerHTML = "#examples2 > :nth-child(even) { background-color: cornflowerblue !important; }";
+                    selectText.innerHTML += "#examples2 > :nth-child(even) { background-color: cornflowerblue; }";
+                }
+                //hover
+                if(selected == 3)
+                {
+                    style.innerHTML = "#examples2 a:hover { text-decoration: none !important; color: #e78f0b !important; }";
+                    selectText.innerHTML += "#examples2 a:hover { text-decoration: none; color: #e78f0b; }";
+
+                    for(var i = 0; i!= 4; i++)
+                    {
+                        a[i].innerHTML += '<br> <b><i> Try hovering over me! </i></b>';
+                    }
+                }
+                //visited
+                if(selected == 4)
+                {
+                    style.innerHTML = "#examples2 a:visited { color: #123471 !important; }";
+                    selectText.innerHTML += "#examples2 a:visited { color: #123471; }";
+
+                    for(var i = 0; i!= 4; i++)
+                    {
+                        a[i].innerHTML += '<br> <b><i> Try visiting me! </i></b>';
+                    }
+                }
+                //checked
+                if(selected == 5)
+                {
+                    style.innerHTML = "#examples2 input[type='checkbox']:checked + label { color: cornflowerblue !important; }";
+                    selectText.innerHTML += "#examples2 input[type='checkbox']:checked + label { color: cornflowerblue; }";
+
+                    for(var i = 0; i!= 4; i++)
+                    {
+                        label[i].innerHTML += '<br> <b><i> Try checking my box! </i></b>';
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1> Alice Zahora </h1>
+            <h2> Web110 Final Project - CSS </h2>
+        </header>
+        <nav>
+            <a href="index.html"> Intro To CSS </a>
+            <a href="properties.html"> Basic CSS Properties </a>
+            <a href="combinators.html"> Combinators </a>
+            <a href="pclasses.html"> Pseudo Classes </a>
+        </nav>
+        <main>
+            <div>
+                <h3> Select Your Pseudo-Classes Here! </h3>
+                <select onchange="changeCSS(this)">
+                    <option value="0"> None </option>
+                    <option value="1"> First Child </option>
+                    <option value="2"> Nth Child </option>
+                    <option value="3"> Hover </option>
+                    <option value="4"> Visited </option>
+                    <option value="5"> Checked </option>
+                </select>
+                <p id="selectText"><b> Selection is now: </b> &nbsp;</p>
+            </div>
+            <h3> The Parent Div ID is 'examples2' </h3>
+            <div id="examples2" class="parentDiv">
+                <div id="div1" class="childDiv"> I'm the Child Div! My ID is 'div1'
+                    <p id="p1" class="grandchild">
+                        I'm the Child Div's Child! My ID is 'p1'
+                        <br>
+                        <a href="#1" id="a1"> I'm p1's Child! My ID is 'a1'</a>
+                        <br>
+                        <input type="checkbox" name="check1" id="check1">
+                        <label for="check1"> I'm p1's Child! My ID is 'check1'</label>
+                    </p>
+                </div>
+                <div id="div2" class="childDiv"> I'm the Child Div! My ID is 'div2'
+                    <p id="p2" class="grandchild">
+                        I'm the Child Div's Child! My ID is 'p2'
+                        <br>
+                        <a href="#2" id="a2"> I'm p2's Child! My ID is 'a2'</a>
+                        <br>
+                        <input type="checkbox" name="check2" id="check2">
+                        <label for="check2"> I'm p2's Child! My ID is 'check2'</label>
+                    </p>
+                </div>
+                <div id="div3" class="childDiv"> I'm the Child Div! My ID is 'div3'
+                    <p id="p3" class="grandchild">
+                        I'm the Child Div's Child! My ID is 'p3'
+                        <br>
+                        <a href="#3" id="a3"> I'm p3's Child! My ID is 'a3'</a>
+                        <br>
+                        <input type="checkbox" name="check3" id="check3">
+                        <label for="check3"> I'm p3's Child! My ID is 'check3'</label>
+                    </p>
+                </div>
+                <div id="div4" class="childDiv"> I'm the Child Div! My ID is 'div4'
+                    <p id="p4" class="grandchild">
+                        I'm the Child Div's Child! My ID is 'p4'
+                        <br>
+                        <a href="#4" id="a4"> I'm p4's Child! My ID is 'a4'</a>
+                        <br>
+                        <input type="checkbox" name="check4" id="check4">
+                        <label for="check4"> I'm p4's Child! My ID is 'check4'</label>
+                    </p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p> Copyright&copy; 2025 </p>
+        </footer>
+    </body>
+</html>

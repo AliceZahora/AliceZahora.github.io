@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web110 Final Project">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <title> Web110 Final Project </title>
+        <style>
+
+        </style>
+        <script>
+            function changeCSS(element)
+            {
+                var selected = element.options[element.selectedIndex].value;
+                var selectText = document.getElementById("selectText");
+                var style = document.getElementsByTagName("style")[0];
+
+                //none
+                style.innerHTML = "";
+                selectText.innerHTML = "<b> Selection is now: </b> &nbsp;";
+
+                //direct children
+                if(selected == 1)
+                {
+                    style.innerHTML = "#examples2 > div { background-color: cornflowerblue !important; }";
+                    selectText.innerHTML += "#examples2 > div { background-color: cornflowerblue; }";
+                }
+                //all descendants
+                if(selected == 2)
+                {
+                    style.innerHTML = "#examples2 * { background-color: cornflowerblue !important; }";
+                    selectText.innerHTML += "#examples2 * { background-color: cornflowerblue; }";
+                }
+                //next sibling
+                if(selected == 3)
+                {
+                    style.innerHTML = "#div1 + div { background-color: cornflowerblue !important; }";
+                    selectText.innerHTML += "#div1 + div { background-color: cornflowerblue; }";
+                }
+                //subsequent siblings
+                if(selected == 4)
+                {
+                    style.innerHTML = "#div1 ~ div { background-color: cornflowerblue !important; }";
+                    selectText.innerHTML += "#div1 ~ div { background-color: cornflowerblue; }";
+                }
+                //select multiple
+                if(selected == 5)
+                {
+                    style.innerHTML = "#examples2, #p3 { background-color: cornflowerblue !important; }";
+                    selectText.innerHTML += "#examples2, #p3 { background-color: cornflowerblue; }";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1> Alice Zahora </h1>
+            <h2> Web110 Final Project - CSS </h2>
+        </header>
+        <nav>
+            <a href="index.html"> Intro To CSS </a>
+            <a href="properties.html"> Basic CSS Properties </a>
+            <a href="combinators.html"> Combinators </a>
+            <a href="pclasses.html"> Pseudo Classes </a>
+        </nav>
+        <main>
+            <div>
+                <h3> Select Your Combinators Here! </h3>
+                <select onchange="changeCSS(this)">
+                    <option value="0"> None </option>
+                    <option value="1"> Direct Children </option>
+                    <option value="2"> All Descendants </option>
+                    <option value="3"> Next Sibling </option>
+                    <option value="4"> Subsequent Siblings </option>
+                    <option value="5"> Select Multiple </option>
+                </select>
+                <p id="selectText"><b> Selection is now: </b> &nbsp;</p>
+            </div>
+            <h3> The Parent Div ID is 'examples2' </h3>
+            <div id="examples2" class="parentDiv">
+                <div id="div1" class="childDiv"> I'm the Child Div! My ID is 'div1'
+                    <p id="p1" class="grandchild"> I'm the Child Div's Child! My ID is 'p1'</p>
+                </div>
+                <div id="div2" class="childDiv"> I'm the Child Div! My ID is 'div2'
+                    <p id="p2" class="grandchild"> I'm the Child Div's Child! My ID is 'p2'</p>
+                </div>
+                <div id="div3" class="childDiv"> I'm the Child Div! My ID is 'div3'
+                    <p id="p3" class="grandchild"> I'm the Child Div's Child! My ID is 'p3'</p>
+                </div>
+                <div id="div4" class="childDiv"> I'm the Child Div! My ID is 'div4'
+                    <p id="p4" class="grandchild"> I'm the Child Div's Child! My ID is 'p4'</p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p> Copyright&copy; 2025 </p>
+        </footer>
+    </body>
+</html>
