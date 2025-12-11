@@ -105,6 +105,12 @@ select {
 #examples div hr {
     background-color: #b7caee;
 }
+#examples button {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: #b7caee;
+    border-radius: 10px;
+}
 #examples2 {
     border: 5px ridge cornflowerblue;
     background-color: white;
