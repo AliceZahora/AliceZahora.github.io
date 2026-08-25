@@ -1,0 +1,110 @@
+/*
+    Alice Zahora
+    Class: Web 210
+    Assignment: Module 7 Lab
+    Date: 03/03/2026
+*/
+body {
+    width: 80%;
+    margin: auto;
+    box-shadow: 0px 0px 5px;
+    min-height: 95vh;
+}
+#logo {
+    padding: 10px;
+}
+#skip {
+    display: block;
+    height: 0px;
+    text-indent: -10000px;
+    pointer-events: none;
+}
+#skip:focus {
+    padding: 10px;
+    height: 20px;
+    text-indent: 0px;
+    opacity: 100%;
+    pointer-events: all;
+}
+h1 {
+    color: #385f9b;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    background-color: #9CB9E8;
+    height: 7vh;
+}
+nav > a {
+    color: black;
+    font-size: x-large;
+    flex: 1;
+    line-height: 7vh;
+    text-decoration: none;
+}
+nav > a:hover, nav > a:focus, #buttons input:hover, #buttons input:focus {
+    background-color: #385f9b;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.active {
+    text-decoration: underline;
+    border: 2px solid #385f9b;
+}
+form {
+    background-color: #E0E0E0;
+    border-radius: 5px;
+    width: 80%;
+    margin: auto;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+.required::after {
+    content: ' *';
+    color: red;
+}
+input::placeholder {
+    text-align: right;
+}
+input[type="text"], input[type="email"] {
+    width: 55%;
+}
+.inputArea {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    padding: 1vw;
+    width: fit-content;
+}
+label {
+    width: 7vw;
+}
+fieldset, .commentArea {
+    margin: 2% 5%;
+}
+h2 {
+    margin: 2%;
+}
+.commentArea label {
+    position: relative;
+    top: 0;
+}
+textarea {
+    margin-left: .4vw;
+    width: 50%;
+    height: 10vh;
+    vertical-align: top;
+}
+#buttons input {
+    width: 10%;
+    height: 5vh;
+    background-color: #9CB9E8;
+    font-size: medium;
+    border-radius: 7px;
+    margin: 2% 5%;
+}
+

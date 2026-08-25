@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+            Alice Zahora
+            Class: Web 210
+            Assignment: Module 7 Lab
+            Date: 03/03/2026
+        -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web 210 - Mod 7 Lab: Accessible Form Page">
+        <link rel="stylesheet" href="zahoracontact.css" type="text/css">
+        <title> Web 210 - Mod 7 Lab: Accessible Form </title>
+    </head>
+    <body>
+        <header>
+            <div id="logo">
+                <h1> Accessible Form </h1>
+            </div>
+            <a href = "#content" id="skip"> Skip To Content </a>
+        </header>
+        <nav id="mainNav">
+            <a href="#"> Home </a>
+            <a href="#"> Shop </a>
+            <a href="#" class="active"> Contact Us </a>
+        </nav>
+        <main id="content">
+            <form action="http://webdevbasics.net/scripts/demo.php" method="POST">
+                <h2> Contact Form </h2>
+                <div class="inputArea">
+                    <label for="fname"> First Name: </label>
+                    <input type="text" id="fname" name="fname">
+                </div>
+                <div class="inputArea">
+                    <label for="lname"> Last Name: </label>
+                    <input type="text" id="lname" name="lname">
+                </div>
+                <div class="inputArea">
+                    <label for="email"> Email: </label>
+                    <input type="email" id="email" name="email" placeholder="sample@mail.com">
+                </div>
+
+                <fieldset id="foundContainer">
+                    <legend class="required"> How did you hear about us? </legend>
+                    <input type="radio" id="search" name="foundVia" value="Search Engine" required>
+                    <label for="search"> Search Engine </label><br>
+                    <input type="radio" id="referred" name="foundVia" value="Referred by a Friend" required>
+                    <label for="referred"> Referred by a Friend </label><br>
+                    <input type="radio" id="twitter" name="foundVia" value="Twitter" required>
+                    <label for="twitter"> Twitter </label><br>
+                    <input type="radio" id="other" name="foundVia" value="Other" required>
+                    <label for="other"> Other </label><br>
+                </fieldset>
+
+                <div class="commentArea">
+                    <label for="comments"> Comments: </label>
+                    <textarea id="comments" name="comments"></textarea>
+                </div>
+
+                <div id="buttons">
+                    <input type="submit" id="submit" name="submit" value="Submit">
+                    <input type="reset" id="reset" name="reset" value="Reset">
+                </div>
+
+            </form>
+        </main>
+  </body>
+</html>
