@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+            Alice Zahora
+            Class: Web 210
+            Assignment: Module 3 Lab
+            Date: 02/03/2026
+        -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web 210 - Mod 3 Lab: Operable">
+        <title> Web 210 - Mod 3 Lab </title>
+        <style>
+            * {
+                font-family: 'Times New Roman', Times, serif;
+            }
+            body {
+                margin: 0;
+                background-color: rgb(255, 251, 251);
+            }
+            header {
+                background-color: rgb(32, 63, 131);
+                height: 10vh;
+            }
+            main {
+                min-height: 82vh;
+                margin-left: 3vw;
+                margin-right: 3vw;
+            }
+            footer {
+                position: relative;
+                background-color: rgb(210, 210, 210);
+                height: 5vh;
+            }
+            footer > p {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                margin: 0px;
+                margin-right: 1vw;
+            }
+            h1 {
+                margin-top: 0px;
+                color: white;
+                font-weight: 100;
+                line-height: 10vh;
+                margin-left: 3vw;
+            }
+            a {
+                color:rgb(35, 100, 229);
+                text-decoration: none;
+                font-size: 18px;
+            }
+            a:visited {
+                color: rgb(123, 51, 0);
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            #navBar a:hover {
+                text-decoration: underline;
+                background-color: rgb(32, 63, 131);
+                color: white;
+            }
+            hr {
+                background-color: rgb(203, 203, 203);
+                margin-left: 0px;
+            }
+            header + hr {
+                margin-top: 0px;
+                height: 2vh;
+            }
+            #explain {
+                padding: 1%;
+                border: 5px inset rgb(202, 211, 220);
+                border-radius: 10px;
+                background-color: aliceblue;
+            }
+            .quote {
+                position: relative;
+                margin-bottom: 16px;
+                font-size: large;
+            }
+            .source {
+                font-style: italic;
+                margin: 0px;
+                text-align: right;
+            }
+            #navBar {
+                display: flex;
+                justify-content: space-evenly;
+                border-bottom: 3px solid rgb(32, 63, 131);;
+            }
+            #wrapper {
+                margin: auto;
+                margin-top: 20px;
+                margin-bottom: 50px;
+                width: 90vw;
+                background-color: white;
+                box-shadow: 5px 13px 15px 5px rgb(145, 145, 145);
+                border: 1px solid black;
+            }
+            #wrapper a {
+                text-align: center;
+                padding: 30px;
+            }
+            #demo {
+                display: flex;
+                flex-direction: row;
+            }
+            .imgs {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 20px;
+            }
+            .imgs a {
+                width: fit-content;
+                height: fit-content;
+                margin: 30px;
+                padding: 0px;
+            }
+            .imgs img {
+                width: 350px;
+                padding: 5px;
+                border: 1px solid black;
+            }
+            .desc {
+                display: flex;
+                flex-direction: column;
+                margin-top: 40px;
+            }
+            .desc p {
+                height: 44%;
+                background-color: rgb(231, 231, 231);
+                border-radius: 10px;
+                padding: 10px;
+                text-align: center;
+                line-height: 500px;
+            }
+            #plain {
+                background-color: aliceblue;
+                text-align: center;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1> WCAG: Operable - Navigable - 2.4.4 Link Purpose (In Context) </h1>
+        </header>
+        <hr>
+        <main>
+            <div id="explain">
+                <h2> Link Purpose (In Context) </h2>
+                <div class="quote">
+                    <p>
+                        "The purpose of each link can be determined from the link text alone or from
+                        the link text together with its programmatically determined link context, except
+                        where the purpose of the link would be ambiguous to users in general."
+                    </p>
+                    <p class="source">
+                        Source:
+                        <a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context" target="_blank" rel="noopener noreferrer"> Web content accessibility guidelines (WCAG) 2.1. W3C. </a>
+                    </p>
+                </div>
+            </div>
+            <div id="wrapper">
+                <div id="navBar">
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"> Youtube Homepage </a>
+                    <a href="https://www.harpercollege.edu/about/index.php" target="_blank" rel="noopener noreferrer"> Harper College - About Us </a>
+                    <a href="https://catalog.harpercollege.edu/catalog/course-descriptions/web/" target="_blank" rel="noopener noreferrer"> Harper College - Course Descriptions: Web Development </a>
+                    <a href="https://harper.blackboard.com/ultra/course" target="_blank" rel="noopener noreferrer"> Harper College Blackboard - Courses Hub </a>
+                    <a href="https://www.portillos.com/menu/restaurant/" target="_blank" rel="noopener noreferrer"> Portillo's Menu </a>
+                </div>
+                <div id="plain">
+                    <h3> Plain Links </h3>
+                    <p> Plain links should be descriptive, as shown above </p>
+                </div>
+                <div id="demo">
+                    <div class="imgs">
+                        <a href="https://catalog.harpercollege.edu/catalog/course-descriptions/web/" target="_blank" rel="noopener noreferrer">
+                            <img src="Harper.png" alt="Harper College - Course Descriptions: Web Development">
+                        </a>
+                        <a href="https://www.portillos.com/menu/restaurant/" target="_blank" rel="noopener noreferrer">
+                            <img src="menu.png" alt="Portillo's Menu">
+                        </a>
+                        <a href="https://harper.blackboard.com/ultra/course" target="_blank" rel="noopener noreferrer">
+                            <img src="blackboard.png" alt="">
+                            Harper College Blackboard - Courses Hub
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="youtube.png" alt="">
+                            Youtube Homepage
+                        </a>
+                    </div>
+                    <div class="desc">
+                        <p> Image links should have descriptive alt attributes, as shown to the left </p>
+                        <p> Empty alts are used when the description is in the anchor &lt;a&gt; tag, as shown to the left </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p> Copyright&copy; 2026</p>
+        </footer>
+  </body>
+</html>

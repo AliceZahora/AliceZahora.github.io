@@ -1,0 +1,96 @@
+/*
+    Alice Zahora
+    Class: Web 210
+    Assignment: Module 6 Lab
+    Date: 02/24/2026
+*/
+body {
+    width: 80%;
+    margin: auto;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+}
+h1 {
+    text-indent: -10000px;
+}
+table {
+    margin: auto;
+    width: 50%;
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 7px;
+}
+table > caption {
+    font-size: x-large;
+    font-weight: 600;
+    margin-bottom: 2%;
+    color: #a52a2a;
+}
+th {
+    background-color: #641616;
+    color: white;
+    font-size: large;
+}
+tr:hover {
+    background-color: #cecececf;
+}
+#skip {
+    opacity: 0;
+    pointer-events: none;
+    margin-left: 10px;
+}
+#skip:focus {
+    opacity: 100%;
+    pointer-events: all;
+}
+#mainNav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #a52a2a;
+    height: 7vh;
+    overflow: hidden;
+}
+#mainNav a {
+    height: fit-content;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding-top: 3.5vh;
+    padding-bottom: 3.5vh;
+    font-size: large;
+    text-decoration: none;
+    font-family: 'Segoe UI', sans-serif;
+}
+#mainNav a:hover, #mainNav a:focus {
+    background-color: #641616;
+    text-decoration: underline;
+}
+#logo {
+    height: 80px;
+    margin-left: 10px;
+    background-image: url(Wonderland_Logo_Large.webp);
+    background-repeat: no-repeat;
+}
+.parDivs {
+    padding: 1%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #e6e6e6cf;
+}
+img {
+    width: 20%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+p {
+    font-family: 'Times New Roman', Times, serif;
+}
