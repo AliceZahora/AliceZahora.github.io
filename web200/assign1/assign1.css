@@ -1,6 +1,10 @@
-pre {
-    position: absolute;
-}
 .right {
+    position: absolute;
     right: 10%;
+}
+main {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
