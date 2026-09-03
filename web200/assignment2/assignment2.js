@@ -11,7 +11,6 @@ function reward(radio)
 
     if(understandBool)
     {
-        window.alert("wha");
         var response = "Congratulations! Here's some pi! --> " + pi;
     }
     else
