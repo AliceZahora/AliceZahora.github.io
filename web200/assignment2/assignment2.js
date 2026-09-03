@@ -7,11 +7,11 @@ Date: 09/05/2026
 Var vs Let vs Const:
     While all of these declarations are used to add variables to code,
     their slight differences make them best for different applications.
-    Unlike the other two, var can be redeclared. It is also more global,
+    Unlike the other two, 'var' can be redeclared. It is also more global,
     accessible outside functions and brackets where it was originally declared.
-    This cannot be said for let or const, which can only be used within its
-    origin block. While it can be reassigned, it cannot be redeclared.
-    Const, on the other hand, must have one static value and cannot be reassigned.
+    This cannot be said for 'let' or 'const', which can only be used within their
+    origin block. While 'let' can be reassigned, it cannot be redeclared.
+    'Const', on the other hand, must have one static value and cannot be reassigned.
 */
 
 let binaryNum = 10;
