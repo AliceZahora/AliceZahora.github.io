@@ -28,14 +28,12 @@
         <main>
             <p id="binaryJoke"> Temporary Text </p>
             <div id="radioContainer">
-                <div class="radioChoice">
-                    <input type="radio" name="jokeGet" id="understand" value="true" onclick="reward(this)">
-                    <label for="understand"> I get it :D </label>
-                </div>
-                <div class="radioChoice">
-                    <input type="radio" name="jokeGet" id="noUnderstand" value="false" onclick="reward(this)">
-                    <label for="noUnderstand"> I don't get it :&#40 </label>
-                </div>
+                <label for="understand" class="radioChoice">
+                    <input type="radio" name="jokeGet" id="understand" value="true" onclick="reward(this)"> I get it :D
+                </label>
+                <label for="noUnderstand" class="radioChoice">
+                    <input type="radio" name="jokeGet" id="noUnderstand" value="false" onclick="reward(this)"> I don't get it :&#40
+                </label>
             </div>
             <p id="consolation"> </p>
         </main>
