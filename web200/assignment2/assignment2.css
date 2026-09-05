@@ -44,3 +44,7 @@ p {
 * {
     font-family: "Lucida Console", "Courier New", monospace;
 }
+#consolation {
+    margin-top: 5vh;
+    display: none;
+}

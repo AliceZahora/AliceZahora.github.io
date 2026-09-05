@@ -35,6 +35,13 @@ function reward(radio)
         var response = "That's ok! Have some pi to cheer you up --> " + pi;
     }
 
-    document.getElementById("consolation").innerHTML = response;
+    var consolation = document.getElementById("consolation");
+
+    if(getComputedStyle(consolation).display == "none")
+    {
+        consolation.style.display = "block";
+    }
+
+    consolation.innerHTML = response;
 }
 
