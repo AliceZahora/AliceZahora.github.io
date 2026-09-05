@@ -18,6 +18,12 @@ p {
     margin-right: auto;
     width: 100vw;
 }
+.radioChoice {
+    border: 1px groove black;
+    padding: 0.5%;
+    border-radius: 10px;
+    box-shadow: 2px 2px;
+}
 * {
     font-family: "Lucida Console", "Courier New", monospace;
 }
