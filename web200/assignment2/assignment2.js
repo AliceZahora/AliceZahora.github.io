@@ -28,11 +28,11 @@ function reward(radio)
 
     if(understandBool)
     {
-        var response = "Congratulations! Here's some pi! --> " + pi;
+        var response = "Congratulations! Here's some pi! --> <br>" + pi;
     }
     else
     {
-        var response = "That's ok! Have some pi to cheer you up --> " + pi;
+        var response = "That's ok! Have some pi to cheer you up --> <br>" + pi;
     }
 
     var consolation = document.getElementById("consolation");
