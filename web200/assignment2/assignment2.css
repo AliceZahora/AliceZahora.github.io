@@ -41,6 +41,12 @@ p {
 .radioChoice:hover {
     cursor: pointer;
 }
+fieldset {
+    border: none;
+}
+legend {
+    visibility: hidden;
+}
 * {
     font-family: "Lucida Console", "Courier New", monospace;
 }
