@@ -36,6 +36,10 @@ p {
     border-radius: 10px;
     box-shadow: 2px 2px;
     text-align: center;
+    padding: 5px;
+}
+.radioChoice:hover, .radioChoice:hover * {
+    cursor: pointer;
 }
 * {
     font-family: "Lucida Console", "Courier New", monospace;
