@@ -8,6 +8,11 @@ body {
 }
 p {
     text-align: center;
+    line-height: 3vh;
+}
+#binaryNum {
+    font-size: xx-large;
+    margin: 0px;
 }
 #radioContainer {
     display: flex;
