@@ -16,8 +16,8 @@ Var vs Let vs Const:
 
 let binaryNum = 10;
 let joke = "<p>There are <br><p id='binaryNum'>" + binaryNum +
-            "</p><br>types of people in the world..." +
-            "<br>Those who understand binary and those who don't</p>";
+            "</p><br>types of people in the world...<p>" +
+            "<p>Those who understand binary and those who don't</p>";
 const pi = 3.14159;
 
 document.getElementById("binaryJoke").innerHTML = joke;
