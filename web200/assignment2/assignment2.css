@@ -38,7 +38,7 @@ p {
     text-align: center;
     padding: 5px;
 }
-.radioChoice:hover, .radioChoice:hover * {
+.radioChoice:hover {
     cursor: pointer;
 }
 * {
