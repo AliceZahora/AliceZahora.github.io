@@ -1,9 +1,22 @@
+*{
+    font-family: "Lucida Console", "Courier New", monospace;
+}
 body {
     margin: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgb(205, 201, 201);
     background-image: linear-gradient(white, rgba(255, 255, 255, 0.347)), url(binary.png);
+}
+header {
+    position: absolute;
+    width: 80vw;
+    margin-left: 10vw;
+    padding-left: 10px;
+}
+header * {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 main {
     width: 80vw;
@@ -46,9 +59,6 @@ fieldset {
 }
 legend {
     visibility: hidden;
-}
-* {
-    font-family: "Lucida Console", "Courier New", monospace;
 }
 #consolation {
     margin-top: 5vh;
