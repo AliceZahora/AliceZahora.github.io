@@ -58,7 +58,7 @@ fieldset {
     border: none;
 }
 legend {
-    visibility: hidden;
+    text-indent: -10000px;
 }
 #consolation {
     margin-top: 5vh;
