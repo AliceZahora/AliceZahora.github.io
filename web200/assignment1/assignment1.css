@@ -1,6 +1,9 @@
 h1 {
     margin: 0px;
 }
+.frog1 {
+    position: relative;
+}
 .frog2 {
     position: absolute;
     right: 10%;
@@ -11,7 +14,6 @@ h1 {
     height: 50px;
     width: 100px;
     background-color: lightgreen;
-    bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
@@ -21,7 +23,7 @@ h1 {
 }
 @media only screen and (max-width: 1200px) {
     pre {
-        font-size: 10px;
+        font-size: 12px;
     }
     .frog1 {
         position: relative;
@@ -30,12 +32,12 @@ h1 {
         margin-right: auto;
     }
     #contConvo {
-        font-size: x-small;
+        font-size: small;
         height: 4vh;
-        width: 10vw;
+        width: 12vw;
     }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
     pre {
         font-size: 10px;
     }
