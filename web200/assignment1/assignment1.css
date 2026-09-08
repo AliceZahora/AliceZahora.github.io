@@ -1,4 +1,4 @@
-.right {
+.frog1 {
     position: absolute;
     right: 10%;
     top: 0;
@@ -13,4 +13,15 @@
 }
 #contConvo:hover {
     text-decoration: underline;
+}
+@media only screen and (max-width: 900px) {
+    pre {
+        font-size: 5px;
+    }
+    .frog1 {
+        position: relative;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
