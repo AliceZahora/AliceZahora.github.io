@@ -44,3 +44,11 @@ pre {
         width: 12vw;
     }
 }
+@media only screen and (max-width: 510px) {
+    pre {
+        font-size: 1.4vw;
+    }
+    #contConvo {
+        font-size: xx-small;
+    }
+}
