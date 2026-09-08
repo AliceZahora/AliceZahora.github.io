@@ -53,11 +53,15 @@
             <button id="contConvo"> Continue </button>
         </main>
         <script>
-            document.getElementById("contConvo").addEventListener("click", function ()
+            document.getElementById("contConvo").addEventListener("click", changeSays);
+            document.getElementById("contConvo").addEventListener("touch", changeSays);
+
+            function changeSays()
             {
                 document.getElementById("frogSays").innerHTML = "                                                              ⠋ Joe under the <b>log</b> again? ⠈⡅";
                 this.remove();
-            });
+            }
+
             window.alert("Welcome to the Frog Story!");
             var billy = `<pre class='frog2'>
 ⠀⠀⠀⠀⠀⠀⠀⢀⡀⠄⠄⠤⠤⡀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
