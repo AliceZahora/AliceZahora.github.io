@@ -1,13 +1,13 @@
 h1 {
     margin: 0px;
 }
-.frog1 {
-    position: relative;
+body {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
 }
-.frog2 {
-    position: absolute;
-    right: 10%;
-    top: 0;
+pre {
+    font-size: .8vw;
 }
 #contConvo {
     position: absolute;
@@ -20,52 +20,27 @@ h1 {
 }
 #contConvo:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
-@media only screen and (max-width: 1200px) {
-    pre {
-        font-size: 12px;
+@media only screen and (max-width: 900px) {
+    body {
+        flex-direction: column;
+        align-items: center;
     }
-    .frog1 {
-        position: relative;
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #contConvo {
-        font-size: small;
-        height: 4vh;
-        width: 12vw;
-    }
-}
-@media only screen and (max-width: 1000px) {
-    pre {
-        font-size: 10px;
-    }
-    .frog2 {
-        position: relative;
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-@media only screen and (max-width: 510px) {
     h1 {
         font-size: medium;
+        text-align: center;
     }
     h2 {
         font-size: small;
+        text-align: center;
     }
     pre {
-        font-size: 5px;
-    }
-    .frog2 {
-        position: relative;
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 1vw;
     }
     #contConvo {
-        font-size: xx-small;
-        width: 15vw;
+        font-size: x-small;
+        height: 4vh;
+        width: 12vw;
     }
 }
