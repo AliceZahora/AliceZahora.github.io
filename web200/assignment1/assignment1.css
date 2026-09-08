@@ -6,7 +6,7 @@ body {
     justify-content: center;
     height: fit-content;
 }
-pre {
+pre, samp {
     font-size: .8vw;
 }
 #contConvo {
@@ -35,7 +35,7 @@ pre {
         font-size: small;
         text-align: center;
     }
-    pre {
+    pre, samp {
         font-size: 1vw;
     }
     #contConvo {
@@ -45,7 +45,7 @@ pre {
     }
 }
 @media only screen and (max-width: 510px) {
-    pre {
+    pre, samp {
         font-size: 1vw;
     }
     #contConvo {
