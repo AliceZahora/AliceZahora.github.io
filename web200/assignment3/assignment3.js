@@ -13,15 +13,19 @@ function tempConvert()
     let tempType = tempTypeHTML.innerHTML;
     let newTemp;
 
+    let buttonHTML = document.getElementById("tempButton");
+
     if(tempType == " °F ")
     {
         newTemp = (currTemp - 32) * (5/9);
         tempTypeHTML.innerHTML = " °C ";
+        buttonHTML.innerHTML = " Change To &degF ";
     }
     else
     {
         newTemp = ((9/5) * currTemp) + 32;
         tempTypeHTML.innerHTML = " °F ";
+        buttonHTML.innerHTML = " Change To &degC ";
     }
 
     tempHTML.innerHTML = newTemp;
@@ -34,15 +38,19 @@ function speedConvert()
     let speedType = speedTypeHTML.innerHTML;
     let newSpeed;
 
+    let buttonHTML = document.getElementById("speedButton");
+
     if(speedType == "mph")
     {
         newSpeed = currSpeed * 1.6;
         speedTypeHTML.innerHTML = "kmph";
+        buttonHTML.innerHTML = "Change to miles ";
     }
     else
     {
         newSpeed = currSpeed/1.6;
         speedTypeHTML.innerHTML = "mph";
+        buttonHTML.innerHTML = "Change to km ";
     }
 
     speedHTML.innerHTML = newSpeed;
