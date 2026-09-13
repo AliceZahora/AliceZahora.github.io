@@ -19,9 +19,14 @@ h2 {
 #tempAdjust, #speedAdjust {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+#tempAdjust > *, #speedAdjust > * {
+    padding: 0px;
+    margin: 0px;
 }
 p {
-    font-size: xx-large;
+    font-size: 4vw;
 }
 .fa-temperature-high {
     font-size: 6vw;
