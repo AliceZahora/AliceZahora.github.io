@@ -47,6 +47,10 @@ button {
 p {
     font-size: 4vw;
 }
+label {
+    display: flex;
+    flex-direction: column;
+}
 .fa-temperature-high {
     font-size: 6vw;
     width: fit-content;

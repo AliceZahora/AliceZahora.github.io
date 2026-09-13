@@ -37,7 +37,9 @@
                 <i class="fa-solid fa-temperature-high"></i>
                 <div id="tempAdjust">
                     <div id="temp">
-                        <textarea id="tempNum" placeholder="0"></textarea>
+                        <label for="tempNum"> Input Temperature
+                            <textarea id="tempNum" placeholder="0"></textarea>
+                        </label>
                         <p id="tempType"> &deg;F </p>
                     </div>
                     <button id="tempButton" name="changeTempUnit" onclick="tempConvert()"> Change To &deg;C </button>
@@ -49,7 +51,9 @@
                     <i class="fa-solid fa-gauge-high"></i>
                     <div id="speedAdjust">
                         <div id="speed">
-                            <textarea id="speedNum" placeholder="0"></textarea>
+                            <label for="speedNum"> Input Speed
+                                <textarea id="speedNum" placeholder="0"></textarea>
+                            </label>
                             <p id="speedType">mph</p>
                         </div>
                         <button id="speedButton" name="changeSpeedUnit" onclick="speedConvert()"> Change to km </button>
