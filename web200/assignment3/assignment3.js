@@ -8,7 +8,7 @@ Date: 09/13/2026
 function tempConvert()
 {
     let tempHTML = document.getElementById("tempNum");
-    let currTemp = tempHTML.innerHTML;
+    let currTemp = tempHTML.value;
     let tempTypeHTML = document.getElementById("tempType");
     let tempType = tempTypeHTML.innerHTML;
     let newTemp;
@@ -28,12 +28,12 @@ function tempConvert()
         buttonHTML.innerHTML = " Change To &degC ";
     }
 
-    tempHTML.innerHTML = newTemp;
+    tempHTML.value = newTemp;
 }
 function speedConvert()
 {
     let speedHTML = document.getElementById("speedNum");
-    let currSpeed = speedHTML.innerHTML;
+    let currSpeed = speedHTML.value;
     let speedTypeHTML = document.getElementById("speedType");
     let speedType = speedTypeHTML.innerHTML;
     let newSpeed;
@@ -53,7 +53,7 @@ function speedConvert()
         buttonHTML.innerHTML = "Change to km ";
     }
 
-    speedHTML.innerHTML = newSpeed;
+    speedHTML.value = newSpeed;
 }
 
 
