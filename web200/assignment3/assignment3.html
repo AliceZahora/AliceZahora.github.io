@@ -33,11 +33,13 @@
         </header>
         <main>
             <i class="fa-solid fa-sun"></i>
-            <i class="fa-solid fa-cloud"></i>
             <div id="forecast">
                 <i class="fa-solid fa-temperature-high"></i>
                 <div id="tempAdjust">
-                    <p id="temp"> 89 </p>
+                    <div id="temp">
+                        <p id="tempNum"> 89 </p>
+                        <p id="tempType"> &degF </p>
+                    </div>
                     <button id="tempButton"> Make it British (To &degC) </button>
                     <!-- <button id="inputTemp"> </button> -->
                 </div>
@@ -47,7 +49,10 @@
                     <i class="fa-solid fa-car-side"></i>
                     <i class="fa-solid fa-gauge-high"></i>
                     <div id="speedAdjust">
-                        <p id="speed"> 60 </p>
+                        <div id="speed">
+                            <p id="speedNum"> 60 </p>
+                            <p id="speedType"> mph </p>
+                        </div>
                         <button id="speedButton"> Make it British (To km) </button>
                     </div>
                 </div>

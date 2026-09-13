@@ -21,9 +21,13 @@ h2 {
     flex-direction: column;
     justify-content: space-between;
 }
-#tempAdjust > *, #speedAdjust > * {
+#temp > *, #speed * {
     padding: 0px;
     margin: 0px;
+}
+#temp, #speed {
+    display: flex;
+    flex-direction: row;
 }
 p {
     font-size: 4vw;
@@ -32,13 +36,10 @@ p {
     font-size: 6vw;
     width: fit-content;
 }
-.fa-sun, .fa-cloud {
+.fa-sun {
     font-size: 4vw;
     float: right;
     margin-right:8vw;
-}
-.fa-cloud {
-    visibility: hidden;
 }
 #roadLines {
     position: absolute;
