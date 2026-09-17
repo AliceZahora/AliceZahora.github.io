@@ -1,10 +1,18 @@
 /*document.addEventListener("keydown", (event) => {
     if(event.code == "Enter")
     {
-
+        alert("Enter")
     }
 });*/
+document.getElementById("calcScreen").addEventListener("keydown", function(e) {
+    var regexAllowed = /[\d+\-*]/;
 
+    if(!(regexAllowed.test(e.key) || e.key == "Backspace" || e.key == "Shift"))
+    {
+        e.preventDefault();
+    }
+
+})
 function addToScreen(element)
 {
     document.getElementById("calcScreen").value =
