@@ -2,19 +2,23 @@ header * {
     margin: 0px;
 }
 #calcFrame {
-    border: solid black;
+    border: solid black 2px;
     border-radius: 10px;
     width: 30vw;
     height: 40vw;
     margin: auto;
+    box-shadow: 1px 1px 2px 1px;
 }
 #calcScreen {
+    display: block;
     border: solid black;
     border-radius: 10px;
     width: 80%;
     height: 20%;
     margin: auto;
     margin-top: 5vh;
+    font-size: 4vw;
+    text-align: right;
 }
 #buttonRow {
     display: flex;
