@@ -45,3 +45,6 @@ header * {
     background-color: rgb(58, 161, 58);
     color: white;
 }
+#buttonClear {
+    color: red;
+}
