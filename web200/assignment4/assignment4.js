@@ -5,11 +5,21 @@
     }
 });*/
 document.getElementById("calcScreen").addEventListener("keydown", function(e) {
-    var regexAllowed = /[\d+\-*]/;
+    var regexAllowed = /[\d+\-*.]/;
+    var currValue = this.value;
+    var lastEntry = currValue.charAt(currValue.length - 1);
 
     if(!(regexAllowed.test(e.key) || e.key == "Backspace" || e.key == "Shift"))
     {
         e.preventDefault();
+    }
+    else if(e.key != "Backspace")
+    {
+        if((lastEntry == '*' || lastEntry == '-' || lastEntry == '.' ||
+            lastEntry == '+') && isNaN(e.key))
+        {
+            e.preventDefault();
+        }
     }
 
 })
