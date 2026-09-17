@@ -25,8 +25,16 @@ document.getElementById("calcScreen").addEventListener("keydown", function(e) {
 })
 function addToScreen(element)
 {
-    document.getElementById("calcScreen").value =
-    document.getElementById("calcScreen").value.concat(element.value);
+    var currValue = document.getElementById("calcScreen").value;
+    var lastEntry = currValue.charAt(currValue.length - 1);
+
+    if(!((lastEntry == '*' || lastEntry == '-' || lastEntry == '.' || lastEntry == '+')
+        && isNaN(element.value)))
+    {
+        document.getElementById("calcScreen").value =
+        currValue.concat(element.value);
+    }
+
 }
 function clearScreen()
 {
