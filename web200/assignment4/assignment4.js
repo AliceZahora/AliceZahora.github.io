@@ -1,3 +1,10 @@
+/*document.addEventListener("keydown", (event) => {
+    if(event.code == "Enter")
+    {
+
+    }
+});*/
+
 function addToScreen(element)
 {
     document.getElementById("calcScreen").value =
