@@ -54,7 +54,7 @@ function checkEntry(entry)
     {
         allow = false;
     }
-    if(currValue.length == 0 && entry.match(regexSplit))
+    if(currValue.length == 0 && (entry.match(regexSplit) && entry != '-'))
     {
         allow = false;
     }
@@ -84,9 +84,15 @@ function doMath()
     var regexNum = /[^\d.]/;
     var regexOp = /[\d.]/;
 
-    var numbers =  fullEntry.split(regexNum);
+    var numbers =  fullEntry.split(regexNum).filter(Boolean);
     var operators = fullEntry.split(regexOp).filter(Boolean);
     var opPosition = 0;
+
+    if(fullEntry[0] == '-')
+    {
+        operators.shift();
+        numbers[0] = parseFloat('-' + numbers[0].toString());
+    }
 
     var answer;
 
