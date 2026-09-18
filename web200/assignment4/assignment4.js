@@ -59,15 +59,15 @@ function clearScreen()
 }
 function addNums(num1, num2)
 {
-    return (num1 + num2);
+    return (parseInt(num1) + parseInt(num2));
 }
 const multiplyNums = function(num1, num2)
 {
-    return (num1 * num2);
+    return (parseInt(num1) * parseInt(num2));
 }
 const subtractNums = (num1, num2) =>
 {
-    return (num1 - num2);
+    return (parseInt(num1) - parseInt(num2));
 }
 const isOperator = (element) => element = /[+-]/;
 function doMath()
@@ -81,7 +81,12 @@ function doMath()
     var opPosition = 0;
 
     var answer;
+
     opPosition = operators.indexOf('*');
+    if(opPosition == -1)
+    {
+        opPosition = operators.findIndex(isOperator);
+    }
 
     while(opPosition != -1)
     {
@@ -101,7 +106,7 @@ function doMath()
 
         if(opPosition + 1 < numbers.length)
         {
-            numbers.copyWithin(opPosition + 1, opPosition + 2, numbers.length)
+            numbers.copyWithin(opPosition + 1, opPosition + 2, numbers.length);
         }
         numbers.pop();
 
