@@ -27,9 +27,17 @@ function addToScreen(element)
 {
     var currValue = document.getElementById("calcScreen").value;
     var lastEntry = currValue.charAt(currValue.length - 1);
+    var regexSplit = /[^\d.]/
+    var splitValue = currValue.split(regexSplit);
+    var dontAllow = false;
+
+    if((splitValue[splitValue.length-1]).includes('.') && element.value == '.')
+    {
+        dontAllow = true;
+    }
 
     if(!((lastEntry == '*' || lastEntry == '-' || lastEntry == '.' || lastEntry == '+')
-        && isNaN(element.value)))
+        && isNaN(element.value)) && !dontAllow)
     {
         document.getElementById("calcScreen").value =
         currValue.concat(element.value);
