@@ -26,7 +26,6 @@ document.getElementById("calcScreen").addEventListener("keydown", function(e) {
             e.preventDefault();
         }
     }
-
 })
 function addToScreen(element)
 {
@@ -37,7 +36,6 @@ function addToScreen(element)
         document.getElementById("calcScreen").value =
         document.getElementById("calcScreen").value.concat(element.value);
     }
-
 }
 function checkEntry(entry)
 {
