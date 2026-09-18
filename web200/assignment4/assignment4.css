@@ -33,6 +33,7 @@
     field-sizing: content;
     text-wrap: nowrap;
     background-color: rgba(0, 0, 0, 0.149);
+    resize: none;
 }
 #buttonRow {
     display: flex;
