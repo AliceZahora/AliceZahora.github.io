@@ -1,9 +1,9 @@
-/*document.addEventListener("keydown", (event) => {
+document.addEventListener("keydown", (event) => {
     if(event.code == "Enter")
     {
-        alert("Enter")
+        doMath();
     }
-});*/
+});
 document.getElementById("calcScreen").addEventListener("keydown", function(e) {
     var regexAllowed = /[\d+\-*.]/;
     var currValue = this.value;
@@ -59,13 +59,64 @@ function clearScreen()
 }
 function addNums(num1, num2)
 {
-    let sum = num1 + num2;
+    return (num1 + num2);
 }
 const multiplyNums = function(num1, num2)
 {
-    let product = num1 * num2;
+    return (num1 * num2);
 }
 const subtractNums = (num1, num2) =>
 {
-    let difference = num1 - num2;
+    return (num1 - num2);
+}
+const isOperator = (element) => element = /[+-]/;
+function doMath()
+{
+    var fullEntry = document.getElementById("calcScreen").value;
+    var regexNum = /[^\d.]/;
+    var regexOp = /[\d.]/;
+
+    var numbers =  fullEntry.split(regexNum);
+    var operators = fullEntry.split(regexOp).filter(Boolean);
+    var opPosition = 0;
+
+    var answer;
+    opPosition = operators.indexOf('*');
+
+    while(opPosition != -1)
+    {
+        switch (operators[opPosition])
+        {
+            case '*':
+                answer = multiplyNums(parseInt(numbers[opPosition]), numbers[opPosition + 1]);
+                break;
+            case '+':
+                answer = addNums(parseInt(numbers[opPosition]), numbers[opPosition + 1]);
+                break;
+            case '-':
+                answer = subtractNums(parseInt(numbers[opPosition]), numbers[opPosition + 1]);
+        }
+
+        numbers[opPosition] = answer;
+
+        if(opPosition + 1 < numbers.length)
+        {
+            numbers.copyWithin(opPosition + 1, opPosition + 2, numbers.length)
+        }
+        numbers.pop();
+
+        if(opPosition < operators.length)
+        {
+            operators.copyWithin(opPosition, opPosition + 1, opPosition.length);
+        }
+        operators.pop();
+
+        opPosition = operators.indexOf('*');
+        if(opPosition == -1)
+        {
+            opPosition = operators.findIndex(isOperator);
+        }
+    }
+
+    alert(answer);
 }
