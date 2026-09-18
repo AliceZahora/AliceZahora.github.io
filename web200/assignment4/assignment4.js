@@ -4,12 +4,14 @@
     Assignment: 4
     Date: 09/17/2026
 */
+//Enter key triggers equation submission
 document.addEventListener("keydown", (event) => {
     if(event.code == "Enter")
     {
         doMath();
     }
 });
+//Checks keyboard entry to see if character is allowed in equation
 document.getElementById("calcScreen").addEventListener("keydown", function(e) {
     var regexAllowed = /[\d+\-*.]/;
     var currValue = this.value;
@@ -27,6 +29,7 @@ document.getElementById("calcScreen").addEventListener("keydown", function(e) {
         }
     }
 })
+//Concats value in calculator screen with new input key
 function addToScreen(element)
 {
     var isInputAllowed = checkEntry(element.value);
@@ -37,6 +40,7 @@ function addToScreen(element)
         document.getElementById("calcScreen").value.concat(element.value);
     }
 }
+//Checks if multiple operators in a row are allowed
 function checkEntry(entry)
 {
     var currValue = document.getElementById("calcScreen").value;
@@ -45,15 +49,24 @@ function checkEntry(entry)
     var splitValue = currValue.split(regexSplit);
     var allow = true;
 
+    //If current number already has decimal place, prevent input
     if((splitValue[splitValue.length-1]).includes('.') && entry == '.')
     {
         allow = false;
     }
-    if((lastEntry == '*' || lastEntry == '-' || lastEntry == '.' || lastEntry == '+')
-        && isNaN(entry))
+    //If last input was an operator/decimal and current input is operator/decimal
+    if(isNaN(lastEntry) && isNaN(entry))
     {
+        //default to false but...
         allow = false;
+
+        //if its a double minus (one is a negative sign) but not triple, it is still valid
+        if(entry == '-' && !isNaN(currValue.charAt(currValue.length - 2)))
+        {
+            allow = true;
+        }
     }
+    //Allows only the minus sign to be an operator which starts the equation (interpretted as negative sign)
     if(currValue.length == 0 && (entry.match(regexSplit) && entry != '-'))
     {
         allow = false;
@@ -78,16 +91,20 @@ const subtractNums = (num1, num2) =>
     return (num1 - num2);
 }
 const isOperator = (element) => element = /[+-]/;
+//Parses input string and decides which operation function to trigger
 function doMath()
 {
     var fullEntry = document.getElementById("calcScreen").value;
     var regexNum = /[^\d.]/;
     var regexOp = /[\d.]/;
 
+    //split equation into numbers and operators with no blank spaces
     var numbers =  fullEntry.split(regexNum).filter(Boolean);
     var operators = fullEntry.split(regexOp).filter(Boolean);
     var opPosition = 0;
 
+    //if first char is minus, interpret it as negative, remove from operators
+    //array and add negative to first digit in number array
     if(fullEntry[0] == '-')
     {
         operators.shift();
@@ -96,16 +113,21 @@ function doMath()
 
     var answer;
 
+    //only do math if there are operators
     if(operators.length > 0)
     {
+        //do multiplication first
         opPosition = operators.indexOf('*');
+        //if no multiplication, move on to - and +
         if(opPosition == -1)
         {
             opPosition = operators.findIndex(isOperator);
         }
 
+        //continue to do math until no operators are left
         while(opPosition != -1)
         {
+            //check which operator is active and trigger appropriate math function
             switch (operators[opPosition])
             {
                 case '*':
@@ -118,27 +140,38 @@ function doMath()
                     answer = subtractNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
             }
 
+            //change number in proper place to be the answer of previous arithmetic
             numbers[opPosition] = answer;
 
+            //if the second number in the arithmetic is not at the end of the array
+            //move the numbers after it to copy over it
+            //else, simply remove the back of the array, since it will be the second number
             if(opPosition + 1 < numbers.length)
             {
                 numbers.copyWithin(opPosition + 1, opPosition + 2, numbers.length);
             }
+
+            //removes either second number in arithmetic or the leftover that resulted
+            //from the shift left
             numbers.pop();
 
+            //same logic as numbers array movement
             if(opPosition < operators.length)
             {
                 operators.copyWithin(opPosition, opPosition + 1, opPosition.length);
             }
             operators.pop();
 
+            //search to prepare for next loop
             opPosition = operators.indexOf('*');
+            //if no multiplication left, search for - and + in equation
             if(opPosition == -1)
             {
                 opPosition = operators.findIndex(isOperator);
             }
         }
 
+        //output answer
         document.getElementById("calcScreen").value = answer;
     }
 
