@@ -25,24 +25,34 @@ document.getElementById("calcScreen").addEventListener("keydown", function(e) {
 })
 function addToScreen(element)
 {
+    var isInputAllowed = checkEntry(element);
+
+    if(isInputAllowed)
+    {
+        document.getElementById("calcScreen").value =
+        document.getElementById("calcScreen").value.concat(element.value);
+    }
+
+}
+function checkEntry(element)
+{
     var currValue = document.getElementById("calcScreen").value;
     var lastEntry = currValue.charAt(currValue.length - 1);
     var regexSplit = /[^\d.]/
     var splitValue = currValue.split(regexSplit);
-    var dontAllow = false;
+    var allow = true;
 
     if((splitValue[splitValue.length-1]).includes('.') && element.value == '.')
     {
-        dontAllow = true;
+        allow = false;
     }
-
-    if(!((lastEntry == '*' || lastEntry == '-' || lastEntry == '.' || lastEntry == '+')
-        && isNaN(element.value)) && !dontAllow)
+    if((lastEntry == '*' || lastEntry == '-' || lastEntry == '.' || lastEntry == '+')
+        && isNaN(element.value))
     {
-        document.getElementById("calcScreen").value =
-        currValue.concat(element.value);
+        allow = false;
     }
 
+    return allow;
 }
 function clearScreen()
 {
