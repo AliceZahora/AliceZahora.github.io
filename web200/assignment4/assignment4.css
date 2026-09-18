@@ -1,3 +1,6 @@
+#container {
+    background-color: antiquewhite;
+}
 .headers {
     margin: 0px;
 }
@@ -8,6 +11,7 @@
     height: 40vw;
     margin: auto;
     box-shadow: 1px 1px 2px 1px;
+    background-color: white;
 }
 #calcScreen {
     display: block;
@@ -21,6 +25,7 @@
     text-align: right;
     field-sizing: content;
     text-wrap: nowrap;
+    background-color: rgba(0, 0, 0, 0.149);
 }
 #buttonRow {
     display: flex;
