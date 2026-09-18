@@ -54,6 +54,10 @@ function checkEntry(entry)
     {
         allow = false;
     }
+    if(currValue.length == 0 && entry.match(regexSplit))
+    {
+        allow = false;
+    }
 
     return allow;
 }
@@ -86,46 +90,50 @@ function doMath()
 
     var answer;
 
-    opPosition = operators.indexOf('*');
-    if(opPosition == -1)
+    if(operators.length > 0)
     {
-        opPosition = operators.findIndex(isOperator);
-    }
-
-    while(opPosition != -1)
-    {
-        switch (operators[opPosition])
-        {
-            case '*':
-                answer = multiplyNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
-                break;
-            case '+':
-                answer = addNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
-                break;
-            case '-':
-                answer = subtractNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
-        }
-
-        numbers[opPosition] = answer;
-
-        if(opPosition + 1 < numbers.length)
-        {
-            numbers.copyWithin(opPosition + 1, opPosition + 2, numbers.length);
-        }
-        numbers.pop();
-
-        if(opPosition < operators.length)
-        {
-            operators.copyWithin(opPosition, opPosition + 1, opPosition.length);
-        }
-        operators.pop();
-
         opPosition = operators.indexOf('*');
         if(opPosition == -1)
         {
             opPosition = operators.findIndex(isOperator);
         }
+
+        while(opPosition != -1)
+        {
+            switch (operators[opPosition])
+            {
+                case '*':
+                    answer = multiplyNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
+                    break;
+                case '+':
+                    answer = addNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
+                    break;
+                case '-':
+                    answer = subtractNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
+            }
+
+            numbers[opPosition] = answer;
+
+            if(opPosition + 1 < numbers.length)
+            {
+                numbers.copyWithin(opPosition + 1, opPosition + 2, numbers.length);
+            }
+            numbers.pop();
+
+            if(opPosition < operators.length)
+            {
+                operators.copyWithin(opPosition, opPosition + 1, opPosition.length);
+            }
+            operators.pop();
+
+            opPosition = operators.indexOf('*');
+            if(opPosition == -1)
+            {
+                opPosition = operators.findIndex(isOperator);
+            }
+        }
+
+        document.getElementById("calcScreen").value = answer;
     }
 
-    document.getElementById("calcScreen").value = answer;
 }
