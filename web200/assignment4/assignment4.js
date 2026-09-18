@@ -15,8 +15,7 @@ document.getElementById("calcScreen").addEventListener("keydown", function(e) {
     }
     else if(e.key != "Backspace")
     {
-        if((lastEntry == '*' || lastEntry == '-' || lastEntry == '.' ||
-            lastEntry == '+') && isNaN(e.key))
+        if(!checkEntry(e.key))
         {
             e.preventDefault();
         }
@@ -25,7 +24,7 @@ document.getElementById("calcScreen").addEventListener("keydown", function(e) {
 })
 function addToScreen(element)
 {
-    var isInputAllowed = checkEntry(element);
+    var isInputAllowed = checkEntry(element.value);
 
     if(isInputAllowed)
     {
@@ -34,7 +33,7 @@ function addToScreen(element)
     }
 
 }
-function checkEntry(element)
+function checkEntry(entry)
 {
     var currValue = document.getElementById("calcScreen").value;
     var lastEntry = currValue.charAt(currValue.length - 1);
@@ -42,12 +41,12 @@ function checkEntry(element)
     var splitValue = currValue.split(regexSplit);
     var allow = true;
 
-    if((splitValue[splitValue.length-1]).includes('.') && element.value == '.')
+    if((splitValue[splitValue.length-1]).includes('.') && entry == '.')
     {
         allow = false;
     }
     if((lastEntry == '*' || lastEntry == '-' || lastEntry == '.' || lastEntry == '+')
-        && isNaN(element.value))
+        && isNaN(entry))
     {
         allow = false;
     }
