@@ -30,6 +30,7 @@
     margin: auto;
     margin-top: 8%;
     text-align: right;
+    font-size: 4vw;
     field-sizing: content;
     text-wrap: nowrap;
     background-color: rgba(0, 0, 0, 0.149);
@@ -67,6 +68,9 @@
     #calcFrame {
         width: 50vw;
         height: 65vw;
+    }
+    #calcScreen {
+        font-size: 6.5vw;
     }
     .calcButtons {
         width: 8vw;
