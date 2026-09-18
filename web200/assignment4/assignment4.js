@@ -59,15 +59,15 @@ function clearScreen()
 }
 function addNums(num1, num2)
 {
-    return (parseInt(num1) + parseInt(num2));
+    return (num1) + (num2);
 }
 const multiplyNums = function(num1, num2)
 {
-    return (parseInt(num1) * parseInt(num2));
+    return (num1 * num2);
 }
 const subtractNums = (num1, num2) =>
 {
-    return (parseInt(num1) - parseInt(num2));
+    return (num1 - num2);
 }
 const isOperator = (element) => element = /[+-]/;
 function doMath()
@@ -93,13 +93,13 @@ function doMath()
         switch (operators[opPosition])
         {
             case '*':
-                answer = multiplyNums(parseInt(numbers[opPosition]), numbers[opPosition + 1]);
+                answer = multiplyNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
                 break;
             case '+':
-                answer = addNums(parseInt(numbers[opPosition]), numbers[opPosition + 1]);
+                answer = addNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
                 break;
             case '-':
-                answer = subtractNums(parseInt(numbers[opPosition]), numbers[opPosition + 1]);
+                answer = subtractNums(parseFloat(numbers[opPosition]), parseFloat(numbers[opPosition + 1]));
         }
 
         numbers[opPosition] = answer;
@@ -123,5 +123,5 @@ function doMath()
         }
     }
 
-    document.getElementById("calcScreen").value = answer;
+    document.getElementById("calcScreen").value = parseFloat(answer);
 }
