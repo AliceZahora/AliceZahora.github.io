@@ -129,6 +129,7 @@ function doMath()
     var numbers =  fullEntry.split(regexNum).filter(Boolean);
     var operators = fullEntry.split(regexOp).filter(Boolean);
     var opPosition = 0;
+    var newNumber;
 
     //since the operators were already removed, negative can be added back
     //without messing up split
@@ -136,7 +137,8 @@ function doMath()
     {
         if(numbers[x][0] == 'n')
         {
-            numbers[x] = '-' + numbers[x][1];
+            newNumber = numbers[x].substring(1, numbers[x].length);
+            numbers[x] = '-' + newNumber;
         }
     }
 
