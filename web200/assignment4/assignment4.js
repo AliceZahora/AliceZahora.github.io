@@ -1,3 +1,9 @@
+/*
+    Alice Zahora
+    Class: Web 200
+    Assignment: 4
+    Date: 09/17/2026
+*/
 document.addEventListener("keydown", (event) => {
     if(event.code == "Enter")
     {
