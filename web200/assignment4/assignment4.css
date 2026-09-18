@@ -84,3 +84,16 @@
         height: 8vw;
     }
 }
+@media only screen and (max-width: 510px) {
+    #calcFrame {
+        width: 70vw;
+        height: 85vw;
+    }
+    #calcScreen {
+        font-size: 8.5vw;
+    }
+    .calcButtons {
+        width: 10vw;
+        height: 10vw;
+    }
+}
