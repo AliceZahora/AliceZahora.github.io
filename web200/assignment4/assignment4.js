@@ -61,7 +61,7 @@ function checkEntry(entry)
         allow = false;
 
         //if its a double minus (one is a negative sign) but not triple, it is still valid
-        if(entry == '-' && !isNaN(currValue.charAt(currValue.length - 2)))
+        if(entry == '-' && !isNaN(currValue.charAt(currValue.length - 2)) && lastEntry != '.')
         {
             allow = true;
         }
