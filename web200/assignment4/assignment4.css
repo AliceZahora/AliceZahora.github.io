@@ -12,6 +12,7 @@
     margin: 0px;
 }
 #calcFrame {
+    position: relative;
     border: solid black 2px;
     border-radius: 10px;
     width: 30vw;
