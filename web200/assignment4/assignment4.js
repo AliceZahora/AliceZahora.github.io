@@ -59,7 +59,7 @@ function clearScreen()
 }
 function addNums(num1, num2)
 {
-    return (num1) + (num2);
+    return (num1 + num2);
 }
 const multiplyNums = function(num1, num2)
 {
@@ -123,5 +123,5 @@ function doMath()
         }
     }
 
-    document.getElementById("calcScreen").value = parseFloat(answer);
+    document.getElementById("calcScreen").value = answer;
 }
