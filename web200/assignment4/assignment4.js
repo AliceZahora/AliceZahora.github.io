@@ -118,5 +118,5 @@ function doMath()
         }
     }
 
-    alert(answer);
+    document.getElementById("calcScreen").value = answer;
 }
