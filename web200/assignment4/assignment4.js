@@ -55,7 +55,7 @@ function checkEntry(entry)
         allow = false;
     }
     //If last input was an operator/decimal and current input is operator/decimal
-    if(isNaN(lastEntry) && isNaN(entry))
+    if(isNaN(lastEntry) && (isNaN(entry) && entry != '.'))
     {
         //default to false but...
         allow = false;
