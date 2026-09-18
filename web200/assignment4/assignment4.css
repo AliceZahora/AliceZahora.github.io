@@ -11,6 +11,13 @@
 .headers {
     margin: 0px;
 }
+#calculatorArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
 #calcFrame {
     position: relative;
     border: solid black 2px;
