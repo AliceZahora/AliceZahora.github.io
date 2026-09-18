@@ -1,3 +1,10 @@
+.hidden {
+    position: absolute;
+    left: -1000;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 #container {
     background-color: antiquewhite;
 }
