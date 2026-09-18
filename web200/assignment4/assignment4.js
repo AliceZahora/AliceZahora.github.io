@@ -91,25 +91,60 @@ const subtractNums = (num1, num2) =>
     return (num1 - num2);
 }
 const isOperator = (element) => element = /[+-]/;
+function changeMinuses(fullEntry)
+{
+    var currPosition = 0;
+    var foundAt = fullEntry.indexOf('-', currPosition);
+    var regexNum = /[^\d.]/;
+
+    //continue until all minuses are found and analyzed
+    while(foundAt != -1)
+    {
+        currPosition = foundAt;
+        //if minus found after operator or is first in equation, it means its a negative and
+        // is marked as a non operator
+        if(foundAt == 0 || (fullEntry[foundAt - 1].match(regexNum)))
+        {
+            fullEntry = fullEntry.substring(0,currPosition) + 'n' +
+            fullEntry.substring(currPosition + 1, fullEntry.length);
+        }
+
+        foundAt = fullEntry.indexOf('-', currPosition+1);
+    }
+
+    return fullEntry;
+}
 //Parses input string and decides which operation function to trigger
 function doMath()
 {
     var fullEntry = document.getElementById("calcScreen").value;
-    var regexNum = /[^\d.]/;
-    var regexOp = /[\d.]/;
+    var regexNum = /[^\d.n]/;
+    var regexOp = /[\d.n]/;
+
+    fullEntry = changeMinuses(fullEntry);
 
     //split equation into numbers and operators with no blank spaces
     var numbers =  fullEntry.split(regexNum).filter(Boolean);
     var operators = fullEntry.split(regexOp).filter(Boolean);
     var opPosition = 0;
 
+    //since the operators were already removed, negative can be added back
+    //without messing up split
+    for (var x = 0; x!= numbers.length; x++)
+    {
+        if(numbers[x][0] == 'n')
+        {
+            numbers[x] = '-' + numbers[x][1];
+        }
+    }
+
     //if first char is minus, interpret it as negative, remove from operators
     //array and add negative to first digit in number array
-    if(fullEntry[0] == '-')
+    /*if(fullEntry[0] == '-')
     {
         operators.shift();
         numbers[0] = parseFloat('-' + numbers[0].toString());
-    }
+    }*/
 
     var answer;
 
