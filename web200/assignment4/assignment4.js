@@ -54,7 +54,9 @@ function checkEntry(entry)
     {
         allow = false;
     }
-    //If last input was an operator/decimal and current input is operator/decimal
+    //If last input was an operator and current input is operator
+    //If current input is decimal, allow since +.# is valid, shorthand decimal with implied 0
+    //Previous if statement already prevents invalid decimal placements
     if(isNaN(lastEntry) && (isNaN(entry) && entry != '.'))
     {
         //default to false but...
