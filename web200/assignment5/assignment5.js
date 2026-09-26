@@ -10,15 +10,19 @@ let answerYes = document.getElementById("answerYes");
 let answerNo = document.getElementById("answerNo");
 
 answerYes.addEventListener("click", saidYes);
-answerNo.addEventListener("click", saidNo(this));
+answerNo.addEventListener("click", this.saidNo);
 
 function saidYes()
 {
     attempNum = 0;
+
+    alert("said yes");
 }
 function saidNo(currButton)
 {
     attempNum++;
+
+    alert("said no");
 
     if(attempNum < 3)
     {
@@ -26,7 +30,7 @@ function saidNo(currButton)
     }
     else
     {
-        answerNo.addEventListener("mouseover", changeButtonStyle(this))
+        answerNo.addEventListener("mouseover", this.changeButtonStyle);
     }
 }
 function moveButton(currButton)
