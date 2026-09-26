@@ -3,26 +3,25 @@
     Class: Web 200
     Assignment: 5
     Date: 09/27/2026
+
+    Build an interactive page that responds to at least four different event types — such as click, mouseover, keypress, and a page load event.
+        - Extra credit for the more creative your events are...
+    Each event should trigger a function that visibly changes something on the page (text, color, content).
+        - Use addEventListener for at least two of them.
+        - add "events.html" to your repository in your web200 folder
+        - use an external JS file. (I suggest naming it "events.js")
+        - Post the public link to your assignment in Blackboard.
 */
 
 let attempNum = 0;
-let answerYes = document.getElementById("answerYes");
-let answerNo = document.getElementById("answerNo");
-
-answerYes.addEventListener("click", saidYes);
-answerNo.addEventListener("click", this.saidNo);
 
 function saidYes()
 {
     attempNum = 0;
-
-    alert("said yes");
 }
-function saidNo(currButton)
+function saidNo()
 {
     attempNum++;
-
-    alert("said no");
 
     if(attempNum < 3)
     {
@@ -30,14 +29,12 @@ function saidNo(currButton)
     }
     else
     {
-        answerNo.addEventListener("mouseover", this.changeButtonStyle);
+        answerNo.addEventListener("mouseover", buttonResize);
     }
 }
-function moveButton(currButton)
+function moveButton(event)
 {
-    alert("move");
 }
-function changeButtonStyle(currButton)
+function buttonResize()
 {
-    alert("change");
 }
