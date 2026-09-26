@@ -19,20 +19,22 @@ function saidYes()
 {
     attemptNum = 0;
 }
-function saidNo(button)
+function saidNo(currButton)
 {
     attemptNum++;
+
+    let siblingButton = currButton.nextElementSibling;
 
     if(attemptNum == 1)
     {
         document.getElementById("dialogueText").innerHTML = "Pretty please," +
         "can you give me $100,000";
-        button.style.backgroundColor = "#ff7272";
-        button.nextElementSibling.style.backgroundColor = "#9fffa2";
+        currButton.style.backgroundColor = "#ff7272";
+        siblingButton.style.backgroundColor = "#9fffa2";
     }
     else if(attemptNum < 3)
     {
-        
+
     }
     else
     {
