@@ -1,0 +1,29 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    background-color: rgb(188, 188, 188);
+}
+.headers {
+    margin: 0px;
+}
+#dialogueBox {
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 3px;
+    width: 40vw;
+    height: 30vh;
+    margin: auto;
+    background-color: white;
+}
+#buttonContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+#dialogueBox * {
+    font-size: xx-large;
+    text-align: center;
+}
+.answerButton {
+    width: 20%;
+}

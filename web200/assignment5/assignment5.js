@@ -35,6 +35,6 @@ function saidNo()
 function moveButton(event)
 {
 }
-function buttonResize()
+function buttonResize(event)
 {
 }
