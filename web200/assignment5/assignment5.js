@@ -79,8 +79,15 @@ function relocate()
         dialogueBox.innerHTML = "I know you want to give me $10,000 :D";
         yesButton.addEventListener("mouseleave", triggerFollow);
     }
+
+    if(attemptNum == 8)
+    {
+        noButton.style.left = "";
+        noButton.style.top = "";
+    }
 }
 function triggerFollow() {
+    relocate();
     noButton.removeEventListener("mouseover", relocate);
     yesButton.removeEventListener("mouseleave", triggerFollow);
     window.onmousemove = function follow(event) {
