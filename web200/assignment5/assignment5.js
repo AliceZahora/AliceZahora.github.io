@@ -14,33 +14,57 @@
 */
 
 let attemptNum = 0;
+let noButton = document.getElementById("answerNo");
 
 function saidYes()
 {
     attemptNum = 0;
 }
-function saidNo(currButton)
+function saidNo()
 {
     attemptNum++;
 
-    let siblingButton = currButton.nextElementSibling;
+    let siblingButton = noButton.nextElementSibling;
+    let dialogueBox = document.getElementById("dialogueText");
 
     if(attemptNum == 1)
     {
-        document.getElementById("dialogueText").innerHTML = "Pretty please," +
+        dialogueBox.innerHTML = "Pretty please," +
         "can you give me $100,000";
-        currButton.style.backgroundColor = "#ff7272";
+        noButton.style.backgroundColor = "#ff7272";
         siblingButton.style.backgroundColor = "#9fffa2";
     }
-    else if(attemptNum < 3)
+    else if(attemptNum <= 3)
     {
+        if(attemptNum == 2)
+        {
+            dialogueBox.innerHTML = "PRETTY please," +
+            "can you give me $100,000";
+        }
+        else
+        {
+            dialogueBox.innerHTML = "PRETTY PLEASE," +
+            "can you give me $100,000";
+        }
 
+        noButton.style.width = noButton.offsetWidth/1.2 + "px";
+        noButton.style.height = noButton.offsetHeight/1.2 + "px";
+        noButton.style.fontSize = parseInt((getComputedStyle(noButton))
+        .getPropertyValue("font-size"))/1.2 + "px";
+
+        siblingButton.style.width = (siblingButton.offsetWidth * 1.5) + "px";
+        siblingButton.style.height = (siblingButton.offsetHeight * 1.5) + "px";
+        siblingButton.style.fontSize = parseInt((getComputedStyle(siblingButton))
+        .getPropertyValue("font-size"))*1.5 + "px";
     }
     else
     {
-        answerNo.addEventListener("mouseover", function moveButton()
-        {
+        noButton.style.position = "absolute";
+        relocate();
 
-        });
+        answerNo.addEventListener("mouseover", relocate);
     }
+}
+function relocate()
+{
 }
