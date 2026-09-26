@@ -1,12 +1,21 @@
 * {
     font-family: 'Courier New', Courier, monospace;
 }
-#container {
+body {
     background-color: rgb(188, 188, 188);
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
-#header {
+header {
     margin: 0px;
-    height: 10vh;
+    position: absolute;
+}
+main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+
 }
 #dialogueBox {
     border: 2px solid black;
