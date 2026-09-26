@@ -77,19 +77,20 @@ function relocate()
     if(attemptNum > 7)
     {
         dialogueBox.innerHTML = "I know you want to give me $10,000 :D";
-        noButton.removeEventListener("mouseover", relocate);
         yesButton.addEventListener("mouseleave", triggerFollow);
     }
 }
 function triggerFollow() {
+    noButton.removeEventListener("mouseover", relocate);
     yesButton.removeEventListener("mouseleave", triggerFollow);
-    window.onmousemove = followCursor;
+    window.onmousemove = function follow(event) {
+        yesButton.style.position = "absolute";
+
+        let xOffset = yesButton.offsetWidth;
+        let yOffset = yesButton.offsetHeight;
+
+        yesButton.style.left = (event.clientX - xOffset) + "px";
+        yesButton.style.top = (event.clientY - yOffset) + "px";
+    };
 }
 
-function followCursor(event)
-{
-    yesButton.style.position = "absolute";
-
-    yesButton.style.left = (event.clientX - 180) + "px";
-    yesButton.style.top = (event.clientY - 50) + "px";
-}
