@@ -15,6 +15,8 @@
 
 let attemptNum = 0;
 let noButton = document.getElementById("answerNo");
+let yesButton = document.getElementById("answerYes");
+let dialogueBox = document.getElementById("dialogueText");
 
 function saidYes()
 {
@@ -24,15 +26,12 @@ function saidNo()
 {
     attemptNum++;
 
-    let siblingButton = noButton.nextElementSibling;
-    let dialogueBox = document.getElementById("dialogueText");
-
     if(attemptNum == 1)
     {
         dialogueBox.innerHTML = "Pretty please," +
         "can you give me $100,000";
         noButton.style.backgroundColor = "#ff7272";
-        siblingButton.style.backgroundColor = "#9fffa2";
+        yesButton.style.backgroundColor = "#9fffa2";
     }
     else if(attemptNum <= 3)
     {
@@ -52,9 +51,9 @@ function saidNo()
         noButton.style.fontSize = parseInt((getComputedStyle(noButton))
         .getPropertyValue("font-size"))/1.2 + "px";
 
-        siblingButton.style.width = (siblingButton.offsetWidth * 1.5) + "px";
-        siblingButton.style.height = (siblingButton.offsetHeight * 1.5) + "px";
-        siblingButton.style.fontSize = parseInt((getComputedStyle(siblingButton))
+        yesButton.style.width = (yesButton.offsetWidth * 1.5) + "px";
+        yesButton.style.height = (yesButton.offsetHeight * 1.5) + "px";
+        yesButton.style.fontSize = parseInt((getComputedStyle(yesButton))
         .getPropertyValue("font-size"))*1.5 + "px";
     }
     else
@@ -74,4 +73,10 @@ function relocate()
     noButton.style.top = randomY + "vh";
 
     attemptNum++;
+
+    if(attemptNum > 10)
+    {
+        dialogueBox.innerHTML = "I know you want to give me $10,000 :D";
+        //answerNo.addEventListener("mouseover", relocate);
+    }
 }
