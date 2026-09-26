@@ -67,4 +67,11 @@ function saidNo()
 }
 function relocate()
 {
+    let randomX = Math.random() * 90;
+    let randomY = Math.random() * 90;
+
+    noButton.style.left = randomX + "vw";
+    noButton.style.top = randomY + "vh";
+
+    attemptNum++;
 }
