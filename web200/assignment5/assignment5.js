@@ -13,28 +13,32 @@
         - Post the public link to your assignment in Blackboard.
 */
 
-let attempNum = 0;
+let attemptNum = 0;
 
 function saidYes()
 {
-    attempNum = 0;
+    attemptNum = 0;
 }
-function saidNo()
+function saidNo(button)
 {
-    attempNum++;
+    attemptNum++;
 
-    if(attempNum < 3)
+    if(attemptNum == 1)
     {
-        moveButton(this);
+        document.getElementById("dialogueText").innerHTML = "Pretty please," +
+        "can you give me $100,000";
+        button.style.backgroundColor = "#ff7272";
+        button.nextElementSibling.style.backgroundColor = "#9fffa2";
+    }
+    else if(attemptNum < 3)
+    {
+        
     }
     else
     {
-        answerNo.addEventListener("mouseover", buttonResize);
+        answerNo.addEventListener("mouseover", function moveButton()
+        {
+
+        });
     }
-}
-function moveButton(event)
-{
-}
-function buttonResize(event)
-{
 }
