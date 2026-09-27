@@ -35,6 +35,11 @@ let recursiveTime = 0;
 function saidYes()
 {
     reset();
+
+    let x = Math.random() * canvas.width;
+    let y = Math.random() * canvas.height;
+
+    createFirework(x, y);
     animate();
 
     //dialog.showModal();
@@ -61,14 +66,10 @@ class Particle
         context.strokeStyle = "rgb(" + this.randR + ", " + this.randG + ", " + this.randB + ")";
         context.stroke();
     }
-}
-function animate()
-{
-    context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    let animationID = requestAnimationFrame(animate);
 
-    let x = Math.random() * canvas.width;
-    let y = Math.random() * canvas.height;
+}
+function createFirework(x, y)
+{
     let spaceX = 0;
     let spaceY = 0;
 
@@ -83,18 +84,17 @@ function animate()
         particle = new Particle(x + spaceX, y + spaceY);
         particleArray.push(particle);
     }
+}
+function animate()
+{
+    context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    let animationID = requestAnimationFrame(animate);
 
     particleArray.forEach(particle => {
         particle.drawCircle();
+        particle.x += .5;
+        particle.y += .5;
     });
-
-    recursiveTime++;
-
-    cancelAnimationFrame(animationID);
-    /*if(recursiveTime > 10)
-    {
-
-    }*/
 }
 function saidNo()
 {
