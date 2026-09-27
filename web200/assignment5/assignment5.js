@@ -30,51 +30,68 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext('2d');
 const particleArray = [];
 
+let recursiveTime = 0;
+
 function saidYes()
 {
     reset();
-
     animate();
 
     //dialog.showModal();
 }
-function drawCircle(x, y)
+class Particle
 {
-    radius = Math.random() * 3;
-    randR = Math.random() * 255;
-    randG = Math.random() * 255;
-    randB = Math.random() * 255;
+    constructor(x,y)
+    {
+        this.radius = Math.random() * 3;
+        this.randR = Math.random() * 255;
+        this.randG = Math.random() * 255;
+        this.randB = Math.random() * 255;
+        this.x = x;
+        this.y = y;
+    }
+    drawCircle()
+    {
+        context.beginPath();
+        context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
 
-    context.beginPath();
-    context.arc(x, y, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = "rgb(" + this.randR + ", " + this.randG + ", " + this.randB + ")";
+        context.fill();
 
-    context.fillStyle = "rgb(" + randR + ", " + randG + ", " + randB + ")";
-    context.fill();
-
-    context.strokeStyle = "rgb(" + randR + ", " + randG + ", " + randB + ")";
-    context.stroke();
+        context.strokeStyle = "rgb(" + this.randR + ", " + this.randG + ", " + this.randB + ")";
+        context.stroke();
+    }
 }
+
 function animate()
 {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    //let animationID = requestAnimationFrame(animate);
+    let animationID = requestAnimationFrame(animate);
 
     let x = Math.random() * canvas.width;
     let y = Math.random() * canvas.height;
     let dx = 0;
     let dy = 0;
 
-    drawCircle(x, y);
+    let particle = new Particle(x,y)
+    particle.drawCircle();
 
     for(let i = 0; i!=30; i++)
     {
         dx = Math.random() * 20;
         dy = Math.random() * 20;
 
-        drawCircle(x + dx, y + dy);
+        let particle = new Particle(x + dx, y+dy);
+        particle.drawCircle();
     }
 
-    //cancelAnimationFrame(animationID);
+    recursiveTime++;
+
+    cancelAnimationFrame(animationID);
+    /*if(recursiveTime > 10)
+    {
+
+    }*/
 }
 function saidNo()
 {
