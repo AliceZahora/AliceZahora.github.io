@@ -11,18 +11,25 @@
         - add "events.html" to your repository in your web200 folder
         - use an external JS file. (I suggest naming it "events.js")
         - Post the public link to your assignment in Blackboard.
+
+    -- SOLUTION CHECKLIST --
+        1) onclick for no triggers color, size, and text changes
+           onclick for yes triggers text changes
+        2) mouseover for no triggers element move and text changes (uses addEventListener)
+        3) mouseleave for yes triggers element move (uses addEventListener)
+        4)
 */
 
 let attemptNum = 0;
 let noButton = document.getElementById("answerNo");
 let yesButton = document.getElementById("answerYes");
-let dialogueBox = document.getElementById("dialogueText");
+let promptBox = document.getElementById("dialogueText");
 
 function saidYes()
 {
-    dialogueBox.innerHTML = "Aw, thank you! I knew you'd be generous :D";
+    promptBox.innerHTML = "Aw, thank you! I knew you'd be generous :D";
     reset();
-    dialogueBox.innerHTML = "Will you give me $100,000?";
+    promptBox.innerHTML = "Will you give me $100,000?";
 }
 function saidNo()
 {
@@ -31,7 +38,7 @@ function saidNo()
     //emphasizes buttons uisng colors on first rejection
     if(attemptNum == 1)
     {
-        dialogueBox.innerHTML = "Pretty please," +
+        promptBox.innerHTML = "Pretty please," +
         "can you give me $100,000";
         noButton.style.backgroundColor = "#ff7272";
         yesButton.style.backgroundColor = "#9fffa2";
@@ -41,12 +48,12 @@ function saidNo()
     {
         if(attemptNum == 2)
         {
-            dialogueBox.innerHTML = "PRETTY please," +
+            promptBox.innerHTML = "PRETTY please," +
             "can you give me $100,000";
         }
         else
         {
-            dialogueBox.innerHTML = "PRETTY PLEASE," +
+            promptBox.innerHTML = "PRETTY PLEASE," +
             "can you give me $100,000";
         }
 
@@ -84,7 +91,7 @@ function relocate()
     //after a bit, "yes" button becomes a trap and sticks to pointer after mouse enters
     if(attemptNum > 7)
     {
-        dialogueBox.innerHTML = "I know you want to give me $10,000 :D";
+        promptBox.innerHTML = "I know you want to give me $10,000 :D";
         yesButton.addEventListener("mouseleave", triggerFollow);
     }
 
@@ -119,7 +126,7 @@ function reset()
 
     noButton.removeAttribute('style');
     yesButton.removeAttribute('style');
-    
+
     window.onmousemove = null;
     attemptNum = 0;
 }

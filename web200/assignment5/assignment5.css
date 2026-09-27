@@ -17,7 +17,7 @@ main {
     justify-content: center;
 
 }
-#dialogueBox {
+#promptBox {
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 3px 3px;
