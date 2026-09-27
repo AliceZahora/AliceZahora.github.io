@@ -28,6 +28,7 @@ function saidNo()
 {
     attemptNum++;
 
+    //emphasizes buttons uisng colors on first rejection
     if(attemptNum == 1)
     {
         dialogueBox.innerHTML = "Pretty please," +
@@ -35,6 +36,7 @@ function saidNo()
         noButton.style.backgroundColor = "#ff7272";
         yesButton.style.backgroundColor = "#9fffa2";
     }
+    //on next couple rejections, emphasizes "yes" button using sizing
     else if(attemptNum <= 3)
     {
         if(attemptNum == 2)
@@ -58,6 +60,7 @@ function saidNo()
         yesButton.style.fontSize = parseInt((getComputedStyle(yesButton))
         .getPropertyValue("font-size"))*1.5 + "px";
     }
+    //makes "no" button start running away
     else
     {
         noButton.style.position = "absolute";
@@ -68,20 +71,24 @@ function saidNo()
 }
 function relocate()
 {
+    //picks random coordinate in viewport for button
     let randomX = Math.random() * 90;
     let randomY = Math.random() * 90;
 
+    //moves button to the random coord
     noButton.style.left = randomX + "vw";
     noButton.style.top = randomY + "vh";
 
     attemptNum++;
 
+    //after a bit, "yes" button becomes a trap and sticks to pointer after mouse enters
     if(attemptNum > 7)
     {
         dialogueBox.innerHTML = "I know you want to give me $10,000 :D";
         yesButton.addEventListener("mouseleave", triggerFollow);
     }
 
+    //if still hasn't moused over "yes", moves "no" on top of "yes" to trick into trap
     if(attemptNum == 8)
     {
         noButton.style.left = "";
@@ -90,8 +97,11 @@ function relocate()
 }
 function triggerFollow() {
     relocate();
+
     noButton.removeEventListener("mouseover", relocate);
     yesButton.removeEventListener("mouseleave", triggerFollow);
+
+    //makes "yes" button follow the mouse
     window.onmousemove = function follow(event) {
         yesButton.style.position = "absolute";
 
@@ -106,8 +116,10 @@ function reset()
 {
     noButton.removeEventListener("mouseover", relocate);
     yesButton.removeEventListener("mouseleave", triggerFollow);
+
     noButton.removeAttribute('style');
     yesButton.removeAttribute('style');
+    
     window.onmousemove = null;
     attemptNum = 0;
 }
