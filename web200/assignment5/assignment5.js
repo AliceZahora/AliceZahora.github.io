@@ -21,15 +21,16 @@
 */
 
 let attemptNum = 0;
-let noButton = document.getElementById("answerNo");
-let yesButton = document.getElementById("answerYes");
-let promptBox = document.getElementById("dialogueText");
+const noButton = document.getElementById("answerNo");
+const yesButton = document.getElementById("answerYes");
+const promptText = document.getElementById("promptText");
+const dialog = document.getElementById("dialogBox");
 
 function saidYes()
 {
-    promptBox.innerHTML = "Aw, thank you! I knew you'd be generous :D";
     reset();
-    promptBox.innerHTML = "Will you give me $100,000?";
+
+    dialog.showModal();
 }
 function saidNo()
 {
@@ -38,7 +39,7 @@ function saidNo()
     //emphasizes buttons uisng colors on first rejection
     if(attemptNum == 1)
     {
-        promptBox.innerHTML = "Pretty please," +
+        promptText.innerHTML = "Pretty please," +
         "can you give me $100,000";
         noButton.style.backgroundColor = "#ff7272";
         yesButton.style.backgroundColor = "#9fffa2";
@@ -48,12 +49,12 @@ function saidNo()
     {
         if(attemptNum == 2)
         {
-            promptBox.innerHTML = "PRETTY please," +
+            promptText.innerHTML = "PRETTY please," +
             "can you give me $100,000";
         }
         else
         {
-            promptBox.innerHTML = "PRETTY PLEASE," +
+            promptText.innerHTML = "PRETTY PLEASE," +
             "can you give me $100,000";
         }
 
@@ -91,7 +92,7 @@ function relocate()
     //after a bit, "yes" button becomes a trap and sticks to pointer after mouse enters
     if(attemptNum > 7)
     {
-        promptBox.innerHTML = "I know you want to give me $10,000 :D";
+        promptText.innerHTML = "I know you want to give me $10,000 :D";
         yesButton.addEventListener("mouseleave", triggerFollow);
     }
 
@@ -129,5 +130,6 @@ function reset()
 
     window.onmousemove = null;
     attemptNum = 0;
+    promptText.innerHTML = "Will you give me $100,000?";
 }
 

@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Web 200 - Assignment 5">
         <link rel="stylesheet" href="assignment5.css" type="text/css">
+        <script src="https://kit.fontawesome.com/e558e0301a.js" crossorigin="anonymous"></script>
         <script src="assignment5.js" defer></script>
         <title> Web 200 - Zahora 5 </title>
     </head>
@@ -19,14 +20,20 @@
             <h1> Web 200 </h1>
             <h2> Assignment 5 </h2>
         </header>
-        <main>
+        <main id="main">
             <div id="promptBox">
-                <p id="dialogueText"> Will you give me $100,000? </p>
+                <p id="promptText"> Will you give me $100,000? </p>
                 <div id="buttonContainer">
                     <button id="answerNo" class="answerButton" onclick="saidNo()"> No </button>
                     <button id="answerYes" class="answerButton" onclick="saidYes()"> Sure! </button>
                 </div>
             </div>
+            <dialog id="dialogBox">
+                <button id="closeDialog" commandfor="dialogBox" command="close">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+                <p id="dialogText"> Aw, thank you! I knew you'd be generous :D </p>
+            </dialog>
         </main>
     </body>
 </html>
