@@ -5,6 +5,7 @@
     background-image: linear-gradient(rgb(69, 141, 95), rgb(35, 71, 48));
     margin-top: 0px;
     margin-bottom: 0px;
+    margin-left: 0px;
 }
 #header {
     margin: 0px;
@@ -16,7 +17,13 @@
     height: 100vh;
     flex-direction: column;
     justify-content: center;
-
+}
+#canvas {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: -1;
 }
 #promptBox {
     border: 2px solid black;

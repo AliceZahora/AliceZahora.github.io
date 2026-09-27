@@ -26,11 +26,55 @@ const yesButton = document.getElementById("answerYes");
 const promptText = document.getElementById("promptText");
 const dialog = document.getElementById("dialogBox");
 
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext('2d');
+const particleArray = [];
+
 function saidYes()
 {
     reset();
 
-    dialog.showModal();
+    animate();
+
+    //dialog.showModal();
+}
+function drawCircle(x, y)
+{
+    radius = Math.random() * 3;
+    randR = Math.random() * 255;
+    randG = Math.random() * 255;
+    randB = Math.random() * 255;
+
+    context.beginPath();
+    context.arc(x, y, radius, 0, 2 * Math.PI, false);
+
+    context.fillStyle = "rgb(" + randR + ", " + randG + ", " + randB + ")";
+    context.fill();
+
+    context.strokeStyle = "rgb(" + randR + ", " + randG + ", " + randB + ")";
+    context.stroke();
+}
+function animate()
+{
+    context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    //let animationID = requestAnimationFrame(animate);
+
+    let x = Math.random() * canvas.width;
+    let y = Math.random() * canvas.height;
+    let dx = 0;
+    let dy = 0;
+
+    drawCircle(x, y);
+
+    for(let i = 0; i!=30; i++)
+    {
+        dx = Math.random() * 20;
+        dy = Math.random() * 20;
+
+        drawCircle(x + dx, y + dy);
+    }
+
+    //cancelAnimationFrame(animationID);
 }
 function saidNo()
 {
