@@ -14,10 +14,10 @@
 
     -- SOLUTION CHECKLIST --
         1) onclick for no triggers color, size, and text changes
-           onclick for yes triggers text changes
+           onclick for yes triggers text and style (reset) changes
         2) mouseover for no triggers element move and text changes (uses addEventListener)
         3) mouseleave for yes triggers element move (uses addEventListener)
-        4)
+        4) onmousemove for window triggers element move
 */
 
 let attemptNum = 0;
