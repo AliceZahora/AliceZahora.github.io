@@ -1,16 +1,16 @@
 * {
     font-family: 'Courier New', Courier, monospace;
 }
-body {
+#body {
     background-color: rgb(188, 188, 188);
     margin-top: 0px;
     margin-bottom: 0px;
 }
-header {
+#header {
     margin: 0px;
     position: absolute;
 }
-main {
+#main {
     display: flex;
     height: 100vh;
     flex-direction: column;
