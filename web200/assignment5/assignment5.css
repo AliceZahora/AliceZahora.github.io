@@ -2,13 +2,14 @@
     font-family: 'Courier New', Courier, monospace;
 }
 #body {
-    background-color: rgb(188, 188, 188);
+    background-image: linear-gradient(rgb(69, 141, 95), rgb(35, 71, 48));
     margin-top: 0px;
     margin-bottom: 0px;
 }
 #header {
     margin: 0px;
     position: absolute;
+    color: white;
 }
 #main {
     display: flex;
