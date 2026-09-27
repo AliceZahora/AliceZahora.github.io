@@ -20,7 +20,9 @@ let dialogueBox = document.getElementById("dialogueText");
 
 function saidYes()
 {
-    attemptNum = 0;
+    dialogueBox.innerHTML = "Aw, thank you! I knew you'd be generous :D";
+    reset();
+    dialogueBox.innerHTML = "Will you give me $100,000?";
 }
 function saidNo()
 {
@@ -99,5 +101,14 @@ function triggerFollow() {
         yesButton.style.left = (event.clientX - xOffset) + "px";
         yesButton.style.top = (event.clientY - yOffset) + "px";
     };
+}
+function reset()
+{
+    noButton.removeEventListener("mouseover", relocate);
+    yesButton.removeEventListener("mouseleave", triggerFollow);
+    noButton.removeAttribute('style');
+    yesButton.removeAttribute('style');
+    window.onmousemove = null;
+    attemptNum = 0;
 }
 
