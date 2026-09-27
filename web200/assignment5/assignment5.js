@@ -43,7 +43,7 @@ class Particle
 {
     constructor(x,y)
     {
-        this.radius = Math.random() * 3;
+        this.radius = Math.random() * 2;
         this.randR = Math.random() * 255;
         this.randG = Math.random() * 255;
         this.randB = Math.random() * 255;
@@ -62,7 +62,6 @@ class Particle
         context.stroke();
     }
 }
-
 function animate()
 {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
@@ -70,20 +69,24 @@ function animate()
 
     let x = Math.random() * canvas.width;
     let y = Math.random() * canvas.height;
-    let dx = 0;
-    let dy = 0;
+    let spaceX = 0;
+    let spaceY = 0;
 
     let particle = new Particle(x,y)
-    particle.drawCircle();
+    particleArray.push(particle);
 
     for(let i = 0; i!=30; i++)
     {
-        dx = Math.random() * 20;
-        dy = Math.random() * 20;
+        spaceX = Math.random() * 20;
+        spaceY = Math.random() * 20;
 
-        let particle = new Particle(x + dx, y+dy);
-        particle.drawCircle();
+        particle = new Particle(x + spaceX, y + spaceY);
+        particleArray.push(particle);
     }
+
+    particleArray.forEach(particle => {
+        particle.drawCircle();
+    });
 
     recursiveTime++;
 
