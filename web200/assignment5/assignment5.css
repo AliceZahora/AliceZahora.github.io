@@ -50,6 +50,9 @@ main {
     border: none;
     margin-left: 95%;
 }
+.pointerButton {
+    cursor: pointer;
+}
 .fa-x {
     font-size: xx-large;
     position: relative;

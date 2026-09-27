@@ -24,12 +24,12 @@
             <div id="promptBox">
                 <p id="promptText"> Will you give me $100,000? </p>
                 <div id="buttonContainer">
-                    <button id="answerNo" class="answerButton" onclick="saidNo()"> No </button>
-                    <button id="answerYes" class="answerButton" onclick="saidYes()"> Sure! </button>
+                    <button id="answerNo" class="answerButton pointerButton" onclick="saidNo()"> No </button>
+                    <button id="answerYes" class="answerButton pointerButton" onclick="saidYes()"> Sure! </button>
                 </div>
             </div>
             <dialog id="dialogBox">
-                <button id="closeDialog" commandfor="dialogBox" command="close">
+                <button id="closeDialog" class="pointerButton" commandfor="dialogBox" command="close">
                     <i class="fa-solid fa-x"></i>
                 </button>
                 <p id="dialogText"> Aw, thank you! I knew you'd be generous :D </p>
