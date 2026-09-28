@@ -30,6 +30,8 @@ const dialog = document.getElementById("dialogBox");
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext('2d');
 const particleArray = [];
+const animationArray = [];
+
 
 function saidYes()
 {
@@ -41,9 +43,16 @@ function saidYes()
     createFirework(x, y);
     particleArray.sort(compare);
 
+    dialog.showModal();
+
     animate();
 
-    dialog.showModal();
+    dialog.addEventListener("close", function () {
+        animationArray.forEach(animationID => {
+            cancelAnimationFrame(animationID);
+        });
+        context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    })
 }
 class Particle
 {
@@ -91,6 +100,7 @@ function animate()
 {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
     let animationID = requestAnimationFrame(animate);
+    animationArray.push(animationID);
 
     let mainParticle = particleArray[Math.floor(particleArray.length/2)];
     let x = 0;
@@ -113,7 +123,6 @@ function animate()
 
     if(opacity <= 0)
     {
-        //cancelAnimationFrame(animationID);
         particleArray.length = 0;
 
         x = Math.random() * canvas.width;
