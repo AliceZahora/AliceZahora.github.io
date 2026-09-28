@@ -21,6 +21,7 @@
 */
 
 let attemptNum = 0;
+
 const noButton = document.getElementById("answerNo");
 const yesButton = document.getElementById("answerYes");
 const promptText = document.getElementById("promptText");
@@ -39,9 +40,10 @@ function saidYes()
 
     createFirework(x, y);
     particleArray.sort(compare);
+
     animate();
 
-    //dialog.showModal();
+    dialog.showModal();
 }
 class Particle
 {
@@ -89,7 +91,10 @@ function animate()
 {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
     let animationID = requestAnimationFrame(animate);
+
     let mainParticle = particleArray[Math.floor(particleArray.length/2)];
+    let x = 0;
+    let y = 0;
     let dx = 0;
     let dy = 0;
     let opacity = mainParticle.opacity;
@@ -108,8 +113,14 @@ function animate()
 
     if(opacity <= 0)
     {
-        cancelAnimationFrame(animationID);
+        //cancelAnimationFrame(animationID);
         particleArray.length = 0;
+
+        x = Math.random() * canvas.width;
+        y = Math.random() * canvas.height;
+
+        createFirework(x, y);
+        particleArray.sort(compare);
     }
 }
 function compare(a, b)
