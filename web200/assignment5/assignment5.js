@@ -79,8 +79,8 @@ function createFirework(x, y)
 
     for(let i = 0; i!=30; i++)
     {
-        spaceX = Math.random() * 20;
-        spaceY = Math.random() * 20;
+        spaceX = Math.random() * 10;
+        spaceY = Math.random() * 10;
 
         particle = new Particle(x + spaceX, y + spaceY);
         particleArray.push(particle);
@@ -90,21 +90,21 @@ function animate()
 {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
     let animationID = requestAnimationFrame(animate);
+    let mainParticle = particleArray[Math.floor(particleArray.length/2)];
+    let dx = 0;
+    let dy = 0;
 
     for(let i = 0; i != particleArray.length; i++)
     {
+        dx = particleArray[i].x - mainParticle.x;
+        dy = particleArray[i].y - mainParticle.y;
         particleArray[i].drawCircle();
-        if(i < Math.floor(particleArray.length/2))
-        {
-            particleArray[i].x -= .5;
-            particleArray[i].y -= .5;
-        }
-        else
-        {
-            particleArray[i].x += .5;
-            particleArray[i].y += .5;
-        }
+
+        particleArray[i].x += (dx/10);
+        particleArray[i].y += (dy/10);
     }
+
+    //cancelAnimationFrame(animationID);
 }
 function compare(a, b)
 {
