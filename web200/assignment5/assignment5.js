@@ -37,16 +37,20 @@ function saidYes()
 {
     reset();
 
+    //puts firework on random coord
     let x = Math.random() * canvas.width;
     let y = Math.random() * canvas.height;
 
+    //makes all the dots for one firework
     createFirework(x, y);
+    //sorts particle objects in order of x
     particleArray.sort(compare);
 
     dialog.showModal();
 
     animate();
 
+    //stops animation and clears canvas once dialog is closed
     dialog.addEventListener("close", function () {
         animationArray.forEach(animationID => {
             cancelAnimationFrame(animationID);
@@ -56,6 +60,7 @@ function saidYes()
 }
 class Particle
 {
+    //constructs object with circle sizing and styling
     constructor(x,y)
     {
         this.radius = Math.random() * 2;
@@ -66,6 +71,7 @@ class Particle
         this.x = x;
         this.y = y;
     }
+    //draws circle of random radius and color at designated coord
     drawCircle()
     {
         context.beginPath();
@@ -79,16 +85,20 @@ class Particle
     }
 
 }
+//makes one central firework particle object, then 40 more scattered close around it
 function createFirework(x, y)
 {
     let spaceX = 0;
     let spaceY = 0;
 
+    //main particle
     let particle = new Particle(x,y)
     particleArray.push(particle);
 
-    for(let i = 0; i!=30; i++)
+    //surrounding particles
+    for(let i = 0; i != 40; i++)
     {
+        //scatters particles around 5px near central particle
         spaceX = Math.random() * 5;
         spaceY = Math.random() * 5;
 
@@ -98,10 +108,13 @@ function createFirework(x, y)
 }
 function animate()
 {
+    //clears canvas
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    //starts animation and logs id in array
     let animationID = requestAnimationFrame(animate);
     animationArray.push(animationID);
 
+    //main particle is center of array due to prior sort
     let mainParticle = particleArray[Math.floor(particleArray.length/2)];
     let x = 0;
     let y = 0;
@@ -109,18 +122,24 @@ function animate()
     let dy = 0;
     let opacity = mainParticle.opacity;
 
+    //iterates through all particle objects and draws them
     for(let i = 0; i != particleArray.length; i++)
     {
+        //calculates distance from center to determine its path during animation
         dx = particleArray[i].x - mainParticle.x;
         dy = particleArray[i].y - mainParticle.y;
         particleArray[i].drawCircle();
 
+        //for next frame, particle will follow calculated path
         particleArray[i].x += (dx/5);
         particleArray[i].y += (dy/5);
+
+        //particle slowly disappears with every frame
         particleArray[i].opacity -= .03;
         opacity = particleArray[i].opacity;
     }
 
+    //once the firework has faded, another is created in random coord
     if(opacity <= 0)
     {
         particleArray.length = 0;
@@ -132,6 +151,7 @@ function animate()
         particleArray.sort(compare);
     }
 }
+//used for particle array, sorts based on x value of particle object
 function compare(a, b)
 {
     if(a.x < b.x)

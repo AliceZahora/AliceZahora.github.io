@@ -50,7 +50,7 @@
     background-color: white;
 }
 #dialogBox::backdrop {
-    background-color: rgba(1, 1, 1, 0.534);
+    background-color: rgba(1, 1, 1, 0.3);
 }
 #closeDialog {
     background-color: white;
