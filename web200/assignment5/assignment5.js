@@ -21,16 +21,149 @@
 */
 
 let attemptNum = 0;
+
 const noButton = document.getElementById("answerNo");
 const yesButton = document.getElementById("answerYes");
 const promptText = document.getElementById("promptText");
 const dialog = document.getElementById("dialogBox");
 
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext('2d');
+const particleArray = [];
+const animationArray = [];
+
+
 function saidYes()
 {
     reset();
 
+    //puts firework on random coord
+    let x = Math.random() * canvas.width;
+    let y = Math.random() * canvas.height;
+
+    //makes all the dots for one firework
+    createFirework(x, y);
+    //sorts particle objects in order of x
+    particleArray.sort(compare);
+
     dialog.showModal();
+
+    animate();
+
+    //stops animation and clears canvas once dialog is closed
+    dialog.addEventListener("close", function () {
+        animationArray.forEach(animationID => {
+            cancelAnimationFrame(animationID);
+        });
+        context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    })
+}
+class Particle
+{
+    //constructs object with circle sizing and styling
+    constructor(x,y)
+    {
+        this.radius = Math.random() * 2;
+        this.randR = Math.random() * 255;
+        this.randG = Math.random() * 255;
+        this.randB = Math.random() * 255;
+        this.opacity = 1;
+        this.x = x;
+        this.y = y;
+    }
+    //draws circle of random radius and color at designated coord
+    drawCircle()
+    {
+        context.beginPath();
+        context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+
+        context.fillStyle = "rgb(" + this.randR + ", " + this.randG + ", " + this.randB + ", " + this.opacity + ")";
+        context.fill();
+
+        context.strokeStyle = "rgb(" + this.randR + ", " + this.randG + ", " + this.randB + ", " + this.opacity + ")";
+        context.stroke();
+    }
+
+}
+//makes one central firework particle object, then 40 more scattered close around it
+function createFirework(x, y)
+{
+    let spaceX = 0;
+    let spaceY = 0;
+
+    //main particle
+    let particle = new Particle(x,y)
+    particleArray.push(particle);
+
+    //surrounding particles
+    for(let i = 0; i != 40; i++)
+    {
+        //scatters particles around 5px near central particle
+        spaceX = Math.random() * 5;
+        spaceY = Math.random() * 5;
+
+        particle = new Particle(x + spaceX, y + spaceY);
+        particleArray.push(particle);
+    }
+}
+function animate()
+{
+    //clears canvas
+    context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    //starts animation and logs id in array
+    let animationID = requestAnimationFrame(animate);
+    animationArray.push(animationID);
+
+    //main particle is center of array due to prior sort
+    let mainParticle = particleArray[Math.floor(particleArray.length/2)];
+    let x = 0;
+    let y = 0;
+    let dx = 0;
+    let dy = 0;
+    let opacity = mainParticle.opacity;
+
+    //iterates through all particle objects and draws them
+    for(let i = 0; i != particleArray.length; i++)
+    {
+        //calculates distance from center to determine its path during animation
+        dx = particleArray[i].x - mainParticle.x;
+        dy = particleArray[i].y - mainParticle.y;
+        particleArray[i].drawCircle();
+
+        //for next frame, particle will follow calculated path
+        particleArray[i].x += (dx/5);
+        particleArray[i].y += (dy/5);
+
+        //particle slowly disappears with every frame
+        particleArray[i].opacity -= .03;
+        opacity = particleArray[i].opacity;
+    }
+
+    //once the firework has faded, another is created in random coord
+    if(opacity <= 0)
+    {
+        particleArray.length = 0;
+
+        x = Math.random() * canvas.width;
+        y = Math.random() * canvas.height;
+
+        createFirework(x, y);
+        particleArray.sort(compare);
+    }
+}
+//used for particle array, sorts based on x value of particle object
+function compare(a, b)
+{
+    if(a.x < b.x)
+    {
+        return -1;
+    }
+    else if(a.x > b.x)
+    {
+        return 1;
+    }
+
+    return 0;
 }
 function saidNo()
 {
@@ -92,7 +225,7 @@ function relocate()
     //after a bit, "yes" button becomes a trap and sticks to pointer after mouse enters
     if(attemptNum > 7)
     {
-        promptText.innerHTML = "I know you want to give me $10,000 :D";
+        promptText.innerHTML = "I know you want to give me $100,000 :D";
         yesButton.addEventListener("mouseleave", triggerFollow);
     }
 
