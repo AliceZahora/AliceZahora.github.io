@@ -40,6 +40,7 @@ function saidYes()
     let y = Math.random() * canvas.height;
 
     createFirework(x, y);
+    particleArray.sort(compare);
     animate();
 
     //dialog.showModal();
@@ -90,11 +91,33 @@ function animate()
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
     let animationID = requestAnimationFrame(animate);
 
-    particleArray.forEach(particle => {
-        particle.drawCircle();
-        particle.x += .5;
-        particle.y += .5;
-    });
+    for(let i = 0; i != particleArray.length; i++)
+    {
+        particleArray[i].drawCircle();
+        if(i < Math.floor(particleArray.length/2))
+        {
+            particleArray[i].x -= .5;
+            particleArray[i].y -= .5;
+        }
+        else
+        {
+            particleArray[i].x += .5;
+            particleArray[i].y += .5;
+        }
+    }
+}
+function compare(a, b)
+{
+    if(a.x < b.x)
+    {
+        return -1;
+    }
+    else if(a.x > b.x)
+    {
+        return 1;
+    }
+
+    return 0;
 }
 function saidNo()
 {
@@ -156,7 +179,7 @@ function relocate()
     //after a bit, "yes" button becomes a trap and sticks to pointer after mouse enters
     if(attemptNum > 7)
     {
-        promptText.innerHTML = "I know you want to give me $10,000 :D";
+        promptText.innerHTML = "I know you want to give me $100,000 :D";
         yesButton.addEventListener("mouseleave", triggerFollow);
     }
 
