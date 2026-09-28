@@ -53,6 +53,7 @@ class Particle
         this.randR = Math.random() * 255;
         this.randG = Math.random() * 255;
         this.randB = Math.random() * 255;
+        this.opacity = 1;
         this.x = x;
         this.y = y;
     }
@@ -61,10 +62,10 @@ class Particle
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
 
-        context.fillStyle = "rgb(" + this.randR + ", " + this.randG + ", " + this.randB + ")";
+        context.fillStyle = "rgb(" + this.randR + ", " + this.randG + ", " + this.randB + ", " + this.opacity + ")";
         context.fill();
 
-        context.strokeStyle = "rgb(" + this.randR + ", " + this.randG + ", " + this.randB + ")";
+        context.strokeStyle = "rgb(" + this.randR + ", " + this.randG + ", " + this.randB + ", " + this.opacity + ")";
         context.stroke();
     }
 
@@ -79,8 +80,8 @@ function createFirework(x, y)
 
     for(let i = 0; i!=30; i++)
     {
-        spaceX = Math.random() * 10;
-        spaceY = Math.random() * 10;
+        spaceX = Math.random() * 5;
+        spaceY = Math.random() * 5;
 
         particle = new Particle(x + spaceX, y + spaceY);
         particleArray.push(particle);
@@ -93,6 +94,7 @@ function animate()
     let mainParticle = particleArray[Math.floor(particleArray.length/2)];
     let dx = 0;
     let dy = 0;
+    let opacity = mainParticle.opacity;
 
     for(let i = 0; i != particleArray.length; i++)
     {
@@ -102,6 +104,7 @@ function animate()
 
         particleArray[i].x += (dx/10);
         particleArray[i].y += (dy/10);
+        particleArray[i].opacity -= .02;
     }
 
     //cancelAnimationFrame(animationID);
