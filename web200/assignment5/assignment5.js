@@ -105,9 +105,9 @@ function animate()
         dy = particleArray[i].y - mainParticle.y;
         particleArray[i].drawCircle();
 
-        particleArray[i].x += (dx/8);
-        particleArray[i].y += (dy/8);
-        particleArray[i].opacity -= .02;
+        particleArray[i].x += (dx/5);
+        particleArray[i].y += (dy/5);
+        particleArray[i].opacity -= .03;
         opacity = particleArray[i].opacity;
     }
 
