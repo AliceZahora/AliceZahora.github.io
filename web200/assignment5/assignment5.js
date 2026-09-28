@@ -30,8 +30,6 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext('2d');
 const particleArray = [];
 
-let recursiveTime = 0;
-
 function saidYes()
 {
     reset();
@@ -102,12 +100,17 @@ function animate()
         dy = particleArray[i].y - mainParticle.y;
         particleArray[i].drawCircle();
 
-        particleArray[i].x += (dx/10);
-        particleArray[i].y += (dy/10);
+        particleArray[i].x += (dx/8);
+        particleArray[i].y += (dy/8);
         particleArray[i].opacity -= .02;
+        opacity = particleArray[i].opacity;
     }
 
-    //cancelAnimationFrame(animationID);
+    if(opacity <= 0)
+    {
+        cancelAnimationFrame(animationID);
+        particleArray.length = 0;
+    }
 }
 function compare(a, b)
 {
