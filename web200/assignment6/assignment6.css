@@ -1,10 +1,32 @@
+#body {
+    background-image: url("desk.jpg");
+    background-size: cover;
+}
+#header * {
+    color: white;
+    text-shadow: 2px 2px 5px black, 2px 2px 5px black;;
+}
 #examPaper {
     display: flex;
+    flex-direction: column;
+    float: right;
+    background-color: white;
+    box-shadow: 1px 1px 4px;
+    height: 80vh;
+    width: 40vw;
+    margin-right: 5vw;
+}
+#examContent {
+    display: flex;
     flex-direction: row;
+}
+#examHeader {
+    align-self: center;
 }
 #questionColumn {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 .fieldset {
     border: 0;
