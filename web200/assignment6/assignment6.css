@@ -30,6 +30,7 @@
 #examContent {
     display: flex;
     flex-direction: row;
+    height: 83%;
 }
 #examHeader {
     align-self: center;
@@ -46,6 +47,12 @@
     flex-direction: column;
     justify-content: space-evenly;
     width: 50%;
+}
+#turnIn {
+    align-self: center;
+    width: 15%;
+    height: 10%;
+    margin-bottom: 2%;
 }
 .correctness {
     height: 25%;
