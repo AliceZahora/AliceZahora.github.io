@@ -21,10 +21,11 @@
     flex-direction: column;
     background-color: white;
     box-shadow: 1px 1px 4px;
-    min-height: 80vh;
+    min-height: 90vh;
     height: fit-content;
-    width: 40vw;
+    width: 43vw;
     margin-right: 5vw;
+    justify-content: space-evenly;
 }
 #examContent {
     display: flex;
@@ -32,21 +33,33 @@
 }
 #examHeader {
     align-self: center;
+    height: 5%;
 }
 #questionColumn {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 50%
+    width: 50%;
 }
 #gradingColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     width: 50%;
+}
+.correctness {
+    height: 25%;
+    text-align: center;
+    margin: 2.5%;
 }
 .legend {
     font-weight: bold;
 }
 .fieldset {
     border: 0;
+    height: 25%;
+    margin: 2.5%;
+    overflow: hidden;
 }
 @media only screen and (max-width: 950px)
 {
