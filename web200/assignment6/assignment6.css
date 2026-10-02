@@ -1,0 +1,11 @@
+#examPaper {
+    display: flex;
+    flex-direction: row;
+}
+#questionColumn {
+    display: flex;
+    flex-direction: column;
+}
+.fieldset {
+    border: 0;
+}
