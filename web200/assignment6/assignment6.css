@@ -1,15 +1,23 @@
 #body {
     background-image: url("desk.jpg");
     background-size: cover;
+    margin: 0px;
 }
-#header * {
+#header {
     color: white;
-    text-shadow: 2px 2px 5px black, 2px 2px 5px black;;
+    text-shadow: 2px 2px 5px black, 2px 2px 5px black;
+    position: absolute;
+}
+#main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: end;
 }
 #examPaper {
     display: flex;
     flex-direction: column;
-    float: right;
     background-color: white;
     box-shadow: 1px 1px 4px;
     height: 80vh;
