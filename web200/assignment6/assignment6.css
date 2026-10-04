@@ -48,8 +48,15 @@
 #turnIn {
     align-self: center;
     width: 15%;
-    height: 10%;
+    height: 4vh;
     margin-bottom: 2%;
+    background-color: lightgreen;
+    color: rgb(7, 48, 7);
+}
+#turnIn:hover {
+    cursor: pointer;
+    background-color: rgb(13, 87, 13);
+    color: white;
 }
 #finalGradeLetter
 {
