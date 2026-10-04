@@ -12,7 +12,7 @@
 #main {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: center;
     align-items: end;
 }
@@ -30,29 +30,17 @@
 #examContent {
     display: flex;
     flex-direction: row;
-    height: 83%;
     justify-content: space-evenly;
 }
 #examHeader {
     align-self: center;
-    height: 5%;
 }
-#questionColumn {
+#questionColumn, #gradingColumn {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 50%;
 }
-#gradingColumn {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 35%;
-}
-#finalGradeColumn {
-    height: 100%;
-}
-#finalGradeColumn * {
+#finalGradeColumn *, .correctness{
     height: 20%;
     margin: 2.5%;
     text-align: center;
@@ -63,18 +51,12 @@
     height: 10%;
     margin-bottom: 2%;
 }
-.correctness {
-    height: 20%;
-    text-align: center;
-    margin: 2.5%;
-}
 .legend {
     font-weight: bold;
 }
 .fieldset {
     border: 0;
     height: 20%;
-    margin: 2.5%;
     overflow: hidden;
     padding-left: 0;
 }

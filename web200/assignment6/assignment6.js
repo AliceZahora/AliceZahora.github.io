@@ -11,7 +11,7 @@ function checkAnswers()
 {
     let allQuestions = document.getElementsByClassName("quizQuestion");
     let correct = 0;
-    const total = 4;
+    const total = 5;
     const pointsPer = 100/total;
 
     for(let x = 0; x != allQuestions.length; x++)
