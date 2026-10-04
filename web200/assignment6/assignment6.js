@@ -22,7 +22,6 @@ function checkAnswers()
             correct += pointsPer;
             id = "grade" + allQuestions[x].id.charAt(0);
             document.getElementById(id).innerHTML = "&#10003;";
-
         }
     }
 
@@ -50,4 +49,6 @@ function calculateGrade(score)
         default:
             gradeLetter.innerHTML = "F";
     }
+
+    gradeLetter.style.color = "red";
 }

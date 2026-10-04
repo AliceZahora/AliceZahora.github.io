@@ -51,6 +51,12 @@
     height: 10%;
     margin-bottom: 2%;
 }
+#finalGradeLetter
+{
+    color: white;
+    font-size: 5vw;
+    font-family: "Finger Paint", sans-serif;
+}
 .legend {
     font-weight: bold;
 }
