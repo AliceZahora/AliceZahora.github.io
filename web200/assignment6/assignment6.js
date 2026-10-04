@@ -30,6 +30,7 @@ function checkAnswers()
 function calculateGrade(score)
 {
     let gradeLetter = document.getElementById("finalGradeLetter");
+    let correctMarks = document.getElementsByClassName("correctness");
 
     switch(Math.floor(score/10))
     {
@@ -50,5 +51,9 @@ function calculateGrade(score)
             gradeLetter.innerHTML = "F";
     }
 
-    gradeLetter.style.color = "red";
+    for(let x = 0; x!= correctMarks.length; x++)
+    {
+        correctMarks[x].style.visibility = "visible";
+    }
+    gradeLetter.style.visibility = "visible";
 }
