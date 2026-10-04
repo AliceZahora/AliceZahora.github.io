@@ -11,6 +11,7 @@ function checkAnswers()
 {
     let allQuestions = document.getElementsByClassName("quizQuestion");
     let correct = 0;
+    let id = "grade";
     const total = 5;
     const pointsPer = 100/total;
 
@@ -19,6 +20,9 @@ function checkAnswers()
         if(allQuestions[x].checked && allQuestions[x].value == "correct")
         {
             correct += pointsPer;
+            id = "grade" + allQuestions[x].id.charAt(0);
+            document.getElementById(id).innerHTML = "&#10003;";
+
         }
     }
 
@@ -26,7 +30,6 @@ function checkAnswers()
 }
 function calculateGrade(score)
 {
-    console.log(score);
     let gradeLetter = document.getElementById("finalGradeLetter");
 
     switch(Math.floor(score/10))
@@ -47,5 +50,4 @@ function calculateGrade(score)
         default:
             gradeLetter.innerHTML = "F";
     }
-
 }
