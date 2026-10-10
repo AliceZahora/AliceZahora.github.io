@@ -42,6 +42,15 @@ function gameSetup ()
         //main.style.cursor = "url('hippo-solid-full-white\ \(small\).ico'), default";
 
         displayFood();
+
+        //create enemy icon and append to main
+        let enemy = document.createElement("i");
+        enemy.id = "enemyIcon";
+        enemy.classList.add("fa-regular");
+        enemy.classList.add("fa-face-angry");
+        main.appendChild(enemy);
+
+        setInterval(moveEnemy, 1000);
     }
     else
     {
@@ -86,6 +95,9 @@ function displayFood()
         i++;
     }
 }
+function moveEnemy()
+{
+}
 function gameOver(didWin)
 {
     document.getElementById("endScreen").showModal();
@@ -106,4 +118,5 @@ function resetGame()
     eatenCount = 0;
     startMenu.style.display = "flex";
     instructions.style.display = "block";
+    document.getElementById("enemyIcon").remove();
 }
