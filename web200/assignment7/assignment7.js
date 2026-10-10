@@ -58,10 +58,10 @@ function displayFood()
         newFood.classList.add("fa-solid");
         newFood.classList.add(iconTypes[randomFood]);
 
-        //random pos on canvas for icon, excludes header area
+        //random pos on canvas for icon, excludes header area and icon size
         //random * (max - min) + min
-        newFood.style.top = (Math.random() * (100 - 12) + 12) + "vh";
-        newFood.style.left = (Math.random() * (100 - 12) + 12) + "vw";
+        newFood.style.top = (Math.random() * (97 - 12) + 12) + "vh";
+        newFood.style.left = (Math.random() * 97) + "vw";
 
         main.appendChild(newFood);
 
