@@ -65,6 +65,11 @@ function displayFood()
 
         main.appendChild(newFood);
 
+        newFood.addEventListener("mouseover", function ()
+        {
+            this.remove();
+        })
+
         i++;
     }
 }
