@@ -16,6 +16,7 @@ const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
                     "fa-ice-cream", "fa-apple-whole"];
 
 let eatenCount = 0;
+let direction = ["down", "right"];
 
 startButton.addEventListener("click", gameSetup);
 
@@ -56,7 +57,7 @@ function gameSetup ()
 
         main.appendChild(enemy);
 
-        setInterval(moveEnemy, 10, enemy);
+        setInterval(moveEnemy, 5, enemy);
     }
     else
     {
@@ -103,10 +104,42 @@ function displayFood()
 }
 function moveEnemy(enemy)
 {
-    //per frame, move enemy one pixe down and to right
-    console.log(enemy.style.top);
-    enemy.style.top = (enemy.offsetTop + 1) + "px";
-    enemy.style.left = (enemy.offsetLeft + 1) + "px";
+    //per frame, move enemy one pixel down and to right
+
+    //if current position not offscreen, check which direction we are
+    //currently meant to move via array
+    if(enemy.offsetTop > window.innerHeight || direction[0] == "up")
+    {
+        enemy.style.top = (enemy.offsetTop - 1) + "px";
+
+        //tell to switch direction next time if next location is offscreen
+        if(enemy.offsetTop < 0)
+        {
+            direction[0] = "down"
+        }
+    }
+    else
+    {
+        enemy.style.top = (enemy.offsetTop + 1) + "px";
+
+        //tell to switch direction next time if next location is offscreen
+        if(enemy.offsetTop > window.innerHeight)
+        {
+            direction[0] = "up"
+        }
+    }
+
+    /*
+    //if enemy goes offscreen, redirect
+    if(enemy.offsetLeft > window.innerWidth)
+    {
+        enemy.style.left = (enemy.offsetLeft + 1) + "px";
+    }
+    else
+    {
+        enemy.style.left = (enemy.offsetLeft - 1) + "px";
+    }*/
+
 }
 function gameOver(didWin)
 {
