@@ -50,15 +50,12 @@ function displayFood()
 
     let newFood = document.createElement("i");
     newFood.classList.add("fa-solid");
-
     newFood.classList.add(iconTypes[randomFood]);
 
-    main.appendChild(newFood);
-}
-function randPos()
-{
     //random pos on canvas, excludes header area
     //random * (max - min) + min
-    let randomX = Math.random() * (100 - 12) + 12;
-    let randomY = Math.random() * (100 - 12) + 12;
+    newFood.style.top = (Math.random() * (100 - 12) + 12) + "vh";
+    newFood.style.left = (Math.random() * (100 - 12) + 12) + "vw";
+
+    main.appendChild(newFood);
 }
