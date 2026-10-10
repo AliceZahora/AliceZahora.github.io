@@ -5,6 +5,7 @@
     Date: 10/11/2026
 */
 
+const main = document.getElementById("main");
 const startMenu = document.getElementById("startMenu");
 const instructions = document.getElementById("instructions");
 const startButton = document.getElementById("startButton");
@@ -45,6 +46,14 @@ function gameSetup ()
 }
 function displayFood()
 {
+    let randomFood = Math.floor(Math.random() * 5);
+
+    let newFood = document.createElement("i");
+    newFood.classList.add("fa-solid");
+
+    newFood.classList.add(iconTypes[randomFood]);
+
+    main.appendChild(newFood);
 }
 function randPos()
 {
