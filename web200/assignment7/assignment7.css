@@ -2,14 +2,33 @@
     margin: 0;
     padding: 0;
     height: 100vh;
+    width: 100vw;
+}
+#header {
+    height: 10vh;
+    padding: 1vh;
+    background-color: rgb(85, 151, 151);
 }
 #header * {
-    margin: 0;
+    margin: 0px 0px 1vh 1vw;
     padding: 0;
+    color: white;
+}
+#main {
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
 }
 #canvas {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
+    left: 0;
+}
+#enemyLabel {
+    margin: auto;
+    display: block;
+    width: fit-content;
+    justify-content: center;
 }
