@@ -12,6 +12,9 @@
         <meta name="description" content="Web 200 - Assignment 7">
         <link rel="stylesheet" href="assignment7.css" type="text/css">
         <script src="assignment7.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
         <title> Web 200 - Zahora 7 </title>
         <!--
             INSTRUCTIONS
@@ -29,9 +32,12 @@
             <h2> Assignment 7 </h2>
         </header>
         <main id="main">
-            <label for="enemyNum" id="enemyLabel"> Number of enemies to spawn:
+            <div id="startupMenu">
+                <label for="enemyNum" id="enemyLabel">
+                    <b> Number of enemies to spawn: </b>
+                </label>
                 <input type="text" id="enemyNum" name="enemyNum">
-            </label>
+            </div>
             <canvas id="canvas"></canvas>
         </main>
     </body>
