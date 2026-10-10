@@ -40,10 +40,16 @@
     border-radius: 10px;
     box-shadow: 0px 2px 2px;
     width: 30vw;
-    height: 20vh;
+    height: 25vh;
 }
 #enemyLabel {
     font-family: "Silkscreen", sans-serif;
     font-size: large;
     color: white;
+}
+#startGame {
+    font-family: "Oxanium", sans-serif;
+    font-size: medium;
+    width: 20%;
+    height: 15%;
 }
