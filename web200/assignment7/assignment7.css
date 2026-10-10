@@ -35,7 +35,7 @@
     font-size: xx-large;
     color: white;
 }
-#startupMenu {
+#startMenu {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -47,12 +47,12 @@
     width: 30vw;
     height: 25vh;
 }
-#enemyLabel {
+#foodLabel {
     font-family: "Silkscreen", sans-serif;
     font-size: large;
     color: white;
 }
-#startGame {
+#startButton {
     font-family: "Oxanium", sans-serif;
     font-size: medium;
     width: 20%;
