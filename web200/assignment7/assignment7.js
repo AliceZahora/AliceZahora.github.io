@@ -11,6 +11,7 @@ const instructions = document.getElementById("instructions");
 const startButton = document.getElementById("startButton");
 
 const numFood = document.getElementById("numFood");
+const allFood = [];
 
 const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
                     "fa-ice-cream", "fa-apple-whole"];
@@ -84,6 +85,7 @@ function displayFood()
         newFood.style.top = (Math.random() * (97 - 12) + 12) + "vh";
         newFood.style.left = (Math.random() * 97) + "vw";
 
+        allFood.push(newFood);
         main.appendChild(newFood);
 
         //remove food when mouse over (eat)
@@ -175,4 +177,9 @@ function resetGame()
     startMenu.style.display = "flex";
     instructions.style.display = "block";
     document.getElementById("enemyIcon").remove();
+
+    //remove all food html icons
+    allFood.forEach(food => {
+        food.remove();
+    });
 }
