@@ -74,6 +74,9 @@ function displayFood()
         {
             this.remove();
             eatenCount ++;
+
+            //if player has eaten as much food as was outputted, end game
+            //with win
             if(eatenCount == numFood.value)
             {
                 gameOver(1);
@@ -85,8 +88,14 @@ function displayFood()
 }
 function gameOver(didWin)
 {
+    document.getElementById("endScreen").showModal();
+
     if(didWin)
     {
-        document.getElementById("endScreen").showModal();
+        document.getElementById("endText").innerHTML = "You Win!";
+    }
+    else
+    {
+        document.getElementById("endText").innerHTML = "You Lose!";
     }
 }
