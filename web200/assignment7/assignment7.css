@@ -1,0 +1,14 @@
+#body {
+    margin: 0px;
+    padding: 0px;
+}
+#header {
+    margin-left: 1vw;
+    padding: 0px;
+    position: absolute;
+}
+#canvas {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
