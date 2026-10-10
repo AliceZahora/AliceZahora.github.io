@@ -98,4 +98,12 @@ function gameOver(didWin)
     {
         document.getElementById("endText").innerHTML = "You Lose!";
     }
+
+    resetGame();
+}
+function resetGame()
+{
+    eatenCount = 0;
+    startMenu.style.display = "flex";
+    instructions.style.display = "block";
 }
