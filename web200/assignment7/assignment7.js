@@ -49,6 +49,7 @@ function gameSetup ()
         enemy.id = "enemyIcon";
         enemy.classList.add("fa-regular");
         enemy.classList.add("fa-face-angry");
+        enemy.classList.add("fa-canvas-square");
 
         //if you touch enemy, you lose
         enemy.addEventListener("mouseover", function () {
@@ -129,16 +130,28 @@ function moveEnemy(enemy)
         }
     }
 
-    /*
-    //if enemy goes offscreen, redirect
-    if(enemy.offsetLeft > window.innerWidth)
+    //if current position not offscreen, check which direction we are
+    //currently meant to move via array
+    if(enemy.offsetLeft > window.innerWidth || direction[1] == "left")
     {
-        enemy.style.left = (enemy.offsetLeft + 1) + "px";
+        enemy.style.left = (enemy.offsetLeft - 1) + "px";
+
+        //tell to switch direction next time if next location is offscreen
+        if(enemy.offsetLeft < 0)
+        {
+            direction[1] = "right"
+        }
     }
     else
     {
-        enemy.style.left = (enemy.offsetLeft - 1) + "px";
-    }*/
+        enemy.style.left = (enemy.offsetLeft + 1) + "px";
+
+        //tell to switch direction next time if next location is offscreen
+        if(enemy.offsetLeft > window.innerWidth - (window.innerHeight/10))
+        {
+            direction[1] = "left"
+        }
+    }
 
 }
 function gameOver(didWin)
