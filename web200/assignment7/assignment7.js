@@ -48,6 +48,12 @@ function gameSetup ()
         enemy.id = "enemyIcon";
         enemy.classList.add("fa-regular");
         enemy.classList.add("fa-face-angry");
+
+        //if you touch enemy, you lose
+        enemy.addEventListener("mouseover", function () {
+            gameOver(0);
+        });
+
         main.appendChild(enemy);
 
         setInterval(moveEnemy, 10, enemy);
