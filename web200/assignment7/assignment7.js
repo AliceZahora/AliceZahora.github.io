@@ -113,7 +113,7 @@ function moveEnemy(enemy)
         enemy.style.top = (enemy.offsetTop - 1) + "px";
 
         //tell to switch direction next time if next location is offscreen
-        if(enemy.offsetTop < 0)
+        if(enemy.offsetTop < (0 + (window.innerHeight/8)))
         {
             direction[0] = "down"
         }
@@ -123,7 +123,7 @@ function moveEnemy(enemy)
         enemy.style.top = (enemy.offsetTop + 1) + "px";
 
         //tell to switch direction next time if next location is offscreen
-        if(enemy.offsetTop > window.innerHeight)
+        if(enemy.offsetTop > (window.innerHeight - (window.innerHeight/10)))
         {
             direction[0] = "up"
         }
