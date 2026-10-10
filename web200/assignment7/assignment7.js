@@ -50,7 +50,7 @@ function gameSetup ()
         enemy.classList.add("fa-face-angry");
         main.appendChild(enemy);
 
-        setInterval(moveEnemy, 1000);
+        setInterval(moveEnemy, 10, enemy);
     }
     else
     {
@@ -95,8 +95,12 @@ function displayFood()
         i++;
     }
 }
-function moveEnemy()
+function moveEnemy(enemy)
 {
+    //per frame, move enemy one pixe down and to right
+    console.log(enemy.style.top);
+    enemy.style.top = (enemy.offsetTop + 1) + "px";
+    enemy.style.left = (enemy.offsetLeft + 1) + "px";
 }
 function gameOver(didWin)
 {
