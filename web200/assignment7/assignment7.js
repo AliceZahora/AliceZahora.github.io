@@ -46,16 +46,25 @@ function gameSetup ()
 }
 function displayFood()
 {
-    let randomFood = Math.floor(Math.random() * 5);
+    let i = 0;
 
-    let newFood = document.createElement("i");
-    newFood.classList.add("fa-solid");
-    newFood.classList.add(iconTypes[randomFood]);
+    while(i < numFood.value)
+    {
+        //chooses random position in array for random icon
+        var randomFood = Math.floor(Math.random() * 5);
 
-    //random pos on canvas, excludes header area
-    //random * (max - min) + min
-    newFood.style.top = (Math.random() * (100 - 12) + 12) + "vh";
-    newFood.style.left = (Math.random() * (100 - 12) + 12) + "vw";
+        //create icon element
+        var newFood = document.createElement("i");
+        newFood.classList.add("fa-solid");
+        newFood.classList.add(iconTypes[randomFood]);
 
-    main.appendChild(newFood);
+        //random pos on canvas for icon, excludes header area
+        //random * (max - min) + min
+        newFood.style.top = (Math.random() * (100 - 12) + 12) + "vh";
+        newFood.style.left = (Math.random() * (100 - 12) + 12) + "vw";
+
+        main.appendChild(newFood);
+
+        i++;
+    }
 }
