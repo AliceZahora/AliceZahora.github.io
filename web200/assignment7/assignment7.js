@@ -11,8 +11,17 @@ let startButton = document.getElementById("startButton");
 
 let numFood = document.getElementById("numFood");
 
+startButton.addEventListener("click", gameSetup);
+
 //hides start screen to make room for game
-startButton.addEventListener("click", function () {
+function gameSetup ()
+{
     startMenu.style.display = "none";
     instructions.style.display = "none";
-});
+
+    displayFood();
+}
+function displayFood()
+{
+    alert(numFood.value);
+}
