@@ -22,14 +22,6 @@
     align-items: center;
     background-color: black;
 }
-#canvas {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
 #instructions {
     font-family: "Silkscreen", sans-serif;
     font-size: xx-large;

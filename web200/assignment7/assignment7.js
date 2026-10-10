@@ -11,6 +11,9 @@ const startButton = document.getElementById("startButton");
 
 const numFood = document.getElementById("numFood");
 
+const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
+                    "fa-ice-cream", "fa-apple-whole"]
+
 startButton.addEventListener("click", gameSetup);
 
 //checks is input is within the range
@@ -42,6 +45,11 @@ function gameSetup ()
 }
 function displayFood()
 {
-    //default food number if none entered
-    let food = 10;
+}
+function randPos()
+{
+    //random pos on canvas, excludes header area
+    //random * (max - min) + min
+    let randomX = Math.random() * (100 - 12) + 12;
+    let randomY = Math.random() * (100 - 12) + 12;
 }
