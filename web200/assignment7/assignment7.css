@@ -3,6 +3,7 @@
     padding: 0;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 #header {
     height: 10vh;
@@ -21,7 +22,6 @@
     justify-content: center;
     align-items: center;
     background-color: black;
-    overflow: hidden;
 }
 #instructions {
     font-family: "Silkscreen", sans-serif;
@@ -50,6 +50,32 @@
     font-size: medium;
     width: 20%;
     height: 15%;
+}
+#endScreen {
+    width: 40vw;
+    height: 35vh;
+    background-image: linear-gradient(blue, black);
+    border: 1px solid white;
+}
+#closeScreen {
+    position: absolute;
+    background: none;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+    right: 5%;
+}
+#closeScreen:hover {
+    cursor: pointer;
+}
+#endText {
+    font-family: "Silkscreen", sans-serif;
+    font-size: x-large;
+    color: white;
+    line-height: 35vh;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 .fa-solid {
     color: white;

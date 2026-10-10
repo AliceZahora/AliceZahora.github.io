@@ -13,7 +13,9 @@ const startButton = document.getElementById("startButton");
 const numFood = document.getElementById("numFood");
 
 const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
-                    "fa-ice-cream", "fa-apple-whole"]
+                    "fa-ice-cream", "fa-apple-whole"];
+
+let eatenCount = 0;
 
 startButton.addEventListener("click", gameSetup);
 
@@ -36,6 +38,8 @@ function gameSetup ()
     {
         startMenu.style.display = "none";
         instructions.style.display = "none";
+
+        //main.style.cursor = "url('hippo-solid-full-white\ \(small\).ico'), default";
 
         displayFood();
     }
@@ -65,11 +69,24 @@ function displayFood()
 
         main.appendChild(newFood);
 
+        //remove food when mouse over (eat)
         newFood.addEventListener("mouseover", function ()
         {
             this.remove();
+            eatenCount ++;
+            if(eatenCount == numFood.value)
+            {
+                gameOver(1);
+            }
         })
 
         i++;
+    }
+}
+function gameOver(didWin)
+{
+    if(didWin)
+    {
+        document.getElementById("endScreen").showModal();
     }
 }
