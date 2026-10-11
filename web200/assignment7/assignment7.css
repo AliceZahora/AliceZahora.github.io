@@ -34,23 +34,24 @@
     justify-content: space-evenly;
     align-items: center;
     width: fit-content;
+    height: fit-content;
     background-image: linear-gradient(blue, black);
     border-radius: 10px;
     box-shadow: 0px 2px 2px;
-    width: 35vw;
-    height: 25vh;
 }
-#foodLabel, #enemyLabel {
+.gameLabel {
     font-family: "Silkscreen", sans-serif;
     font-size: large;
     color: white;
     text-align: center;
+    padding: 1vw;
 }
 #startButton {
     font-family: "Oxanium", sans-serif;
     font-size: medium;
     width: 20%;
     height: 15%;
+    margin: 1vw;
 }
 #safeArea {
     font-family: "Oxanium", sans-serif;
