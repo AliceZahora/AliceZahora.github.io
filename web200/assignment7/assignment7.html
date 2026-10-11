@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+            Alice Zahora
+            Class: Web 200
+            Assignment: 7
+            Date: 10/11/2026
+        -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web 200 - Assignment 7">
+        <link rel="stylesheet" href="assignment7.css" type="text/css">
+        <script src="assignment7.js" defer></script>
+        <script src="https://kit.fontawesome.com/e558e0301a.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+        <title> Web 200 - Zahora 7 </title>
+        <!--
+            INSTRUCTIONS
+
+            Use a while loop to dynamically generate HTML content — for
+            example a multiplication table, a countdown list, or a
+            sequence of colored boxes. Demonstrate at least one use of
+            break or continue and explain in a comment why it was used.
+
+        -->
+    </head>
+    <body id="body">
+        <header id="header">
+            <h1> Web 200 </h1>
+            <h2> Assignment 7 </h2>
+        </header>
+        <main id="main">
+            <h3 id="instructions"> Avoid the Circles, Collect Food! </h3>
+            <div id="startMenu">
+                <label for="foodLabel" id="foodLabel">
+                    <b> Number of food to spawn (1-20): </b>
+                </label>
+                <input type="number" id="numFood" name="numFood" min="1" max="20">
+                <button id="startButton"> Start </button>
+            </div>
+            <dialog id="endScreen">
+                <button id="closeScreen" commandFor="endScreen" command="close">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+                <p id="endText"> You Win! </p>
+            </dialog>
+        </main>
+    </body>
+</html>

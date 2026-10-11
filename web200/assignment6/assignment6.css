@@ -1,0 +1,90 @@
+#body {
+    background-image: url("desk.jpg");
+    background-size: cover;
+    margin: 0px;
+}
+#header {
+    color: white;
+    text-shadow: 2px 2px 5px black, 2px 2px 5px black;
+    position: absolute;
+    margin-left: 2vw;
+}
+#main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: end;
+}
+#examPaper {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 1px 1px 4px;
+    min-height: 90vh;
+    height: fit-content;
+    width: 43vw;
+    margin-right: 5vw;
+    justify-content: space-evenly;
+}
+#examContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#examHeader {
+    align-self: center;
+}
+#questionColumn, #gradingColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#finalGradeColumn *, .correctness{
+    height: 20%;
+    margin: 2.5%;
+    text-align: center;
+}
+#turnIn {
+    align-self: center;
+    width: 15%;
+    height: 4vh;
+    margin-bottom: 2%;
+    background-color: lightgreen;
+    color: rgb(7, 48, 7);
+}
+#turnIn:hover {
+    cursor: pointer;
+    background-color: rgb(13, 87, 13);
+    color: white;
+}
+#finalGradeLetter
+{
+    visibility: hidden;
+    color: red;
+    font-size: 5vw;
+    font-family: "Finger Paint", sans-serif;
+}
+.legend {
+    font-weight: bold;
+}
+.fieldset {
+    border: 0;
+    height: 20%;
+    overflow: hidden;
+    padding-left: 0;
+}
+.correctness {
+    visibility: hidden;
+}
+@media only screen and (max-width: 950px)
+{
+    #header {
+        position: relative;
+    }
+    #examPaper
+    {
+        width: 90vw;
+        padding-bottom: 3vh;
+    }
+}
