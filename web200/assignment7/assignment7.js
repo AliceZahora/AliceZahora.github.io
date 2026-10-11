@@ -11,6 +11,7 @@ const instructions = document.getElementById("instructions");
 const startButton = document.getElementById("startButton");
 
 const numFood = document.getElementById("numFood");
+const numEnemy = document.getElementById("numEnemy");
 const allFood = [];
 
 const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
@@ -104,7 +105,10 @@ function checkInput()
 
     if(numFood.value > 0 && numFood.value <= 20)
     {
-        valid = true;
+        if(numEnemy.value > 0 && numEnemy.value <= 20)
+        {
+            valid = true;
+        }
     }
 
     return valid;
@@ -121,10 +125,8 @@ function gameSetup ()
 
         displayFood();
 
-        let enemyNum = 4;
-
         //create as many enemies as indicated
-        for(let i = 0; i != enemyNum; i++)
+        for(let i = 0; i != numEnemy.value; i++)
         {
             let id = "enemyIcon" + i;
             let enemyOb = new Enemy(id);

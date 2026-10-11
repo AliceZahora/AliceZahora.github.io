@@ -37,10 +37,10 @@
     background-image: linear-gradient(blue, black);
     border-radius: 10px;
     box-shadow: 0px 2px 2px;
-    width: 30vw;
+    width: 35vw;
     height: 25vh;
 }
-#foodLabel {
+#foodLabel, #enemyLabel {
     font-family: "Silkscreen", sans-serif;
     font-size: large;
     color: white;
