@@ -12,15 +12,26 @@ const startButton = document.getElementById("startButton");
 
 const numFood = document.getElementById("numFood");
 const numEnemy = document.getElementById("numEnemy");
+
+//array used to hold all food html, used to delete them all later
+//remove and use attached class?
 const allFood = [];
 
 const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
                     "fa-ice-cream", "fa-apple-whole"];
 
+//counts how much food eaten to detect when round is over
 let eatenCount = 0;
+
+//holds interval so that can be canceled when done using
 let interval = 0;
 
+//array used to hold all enemy objects
 let enemyArray = [];
+
+
+//did player survive round
+let survived = true;
 
 startButton.addEventListener("click", gameSetup);
 document.getElementById("standardMode").addEventListener("change", changeMode);
@@ -33,10 +44,13 @@ let promiseRoundOver;
 //if setPromise is called, it sets up a wait until it is resolved
 //however, since we set promiseRoundOver as the resolve(), if THAT
 //is called, it instead resolves the promise
-//so call setPromise to wait, call promiseRoundOver to end wait
-const setPromise = new Promise((resolve) => {
-    promiseRoundOver = resolve;
-})
+//so call setPromise(createPromise) to wait, call promiseRoundOver to end wait
+function createPromise()
+{
+    return new Promise((resolve) => {
+        promiseRoundOver = resolve;
+    })
+}
 
 class Enemy
 {
@@ -160,7 +174,6 @@ function getChecked(elementName)
 async function gameSetup ()
 {
     let gamemode = getChecked("gamemode");
-    let keepPlaying = true;
 
     if (checkInput() || gamemode == "infinite")
     {
@@ -194,27 +207,49 @@ async function gameSetup ()
 
         //main.style.cursor = "url('hippo-solid-full-white\ \(small\).ico'), default";
 
-        while(keepPlaying)
-        {
-            displayFood(gamemode);
-            displayEnemy(gamemode);
+        let roundNumber = 1;
 
+        let setPromise = createPromise();
+
+        while(survived)
+        {
+            //set board based on user input or round number for infinite
+            displayFood(gamemode, roundNumber);
+            displayEnemy(gamemode, roundNumber);
+
+            //move enemies via interval call to moveEnemies
             interval = setInterval(moveEnemies, speed);
 
             //wait until promise is resolved, indicating end of round
             await setPromise;
-            keepPlaying = false;
+
+            //leave loop if standard mode because its one round only
+            if(gamemode == "standard")
+            {
+                break;
+            }
+
+            //reset for next round if survived, else will be reset after
+            //loop is left
+            if(survived)
+            {
+                resetGame("partial");
+                setPromise = createPromise()
+                roundNumber++;
+            }
         }
+
+        resetGame("full");
     }
     else
     {
         alert("Please enter a valid number (1-20)");
     }
 }
-function displayFood(gamemode)
+function displayFood(gamemode, roundNumber)
 {
     let i = 0;
-    let spawnFood = 1;
+    let spawnFood = roundNumber;
 
     //if standard mode, base food number on user input
     if(gamemode == "standard")
@@ -250,16 +285,16 @@ function displayFood(gamemode)
             //with win
             if(eatenCount == spawnFood)
             {
-                gameOver(1);
+                gameOver(1, roundNumber, gamemode);
             }
         })
 
         i++;
     }
 }
-function displayEnemy(gamemode)
+function displayEnemy(gamemode, roundNumber)
 {
-    let spawnEnemy = 1;
+    let spawnEnemy = roundNumber;
 
     //if standard mode, base enemy number on user input
     if(gamemode == "standard")
@@ -281,27 +316,35 @@ function moveEnemies()
         enemyObject.move();
     });
 }
-function gameOver(didWin)
+function gameOver(didWin, roundNumber, gamemode)
 {
     document.getElementById("endScreen").showModal();
 
     if(didWin)
     {
-        document.getElementById("endText").innerHTML = "You Win!";
+        if(gamemode == "infinite")
+        {
+            document.getElementById("endText").innerHTML = "Round " + (roundNumber + 1);
+        }
+        else
+        {
+            document.getElementById("endText").innerHTML = "You Win!";
+        }
+
+        survived = true;
     }
     else
     {
         document.getElementById("endText").innerHTML = "You Lose!";
+        survived = false;
     }
 
-    resetGame();
+    //resolves promise, indicates round is over and loop can continue
+    promiseRoundOver();
 }
-function resetGame()
+function resetGame(type)
 {
     eatenCount = 0;
-    startMenu.style.display = "flex";
-    instructions.style.display = "block";
-
     clearInterval(interval);
 
     //clear object array and delete html objects
@@ -310,13 +353,17 @@ function resetGame()
     });
     enemyArray = [];
 
-    //remove all food html icons
-    allFood.forEach(food => {
-        food.remove();
-    });
+    if(type == "full")
+    {
+        startMenu.style.display = "flex";
+        instructions.style.display = "block";
 
-    document.getElementById("safeArea").remove();
+        //remove all food html icons
+        allFood.forEach(food => {
+            food.remove();
+        });
 
-    //resolves promise, indicates round is over and loop can continue
-    promiseRoundOver();
+        document.getElementById("safeArea").remove();
+        survived = true;
+    }
 }
