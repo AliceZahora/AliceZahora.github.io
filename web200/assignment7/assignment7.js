@@ -18,6 +18,7 @@ const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
 
 let eatenCount = 0;
 let direction = ["down", "right"];
+let interval = 0;
 
 startButton.addEventListener("click", gameSetup);
 
@@ -59,7 +60,7 @@ function gameSetup ()
 
         main.appendChild(enemy);
 
-        setInterval(moveEnemy, 5, enemy);
+        interval = setInterval(moveEnemy, 5, enemy);
     }
     else
     {
@@ -177,6 +178,10 @@ function resetGame()
     startMenu.style.display = "flex";
     instructions.style.display = "block";
     document.getElementById("enemyIcon").remove();
+    direction[0] = "down";
+    direction[1] = "right";
+
+    clearInterval(interval);
 
     //remove all food html icons
     allFood.forEach(food => {
