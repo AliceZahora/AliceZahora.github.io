@@ -78,8 +78,8 @@
     font-size: medium;
     z-index: 100;
     position: absolute;
-    width: 20%;
-    height: 5%;
+    width: 7vw;
+    height: 5vh;
 }
 #endScreen {
     width: 40vw;
@@ -117,3 +117,17 @@
     font-size: 20vh;
     position: absolute;
 }
+@media only screen and (max-width: 510px) {
+    #safeArea {
+        width: 20%;
+        height: 5%;
+    }
+    #endScreen {
+        width: fit-content;
+        height: fit-content;
+    }
+    #closeScreen {
+        right: 10%;
+    }
+}
+
