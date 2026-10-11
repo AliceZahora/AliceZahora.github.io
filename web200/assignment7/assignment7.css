@@ -52,6 +52,14 @@
     width: 20%;
     height: 15%;
 }
+#safeArea {
+    font-family: "Oxanium", sans-serif;
+    font-size: medium;
+    z-index: 100;
+    position: absolute;
+    width: 7vw;
+    height: 5vh;
+}
 #endScreen {
     width: 40vw;
     height: 35vh;

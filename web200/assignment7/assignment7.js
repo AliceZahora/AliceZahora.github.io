@@ -118,6 +118,16 @@ function gameSetup ()
 {
     if (checkInput())
     {
+        //create safe area space where start button was so that enemy
+        //doesn't insta kill player, since enemy can spawn there
+        let safeArea = document.createElement('button');
+        let startPositioning = startButton.getBoundingClientRect();
+        safeArea.id = "safeArea";
+        safeArea.style.top = startPositioning.top + "px";
+        safeArea.style.left = startPositioning.left + "px";
+        safeArea.innerHTML = "Safe Area";
+        main.appendChild(safeArea);
+
         startMenu.style.display = "none";
         instructions.style.display = "none";
 
@@ -218,4 +228,6 @@ function resetGame()
     allFood.forEach(food => {
         food.remove();
     });
+
+    document.getElementById("safeArea").remove();
 }
