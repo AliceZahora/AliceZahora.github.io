@@ -23,8 +23,8 @@ let interval = 0;
 let enemyArray = [];
 
 startButton.addEventListener("click", gameSetup);
-document.getElementById("standardMode").addEventListener("click", changeMode);
-document.getElementById("infiniteMode").addEventListener("click", changeMode);
+document.getElementById("standardMode").addEventListener("change", changeMode);
+document.getElementById("infiniteMode").addEventListener("change", changeMode);
 
 class Enemy
 {
@@ -114,6 +114,19 @@ function checkInput()
     }
 
     return valid;
+}
+function changeMode(event)
+{
+    let inputMenus = document.getElementsByClassName("gameInputs");
+
+    //if current clicked is standard, show input blocks, else, hide them
+    let changeDisplay = (getChecked("gamemode") == "standard")? "block" : "none";
+
+    //iterate through all input blocks and changes display based on previous else if
+    for(let z = 0; z != inputMenus.length; z++)
+    {
+        inputMenus[z].style.display = changeDisplay;
+    }
 }
 function getChecked(elementName)
 {
