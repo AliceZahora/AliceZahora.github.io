@@ -55,7 +55,7 @@ class Enemy
         //currently meant to move via array
         if(this.enemy.offsetTop > window.innerHeight || this.direction[0] == "up")
         {
-            this.enemy.style.top = (this.enemy.offsetTop - 1) + "px";
+            this.enemy.style.top = (this.enemy.offsetTop - 5) + "px";
 
             //tell to switch direction next time if next location is offscreen
             if(this.enemy.offsetTop < (0 + (window.innerHeight/8)))
@@ -65,7 +65,7 @@ class Enemy
         }
         else
         {
-            this.enemy.style.top = (this.enemy.offsetTop + 1) + "px";
+            this.enemy.style.top = (this.enemy.offsetTop + 5) + "px";
 
             //tell to switch direction next time if next location is offscreen
             if(this.enemy.offsetTop > (window.innerHeight - (window.innerHeight/5)))
@@ -78,7 +78,7 @@ class Enemy
         //currently meant to move via array
         if(this.enemy.offsetLeft > window.innerWidth || this.direction[1] == "left")
         {
-            this.enemy.style.left = (this.enemy.offsetLeft - 1) + "px";
+            this.enemy.style.left = (this.enemy.offsetLeft - 5) + "px";
 
             //tell to switch direction next time if next location is offscreen
             if(this.enemy.offsetLeft < 0)
@@ -88,7 +88,7 @@ class Enemy
         }
         else
         {
-            this.enemy.style.left = (this.enemy.offsetLeft + 1) + "px";
+            this.enemy.style.left = (this.enemy.offsetLeft + 5) + "px";
 
             //tell to switch direction next time if next location is offscreen
             if(this.enemy.offsetLeft > window.innerWidth - (window.innerHeight/5))
@@ -113,15 +113,46 @@ function checkInput()
 
     return valid;
 }
+function getDifficulty()
+{
+    let difficultyOptions = document.getElementsByName("speedLevel");
+    let difficulty = "easy";
+
+    //check each radio to see which one was chosen
+    for(let j = 0; j != difficultyOptions.length; j++)
+    {
+        if(difficultyOptions[j].checked)
+        {
+            difficulty = difficultyOptions[j].value;
+        }
+    }
+
+    return difficulty;
+}
 //hides start screen to make room for game
 function gameSetup ()
 {
     if (checkInput())
     {
+        let speed;
+
+        switch(getDifficulty())
+        {
+            case "easy":
+                speed = 20;
+                break;
+            case "medium":
+                speed = 15;
+                break;
+            case "hard":
+                speed = 10;
+        }
+
         //create safe area space where start button was so that enemy
         //doesn't insta kill player, since enemy can spawn there
         let safeArea = document.createElement('button');
         let startPositioning = startButton.getBoundingClientRect();
+
         safeArea.id = "safeArea";
         safeArea.style.top = startPositioning.top + "px";
         safeArea.style.left = startPositioning.left + "px";
@@ -143,7 +174,7 @@ function gameSetup ()
             enemyArray[i] = enemyOb;
         }
 
-        interval = setInterval(moveEnemies, 5);
+        interval = setInterval(moveEnemies, speed);
     }
     else
     {
