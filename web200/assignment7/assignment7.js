@@ -23,6 +23,8 @@ let interval = 0;
 let enemyArray = [];
 
 startButton.addEventListener("click", gameSetup);
+document.getElementById("standardMode").addEventListener("click", changeMode);
+document.getElementById("infiniteMode").addEventListener("click", changeMode);
 
 class Enemy
 {
@@ -113,21 +115,21 @@ function checkInput()
 
     return valid;
 }
-function getDifficulty()
+function getChecked(elementName)
 {
-    let difficultyOptions = document.getElementsByName("speedLevel");
-    let difficulty = "easy";
+    let radioOptions = document.getElementsByName(elementName);
+    let checkedValue;
 
     //check each radio to see which one was chosen
-    for(let j = 0; j != difficultyOptions.length; j++)
+    for(let j = 0; j != radioOptions.length; j++)
     {
-        if(difficultyOptions[j].checked)
+        if(radioOptions[j].checked)
         {
-            difficulty = difficultyOptions[j].value;
+            checkedValue = radioOptions[j].value;
         }
     }
 
-    return difficulty;
+    return checkedValue;
 }
 //hides start screen to make room for game
 function gameSetup ()
@@ -136,7 +138,7 @@ function gameSetup ()
     {
         let speed;
 
-        switch(getDifficulty())
+        switch(getChecked("speedLevel"))
         {
             case "easy":
                 speed = 20;
