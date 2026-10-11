@@ -27,6 +27,7 @@
     font-family: "Silkscreen", sans-serif;
     font-size: xx-large;
     color: white;
+    text-align: center;
 }
 #startMenu {
     display: flex;
