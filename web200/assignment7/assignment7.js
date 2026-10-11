@@ -67,7 +67,7 @@ class Enemy
             this.enemy.style.top = (this.enemy.offsetTop + 1) + "px";
 
             //tell to switch direction next time if next location is offscreen
-            if(this.enemy.offsetTop > (window.innerHeight - (window.innerHeight/10)))
+            if(this.enemy.offsetTop > (window.innerHeight - (window.innerHeight/5)))
             {
                 this.direction[0] = "up"
             }
@@ -90,7 +90,7 @@ class Enemy
             this.enemy.style.left = (this.enemy.offsetLeft + 1) + "px";
 
             //tell to switch direction next time if next location is offscreen
-            if(this.enemy.offsetLeft > window.innerWidth - (window.innerHeight/10))
+            if(this.enemy.offsetLeft > window.innerWidth - (window.innerHeight/5))
             {
                 this.direction[1] = "left"
             }
@@ -122,7 +122,7 @@ function gameSetup ()
         displayFood();
 
         let enemyNum = 4;
-        
+
         //create as many enemies as indicated
         for(let i = 0; i != enemyNum; i++)
         {
