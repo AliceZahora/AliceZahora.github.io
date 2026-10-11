@@ -181,23 +181,8 @@ function gameSetup ()
 
         //main.style.cursor = "url('hippo-solid-full-white\ \(small\).ico'), default";
 
-        displayFood();
-
-        let spawnEnemy = 1;
-
-        //if standard mode, base enemy number on user input
-        if(gamemode == "standard")
-        {
-            spawnEnemy = numEnemy.value;
-        }
-
-        //create as many enemies as indicated
-        for(let i = 0; i != spawnEnemy; i++)
-        {
-            let id = "enemyIcon" + i;
-            let enemyOb = new Enemy(id);
-            enemyArray[i] = enemyOb;
-        }
+        displayFood(gamemode);
+        displayEnemy(gamemode);
 
         interval = setInterval(moveEnemies, speed);
     }
@@ -206,19 +191,13 @@ function gameSetup ()
         alert("Please enter a valid number (1-20)");
     }
 }
-function moveEnemies()
-{
-    enemyArray.forEach(enemyObject => {
-        enemyObject.move();
-    });
-}
-function displayFood()
+function displayFood(gamemode)
 {
     let i = 0;
     let spawnFood = 1;
 
     //if standard mode, base food number on user input
-    if(getChecked("gamemode") == "standard")
+    if(gamemode == "standard")
     {
         spawnFood = numFood.value;
     }
@@ -257,6 +236,30 @@ function displayFood()
 
         i++;
     }
+}
+function displayEnemy(gamemode)
+{
+    let spawnEnemy = 1;
+
+    //if standard mode, base enemy number on user input
+    if(gamemode == "standard")
+    {
+        spawnEnemy = numEnemy.value;
+    }
+
+    //create as many enemies as indicated
+    for(let i = 0; i != spawnEnemy; i++)
+    {
+        let id = "enemyIcon" + i;
+        let enemyOb = new Enemy(id);
+        enemyArray[i] = enemyOb;
+    }
+}
+function moveEnemies()
+{
+    enemyArray.forEach(enemyObject => {
+        enemyObject.move();
+    });
 }
 function gameOver(didWin)
 {
