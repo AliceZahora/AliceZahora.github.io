@@ -147,7 +147,9 @@ function getChecked(elementName)
 //hides start screen to make room for game
 function gameSetup ()
 {
-    if (checkInput())
+    let gamemode = getChecked("gamemode");
+
+    if (checkInput() || gamemode == "infinite")
     {
         let speed;
 
@@ -181,8 +183,16 @@ function gameSetup ()
 
         displayFood();
 
+        let spawnEnemy = 1;
+
+        //if standard mode, base enemy number on user input
+        if(gamemode == "standard")
+        {
+            spawnEnemy = numEnemy.value;
+        }
+
         //create as many enemies as indicated
-        for(let i = 0; i != numEnemy.value; i++)
+        for(let i = 0; i != spawnEnemy; i++)
         {
             let id = "enemyIcon" + i;
             let enemyOb = new Enemy(id);
@@ -205,8 +215,15 @@ function moveEnemies()
 function displayFood()
 {
     let i = 0;
+    let spawnFood = 1;
 
-    while(i < numFood.value)
+    //if standard mode, base food number on user input
+    if(getChecked("gamemode") == "standard")
+    {
+        spawnFood = numFood.value;
+    }
+
+    while(i < spawnFood)
     {
         //chooses random position in array for random icon
         var randomFood = Math.floor(Math.random() * 5);
@@ -232,7 +249,7 @@ function displayFood()
 
             //if player has eaten as much food as was outputted, end game
             //with win
-            if(eatenCount == numFood.value)
+            if(eatenCount == spawnFood)
             {
                 gameOver(1);
             }
