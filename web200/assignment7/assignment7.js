@@ -121,10 +121,15 @@ function gameSetup ()
 
         displayFood();
 
-        let i = 0;
-        let id = "enemyIcon" + i;
-        let enemyOb = new Enemy(id);
-        enemyArray[i] = enemyOb;
+        let enemyNum = 4;
+        
+        //create as many enemies as indicated
+        for(let i = 0; i != enemyNum; i++)
+        {
+            let id = "enemyIcon" + i;
+            let enemyOb = new Enemy(id);
+            enemyArray[i] = enemyOb;
+        }
 
         interval = setInterval(moveEnemies, 5);
     }
