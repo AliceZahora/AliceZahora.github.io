@@ -26,6 +26,18 @@ startButton.addEventListener("click", gameSetup);
 document.getElementById("standardMode").addEventListener("change", changeMode);
 document.getElementById("infiniteMode").addEventListener("change", changeMode);
 
+//Used AI to explain this concept to me
+//create variable for promise
+let promiseRoundOver;
+
+//if setPromise is called, it sets up a wait until it is resolved
+//however, since we set promiseRoundOver as the resolve(), if THAT
+//is called, it instead resolves the promise
+//so call setPromise to wait, call promiseRoundOver to end wait
+const setPromise = new Promise((resolve) => {
+    promiseRoundOver = resolve;
+})
+
 class Enemy
 {
     constructor(setID)
@@ -145,9 +157,10 @@ function getChecked(elementName)
     return checkedValue;
 }
 //hides start screen to make room for game
-function gameSetup ()
+async function gameSetup ()
 {
     let gamemode = getChecked("gamemode");
+    let keepPlaying = true;
 
     if (checkInput() || gamemode == "infinite")
     {
@@ -181,10 +194,17 @@ function gameSetup ()
 
         //main.style.cursor = "url('hippo-solid-full-white\ \(small\).ico'), default";
 
-        displayFood(gamemode);
-        displayEnemy(gamemode);
+        while(keepPlaying)
+        {
+            displayFood(gamemode);
+            displayEnemy(gamemode);
 
-        interval = setInterval(moveEnemies, speed);
+            interval = setInterval(moveEnemies, speed);
+
+            //wait until promise is resolved, indicating end of round
+            await setPromise;
+            keepPlaying = false;
+        }
     }
     else
     {
@@ -296,4 +316,7 @@ function resetGame()
     });
 
     document.getElementById("safeArea").remove();
+
+    //resolves promise, indicates round is over and loop can continue
+    promiseRoundOver();
 }
