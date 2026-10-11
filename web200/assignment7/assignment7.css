@@ -78,8 +78,8 @@
     font-size: medium;
     z-index: 100;
     position: absolute;
-    width: 7vw;
-    height: 5vh;
+    width: 20%;
+    height: 5%;
 }
 #endScreen {
     width: 40vw;
