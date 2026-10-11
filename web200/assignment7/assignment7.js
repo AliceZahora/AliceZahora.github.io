@@ -14,7 +14,6 @@ const numFood = document.getElementById("numFood");
 const numEnemy = document.getElementById("numEnemy");
 
 //array used to hold all food html, used to delete them all later
-//remove and use attached class?
 const allFood = [];
 
 const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
