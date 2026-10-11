@@ -17,11 +17,86 @@ const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
                     "fa-ice-cream", "fa-apple-whole"];
 
 let eatenCount = 0;
-let direction = ["down", "right"];
 let interval = 0;
+
+let enemyArray = [];
 
 startButton.addEventListener("click", gameSetup);
 
+class Enemy
+{
+    constructor(setID)
+    {
+        this.direction = ["down", "right"];
+
+        //create enemy icon and append to main
+        this.enemy = document.createElement("i");
+        this.enemy.id = setID;
+        this.enemy.classList.add("fa-regular");
+        this.enemy.classList.add("fa-face-angry");
+        this.enemy.classList.add("fa-canvas-square");
+
+        this.enemy.style.left = (Math.random() * 97) + "vw";
+        this.enemy.style.top = (Math.random() * (97 - 12) + 12) + "vh";
+
+        //if you touch enemy, you lose
+        this.enemy.addEventListener("mouseover", function () {
+            gameOver(0);
+        });
+
+        main.appendChild(this.enemy);
+    }
+    move()
+    {
+        //per frame, move enemy one pixel down and to right
+
+        //if current position not offscreen, check which direction we are
+        //currently meant to move via array
+        if(this.enemy.offsetTop > window.innerHeight || this.direction[0] == "up")
+        {
+            this.enemy.style.top = (this.enemy.offsetTop - 1) + "px";
+
+            //tell to switch direction next time if next location is offscreen
+            if(this.enemy.offsetTop < (0 + (window.innerHeight/8)))
+            {
+                this.direction[0] = "down"
+            }
+        }
+        else
+        {
+            this.enemy.style.top = (this.enemy.offsetTop + 1) + "px";
+
+            //tell to switch direction next time if next location is offscreen
+            if(this.enemy.offsetTop > (window.innerHeight - (window.innerHeight/10)))
+            {
+                this.direction[0] = "up"
+            }
+        }
+
+        //if current position not offscreen, check which direction we are
+        //currently meant to move via array
+        if(this.enemy.offsetLeft > window.innerWidth || this.direction[1] == "left")
+        {
+            this.enemy.style.left = (this.enemy.offsetLeft - 1) + "px";
+
+            //tell to switch direction next time if next location is offscreen
+            if(this.enemy.offsetLeft < 0)
+            {
+                this.direction[1] = "right"
+            }
+        }
+        else
+        {
+            this.enemy.style.left = (this.enemy.offsetLeft + 1) + "px";
+
+            //tell to switch direction next time if next location is offscreen
+            if(this.enemy.offsetLeft > window.innerWidth - (window.innerHeight/10))
+            {
+                this.direction[1] = "left"
+            }
+        }
+    }
+}
 //checks is input is within the range
 function checkInput()
 {
@@ -46,26 +121,23 @@ function gameSetup ()
 
         displayFood();
 
-        //create enemy icon and append to main
-        let enemy = document.createElement("i");
-        enemy.id = "enemyIcon";
-        enemy.classList.add("fa-regular");
-        enemy.classList.add("fa-face-angry");
-        enemy.classList.add("fa-canvas-square");
+        let i = 0;
+        let id = "enemyIcon" + i;
+        let enemyOb = new Enemy(id);
+        enemyArray[i] = enemyOb;
 
-        //if you touch enemy, you lose
-        enemy.addEventListener("mouseover", function () {
-            gameOver(0);
-        });
-
-        main.appendChild(enemy);
-
-        interval = setInterval(moveEnemy, 5, enemy);
+        interval = setInterval(moveEnemies, 5);
     }
     else
     {
         alert("Please enter a valid number (1-20)");
     }
+}
+function moveEnemies()
+{
+    enemyArray.forEach(enemyObject => {
+        enemyObject.move();
+    });
 }
 function displayFood()
 {
@@ -106,57 +178,6 @@ function displayFood()
         i++;
     }
 }
-function moveEnemy(enemy)
-{
-    //per frame, move enemy one pixel down and to right
-
-    //if current position not offscreen, check which direction we are
-    //currently meant to move via array
-    if(enemy.offsetTop > window.innerHeight || direction[0] == "up")
-    {
-        enemy.style.top = (enemy.offsetTop - 1) + "px";
-
-        //tell to switch direction next time if next location is offscreen
-        if(enemy.offsetTop < (0 + (window.innerHeight/8)))
-        {
-            direction[0] = "down"
-        }
-    }
-    else
-    {
-        enemy.style.top = (enemy.offsetTop + 1) + "px";
-
-        //tell to switch direction next time if next location is offscreen
-        if(enemy.offsetTop > (window.innerHeight - (window.innerHeight/10)))
-        {
-            direction[0] = "up"
-        }
-    }
-
-    //if current position not offscreen, check which direction we are
-    //currently meant to move via array
-    if(enemy.offsetLeft > window.innerWidth || direction[1] == "left")
-    {
-        enemy.style.left = (enemy.offsetLeft - 1) + "px";
-
-        //tell to switch direction next time if next location is offscreen
-        if(enemy.offsetLeft < 0)
-        {
-            direction[1] = "right"
-        }
-    }
-    else
-    {
-        enemy.style.left = (enemy.offsetLeft + 1) + "px";
-
-        //tell to switch direction next time if next location is offscreen
-        if(enemy.offsetLeft > window.innerWidth - (window.innerHeight/10))
-        {
-            direction[1] = "left"
-        }
-    }
-
-}
 function gameOver(didWin)
 {
     document.getElementById("endScreen").showModal();
@@ -177,11 +198,14 @@ function resetGame()
     eatenCount = 0;
     startMenu.style.display = "flex";
     instructions.style.display = "block";
-    document.getElementById("enemyIcon").remove();
-    direction[0] = "down";
-    direction[1] = "right";
 
     clearInterval(interval);
+
+    //clear object array and delete html objects
+    enemyArray.forEach(enemyObject => {
+        enemyObject.enemy.remove();
+    });
+    enemyArray = [];
 
     //remove all food html icons
     allFood.forEach(food => {
