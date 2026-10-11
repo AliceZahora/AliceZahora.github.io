@@ -46,6 +46,17 @@
     text-align: center;
     padding: 1vw;
 }
+#gamemodeField {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.modeLabel {
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    box-shadow: 4px 4px rgb(0, 0, 29);
+}
 #startButton {
     font-family: "Oxanium", sans-serif;
     font-size: medium;
