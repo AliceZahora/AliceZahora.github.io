@@ -77,18 +77,25 @@ class Enemy
     }
     move()
     {
-        let evenFive = (Math.floor(this.enemy.offsetTop/5)) * 5;
-        let topScreen = Math.ceil(window.innerHeight-(window.innerHeight * .88))
+        //rounds to nearest multiple of 5
+        let evenFive = (Math.round(this.enemy.offsetTop/5)) * 5;
+        let topScreen = (Math.round((window.innerHeight-(window.innerHeight * .88))/5)) * 5;
+        let enemySize = window.innerHeight * .20;
+        let bottomScreen = (Math.round((window.innerHeight-enemySize)/5)) * 5;
+        //alert(window.innerHeight);
         console.log(evenFive);
 
         if(evenFive == topScreen)
         {
             alert("top");
-            if(this.enemy.offsetLeft == 0 || this.enemy.offsetLeft == window.innerWidth)
+            if(this.enemy.offsetLeft == bottomScreen)
             {
                 alert("corner");
             }
-
+        }
+        if(evenFive == bottomScreen)
+        {
+            alert("bottom");
         }
 
         //per frame, move enemy five pixels down and right
