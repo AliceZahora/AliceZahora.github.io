@@ -120,8 +120,7 @@
 }
 @media only screen and (max-width: 510px) {
     #safeArea {
-        width: 20%;
-        height: 5%;
+        display: none;
     }
     #endScreen {
         width: fit-content;
