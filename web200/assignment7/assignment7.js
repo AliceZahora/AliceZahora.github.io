@@ -14,7 +14,6 @@ const numFood = document.getElementById("numFood");
 const numEnemy = document.getElementById("numEnemy");
 
 //array used to hold all food html, used to delete them all later
-//remove and use attached class?
 const allFood = [];
 
 const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
@@ -77,7 +76,7 @@ class Enemy
     }
     move()
     {
-        //per frame, move enemy one pixel down and to right
+        //per frame, move enemy five pixels down and right
 
         //if current position not offscreen, check which direction we are
         //currently meant to move via array
@@ -119,7 +118,7 @@ class Enemy
             this.enemy.style.left = (this.enemy.offsetLeft + 5) + "px";
 
             //tell to switch direction next time if next location is offscreen
-            if(this.enemy.offsetLeft > window.innerWidth - (window.innerHeight/5))
+            if(this.enemy.offsetLeft > window.innerWidth - (window.innerHeight/4.8))
             {
                 this.direction[1] = "left"
             }
