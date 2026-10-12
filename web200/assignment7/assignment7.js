@@ -98,7 +98,15 @@ class Enemy
         {
             if(evenFiveX == rightScreen || evenFiveX == 0)
             {
-                this.colorIndex++;
+                //reset colors if reach end of array
+                if(this.colorIndex == colors.length - 1)
+                {
+                    this.colorIndex = 0;
+                }
+                else
+                {
+                    this.colorIndex++;
+                }
                 this.enemy.style.color = colors[this.colorIndex];
             }
         }
@@ -107,7 +115,15 @@ class Enemy
         {
             if(evenFiveX == rightScreen || evenFiveX == 0)
             {
-                this.enemy.colorIndex++;
+                //reset colors if reach end of array
+                if(this.colorIndex == colors.length - 1)
+                {
+                    this.colorIndex = 0;
+                }
+                else
+                {
+                    this.colorIndex++;
+                }
                 this.enemy.style.color = colors[this.colorIndex];
             }
         }
