@@ -60,6 +60,7 @@ class Enemy
 
         //create enemy icon and append to main
         this.enemy = document.createElement("i");
+        this.colorIndex = 0;
         this.enemy.id = setID;
         this.enemy.classList.add("fa-regular");
         this.enemy.classList.add("fa-face-angry");
@@ -92,18 +93,22 @@ class Enemy
 
         console.log("X:" + evenFiveX + ", Y: " + evenFiveY);
 
+        //if hits top of screen and one of sides = corner, change color to next in array
         if(evenFiveY == topScreen)
         {
             if(evenFiveX == rightScreen || evenFiveX == 0)
             {
-                alert("corner");
+                this.colorIndex++;
+                this.enemy.style.color = colors[this.colorIndex];
             }
         }
+        //if hits bottom of screen and one of sides = corner, change color to next in array
         else if(evenFiveY == bottomScreen)
         {
             if(evenFiveX == rightScreen || evenFiveX == 0)
             {
-                alert("corner");
+                this.enemy.colorIndex++;
+                this.enemy.style.color = colors[this.colorIndex];
             }
         }
 
