@@ -18,6 +18,7 @@ const allFood = [];
 
 const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
                     "fa-ice-cream", "fa-apple-whole"];
+const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
 
 //counts how much food eaten to detect when round is over
 let eatenCount = 0;
@@ -76,6 +77,20 @@ class Enemy
     }
     move()
     {
+        let evenFive = (Math.floor(this.enemy.offsetTop/5)) * 5;
+        let topScreen = Math.ceil(window.innerHeight-(window.innerHeight * .88))
+        console.log(evenFive);
+
+        if(evenFive == topScreen)
+        {
+            alert("top");
+            if(this.enemy.offsetLeft == 0 || this.enemy.offsetLeft == window.innerWidth)
+            {
+                alert("corner");
+            }
+
+        }
+
         //per frame, move enemy five pixels down and right
 
         //if current position not offscreen, check which direction we are
