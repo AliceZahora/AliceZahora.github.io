@@ -77,14 +77,16 @@ class Enemy
     }
     move()
     {
-        //rounds to nearest multiple of 5
+        //rounds to nearest multiple of 5 for enemy location
         let evenFive = (Math.round(this.enemy.offsetTop/5)) * 5;
-        let topScreen = (Math.round((window.innerHeight-(window.innerHeight * .88))/5)) * 5;
-        let enemySize = window.innerHeight * .20;
-        let bottomScreen = (Math.round((window.innerHeight-enemySize)/5)) * 5;
-        //alert(window.innerHeight);
-        console.log(evenFive);
 
+        //y position of top of screen rounded to nearest 5
+        let topScreen = (Math.round((window.innerHeight-(window.innerHeight * .88))/5)) * 5;
+        //enemy size based on viewport height
+        let enemySize = window.innerHeight * .20;
+        //y position of bottom of screen rouned to nearest 5
+        let bottomScreen = (Math.round((window.innerHeight-enemySize)/5)) * 5;
+        
         if(evenFive == topScreen)
         {
             alert("top");
