@@ -76,7 +76,7 @@ class Enemy
     }
     move()
     {
-        //per frame, move enemy one pixel down and to right
+        //per frame, move enemy five pixels down and right
 
         //if current position not offscreen, check which direction we are
         //currently meant to move via array
