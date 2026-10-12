@@ -118,7 +118,7 @@ class Enemy
             this.enemy.style.left = (this.enemy.offsetLeft + 5) + "px";
 
             //tell to switch direction next time if next location is offscreen
-            if(this.enemy.offsetLeft > window.innerWidth - (window.innerHeight/5))
+            if(this.enemy.offsetLeft > window.innerWidth - (window.innerHeight/4.8))
             {
                 this.direction[1] = "left"
             }
