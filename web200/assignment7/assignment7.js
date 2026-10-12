@@ -18,7 +18,7 @@ const allFood = [];
 
 const iconTypes = ["fa-pizza-slice", "fa-egg", "fa-carrot", "fa-lemon",
                     "fa-ice-cream", "fa-apple-whole"];
-const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+const colors = ["red", "blue", "yellow", "purple", "green", "coral"];
 
 //counts how much food eaten to detect when round is over
 let eatenCount = 0;
