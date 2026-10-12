@@ -78,16 +78,31 @@ class Enemy
     move()
     {
         //rounds to nearest multiple of 5 for enemy location
-        let evenFive = (Math.round(this.enemy.offsetTop/5)) * 5;
+        let evenFiveY = (Math.round(this.enemy.offsetTop/5)) * 5;
+        let evenFiveX = (Math.round(this.enemy.offsetLeft/5)) * 5;
 
         //y position of top of screen rounded to nearest 5
         let topScreen = (Math.round((window.innerHeight-(window.innerHeight * .88))/5)) * 5;
         //enemy size based on viewport height
         let enemySize = window.innerHeight * .20;
         //y position of bottom of screen rouned to nearest 5
-        let bottomScreen = (Math.round((window.innerHeight-enemySize)/5)) * 5;
-        
-        if(evenFive == topScreen)
+        let bottomScreen = (Math.round((window.innerHeight - enemySize)/5)) * 5;
+        //x position of right of screen rouned to nearest 5
+        let rightScreen = (Math.round((window.innerWidth - enemySize)/5)) * 5;
+
+        console.log(evenFiveX);
+
+        if(evenFiveX == rightScreen)
+        {
+            alert("right");
+        }
+        if(evenFiveX == 0)
+        {
+            alert("left");
+        }
+
+        /*
+        if(evenFiveY == topScreen)
         {
             alert("top");
             if(this.enemy.offsetLeft == bottomScreen)
@@ -95,10 +110,10 @@ class Enemy
                 alert("corner");
             }
         }
-        if(evenFive == bottomScreen)
+        if(evenFiveY == bottomScreen)
         {
             alert("bottom");
-        }
+        }*/
 
         //per frame, move enemy five pixels down and right
 
@@ -109,7 +124,7 @@ class Enemy
             this.enemy.style.top = (this.enemy.offsetTop - 5) + "px";
 
             //tell to switch direction next time if next location is offscreen
-            if(this.enemy.offsetTop < (0 + (window.innerHeight/8)))
+            if(this.enemy.offsetTop < topScreen)
             {
                 this.direction[0] = "down"
             }
@@ -119,7 +134,7 @@ class Enemy
             this.enemy.style.top = (this.enemy.offsetTop + 5) + "px";
 
             //tell to switch direction next time if next location is offscreen
-            if(this.enemy.offsetTop > (window.innerHeight - (window.innerHeight/5)))
+            if(this.enemy.offsetTop > bottomScreen)
             {
                 this.direction[0] = "up"
             }
@@ -142,7 +157,7 @@ class Enemy
             this.enemy.style.left = (this.enemy.offsetLeft + 5) + "px";
 
             //tell to switch direction next time if next location is offscreen
-            if(this.enemy.offsetLeft > window.innerWidth - (window.innerHeight/4.8))
+            if(this.enemy.offsetLeft > rightScreen)
             {
                 this.direction[1] = "left"
             }
