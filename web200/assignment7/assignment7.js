@@ -90,30 +90,22 @@ class Enemy
         //x position of right of screen rouned to nearest 5
         let rightScreen = (Math.round((window.innerWidth - enemySize)/5)) * 5;
 
-        console.log(evenFiveX);
+        console.log("X:" + evenFiveX + ", Y: " + evenFiveY);
 
-        if(evenFiveX == rightScreen)
-        {
-            alert("right");
-        }
-        if(evenFiveX == 0)
-        {
-            alert("left");
-        }
-
-        /*
         if(evenFiveY == topScreen)
         {
-            alert("top");
-            if(this.enemy.offsetLeft == bottomScreen)
+            if(evenFiveX == rightScreen || evenFiveX == 0)
             {
                 alert("corner");
             }
         }
-        if(evenFiveY == bottomScreen)
+        else if(evenFiveY == bottomScreen)
         {
-            alert("bottom");
-        }*/
+            if(evenFiveX == rightScreen || evenFiveX == 0)
+            {
+                alert("corner");
+            }
+        }
 
         //per frame, move enemy five pixels down and right
 
