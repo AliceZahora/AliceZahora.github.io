@@ -8,9 +8,10 @@
 let tableSize = 10;
 let currentColumn;
 let newBlock;
+let result;
 const rows = document.getElementById("rowContainer");
 
-for(let x = 0; x != tableSize; x++)
+for(let x = 0; x != tableSize + 1; x++)
 {
     //creates new column next to previous and starts appending to
     //that on next loop instead
@@ -19,10 +20,27 @@ for(let x = 0; x != tableSize; x++)
     rows.appendChild(currentColumn);
 
     //create new cube per multiplication and append it to current column
-    for(let y = 0; y != tableSize; y++)
+    for(let y = 0; y != tableSize + 1; y++)
     {
+        //if header row, adjust values to unqiue, else use standard multiplication
+        if(y == 0)
+        {
+            if(x == 0)
+            {
+                result = "X";
+            }
+            else
+            {
+                result = x * (y + 1);
+            }
+        }
+        else
+        {
+            result = x * y;
+        }
+
         newBlock = document.createElement("p");
-        newBlock.innerHTML = (x + 1) * (y + 1);
+        newBlock.innerHTML = result;
         currentColumn.appendChild(newBlock);
     }
 }
