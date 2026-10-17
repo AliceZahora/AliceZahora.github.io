@@ -22,9 +22,13 @@ for(let x = 0; x != tableSize + 1; x++)
     //create new cube per multiplication and append it to current column
     for(let y = 0; y != tableSize + 1; y++)
     {
+        newBlock = document.createElement("p");
+
         //if header row, adjust values to unqiue, else use standard multiplication
         if(y == 0)
         {
+            newBlock.style.backgroundColor = "#9a81d59f";
+
             if(x == 0)
             {
                 result = "X";
@@ -36,14 +40,15 @@ for(let x = 0; x != tableSize + 1; x++)
         }
         else if(x == 0)
         {
+            newBlock.style.backgroundColor = "#9a81d59f";
             result = (x + 1) * y;
         }
+        //not header/label row
         else
         {
             result = x * y;
         }
 
-        newBlock = document.createElement("p");
         newBlock.innerHTML = result;
         currentColumn.appendChild(newBlock);
     }
