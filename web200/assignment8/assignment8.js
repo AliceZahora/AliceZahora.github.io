@@ -6,18 +6,21 @@
 */
 
 let tableSize = 10;
-let columns = document.getElementById("col1");
+let currentColumn = document.getElementById("col1");
 const rows = document.getElementById("rowContainer");
 
 for(let x = 0; x != tableSize; x++)
 {
+    //create new cube per multiplication and append it to current column
     for(let y = 0; y != tableSize; y++)
     {
         var newBlock = document.createElement("p");
         newBlock.innerHTML = (x + 1) * (y + 1);
-        columns.appendChild(newBlock);
+        currentColumn.appendChild(newBlock);
     }
 
-    columns = document.createElement("div");
-    rows.appendChild(columns);
+    //creates new column next to previous and starts appending to
+    //that on next loop instead
+    currentColumn = document.createElement("div");
+    rows.appendChild(currentColumn);
 }
