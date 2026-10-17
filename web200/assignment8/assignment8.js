@@ -34,6 +34,10 @@ for(let x = 0; x != tableSize + 1; x++)
                 result = x * (y + 1);
             }
         }
+        else if(x == 0)
+        {
+            result = (x + 1) * y;
+        }
         else
         {
             result = x * y;
