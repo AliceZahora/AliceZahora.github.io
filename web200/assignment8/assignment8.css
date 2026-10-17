@@ -4,7 +4,9 @@
     justify-content: space-evenly;
     border: 1px solid black;
 }
-#columnContainer {
+.column {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
+

@@ -22,5 +22,6 @@ for(let x = 0; x != tableSize; x++)
     //creates new column next to previous and starts appending to
     //that on next loop instead
     currentColumn = document.createElement("div");
+    currentColumn.classList.add("column");
     rows.appendChild(currentColumn);
 }
