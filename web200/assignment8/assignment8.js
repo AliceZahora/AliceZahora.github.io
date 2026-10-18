@@ -64,15 +64,28 @@ const muscleCars = [
   }
 ];
 
+const colors = ["red", "blue", "orange", "green", "black"]
+let temp = 0;
 
 //output key value pair of all cars' make, model, and year
 for (const i of muscleCars) {
     var car = document.createElement('div');
     car.classList.add("car");
-    car.innerHTML = i.make + "<br>" + i.model + "<br>" + i.year;
+
+    //car icon
+    var icon = document.createElement('i');
+    icon.classList.add("fa-solid", "fa-car-side");
+    icon.style.color = colors[temp];
+
+    //information about car
+    var info = document.createElement('p');
+    info.innerHTML = i.make + "<br>" + i.model + "<br>" + i.year;
+    car.appendChild(info);
+
+    car.appendChild(icon);
     carCard.appendChild(car);
 
-    //<i class="fa-solid fa-car-side"></i>
+    temp++;
 }
 
 /*
