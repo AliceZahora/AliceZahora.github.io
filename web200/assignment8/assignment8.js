@@ -12,6 +12,7 @@ let result;
 const inputField = document.getElementById("inputField");
 const multContainer = document.getElementById("multContainer");
 const carContainer = document.getElementById("carContainer");
+const carCard = document.getElementById("carCard");
 //0 = study, 1 = race
 const modeType = document.getElementsByName("modeType");
 
@@ -62,6 +63,26 @@ const muscleCars = [
     isConvertible: false
   }
 ];
+
+
+//output key value pair of all cars' make, model, and year
+for (const i of muscleCars) {
+    var car = document.createElement('div');
+    car.classList.add("car");
+    car.innerHTML = "Make: " + i.make + " Model: " + i.model + " Year: " + i.year;
+    carCard.appendChild(car);
+
+    //<i class="fa-solid fa-car-side"></i>
+}
+
+/*
+//output key value pair of first car
+for (const key in muscleCars[0]) {
+    var car = document.createElement('p');
+    car.innerHTML = key + ": " + muscleCars[0][key];
+    carCard.appendChild(car);
+}
+    */
 
 function changeMode()
 {
@@ -145,18 +166,4 @@ function loadTable(event)
 function loadCars()
 {
 
-}
-//output key value pair of first car
-/*
-for (const key in muscleCars[0]) {
-    var car = document.createElement('p');
-    car.innerHTML = key + ": " + muscleCars[0][key];
-    carContainer.appendChild(car);
-}
-*/
-
-for (const i of muscleCars) {
-    var car = document.createElement('p');
-    car.innerHTML = "Make: " + i.make + " Model: " + i.model + " Year: " + i.year;
-    carContainer.appendChild(car);
 }

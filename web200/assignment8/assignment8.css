@@ -14,11 +14,18 @@
     flex-direction: column;
     align-items: center;
 }
-#carContainer {
+#carContainer, #carCard {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 70%;
+    border-radius: 10px;
+}
+#carCard {
+    border: 2px solid purple;
+    margin: 5vh;
+    box-shadow: 4px 4px purple;
+    justify-content: space-evenly;
 }
 #modeContainer {
     display: flex;
@@ -33,11 +40,7 @@
 #legend {
     text-align: center;
 }
-.h3 {
-    width: fit-content;
-    font-size: xx-large;
-    margin: 0;
-}
+
 #inputField {
     margin: 1%;
     height: 5vh;
@@ -52,6 +55,11 @@
     max-width: fit-content;
     margin: auto;
     gap: 0;
+}
+.h3 {
+    width: fit-content;
+    font-size: xx-large;
+    margin: 0;
 }
 .column {
     display: flex;
@@ -80,4 +88,11 @@
 .modeInput {
     position: absolute;
     visibility: hidden;
+}
+.car {
+    border: 1px solid purple;
+    border-radius: 10px;
+    width: 90%;
+    padding: 2vh;
+    margin: 2vh;
 }
