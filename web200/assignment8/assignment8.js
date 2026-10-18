@@ -29,46 +29,49 @@ function loadTable(event)
     //+ 1 is for header row
     let tableSize = parseInt(event.target.value) + 1;
 
-    for(let x = 0; x != tableSize; x++)
+    if(!isNaN(tableSize))
     {
-        //creates new column next to previous and starts appending to
-        //that on next loop instead
-        currentColumn = document.createElement("div");
-        currentColumn.classList.add("column");
-        row.appendChild(currentColumn);
-
-        //create new cube per multiplication and append it to current column
-        for(let y = 0; y != tableSize; y++)
+        for(let x = 0; x != tableSize; x++)
         {
-            newBlock = document.createElement("p");
+            //creates new column next to previous and starts appending to
+            //that on next loop instead
+            currentColumn = document.createElement("div");
+            currentColumn.classList.add("column");
+            row.appendChild(currentColumn);
 
-            //if header row, adjust values to unqiue, else use standard multiplication
-            if(y == 0)
+            //create new cube per multiplication and append it to current column
+            for(let y = 0; y != tableSize; y++)
             {
-                newBlock.style.backgroundColor = "#9a81d59f";
+                newBlock = document.createElement("p");
 
-                if(x == 0)
+                //if header row, adjust values to unqiue, else use standard multiplication
+                if(y == 0)
                 {
-                    result = "X";
+                    newBlock.style.backgroundColor = "#9a81d59f";
+
+                    if(x == 0)
+                    {
+                        result = "X";
+                    }
+                    else
+                    {
+                        result = x * (y + 1);
+                    }
                 }
+                else if(x == 0)
+                {
+                    newBlock.style.backgroundColor = "#9a81d59f";
+                    result = (x + 1) * y;
+                }
+                //not header/label row
                 else
                 {
-                    result = x * (y + 1);
+                    result = x * y;
                 }
-            }
-            else if(x == 0)
-            {
-                newBlock.style.backgroundColor = "#9a81d59f";
-                result = (x + 1) * y;
-            }
-            //not header/label row
-            else
-            {
-                result = x * y;
-            }
 
-            newBlock.innerHTML = result;
-            currentColumn.appendChild(newBlock);
+                newBlock.innerHTML = result;
+                currentColumn.appendChild(newBlock);
+            }
         }
     }
 }

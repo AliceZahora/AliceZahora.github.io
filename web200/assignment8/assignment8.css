@@ -13,6 +13,11 @@
     flex-direction: column;
     align-items: center;
 }
+#modeContainer {
+    margin-bottom: 2vh;
+    width: 20vw;
+    height: 10vh;
+}
 #tableHeader {
     width: fit-content;
     font-size: xx-large;
@@ -46,4 +51,6 @@
     margin: 0;
     border: 1px solid black;
 }
-
+.label {
+    text-align: center;
+}
