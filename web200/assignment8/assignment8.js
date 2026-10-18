@@ -147,8 +147,16 @@ function loadCars()
 
 }
 //output key value pair of first car
+/*
 for (const key in muscleCars[0]) {
     var car = document.createElement('p');
     car.innerHTML = key + ": " + muscleCars[0][key];
+    carContainer.appendChild(car);
+}
+*/
+
+for (const i of muscleCars) {
+    var car = document.createElement('p');
+    car.innerHTML = "Make: " + i.make + " Model: " + i.model + " Year: " + i.year;
     carContainer.appendChild(car);
 }
