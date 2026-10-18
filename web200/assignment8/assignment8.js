@@ -69,7 +69,7 @@ const muscleCars = [
 for (const i of muscleCars) {
     var car = document.createElement('div');
     car.classList.add("car");
-    car.innerHTML = "Make: " + i.make + " Model: " + i.model + " Year: " + i.year;
+    car.innerHTML = i.make + "<br>" + i.model + "<br>" + i.year;
     carCard.appendChild(car);
 
     //<i class="fa-solid fa-car-side"></i>
