@@ -15,13 +15,14 @@
     align-items: center;
 }
 #carContainer, #carCard {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     width: 60%;
     border-radius: 10px;
 }
 #carCard {
+    display: flex;
     border: 2px solid purple;
     margin: 5vh;
     box-shadow: 4px 4px purple;
