@@ -11,7 +11,7 @@ let result;
 const inputField = document.getElementById("inputField");
 const container = document.getElementById("container");
 
-inputField.addEventListener("change", loadTable);
+inputField.addEventListener("input", loadTable);
 
 function loadTable(event)
 {
