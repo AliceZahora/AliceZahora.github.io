@@ -21,16 +21,16 @@ function loadTable(event)
         (document.getElementById("rowContainer")).remove();
     }
 
-    //create new table container
-    let row = document.createElement("div");
-    row.id = "rowContainer";
-    container.appendChild(row);
-
     //+ 1 is for header row
     let tableSize = parseInt(event.target.value) + 1;
 
     if(!isNaN(tableSize))
     {
+        //create new table container
+        let row = document.createElement("div");
+        row.id = "rowContainer";
+        container.appendChild(row);
+
         for(let x = 0; x != tableSize; x++)
         {
             //creates new column next to previous and starts appending to
