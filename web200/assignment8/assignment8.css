@@ -108,6 +108,7 @@
     align-items: center;
     background-color: white;
     box-shadow: 2px 2px purple;
+    flex-wrap: wrap;
 }
 .car:hover {
     cursor: pointer;
@@ -116,4 +117,5 @@
 .expansion {
     background-color: purple;
     color: white;
+    flex-basis: 100%;
 }

@@ -68,6 +68,7 @@ let temp = 0;
 
 //output key value pair of all cars' make, model, and year
 for (const i of muscleCars) {
+    //container for main car info and icon
     var car = document.createElement('div');
     car.classList.add("car");
 
@@ -82,6 +83,7 @@ for (const i of muscleCars) {
     icon.style.color = colors[temp];
     car.appendChild(icon);
 //------------------------------------------------------------------------
+    //container for info expansion
     var expansion = document.createElement('div');
     expansion.classList.add("expansion");
 
