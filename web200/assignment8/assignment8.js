@@ -68,7 +68,6 @@ let temp = 0;
 
 //output key value pair of all cars' make, model, and year
 for (const i of muscleCars) {
-    //container for main car info and icon
     var car = document.createElement('div');
     car.classList.add("car");
 
@@ -82,7 +81,7 @@ for (const i of muscleCars) {
     icon.classList.add("fa-solid", "fa-car-side");
     icon.style.color = colors[temp];
     car.appendChild(icon);
-//------------------------------------------------------------------------
+
     //container for info expansion
     var expansion = document.createElement('div');
     expansion.classList.add("expansion");
@@ -96,12 +95,21 @@ for (const i of muscleCars) {
 
     car.appendChild(expansion);
 
-//------------------------------------------------------------------------
-    /*
     //expands info on click
     car.addEventListener("click", function () {
+        var currentExpansion = this.querySelector(".expansion");
 
-    });*/
+        //if expanded, hide it
+        //if not expanded, show it
+        if(currentExpansion.style.display == "none")
+        {
+            currentExpansion.style.display = "block";
+        }
+        else
+        {
+            currentExpansion.style.display = "none";
+        }
+    });
 
     carCard.appendChild(car);
 
