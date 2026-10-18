@@ -5,51 +5,70 @@
     Date: 10/18/2026
 */
 
-let tableSize = 10;
 let currentColumn;
 let newBlock;
 let result;
-const rows = document.getElementById("rowContainer");
+const inputField = document.getElementById("inputField");
+const container = document.getElementById("container");
 
-for(let x = 0; x != tableSize + 1; x++)
+inputField.addEventListener("change", loadTable);
+
+function loadTable(event)
 {
-    //creates new column next to previous and starts appending to
-    //that on next loop instead
-    currentColumn = document.createElement("div");
-    currentColumn.classList.add("column");
-    rows.appendChild(currentColumn);
-
-    //create new cube per multiplication and append it to current column
-    for(let y = 0; y != tableSize + 1; y++)
+    //if table exists, delete it
+    if(document.getElementById("rowContainer"))
     {
-        newBlock = document.createElement("p");
+        (document.getElementById("rowContainer")).remove();
+    }
 
-        //if header row, adjust values to unqiue, else use standard multiplication
-        if(y == 0)
+    //create new table container
+    let row = document.createElement("div");
+    row.id = "rowContainer";
+    container.appendChild(row);
+
+    //+ 1 is for header row
+    let tableSize = parseInt(event.target.value) + 1;
+
+    for(let x = 0; x != tableSize; x++)
+    {
+        //creates new column next to previous and starts appending to
+        //that on next loop instead
+        currentColumn = document.createElement("div");
+        currentColumn.classList.add("column");
+        row.appendChild(currentColumn);
+
+        //create new cube per multiplication and append it to current column
+        for(let y = 0; y != tableSize; y++)
         {
-            newBlock.style.backgroundColor = "#9a81d59f";
+            newBlock = document.createElement("p");
 
-            if(x == 0)
+            //if header row, adjust values to unqiue, else use standard multiplication
+            if(y == 0)
             {
-                result = "X";
+                newBlock.style.backgroundColor = "#9a81d59f";
+
+                if(x == 0)
+                {
+                    result = "X";
+                }
+                else
+                {
+                    result = x * (y + 1);
+                }
             }
+            else if(x == 0)
+            {
+                newBlock.style.backgroundColor = "#9a81d59f";
+                result = (x + 1) * y;
+            }
+            //not header/label row
             else
             {
-                result = x * (y + 1);
+                result = x * y;
             }
-        }
-        else if(x == 0)
-        {
-            newBlock.style.backgroundColor = "#9a81d59f";
-            result = (x + 1) * y;
-        }
-        //not header/label row
-        else
-        {
-            result = x * y;
-        }
 
-        newBlock.innerHTML = result;
-        currentColumn.appendChild(newBlock);
+            newBlock.innerHTML = result;
+            currentColumn.appendChild(newBlock);
+        }
     }
 }
