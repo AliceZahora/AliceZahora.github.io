@@ -3,8 +3,9 @@
     padding: 0;
     width: 100%;
 }
-#header {
+#header * {
     padding-left: 1%;
+    margin-bottom: 0px;
 }
 #main {
     width: 100%;
@@ -25,6 +26,13 @@
 #tableHeader {
     width: fit-content;
     font-size: xx-large;
+    margin: 0;
+}
+#inputField {
+    margin: 1%;
+    height: 5vh;
+    font-size: 5vh;
+    width: 5%;
 }
 #rowContainer {
     display: flex;
