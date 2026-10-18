@@ -8,11 +8,29 @@
 let currentColumn;
 let newBlock;
 let result;
+
 const inputField = document.getElementById("inputField");
-const container = document.getElementById("container");
+const multContainer = document.getElementById("multContainer");
+//0 = study, 1 = race
+const modeType = document.getElementsByName("modeType");
 
 inputField.addEventListener("input", loadTable);
+modeType[0].addEventListener("change", changeMode);
+modeType[1].addEventListener("change", changeMode);
 
+function changeMode()
+{
+    //study mode
+    if(modeType[0].checked)
+    {
+        multContainer.style.display = "flex";
+    }
+    //race mode
+    else
+    {
+        multContainer.style.display = "none";
+    }
+}
 function loadTable(event)
 {
     //if table exists, delete it
@@ -29,7 +47,7 @@ function loadTable(event)
         //create new table container
         let row = document.createElement("div");
         row.id = "rowContainer";
-        container.appendChild(row);
+        multContainer.appendChild(row);
 
         for(let x = 0; x != tableSize; x++)
         {
