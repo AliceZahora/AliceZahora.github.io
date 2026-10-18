@@ -20,7 +20,6 @@ inputField.addEventListener("input", loadTable);
 modeType[0].addEventListener("change", changeMode);
 modeType[1].addEventListener("change", changeMode);
 
-
 const muscleCars = [
   {
     make: "Ford",
@@ -72,30 +71,40 @@ for (const i of muscleCars) {
     var car = document.createElement('div');
     car.classList.add("car");
 
-    //car icon
-    var icon = document.createElement('i');
-    icon.classList.add("fa-solid", "fa-car-side");
-    icon.style.color = colors[temp];
-
     //information about car
     var info = document.createElement('p');
     info.innerHTML = i.make + "<br>" + i.model + "<br>" + i.year;
     car.appendChild(info);
 
+    //car icon
+    var icon = document.createElement('i');
+    icon.classList.add("fa-solid", "fa-car-side");
+    icon.style.color = colors[temp];
     car.appendChild(icon);
+//------------------------------------------------------------------------
+    var expansion = document.createElement('div');
+    expansion.classList.add("expansion");
+
+    //output key value pair of first car and all others on subsequent loops
+    for (const key in muscleCars[temp]) {
+        var extra = document.createElement('p');
+        extra.innerHTML = key + ": " + muscleCars[temp][key];
+        expansion.appendChild(extra);
+    }
+
+    car.appendChild(expansion);
+
+//------------------------------------------------------------------------
+    /*
+    //expands info on click
+    car.addEventListener("click", function () {
+
+    });*/
+
     carCard.appendChild(car);
 
     temp++;
 }
-
-/*
-//output key value pair of first car
-for (const key in muscleCars[0]) {
-    var car = document.createElement('p');
-    car.innerHTML = key + ": " + muscleCars[0][key];
-    carCard.appendChild(car);
-}
-    */
 
 function changeMode()
 {
