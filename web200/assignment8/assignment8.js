@@ -85,6 +85,7 @@ for (const i of muscleCars) {
     //container for info expansion
     var expansion = document.createElement('div');
     expansion.classList.add("expansion");
+    expansion.style.display = "none";
 
     //output key value pair of first car and all others on subsequent loops
     for (const key in muscleCars[temp]) {
