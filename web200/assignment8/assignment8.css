@@ -26,6 +26,7 @@
     margin: 5vh;
     box-shadow: 4px 4px purple;
     justify-content: space-evenly;
+    background-color: rgb(198, 164, 213);
 }
 #modeContainer {
     display: flex;
@@ -100,4 +101,5 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
 }
