@@ -148,7 +148,7 @@ function loadTable(event)
                 //if header row, adjust values to unqiue, else use standard multiplication
                 if(y == 0)
                 {
-                    newBlock.style.backgroundColor = "#9a81d59f";
+                    newBlock.style.backgroundColor = "rgb(198, 164, 213)";
 
                     if(x == 0)
                     {
@@ -161,7 +161,7 @@ function loadTable(event)
                 }
                 else if(x == 0)
                 {
-                    newBlock.style.backgroundColor = "#9a81d59f";
+                    newBlock.style.backgroundColor = "rgb(198, 164, 213)";
                     result = (x + 1) * y;
                 }
                 //not header/label row

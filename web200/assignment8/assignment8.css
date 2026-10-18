@@ -87,6 +87,10 @@
     box-shadow: inset 3px 3px 2px;
     background-color: rgb(198, 164, 213);
 }
+.label:hover {
+    cursor: pointer;
+    background-color: rgb(232, 224, 233);
+}
 .modeInput {
     position: absolute;
     visibility: hidden;
@@ -103,4 +107,9 @@
     justify-content: space-between;
     align-items: center;
     background-color: white;
+    box-shadow: 2px 2px purple;
+}
+.car:hover {
+    cursor: pointer;
+    background-color: rgb(235, 227, 235);
 }
