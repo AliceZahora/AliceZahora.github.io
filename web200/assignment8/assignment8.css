@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    font-family: "Share Tech", sans-serif;
 }
 #header * {
     padding-left: 1%;
@@ -14,9 +15,17 @@
     align-items: center;
 }
 #modeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
     margin-bottom: 2vh;
     width: 20vw;
     height: 10vh;
+    border-radius: 10px;
+}
+#legend {
+    text-align: center;
 }
 #tableHeader {
     width: fit-content;
@@ -52,5 +61,17 @@
     border: 1px solid black;
 }
 .label {
-    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px;
+    padding: 5%;
+}
+.label:has(.modeInput:checked)
+{
+    box-shadow: inset 3px 3px 2px;
+    background-color: rgb(198, 164, 213);
+}
+.modeInput {
+    position: absolute;
+    visibility: hidden;
 }

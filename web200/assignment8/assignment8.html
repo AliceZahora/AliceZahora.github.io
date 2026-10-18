@@ -12,6 +12,9 @@
         <meta name="description" content="Web 200 - Assignment 8">
         <link rel="stylesheet" href="assignment8.css" type="text/css">
         <script src="assignment8.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Share+Tech" rel="stylesheet">
         <title> Web 200 - Zahora 8 </title>
         <!--
             INSTRUCTIONS
@@ -34,12 +37,12 @@
         <main id="main">
             <div id="container">
                 <fieldset id="modeContainer">
-                    <legend> Choose Mode </legend>
+                    <legend id="legend"> Choose Mode </legend>
                     <label for="studyMode" class="label"> Study
-                        <input type="radio" id="studyMode" name="modeType" value="study">
+                        <input type="radio" id="studyMode" name="modeType" class="modeInput" value="study" checked>
                     </label>
                     <label for="raceMode" class="label"> Race
-                        <input type="radio" id="raceMode" name="modeType" value="race">
+                        <input type="radio" id="raceMode" name="modeType" class="modeInput" value="race">
                     </label>
                 </fieldset>
                 <h3 id="tableHeader"> Multiplication Table </h3>
