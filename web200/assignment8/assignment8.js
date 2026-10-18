@@ -11,6 +11,7 @@ let result;
 
 const inputField = document.getElementById("inputField");
 const multContainer = document.getElementById("multContainer");
+const carContainer = document.getElementById("carContainer");
 //0 = study, 1 = race
 const modeType = document.getElementsByName("modeType");
 
@@ -18,16 +19,64 @@ inputField.addEventListener("input", loadTable);
 modeType[0].addEventListener("change", changeMode);
 modeType[1].addEventListener("change", changeMode);
 
+
+const muscleCars = [
+  {
+    make: "Ford",
+    model: "Mustang Boss 429",
+    year: 1969,
+    horsepower: 375,
+    engine: "7.0L V8",
+    isConvertible: false
+  },
+  {
+    make: "Chevrolet",
+    model: "Chevelle SS",
+    year: 1970,
+    horsepower: 450,
+    engine: "7.4L V8",
+    isConvertible: false
+  },
+  {
+    make: "Dodge",
+    model: "Challenger R/T",
+    year: 1970,
+    horsepower: 425,
+    engine: "7.0L HEMI V8",
+    isConvertible: true
+  },
+  {
+    make: "Pontiac",
+    model: "GTO",
+    year: 1969,
+    horsepower: 366,
+    engine: "6.6L V8",
+    isConvertible: false
+  },
+  {
+    make: "Plymouth",
+    model: "Road Runner",
+    year: 1970,
+    horsepower: 425,
+    engine: "7.0L HEMI V8",
+    isConvertible: false
+  }
+];
+
 function changeMode()
 {
     //study mode
+    //hide car screen, open multiplication table
     if(modeType[0].checked)
     {
         multContainer.style.display = "flex";
+        carContainer.style.display = "none";
     }
     //race mode
+    //hide multiplication table, open car screen
     else
     {
+        carContainer.style.display = "flex";
         multContainer.style.display = "none";
     }
 }
@@ -92,4 +141,14 @@ function loadTable(event)
             }
         }
     }
+}
+function loadCars()
+{
+
+}
+//output key value pair of first car
+for (const key in muscleCars[0]) {
+    var car = document.createElement('p');
+    car.innerHTML = key + ": " + muscleCars[0][key];
+    carContainer.appendChild(car);
 }

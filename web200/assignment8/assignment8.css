@@ -14,6 +14,12 @@
     flex-direction: column;
     align-items: center;
 }
+#carContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
 #modeContainer {
     display: flex;
     flex-direction: row;
@@ -27,7 +33,7 @@
 #legend {
     text-align: center;
 }
-#tableHeader {
+.h3 {
     width: fit-content;
     font-size: xx-large;
     margin: 0;
