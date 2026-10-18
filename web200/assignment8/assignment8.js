@@ -196,7 +196,3 @@ function loadTable(event)
         }
     }
 }
-function loadCars()
-{
-
-}
