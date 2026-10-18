@@ -1,12 +1,23 @@
 #rowContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: stretch;
     border: 1px solid black;
+    width: 50vw;
+    max-width: fit-content;
+    margin: auto;
+    gap: 0;
 }
 .column {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    font-size: x-large;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+}
+.column p {
+    padding: .7vw;
+    margin: 0;
 }
 
