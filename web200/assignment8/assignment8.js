@@ -280,6 +280,9 @@ function setupGame(event)
         setColor++;
     }
 
+    //store original placement of cars
+    racetrack.value = playerCar.getBoundingClientRect().left;
+
     nextQuestion();
 }
 function checkAnswer()
@@ -315,30 +318,30 @@ function nextQuestion()
 //direction = 0 means wrong, move backward;
 function moveUser(direction)
 {
-    let finishLine = document.getElementById("finishLine");
-    let finishLocation = finishLine.getBoundingClientRect();
-    let carLocation = playerCar.getBoundingClientRect();
-    const originalPosition = carLocation.left;
+    const finishLine = document.getElementById("finishLine");
+    let finishLocation = finishLine.getBoundingClientRect().left;
+    let carLocation = playerCar.getBoundingClientRect().left;
+    let originalPosition = racetrack.value;
 
     //amount of questions to be answered before you win
     let numQuestions = 5;
-    let raceInterval = finishLocation.left/numQuestions;
+    let raceInterval = finishLocation/numQuestions;
 
     //move player forward if correct answer, backwards if not
     if(direction)
     {
-        playerCar.style.left = carLocation.left + raceInterval + "px";
+        playerCar.style.left = carLocation + raceInterval + "px";
         carLocation = playerCar.getBoundingClientRect();
     }
     //dont move backwards if at start
-    else if(carLocation.left > originalPosition)
+    else if(carLocation > originalPosition)
     {
-        playerCar.style.left  = carLocation.left - raceInterval + "px";
+        playerCar.style.left  = carLocation - raceInterval + "px";
         carLocation = playerCar.getBoundingClientRect();
     }
 
     //if location matching finish, player finished
-    if(carLocation.left >= finishLocation.left)
+    if(carLocation >= finishLocation)
     {
         alert("you finished!");
     }
