@@ -48,11 +48,49 @@
             <div id="multContainer">
                 <h3 id="tableHeader" class="h3"> Multiplication Table </h3>
                 <label for="inputField"> Enter Size </label>
-                <input type="number" min="1" max="100" id="inputField">
+                <input type="number" min="1" max="100" id="inputField" class="userInput">
             </div>
             <div id="carContainer">
                 <h3 id="carHeader" class="h3"> Car Garage </h3>
+                <p> Click whitespace to expand </p>
                 <div id="carCard"></div>
+            </div>
+            <div id="raceContainer">
+                <div id="duringRace">
+                    <h3 class="h3"> Answer Questions and Beat Your Opponents! </h3>
+                    <p> Press [Enter] or Submit Button to answer </p>
+                    <p id="mathQuestion"> 13 x 16 ? </p>
+                    <label for="mathAnswer"> Answer: </label>
+                    <input type="number" id="mathAnswer" class="userInput" autofocus>
+                    <input type="button" value="Submit" id="submitButton" class="gameButton">
+                </div>
+                <div id="afterRace">
+                    <h3 class="h3" id="endText"> You Finished! </h3>
+                    <label for="playAgin"></label>
+                    <input type="button" value="Play Again" id="playAgain" class="gameButton">
+                </div>
+                <div id="racetrack">
+                    <div id="road">
+                        <div id="lane1" class="lane">
+                            <i id="playerCar" class="fa-solid fa-car-side"></i>
+                        </div>
+                        <div id="lane2" class="lane">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                        <div id="lane3" class="lane">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                        <div id="lane4" class="lane">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                        <div id="lane5" class="lane">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                    </div>
+                    <div id="finishLine">
+                        <i class="fa-solid fa-flag-checkered"></i>
+                    </div>
+                </div>
             </div>
         </main>
     </body>

@@ -15,10 +15,23 @@ const carContainer = document.getElementById("carContainer");
 const carCard = document.getElementById("carCard");
 //0 = study, 1 = race
 const modeType = document.getElementsByName("modeType");
+const raceContainer = document.getElementById("raceContainer");
+const duringRace = document.getElementById("duringRace");
+const afterRace = document.getElementById("afterRace");
+const carIcons = document.querySelectorAll(".lane .fa-car-side:not(#playerCar)");
+const playerCar = document.getElementById("playerCar");
+const userAnswer = document.getElementById("mathAnswer");
+const submitButton = document.getElementById("submitButton");
+const mathQuestion = document.getElementById("mathQuestion");
+const racetrack = document.getElementById("racetrack");
+const playAgain = document.getElementById("playAgain");
 
 inputField.addEventListener("input", loadTable);
 modeType[0].addEventListener("change", changeMode);
 modeType[1].addEventListener("change", changeMode);
+submitButton.addEventListener("click", checkAnswer);
+userAnswer.addEventListener("change", checkAnswer);
+playAgain.addEventListener("click", changeMode);
 
 const muscleCars = [
   {
@@ -63,8 +76,12 @@ const muscleCars = [
   }
 ];
 
-const colors = ["red", "blue", "orange", "green", "black"]
+const colors = ["red", "blue", "orange", "pink", "purple"]
 let temp = 0;
+let finalAnswer;
+//stores intervals of opposition movement
+let interval = [];
+let countFinished = 0;
 
 //output key value pair of all cars' make, model, and year
 for (const i of muscleCars) {
@@ -74,7 +91,17 @@ for (const i of muscleCars) {
     //information about car
     var info = document.createElement('p');
     info.innerHTML = i.make + "<br>" + i.model + "<br>" + i.year;
+    info.classList.add("carInfo");
     car.appendChild(info);
+
+    //button for selecting car
+    var button = document.createElement('input');
+    button.type = "button";
+    button.value = "Choose Car";
+    button.classList.add("carButton");
+    button.addEventListener("click", setupGame);
+
+    car.appendChild(button);
 
     //car icon
     var icon = document.createElement('i');
@@ -119,12 +146,15 @@ for (const i of muscleCars) {
 
 function changeMode()
 {
+    resetGame();
+
     //study mode
     //hide car screen, open multiplication table
     if(modeType[0].checked)
     {
         multContainer.style.display = "flex";
         carContainer.style.display = "none";
+        raceContainer.style.display = "none";
     }
     //race mode
     //hide multiplication table, open car screen
@@ -132,6 +162,7 @@ function changeMode()
     {
         carContainer.style.display = "flex";
         multContainer.style.display = "none";
+        raceContainer.style.display = "none";
     }
 }
 function loadTable(event)
@@ -231,4 +262,163 @@ function loadTable(event)
             }
         }
     }
+}
+function setupGame(event)
+{
+    let carColor = event.target.nextElementSibling.style.color;
+    let setColor = 0;
+
+    //clear car board and set up game board
+    carContainer.style.display = "none";
+    raceContainer.style.display = "flex";
+
+    userAnswer.focus();
+
+    playerCar.style.color = carColor;
+
+    //store original placement of cars
+    racetrack.value = playerCar.getBoundingClientRect().left;
+
+    //set colors of car icons
+    for(let k = 0; k != carIcons.length; k++)
+    {
+        //if current color in array is same as player color, skip it
+        if(colors[setColor] == carColor)
+        {
+            setColor++;
+        }
+
+        carIcons[k].style.color = colors[setColor];
+        setColor++;
+
+        //start moving opposition
+        interval[k] = setInterval(function() {moveOps(carIcons[k], k);}, 1000);
+    }
+
+    nextQuestion();
+}
+function checkAnswer()
+{
+    //correct answer
+    if(userAnswer.value == finalAnswer)
+    {
+        moveUser(1, playerCar);
+    }
+    else
+    {
+        moveUser(0, playerCar);
+    }
+
+    //clear input
+    userAnswer.value = "";
+
+    nextQuestion();
+}
+function nextQuestion()
+{
+    //choose random number for equation
+    let num1 = Math.floor(Math.random() * 5);
+    let num2 = Math.floor(Math.random() * 5);
+
+    finalAnswer = num1 * num2;
+    let questionString = num1 + " x " + num2 + " = ?";
+
+    mathQuestion.innerHTML = questionString;
+}
+//direction = 1 means correct, move forward
+//direction = 0 means wrong, move backward;
+function moveUser(direction, person, num)
+{
+    const finishLine = document.getElementById("finishLine");
+    let finishLocation = finishLine.getBoundingClientRect().left;
+    let carLocation = person.getBoundingClientRect().left;
+    let originalPosition = racetrack.value;
+
+    //amount of questions to be answered before you win
+    let numQuestions = 5;
+    let raceInterval = finishLocation/numQuestions;
+
+    //move player forward if correct answer, backwards if not
+    if(direction)
+    {
+        person.style.left = carLocation + raceInterval + "px";
+        carLocation = person.getBoundingClientRect().left;
+    }
+    //dont move backwards if at start
+    else if(carLocation > originalPosition)
+    {
+        person.style.left  = carLocation - raceInterval + "px";
+        carLocation = person.getBoundingClientRect().left;
+    }
+
+    //if location matching finish, player finished
+    if(carLocation >= finishLocation)
+    {
+        countFinished++;
+
+        if(person != playerCar)
+        {
+            clearInterval(interval[num]);
+        }
+        else
+        {
+            endGame(countFinished);
+            countFinished = 0;
+        }
+    }
+}
+function moveOps(op, num)
+{
+    //is the opponent correct, random
+    let randomCorrect = Math.floor(Math.random() * 3);
+    isCorrect = (randomCorrect >= 1)? 1 : 0;
+
+    moveUser(isCorrect, op, num);
+}
+function endGame(place)
+{
+    let endText = document.getElementById("endText");
+    let placeString = "You finished ";
+
+    if(place == 1)
+    {
+        placeString += "1st!";
+    }
+    else if(place == 2)
+    {
+        placeString += "2nd!";
+    }
+    else if(place == 3)
+    {
+        placeString += "3rd!";
+    }
+    else
+    {
+        placeString += "4th!";
+    }
+
+    endText.innerHTML = placeString;
+
+    //stop all remaining intervals
+    interval.forEach(element => {
+        clearInterval(element);
+    });
+
+    duringRace.style.display = "none";
+    afterRace.style.display = "flex";
+}
+function resetGame()
+{
+    //clear interval array
+    interval = [];
+
+    duringRace.style.display = "flex";
+    afterRace.style.display = "none";
+
+    //move all players back to start of line
+    for (const icon of carIcons) {
+        icon.style.left = racetrack.value + "px";
+    }
+
+    playerCar.style.left = racetrack.value + "px";
 }

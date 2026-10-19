@@ -42,13 +42,6 @@
 #legend {
     text-align: center;
 }
-
-#inputField {
-    margin: 1%;
-    height: 5vh;
-    font-size: 5vh;
-    width: 5%;
-}
 #rowContainer {
     display: flex;
     flex-direction: row;
@@ -57,6 +50,53 @@
     max-width: fit-content;
     margin: auto;
     gap: 0;
+}
+#raceContainer, #duringRace, #afterRace {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#duringRace {
+    display: flex;
+    width: 100%;
+}
+#racetrack {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2vh;
+}
+#road {
+    background-color: black;
+    width: 90vw;
+    flex: 9;
+}
+#finishLine {
+    background-color: green;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mathQuestion {
+    font-size: xx-large;
+    padding: 2vh;
+    margin-top: 0;
+    margin-bottom: 1vh;
+    box-shadow: inset 0px 0px 2px;
+}
+.gameButton {
+    height: 5vh;
+    box-shadow: 1px 1px;
+}
+.gameButton:hover {
+    cursor: pointer;
+}
+.userInput {
+    margin: 1%;
+    height: 5vh;
+    font-size: 5vh;
+    width: 5%;
 }
 .h3 {
     width: fit-content;
@@ -123,4 +163,42 @@
 }
 .highlighted {
     background-color: rgb(239, 220, 247);
+}
+.carButton {
+    height: 7vh;
+    width: fit-content;
+    padding: 1vw;
+    background-color: rgb(253, 237, 147);
+    border: 1px solid black;
+    box-shadow: 2px 2px;
+    flex: 1;
+}
+.carButton:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+.carInfo {
+    flex: 3;
+}
+.car .fa-car-side {
+    flex: 1;
+    text-align: right;
+}
+
+.lane .fa-car-side {
+    color: white;
+    position: absolute;
+}
+.lane {
+    padding: 2.5vh;
+    width: 100%;
+}
+.lane:not(.lane:last-child) {
+    border-bottom: 1px dashed white;
+}
+.fa-flag-checkered {
+    color: white;
+    text-align: center;
+    font-size: xx-large;
 }
