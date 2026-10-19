@@ -17,10 +17,15 @@ const carCard = document.getElementById("carCard");
 const modeType = document.getElementsByName("modeType");
 const gameBoard = document.getElementById("raceContainer");
 const carIcons = document.querySelectorAll(".lane .fa-car-side:not(#playerCar)");
+const userAnswer = document.getElementById("mathAnswer");
+const submitButton = document.getElementById("submitButton");
+const mathQuestion = document.getElementById("mathQuestion");
 
 inputField.addEventListener("input", loadTable);
 modeType[0].addEventListener("change", changeMode);
 modeType[1].addEventListener("change", changeMode);
+submitButton.addEventListener("click", checkAnswer);
+userAnswer.addEventListener("change", checkAnswer);
 
 const muscleCars = [
   {
@@ -67,6 +72,7 @@ const muscleCars = [
 
 const colors = ["red", "blue", "orange", "green", "purple"]
 let temp = 0;
+let finalAnswer;
 
 //output key value pair of all cars' make, model, and year
 for (const i of muscleCars) {
@@ -254,6 +260,8 @@ function setupGame(event)
     carContainer.style.display = "none";
     gameBoard.style.display = "flex";
 
+    userAnswer.focus();
+
     playerCar.style.color = carColor;
 
     //set colors of car icons
@@ -268,5 +276,29 @@ function setupGame(event)
         carIcons[k].style.color = colors[setColor];
         setColor++;
     }
+
+    nextQuestion();
+}
+function checkAnswer()
+{
+    if(userAnswer.value == finalAnswer)
+    {
+        alert("correct");
+    }
+    else
+    {
+        alert("wrong");
+    }
+}
+function nextQuestion()
+{
+    //choose random number for equation
+    let num1 = Math.floor(Math.random() * 5);
+    let num2 = Math.floor(Math.random() * 5);
+
+    finalAnswer = num1 * num2;
+    let questionString = num1 + " x " + num2 + " = ?";
+
+    mathQuestion.innerHTML = questionString;
 
 }
