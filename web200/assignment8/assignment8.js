@@ -81,6 +81,7 @@ let temp = 0;
 let finalAnswer;
 //stores intervals of opposition movement
 let interval = [];
+let countFinished = 0;
 
 //output key value pair of all cars' make, model, and year
 for (const i of muscleCars) {
@@ -353,14 +354,16 @@ function moveUser(direction, person, num)
     //if location matching finish, player finished
     if(carLocation >= finishLocation)
     {
+        countFinished++;
+
         if(person != playerCar)
         {
             clearInterval(interval[num]);
         }
         else
         {
-            let endText = "You Finished!";
-            endGame(endText);
+            endGame(countFinished);
+            countFinished = 0;
         }
     }
 }
@@ -372,8 +375,30 @@ function moveOps(op, num)
 
     moveUser(isCorrect, op, num);
 }
-function endGame(endText)
+function endGame(place)
 {
+    let endText = document.getElementById("endText");
+    let placeString = "You finished ";
+
+    if(place == 1)
+    {
+        placeString += "1st!";
+    }
+    else if(place == 2)
+    {
+        placeString += "2nd!";
+    }
+    else if(place == 3)
+    {
+        placeString += "3rd!";
+    }
+    else
+    {
+        placeString += "4th!";
+    }
+
+    endText.innerHTML = placeString;
+
     //stop all remaining intervals
     interval.forEach(element => {
         clearInterval(element);
