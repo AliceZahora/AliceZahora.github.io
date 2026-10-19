@@ -57,8 +57,21 @@
     margin: auto;
     gap: 0;
 }
+#racetrack {
+    display: flex;
+    flex-direction: row;
+}
 #road {
     background-color: black;
+    width: 90vw;
+    flex: 9;
+}
+#finishLine {
+    background-color: green;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .h3 {
     width: fit-content;
@@ -147,12 +160,19 @@
     flex: 1;
     text-align: right;
 }
+
 .lane .fa-car-side {
     color: white;
 }
 .lane {
     padding: 2vh;
+    width: 100%;
 }
 .lane:not(.lane:last-child) {
     border-bottom: 1px dashed white;
+}
+.fa-flag-checkered {
+    color: white;
+    text-align: center;
+    font-size: xx-large;
 }
