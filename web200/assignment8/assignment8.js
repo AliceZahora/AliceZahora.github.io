@@ -82,7 +82,7 @@ for (const i of muscleCars) {
     button.type = "button";
     button.value = "Choose Car";
     button.classList.add("carButton");
-    button.addEventListener("click", startGame);
+    button.addEventListener("click", setupGame);
 
     car.appendChild(button);
 
@@ -242,7 +242,28 @@ function loadTable(event)
         }
     }
 }
-function startGame()
+function setupGame(event)
 {
+    let playerCar = document.getElementById("playerCar");
+    let carColor = event.target.nextElementSibling.style.color;
+    let setColor = 0;
+    const gameBoard = document.getElementById("raceContainer");
+    const carIcons = document.querySelectorAll(".lane .fa-car-side:not(#playerCar)");
+
     carContainer.style.display = "none";
+    gameBoard.style.display = "block";
+
+    playerCar.style.color = carColor;
+
+    for(let k = 0; k != carIcons.length; k++)
+    {
+        if(colors[setColor] == carColor)
+        {
+            setColor++;
+        }
+
+        carIcons[k].style.color = colors[setColor];
+        setColor++;
+    }
+
 }
