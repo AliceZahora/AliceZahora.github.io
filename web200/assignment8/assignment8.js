@@ -188,6 +188,42 @@ function loadTable(event)
                 else
                 {
                     result = x * y;
+
+                    //highlight cells to trace back to the two numbers being
+                    //multiplied
+                    newBlock.addEventListener("mouseover", function ()
+                    {
+                        var currentNode = this;
+
+                        //keep looping until reach header
+                        //creates trace back to multiplicand
+                        while(currentNode != this.parentElement.firstElementChild)
+                        {
+                            currentNode.classList.add("highlighted");
+                            currentNode = currentNode.previousElementSibling;
+                        }
+
+                        //which row is the main element
+                        var countChild = document.querySelectorAll(".highlighted").length;
+                        currentNode = this.parentElement.previousElementSibling;
+
+                        //highlight each previous columns nth (that matched main number)
+                        //element
+                        //creates trace back to multiplier
+                        while(currentNode != currentNode.parentElement.firstChild)
+                        {
+                            currentNode.childNodes[countChild].classList.add("highlighted");
+                            currentNode = currentNode.previousElementSibling;
+                        }
+                    });
+                    //remove highlight once not hovering over cell anymore
+                    newBlock.addEventListener("mouseout", function ()
+                    {
+                        var highlighted = document.querySelectorAll(".highlighted");
+                        for (const node of highlighted) {
+                            node.classList.remove("highlighted");
+                        }
+                    });
                 }
 
                 newBlock.innerHTML = result;
