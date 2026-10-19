@@ -317,8 +317,8 @@ function checkAnswer()
 function nextQuestion()
 {
     //choose random number for equation
-    let num1 = Math.floor(Math.random() * 5);
-    let num2 = Math.floor(Math.random() * 5);
+    let num1 = Math.floor(Math.random() * 12);
+    let num2 = Math.floor(Math.random() * 12);
 
     finalAnswer = num1 * num2;
     let questionString = num1 + " x " + num2 + " = ?";
@@ -335,7 +335,7 @@ function moveUser(direction, person, num)
     let originalPosition = racetrack.value;
 
     //amount of questions to be answered before you win
-    let numQuestions = 5;
+    let numQuestions = 7;
     let raceInterval = finishLocation/numQuestions;
 
     //move player forward if correct answer, backwards if not
