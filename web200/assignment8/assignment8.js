@@ -72,9 +72,11 @@ const muscleCars = [
   }
 ];
 
-const colors = ["red", "blue", "orange", "green", "purple"]
+const colors = ["red", "blue", "orange", "pink", "purple"]
 let temp = 0;
 let finalAnswer;
+//stores intervals of opposition movement
+let interval = [];
 
 //output key value pair of all cars' make, model, and year
 for (const i of muscleCars) {
@@ -267,6 +269,9 @@ function setupGame(event)
 
     playerCar.style.color = carColor;
 
+    //store original placement of cars
+    racetrack.value = playerCar.getBoundingClientRect().left;
+
     //set colors of car icons
     for(let k = 0; k != carIcons.length; k++)
     {
@@ -278,10 +283,10 @@ function setupGame(event)
 
         carIcons[k].style.color = colors[setColor];
         setColor++;
-    }
 
-    //store original placement of cars
-    racetrack.value = playerCar.getBoundingClientRect().left;
+        //start moving opposition
+        interval[k] = setInterval(function() {moveOps(carIcons[k], k);}, 1000);
+    }
 
     nextQuestion();
 }
@@ -290,11 +295,11 @@ function checkAnswer()
     //correct answer
     if(userAnswer.value == finalAnswer)
     {
-        moveUser(1);
+        moveUser(1, playerCar);
     }
     else
     {
-        moveUser(0);
+        moveUser(0, playerCar);
     }
 
     //clear input
@@ -315,33 +320,50 @@ function nextQuestion()
 }
 //direction = 1 means correct, move forward
 //direction = 0 means wrong, move backward;
-function moveUser(direction)
+function moveUser(direction, person, num)
 {
     const finishLine = document.getElementById("finishLine");
     let finishLocation = finishLine.getBoundingClientRect().left;
-    let carLocation = playerCar.getBoundingClientRect().left;
+    let carLocation = person.getBoundingClientRect().left;
     let originalPosition = racetrack.value;
 
     //amount of questions to be answered before you win
     let numQuestions = 5;
     let raceInterval = finishLocation/numQuestions;
 
+    console.log(num + " curr: " + carLocation);
+
     //move player forward if correct answer, backwards if not
     if(direction)
     {
-        playerCar.style.left = carLocation + raceInterval + "px";
-        carLocation = playerCar.getBoundingClientRect().left;
+        person.style.left = carLocation + raceInterval + "px";
+        carLocation = person.getBoundingClientRect().left;
     }
     //dont move backwards if at start
     else if(carLocation > originalPosition)
     {
-        playerCar.style.left  = carLocation - raceInterval + "px";
-        carLocation = playerCar.getBoundingClientRect().left;
+        person.style.left  = carLocation - raceInterval + "px";
+        carLocation = person.getBoundingClientRect().left;
     }
 
     //if location matching finish, player finished
     if(carLocation >= finishLocation)
     {
+        if(person != playerCar)
+        {
+            clearInterval(interval[num]);
+            console.log(num + " done");
+        }
         alert("you finished!");
     }
+}
+function moveOps(op, num)
+{
+    //is the opponent correct, random
+    let randomCorrect = Math.floor(Math.random() * 5);
+    isCorrect = (randomCorrect >= 1)? 0 : 1;
+
+    console.log(isCorrect);
+
+    moveUser(isCorrect, op, num);
 }
