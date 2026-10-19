@@ -287,14 +287,13 @@ function setupGame(event)
 }
 function checkAnswer()
 {
+    //correct answer
     if(userAnswer.value == finalAnswer)
     {
-        alert("correct");
         moveUser(1);
     }
     else
     {
-        alert("wrong");
         moveUser(0);
     }
 
@@ -331,13 +330,13 @@ function moveUser(direction)
     if(direction)
     {
         playerCar.style.left = carLocation + raceInterval + "px";
-        carLocation = playerCar.getBoundingClientRect();
+        carLocation = playerCar.getBoundingClientRect().left;
     }
     //dont move backwards if at start
     else if(carLocation > originalPosition)
     {
         playerCar.style.left  = carLocation - raceInterval + "px";
-        carLocation = playerCar.getBoundingClientRect();
+        carLocation = playerCar.getBoundingClientRect().left;
     }
 
     //if location matching finish, player finished
