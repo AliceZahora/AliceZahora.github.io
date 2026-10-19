@@ -56,12 +56,19 @@
                 <div id="carCard"></div>
             </div>
             <div id="raceContainer">
-                <h3 class="h3"> Answer Questions and Beat Your Opponents! </h3>
-                <p> Press [Enter] or Submit Button to answer </p>
-                <p id="mathQuestion"> 13 x 16 ? </p>
-                <label for="mathAnswer"> Answer: </label>
-                <input type="number" id="mathAnswer" class="userInput" autofocus>
-                <input type="button" value="Submit" id="submitButton">
+                <div id="duringRace">
+                    <h3 class="h3"> Answer Questions and Beat Your Opponents! </h3>
+                    <p> Press [Enter] or Submit Button to answer </p>
+                    <p id="mathQuestion"> 13 x 16 ? </p>
+                    <label for="mathAnswer"> Answer: </label>
+                    <input type="number" id="mathAnswer" class="userInput" autofocus>
+                    <input type="button" value="Submit" id="submitButton" class="gameButton">
+                </div>
+                <div id="afterRace">
+                    <h3 class="h3"> You Finished! </h3>
+                    <label for="playAgin"></label>
+                    <input type="button" value="Play Again" id="playAgain" class="gameButton">
+                </div>
                 <div id="racetrack">
                     <div id="road">
                         <div id="lane1" class="lane">

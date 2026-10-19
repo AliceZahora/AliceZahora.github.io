@@ -16,6 +16,8 @@ const carCard = document.getElementById("carCard");
 //0 = study, 1 = race
 const modeType = document.getElementsByName("modeType");
 const raceContainer = document.getElementById("raceContainer");
+const duringRace = document.getElementById("duringRace");
+const afterRace = document.getElementById("afterRace");
 const carIcons = document.querySelectorAll(".lane .fa-car-side:not(#playerCar)");
 const playerCar = document.getElementById("playerCar");
 const userAnswer = document.getElementById("mathAnswer");
@@ -331,8 +333,6 @@ function moveUser(direction, person, num)
     let numQuestions = 5;
     let raceInterval = finishLocation/numQuestions;
 
-    console.log(num + " curr: " + carLocation);
-
     //move player forward if correct answer, backwards if not
     if(direction)
     {
@@ -352,12 +352,12 @@ function moveUser(direction, person, num)
         if(person != playerCar)
         {
             clearInterval(interval[num]);
-            console.log(num + " done");
-            alert("player " + num + " finished!");
         }
         else
         {
             alert("you finished!");
+            let endText = "You Finished!";
+            endGame(endText);
         }
     }
 }
@@ -367,7 +367,10 @@ function moveOps(op, num)
     let randomCorrect = Math.floor(Math.random() * 3);
     isCorrect = (randomCorrect >= 1)? 1 : 0;
 
-    console.log(isCorrect);
-
     moveUser(isCorrect, op, num);
+}
+function endGame(endText)
+{
+    duringRace.style.display = "none";
+    afterRace.style.display = "flex";
 }

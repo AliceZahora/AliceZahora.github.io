@@ -51,11 +51,15 @@
     margin: auto;
     gap: 0;
 }
-#raceContainer {
+#raceContainer, #duringRace, #afterRace {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#duringRace {
+    display: flex;
+    width: 100%;
 }
 #racetrack {
     display: flex;
@@ -81,11 +85,11 @@
     margin-bottom: 1vh;
     box-shadow: inset 0px 0px 2px;
 }
-#submitButton {
+.gameButton {
     height: 5vh;
     box-shadow: 1px 1px;
 }
-#submitButton:hover {
+.gameButton:hover {
     cursor: pointer;
 }
 .userInput {
