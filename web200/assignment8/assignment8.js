@@ -17,9 +17,11 @@ const carCard = document.getElementById("carCard");
 const modeType = document.getElementsByName("modeType");
 const raceContainer = document.getElementById("raceContainer");
 const carIcons = document.querySelectorAll(".lane .fa-car-side:not(#playerCar)");
+const playerCar = document.getElementById("playerCar");
 const userAnswer = document.getElementById("mathAnswer");
 const submitButton = document.getElementById("submitButton");
 const mathQuestion = document.getElementById("mathQuestion");
+const racetrack = document.getElementById("racetrack");
 
 inputField.addEventListener("input", loadTable);
 modeType[0].addEventListener("change", changeMode);
@@ -254,7 +256,6 @@ function loadTable(event)
 }
 function setupGame(event)
 {
-    let playerCar = document.getElementById("playerCar");
     let carColor = event.target.nextElementSibling.style.color;
     let setColor = 0;
 
@@ -286,10 +287,12 @@ function checkAnswer()
     if(userAnswer.value == finalAnswer)
     {
         alert("correct");
+        moveUser(1);
     }
     else
     {
         alert("wrong");
+        moveUser(0);
     }
 
     //clear input
@@ -307,5 +310,36 @@ function nextQuestion()
     let questionString = num1 + " x " + num2 + " = ?";
 
     mathQuestion.innerHTML = questionString;
+}
+//direction = 1 means correct, move forward
+//direction = 0 means wrong, move backward;
+function moveUser(direction)
+{
+    let finishLine = document.getElementById("finishLine");
+    let finishLocation = finishLine.getBoundingClientRect();
+    let carLocation = playerCar.getBoundingClientRect();
+    const originalPosition = carLocation.left;
 
+    //amount of questions to be answered before you win
+    let numQuestions = 5;
+    let raceInterval = finishLocation.left/numQuestions;
+
+    //move player forward if correct answer, backwards if not
+    if(direction)
+    {
+        playerCar.style.left = carLocation.left + raceInterval + "px";
+        carLocation = playerCar.getBoundingClientRect();
+    }
+    //dont move backwards if at start
+    else if(carLocation.left > originalPosition)
+    {
+        playerCar.style.left  = carLocation.left - raceInterval + "px";
+        carLocation = playerCar.getBoundingClientRect();
+    }
+
+    //if location matching finish, player finished
+    if(carLocation.left >= finishLocation.left)
+    {
+        alert("you finished!");
+    }
 }

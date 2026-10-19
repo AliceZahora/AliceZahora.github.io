@@ -184,9 +184,10 @@
 
 .lane .fa-car-side {
     color: white;
+    position: absolute;
 }
 .lane {
-    padding: 2vh;
+    padding: 2.5vh;
     width: 100%;
 }
 .lane:not(.lane:last-child) {
