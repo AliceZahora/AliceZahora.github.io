@@ -189,13 +189,27 @@ function loadTable(event)
                 {
                     result = x * y;
 
-                    newBlock.addEventListener("mouseenter", function ()
+                    //highlight cells to trace back to the two numbers being
+                    //multiplied
+                    newBlock.addEventListener("mouseover", function ()
                     {
-                        this.style.backgroundColor = "rgb(198, 164, 213)";
+                        var currentNode = this;
+
+                        //keep looping until reach header
+                        while(currentNode != this.parentElement.firstElementChild)
+                        {
+                            currentNode.classList.add("highlighted");
+                            currentNode = currentNode.previousElementSibling;
+                        }
                     });
+                    //remove highlight once not hovering over cell anymore
                     newBlock.addEventListener("mouseout", function ()
                     {
-                        this.style.backgroundColor = "white";
+                        var highlighted = document.querySelectorAll(".highlighted");
+                        for (const node of highlighted) {
+                            node.classList.remove("highlighted");
+                            console.log(node);
+                        }
                     });
                 }
 

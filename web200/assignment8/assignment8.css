@@ -121,3 +121,6 @@
     padding: 2vh;
     border-radius: 10px;
 }
+.highlighted {
+    background-color: rgb(198, 164, 213);
+}
