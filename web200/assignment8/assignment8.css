@@ -42,7 +42,6 @@
 #legend {
     text-align: center;
 }
-
 #inputField {
     margin: 1%;
     height: 5vh;
@@ -57,6 +56,9 @@
     max-width: fit-content;
     margin: auto;
     gap: 0;
+}
+#road {
+    background-color: black;
 }
 .h3 {
     width: fit-content;
@@ -141,7 +143,16 @@
 .carInfo {
     flex: 3;
 }
-.fa-car-side {
+.car .fa-car-side {
     flex: 1;
     text-align: right;
+}
+.lane .fa-car-side {
+    color: white;
+}
+.lane {
+    padding: 2vh;
+}
+.lane:not(.lane:last-child) {
+    border-bottom: 1px dashed white;
 }

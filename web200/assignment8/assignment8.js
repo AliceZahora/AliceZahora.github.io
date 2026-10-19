@@ -63,7 +63,7 @@ const muscleCars = [
   }
 ];
 
-const colors = ["red", "blue", "orange", "green", "black"]
+const colors = ["red", "blue", "orange", "green", "purple"]
 let temp = 0;
 
 //output key value pair of all cars' make, model, and year
@@ -82,6 +82,8 @@ for (const i of muscleCars) {
     button.type = "button";
     button.value = "Choose Car";
     button.classList.add("carButton");
+    button.addEventListener("click", startGame);
+
     car.appendChild(button);
 
     //car icon
@@ -239,4 +241,8 @@ function loadTable(event)
             }
         }
     }
+}
+function startGame()
+{
+    carContainer.style.display = "none";
 }
