@@ -371,6 +371,11 @@ function moveOps(op, num)
 }
 function endGame(endText)
 {
+    //stop all remaining intervals
+    interval.forEach(element => {
+        clearInterval(element);
+    });
+
     duringRace.style.display = "none";
     afterRace.style.display = "flex";
 }
