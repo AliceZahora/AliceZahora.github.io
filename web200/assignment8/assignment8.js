@@ -15,7 +15,7 @@ const carContainer = document.getElementById("carContainer");
 const carCard = document.getElementById("carCard");
 //0 = study, 1 = race
 const modeType = document.getElementsByName("modeType");
-const gameBoard = document.getElementById("raceContainer");
+const raceContainer = document.getElementById("raceContainer");
 const carIcons = document.querySelectorAll(".lane .fa-car-side:not(#playerCar)");
 const userAnswer = document.getElementById("mathAnswer");
 const submitButton = document.getElementById("submitButton");
@@ -143,6 +143,7 @@ function changeMode()
     {
         multContainer.style.display = "flex";
         carContainer.style.display = "none";
+        raceContainer.style.display = "none";
     }
     //race mode
     //hide multiplication table, open car screen
@@ -150,6 +151,7 @@ function changeMode()
     {
         carContainer.style.display = "flex";
         multContainer.style.display = "none";
+        raceContainer.style.display = "none";
     }
 }
 function loadTable(event)
@@ -258,7 +260,7 @@ function setupGame(event)
 
     //clear car board and set up game board
     carContainer.style.display = "none";
-    gameBoard.style.display = "flex";
+    raceContainer.style.display = "flex";
 
     userAnswer.focus();
 
@@ -289,6 +291,11 @@ function checkAnswer()
     {
         alert("wrong");
     }
+
+    //clear input
+    userAnswer.value = "";
+
+    nextQuestion();
 }
 function nextQuestion()
 {
