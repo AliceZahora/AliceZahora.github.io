@@ -353,15 +353,19 @@ function moveUser(direction, person, num)
         {
             clearInterval(interval[num]);
             console.log(num + " done");
+            alert("player " + num + " finished!");
         }
-        alert("you finished!");
+        else
+        {
+            alert("you finished!");
+        }
     }
 }
 function moveOps(op, num)
 {
     //is the opponent correct, random
-    let randomCorrect = Math.floor(Math.random() * 5);
-    isCorrect = (randomCorrect >= 1)? 0 : 1;
+    let randomCorrect = Math.floor(Math.random() * 3);
+    isCorrect = (randomCorrect >= 1)? 1 : 0;
 
     console.log(isCorrect);
 
