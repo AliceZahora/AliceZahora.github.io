@@ -1,0 +1,123 @@
+#body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Share Tech", sans-serif;
+}
+#header * {
+    padding-left: 1%;
+    margin: 0px;
+}
+#multContainer, #main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#carContainer, #carCard {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    border-radius: 10px;
+}
+#carCard {
+    display: flex;
+    border: 2px solid purple;
+    margin: 5vh;
+    box-shadow: 4px 4px purple;
+    justify-content: space-evenly;
+    background-color: rgb(198, 164, 213);
+}
+#modeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 2vh;
+    width: 20vw;
+    height: 10vh;
+    border-radius: 10px;
+}
+#legend {
+    text-align: center;
+}
+
+#inputField {
+    margin: 1%;
+    height: 5vh;
+    font-size: 5vh;
+    width: 5%;
+}
+#rowContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    border: 1px solid purple;
+    max-width: fit-content;
+    margin: auto;
+    gap: 0;
+}
+.h3 {
+    width: fit-content;
+    font-size: xx-large;
+    margin: 0;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    font-size: x-large;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+}
+.column p {
+    padding: .7vw;
+    margin: 0;
+    border: 1px solid black;
+}
+.label {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px;
+    padding: 5%;
+}
+.label:has(.modeInput:checked)
+{
+    box-shadow: inset 3px 3px 2px;
+    background-color: rgb(198, 164, 213);
+}
+.label:hover {
+    cursor: pointer;
+    background-color: rgb(232, 224, 233);
+}
+.modeInput {
+    position: absolute;
+    visibility: hidden;
+}
+.car {
+    border: 1px solid purple;
+    border-radius: 10px;
+    width: 90%;
+    padding: 2vh;
+    margin: 2vh;
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 2px 2px purple;
+    flex-wrap: wrap;
+}
+.car:hover {
+    cursor: pointer;
+    background-color: rgb(235, 227, 235);
+}
+.expansion {
+    background-color: purple;
+    color: white;
+    flex-basis: 100%;
+    padding: 2vh;
+    border-radius: 10px;
+}
