@@ -31,7 +31,7 @@ modeType[0].addEventListener("change", changeMode);
 modeType[1].addEventListener("change", changeMode);
 submitButton.addEventListener("click", checkAnswer);
 userAnswer.addEventListener("change", checkAnswer);
-playAgain.addEventListener("click", resetGame);
+playAgain.addEventListener("click", changeMode);
 
 const muscleCars = [
   {
@@ -145,6 +145,8 @@ for (const i of muscleCars) {
 
 function changeMode()
 {
+    resetGame();
+
     //study mode
     //hide car screen, open multiplication table
     if(modeType[0].checked)
@@ -384,10 +386,6 @@ function resetGame()
 {
     //clear interval array
     interval = [];
-
-    //open car select screen again
-    modeType[1].checked = true;
-    changeMode();
 
     duringRace.style.display = "flex";
     afterRace.style.display = "none";
