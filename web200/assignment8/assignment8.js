@@ -74,7 +74,15 @@ for (const i of muscleCars) {
     //information about car
     var info = document.createElement('p');
     info.innerHTML = i.make + "<br>" + i.model + "<br>" + i.year;
+    info.classList.add("carInfo");
     car.appendChild(info);
+
+    //button for selecting car
+    var button = document.createElement('input');
+    button.type = "button";
+    button.value = "Choose Car";
+    button.classList.add("carButton");
+    car.appendChild(button);
 
     //car icon
     var icon = document.createElement('i');

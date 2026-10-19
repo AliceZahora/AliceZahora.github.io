@@ -124,3 +124,24 @@
 .highlighted {
     background-color: rgb(239, 220, 247);
 }
+.carButton {
+    height: 7vh;
+    width: fit-content;
+    padding: 1vw;
+    background-color: rgb(253, 237, 147);
+    border: 1px solid black;
+    box-shadow: 2px 2px;
+    flex: 1;
+}
+.carButton:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+.carInfo {
+    flex: 3;
+}
+.fa-car-side {
+    flex: 1;
+    text-align: right;
+}
