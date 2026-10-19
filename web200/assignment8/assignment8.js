@@ -188,6 +188,15 @@ function loadTable(event)
                 else
                 {
                     result = x * y;
+
+                    newBlock.addEventListener("mouseenter", function ()
+                    {
+                        this.style.backgroundColor = "rgb(198, 164, 213)";
+                    });
+                    newBlock.addEventListener("mouseout", function ()
+                    {
+                        this.style.backgroundColor = "white";
+                    });
                 }
 
                 newBlock.innerHTML = result;
