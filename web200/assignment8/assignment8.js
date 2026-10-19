@@ -250,13 +250,16 @@ function setupGame(event)
     const gameBoard = document.getElementById("raceContainer");
     const carIcons = document.querySelectorAll(".lane .fa-car-side:not(#playerCar)");
 
+    //clear car board and set up game board
     carContainer.style.display = "none";
     gameBoard.style.display = "block";
 
     playerCar.style.color = carColor;
 
+    //set colors of car icons
     for(let k = 0; k != carIcons.length; k++)
     {
+        //if current color in array is same as player color, skip it
         if(colors[setColor] == carColor)
         {
             setColor++;
