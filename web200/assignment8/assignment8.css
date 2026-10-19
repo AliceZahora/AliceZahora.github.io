@@ -42,12 +42,6 @@
 #legend {
     text-align: center;
 }
-#inputField {
-    margin: 1%;
-    height: 5vh;
-    font-size: 5vh;
-    width: 5%;
-}
 #rowContainer {
     display: flex;
     flex-direction: row;
@@ -57,9 +51,16 @@
     margin: auto;
     gap: 0;
 }
+#raceContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 #racetrack {
     display: flex;
     flex-direction: row;
+    margin-top: 2vh;
 }
 #road {
     background-color: black;
@@ -72,6 +73,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#mathQuestion {
+    font-size: xx-large;
+    padding: 2vh;
+    margin-top: 0;
+    margin-bottom: 1vh;
+    box-shadow: inset 0px 0px 2px;
+}
+#submitButton {
+    height: 5vh;
+    box-shadow: 1px 1px;
+}
+#submitButton:hover {
+    cursor: pointer;
+}
+.userInput {
+    margin: 1%;
+    height: 5vh;
+    font-size: 5vh;
+    width: 5%;
 }
 .h3 {
     width: fit-content;

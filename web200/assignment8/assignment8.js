@@ -15,6 +15,8 @@ const carContainer = document.getElementById("carContainer");
 const carCard = document.getElementById("carCard");
 //0 = study, 1 = race
 const modeType = document.getElementsByName("modeType");
+const gameBoard = document.getElementById("raceContainer");
+const carIcons = document.querySelectorAll(".lane .fa-car-side:not(#playerCar)");
 
 inputField.addEventListener("input", loadTable);
 modeType[0].addEventListener("change", changeMode);
@@ -247,12 +249,10 @@ function setupGame(event)
     let playerCar = document.getElementById("playerCar");
     let carColor = event.target.nextElementSibling.style.color;
     let setColor = 0;
-    const gameBoard = document.getElementById("raceContainer");
-    const carIcons = document.querySelectorAll(".lane .fa-car-side:not(#playerCar)");
 
     //clear car board and set up game board
     carContainer.style.display = "none";
-    gameBoard.style.display = "block";
+    gameBoard.style.display = "flex";
 
     playerCar.style.color = carColor;
 
