@@ -24,12 +24,14 @@ const userAnswer = document.getElementById("mathAnswer");
 const submitButton = document.getElementById("submitButton");
 const mathQuestion = document.getElementById("mathQuestion");
 const racetrack = document.getElementById("racetrack");
+const playAgain = document.getElementById("playAgain");
 
 inputField.addEventListener("input", loadTable);
 modeType[0].addEventListener("change", changeMode);
 modeType[1].addEventListener("change", changeMode);
 submitButton.addEventListener("click", checkAnswer);
 userAnswer.addEventListener("change", checkAnswer);
+playAgain.addEventListener("click", resetGame);
 
 const muscleCars = [
   {
@@ -355,7 +357,6 @@ function moveUser(direction, person, num)
         }
         else
         {
-            alert("you finished!");
             let endText = "You Finished!";
             endGame(endText);
         }
@@ -378,4 +379,23 @@ function endGame(endText)
 
     duringRace.style.display = "none";
     afterRace.style.display = "flex";
+}
+function resetGame()
+{
+    //clear interval array
+    interval = [];
+
+    //open car select screen again
+    modeType[1].checked = true;
+    changeMode();
+
+    duringRace.style.display = "flex";
+    afterRace.style.display = "none";
+
+    //move all players back to start of line
+    for (const icon of carIcons) {
+        icon.style.left = racetrack.value + "px";
+    }
+
+    playerCar.style.left = racetrack.value + "px";
 }
