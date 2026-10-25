@@ -10,6 +10,13 @@
     justify-content: center;
     align-items: center;
 }
+#farmContainer {
+    width: 50%;
+}
 .animalButton {
     width: 20%;
+}
+.fa-solid {
+    color: black;
+    display: block;
 }
