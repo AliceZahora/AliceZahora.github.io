@@ -61,7 +61,7 @@ function buyAnimal(event)
     let newAnimal = document.createElement("i");
     newAnimal.id = event.target.getAttribute("data-type") + animalNumbers;
     animalNumbers++;
-    newAnimal.classList.add("fa-solid", icon, "animal");
+    newAnimal.classList.add("fa-solid", icon, "farmAnimal");
     newAnimal.setAttribute("data-price", event.target.getAttribute("data-price"));
     farmContainer.appendChild(newAnimal);
 

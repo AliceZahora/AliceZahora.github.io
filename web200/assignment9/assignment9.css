@@ -60,6 +60,14 @@
 #shopHeader h3 {
     font-size: x-large;
 }
+#coinPurse {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
+    width: 100%;
+}
 .listing {
     display: flex;
     flex-direction: row;
@@ -97,6 +105,7 @@
 }
 .farmAnimal {
     font-size: xx-large;
+    color: white;
 }
 .menuAnimal {
     font-size: xx-large;
