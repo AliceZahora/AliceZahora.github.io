@@ -21,6 +21,8 @@ let animalNumbers = 5;
 //output beginning array
 updateArray();
 
+alert("Coins to be added later");
+
 for(let i = 0; i!= buyButtons.length; i++)
 {
     buyButtons[i].addEventListener("click", buyAnimal);
