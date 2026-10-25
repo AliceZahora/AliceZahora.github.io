@@ -41,9 +41,14 @@ function sort()
 function updateArray()
 {
     //output entire array
-    arrayHTML.innerHTML = "[ ";
-    ownedAnimals.forEach(animalHTML => {
-        arrayHTML.innerHTML += animalHTML.id + " ";
+    arrayHTML.innerHTML = "[";
+    ownedAnimals.forEach(function(animalHTML, index, array){
+        arrayHTML.innerHTML += animalHTML.id;
+        //add comma if not last element
+        if(index < array.length - 1)
+        {
+            arrayHTML.innerHTML += ", ";
+        }
     });
     arrayHTML.innerHTML += "]";
 }
