@@ -23,6 +23,8 @@
                 - Create a Field/button to add an item to the list
                 - Create a button to remove an item from the list
                 - Create a button to Sort the list
+                - Display the current state of the array on the page after each operation.
+                - Use at least three different array methods (push, pop, find, sort, etc.).
 
             Extra credit:
 
@@ -37,6 +39,10 @@
             <h2> Assignment 9 </h2>
         </header>
         <main id="main">
+            <div id="arrayDiv">
+                <p> Owned Animals Array Status: </p>
+                <p id="array"></p>
+            </div>
             <div id="shopContainer">
                 <div class="listing">
                     <input type="button" id="buyBird" class="buyButton" value="Buy" data-price="2" data-type="crow">
@@ -60,11 +66,11 @@
                 </div>
             </div>
             <div id="farmContainer">
-                <i class="fa-solid fa-crow"></i>
-                <i class="fa-solid fa-crow"></i>
-                <i class="fa-solid fa-crow"></i>
-                <i class="fa-solid fa-crow"></i>
-                <i class="fa-solid fa-crow"></i>
+                <i id="crow0" class="fa-solid fa-crow"></i>
+                <i id="crow1" class="fa-solid fa-crow"></i>
+                <i id="crow2" class="fa-solid fa-crow"></i>
+                <i id="crow3" class="fa-solid fa-crow"></i>
+                <i id="crow4" class="fa-solid fa-crow"></i>
             </div>
         </main>
     </body>
