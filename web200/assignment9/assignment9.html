@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+            Alice Zahora
+            Class: Web 200
+            Assignment: 9
+            Date: 10/24/2026
+        -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web 200 - Assignment 9">
+        <link rel="stylesheet" href="assignment9.css" type="text/css">
+        <script src="assignment9.js" defer></script>
+        <script src="https://kit.fontawesome.com/e558e0301a.js" crossorigin="anonymous"></script>
+        <title> Web 200 - Zahora 9 </title>
+        <!--
+            INSTRUCTIONS
+
+            Simple List Manager
+
+                - Start with an array of at least 5 items
+                - Create a Field/button to add an item to the list
+                - Create a button to remove an item from the list
+                - Create a button to Sort the list
+                - Display the current state of the array on the page after each operation.
+                - Use at least three different array methods (push, pop, find, sort, etc.).
+
+            Extra credit:
+
+                Create a way to search the array. If the search is
+                successful, display the result. If the search is not
+                successful, display an error message for the user.
+        -->
+    </head>
+    <body id="body">
+        <header id="header">
+            <h1> Web 200 </h1>
+            <h2> Assignment 9 </h2>
+        </header>
+        <main id="main">
+            <div id="arrayDiv">
+                <p> Owned Animals Array Status: </p>
+                <p id="array"></p>
+                <input type="button" id="sortButton" value="Sort By Price">
+            </div>
+            <div id="gameboard">
+                <i class="fa-solid fa-house"></i>
+                <i class="fa-solid fa-sun"></i>
+                <div id="shopContainer">
+                    <div id="shopHeader">
+                        <h3> Shop </h3>
+                    </div>
+                    <div id="coinPurse">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                        <p> Current Coins: </p>
+                        <i> 0 </i>
+                    </div>
+                    <div id="shopItems">
+                        <div class="listing">
+                                <input type="button" id="buyBird" class="buyButton" value="Buy" data-price="2" data-type="crow">
+                                <i class="fa-solid fa-crow menuAnimal" data-price="2"></i>
+                                <input type="button" id="sellBird" class="sellButton" value="Sell" data-price="1" data-type="crow">
+                            </div>
+                            <div class="listing">
+                                <input type="button" id="buyCat" class="buyButton" value="Buy" data-price="5" data-type="cat">
+                                <i class="fa-solid fa-cat menuAnimal"  data-price="5"></i>
+                                <input type="button" id="sellCat" class="sellButton" value="Sell" data-price="2" data-type="cat">
+                            </div>
+                            <div class="listing">
+                                <input type="button" id="buyFish" class="buyButton" value="Buy" data-price="10" data-type="fish">
+                                <i class="fa-solid fa-fish menuAnimal"  data-price="10"></i>
+                                <input type="button" id="sellFish" class="sellButton" value="Sell" data-price="5" data-type="fish">
+                            </div>
+                            <div class="listing">
+                                <input type="button" id="buyCow" class="buyButton" value="Buy" data-price="20" data-type="cow">
+                                <i class="fa-solid fa-cow menuAnimal"  data-price="20"></i>
+                                <input type="button" id="sellCow" class="sellButton" value="Sell" data-price="10" data-type="cow">
+                            </div>
+                        </div>
+                    </div>
+
+                <div id="farmContainer">
+                    <i id="crow0" class="fa-solid fa-crow farmAnimal" data-price="2" ></i>
+                    <i id="crow1" class="fa-solid fa-crow farmAnimal" data-price="2" ></i>
+                    <i id="crow2" class="fa-solid fa-crow farmAnimal" data-price="2" ></i>
+                    <i id="crow3" class="fa-solid fa-crow farmAnimal" data-price="2" ></i>
+                    <i id="crow4" class="fa-solid fa-crow farmAnimal" data-price="2" ></i>
+                </div>
+            </div>
+
+        </main>
+    </body>
+</html>
