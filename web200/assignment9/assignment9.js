@@ -5,18 +5,27 @@
     Date: 10/24/2026
 */
 
-let animalButtons = document.getElementsByClassName("animalButton");
+let buyButtons = document.getElementsByClassName("buyButton");
+let sellButtons = document.getElementsByClassName("sellButton");
 let farmContainer = document.getElementById("farmContainer");
+//5 originally spawned animals
+let originalAnimals = farmContainer.children;
 
-let ownedAnimals = [];
+let ownedAnimals = [originalAnimals[0], originalAnimals[1], originalAnimals[2],
+                    originalAnimals[3], originalAnimals[4]];
 
-for(let i = 0; i!= animalButtons.length; i++)
+for(let i = 0; i!= buyButtons.length; i++)
 {
-    animalButtons[i].addEventListener("click", spawnAnimal);
+    buyButtons[i].addEventListener("click", buyAnimal);
+}
+for(let i = 0; i!= sellButtons.length; i++)
+{
+    sellButtons[i].addEventListener("click", sellAnimal);
 }
 
-function spawnAnimal(event)
+function buyAnimal(event)
 {
+    //identify what kind of animal player is buying
     let icon = "fa-" + event.target.getAttribute("data-type");
 
     //create icon html element
@@ -25,5 +34,33 @@ function spawnAnimal(event)
     farmContainer.appendChild(newAnimal);
 
     //add animal element and details to array
-    ownedAnimals.push({type:newAnimal, age:1, icon: icon});
+    ownedAnimals.push(newAnimal);
+}
+function sellAnimal(event)
+{
+    let index = 0;
+
+    //find index of animal player is selling
+    ownedAnimals.every(animalHTML => {
+        //if animal found, delete html element from dom, save index, leave loop
+        if(animalHTML.classList[1] == ("fa-" + event.target.getAttribute("data-type")))
+        {
+            animalHTML.remove();
+
+            return false;
+        }
+
+        index++;
+        return true;
+    });
+
+    //remove actual array item
+    if(index == 0)
+    {
+        ownedAnimals.shift();
+    }
+    else
+    {
+        ownedAnimals.splice(index, 1);
+    }
 }

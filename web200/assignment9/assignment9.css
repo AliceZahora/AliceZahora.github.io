@@ -13,9 +13,6 @@
 #farmContainer {
     width: 50%;
 }
-.animalButton {
-
-}
 .buttonRow {
     display: flex;
     flex-direction: row;
