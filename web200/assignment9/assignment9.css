@@ -3,7 +3,7 @@
     padding: 0;
     width: 100%;
 }
-#animalButtonContainer {
+#shopContainer {
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -14,7 +14,11 @@
     width: 50%;
 }
 .animalButton {
-    width: 20%;
+
+}
+.buttonRow {
+    display: flex;
+    flex-direction: row;
 }
 .fa-solid {
     color: black;

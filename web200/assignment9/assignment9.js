@@ -17,10 +17,13 @@ for(let i = 0; i!= animalButtons.length; i++)
 
 function spawnAnimal(event)
 {
-    let icon = "fa-" + event.target.value.toLowerCase();
+    let icon = "fa-" + event.target.getAttribute("data-type");
 
+    //create icon html element
     let newAnimal = document.createElement("i");
     newAnimal.classList.add("fa-solid", icon);
     farmContainer.appendChild(newAnimal);
+
+    //add animal element and details to array
     ownedAnimals.push({type:newAnimal, age:1, icon: icon});
 }
