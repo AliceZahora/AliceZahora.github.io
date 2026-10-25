@@ -2,12 +2,18 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(189, 230, 255);
 }
 #header {
     margin-left: 1%;
 }
 #header * {
     margin-top: 1%;
+}
+#main {
+    height: 100%;
 }
 #arrayDiv {
     position: absolute;
@@ -19,21 +25,47 @@
     width: fit-content;
     text-align: center;
 }
+#gameboard {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 70%;
+    gap: 5%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 #shopContainer {
-    width: 30%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: white;
 }
 #farmContainer {
-    width: 50%;
+    flex: 3;
+    border-radius: 10px;
+    background-color: rgb(0, 128, 28);
 }
 .buttonRow {
     display: flex;
     flex-direction: row;
 }
-.fa-solid {
-    color: black;
-    display: block;
+.fa-house {
+    color: rgb(128, 17, 17);
+    font-size: 7vh;
+    position: absolute;
+    top: 500px;
+    right: 200px;
+    text-shadow: 0px 0px 3px white;
+}
+.fa-sun {
+    color: rgb(234, 189, 10);
+    font-size: 10vh;
+    position: absolute;
+    top: 10px;
+    right: 20px;
 }
