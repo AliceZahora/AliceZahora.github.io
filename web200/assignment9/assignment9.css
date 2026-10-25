@@ -6,6 +6,19 @@
 #header {
     margin-left: 1%;
 }
+#header * {
+    margin-top: 1%;
+}
+#arrayDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: .5%;
+    width: fit-content;
+    text-align: center;
+}
 #shopContainer {
     width: 30%;
     display: flex;
