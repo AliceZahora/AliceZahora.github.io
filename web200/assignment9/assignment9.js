@@ -11,6 +11,7 @@ let farmContainer = document.getElementById("farmContainer");
 let arrayHTML = document.getElementById("array");
 //5 originally spawned animals
 let originalAnimals = farmContainer.children;
+let sortButton = document.getElementById("sortButton");
 
 let ownedAnimals = [originalAnimals[0], originalAnimals[1], originalAnimals[2],
                     originalAnimals[3], originalAnimals[4]];
@@ -29,6 +30,14 @@ for(let i = 0; i!= sellButtons.length; i++)
     sellButtons[i].addEventListener("click", sellAnimal);
 }
 
+sortButton.addEventListener("click", sort);
+
+function sort()
+{
+    ownedAnimals.sort(comparePrice);
+
+    updateArray();
+}
 function updateArray()
 {
     //output entire array
@@ -48,6 +57,7 @@ function buyAnimal(event)
     newAnimal.id = event.target.getAttribute("data-type") + animalNumbers;
     animalNumbers++;
     newAnimal.classList.add("fa-solid", icon);
+    newAnimal.setAttribute("data-price", event.target.getAttribute("data-price"));
     farmContainer.appendChild(newAnimal);
 
     //add animal element and details to array
@@ -86,4 +96,18 @@ function sellAnimal(event)
 
     //output updated array
     updateArray();
+}
+function comparePrice(a, b)
+{
+    //compare prices to sort elements
+    if(parseFloat(a.getAttribute("data-price")) < parseFloat(b.getAttribute("data-price")))
+    {
+        return 1;
+    }
+    else if(parseFloat(a.getAttribute("data-price")) > parseFloat(b.getAttribute("data-price")))
+    {
+        return -1;
+    }
+
+    return 0;
 }
