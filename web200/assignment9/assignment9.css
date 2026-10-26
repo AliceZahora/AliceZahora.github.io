@@ -104,10 +104,11 @@
     box-shadow: 2px 2px black;
 }
 .farmAnimal {
-    font-size: xx-large;
+    font-size: 5.5vh;
     color: white;
+    position: absolute;
 }
 .menuAnimal {
-    font-size: xx-large;
+    font-size: 5.5vh;
 }
 

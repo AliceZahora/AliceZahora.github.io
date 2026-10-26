@@ -21,8 +21,6 @@ let animalNumbers = 5;
 //output beginning array
 updateArray();
 
-alert("Coins to be added later");
-
 for(let i = 0; i!= buyButtons.length; i++)
 {
     buyButtons[i].addEventListener("click", buyAnimal);
@@ -31,9 +29,30 @@ for(let i = 0; i!= sellButtons.length; i++)
 {
     sellButtons[i].addEventListener("click", sellAnimal);
 }
+//move the original animals to random location
+ownedAnimals.forEach(animal => {
+    randomMove(animal);
+});
 
 sortButton.addEventListener("click", sort);
 
+function randomMove(newAnimal)
+{
+    let animalWidth = newAnimal.offsetWidth;
+    let animalHeight = newAnimal.offsetHeight;
+
+    //get location of farm div
+    let farmCoord = farmContainer.getBoundingClientRect();
+    //get random x coord within farm div
+    let maxX = farmCoord.right - animalWidth;
+    let x = Math.floor((Math.random() * (maxX - farmCoord.left + 1) + farmCoord.left));
+    //get random y coord within farm div
+    let maxY = farmCoord.bottom - animalHeight;
+    let y = Math.floor((Math.random() * (maxY - farmCoord.top + 1) + farmCoord.top));
+
+    newAnimal.style.left = x + "px";
+    newAnimal.style.top = y + "px";
+}
 function sort()
 {
     ownedAnimals.sort(comparePrice);
@@ -62,10 +81,12 @@ function buyAnimal(event)
     //create icon html element
     let newAnimal = document.createElement("i");
     newAnimal.id = event.target.getAttribute("data-type") + animalNumbers;
+
     animalNumbers++;
     newAnimal.classList.add("fa-solid", icon, "farmAnimal");
     newAnimal.setAttribute("data-price", event.target.getAttribute("data-price"));
     farmContainer.appendChild(newAnimal);
+    randomMove(newAnimal);
 
     //add animal element and details to array
     ownedAnimals.push(newAnimal);
