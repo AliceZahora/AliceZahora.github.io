@@ -125,4 +125,7 @@
 .menuAnimal {
     font-size: 5.5vh;
 }
-
+.fa-coins {
+    color: gold;
+    position: absolute;
+}

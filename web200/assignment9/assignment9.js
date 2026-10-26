@@ -40,22 +40,36 @@ ownedAnimals.forEach(animal => {
 
 sortButton.addEventListener("click", sort);
 
-function randomMove(newAnimal)
+function spawnCoin()
 {
-    let animalWidth = newAnimal.offsetWidth;
-    let animalHeight = newAnimal.offsetHeight;
+    let coin = document.createElement("i");
+    coin.classList.add("fa-solid", "fa-coins");
+    coin.addEventListener("mouseover", function ()
+    {
+        updateCoins();
+        coin.remove();
+    })
+
+    farmContainer.appendChild(coin);
+
+    randomMove(coin);
+}
+function randomMove(newElement)
+{
+    let elementWidth = newElement.offsetWidth;
+    let elementHeight = newElement.offsetHeight;
 
     //get location of farm div
     let farmCoord = farmContainer.getBoundingClientRect();
     //get random x coord within farm div
-    let maxX = farmCoord.right - animalWidth;
+    let maxX = farmCoord.right - elementWidth;
     let x = Math.floor((Math.random() * (maxX - farmCoord.left + 1) + farmCoord.left));
     //get random y coord within farm div
-    let maxY = farmCoord.bottom - animalHeight;
+    let maxY = farmCoord.bottom - elementHeight;
     let y = Math.floor((Math.random() * (maxY - farmCoord.top + 1) + farmCoord.top));
 
-    newAnimal.style.left = x + "px";
-    newAnimal.style.top = y + "px";
+    newElement.style.left = x + "px";
+    newElement.style.top = y + "px";
 }
 function sort()
 {
@@ -76,6 +90,8 @@ function updateArray()
         }
     });
     arrayHTML.innerHTML += "]";
+
+    spawnCoin();
 }
 function buyAnimal(event)
 {
@@ -92,7 +108,8 @@ function buyAnimal(event)
     animalNumbers++;
     newAnimal.classList.add("fa-solid", icon, "farmAnimal");
     newAnimal.setAttribute("data-price", price);
-    farmContainer.appendChild(newAnimal);
+    farmContainer.appendChild(newElement);
+
     randomMove(newAnimal);
 
     //add animal element and details to array
@@ -139,18 +156,23 @@ function sellAnimal(event)
     updateArray();
     updateCoins(1, price);
 }
-//updateType 1 = sell, 0 = buy
-function updateCoins(didSell, price)
+//updateType 2 = collected coin, 1 = sell, 0 = buy
+function updateCoins(actionType, price)
 {
-    let newMoney;
+    let newMoney = 0;
+    let oldMoney = parseInt(currentCoins.innerHTML);
 
-    if(didSell)
+    if(actionType == "1")
     {
-        newMoney = parseInt(currentCoins.innerHTML) + price;
+        newMoney = oldMoney + price;
+    }
+    else if(actionType == "0")
+    {
+        newMoney = oldMoney - price;
     }
     else
     {
-        newMoney = parseInt(currentCoins.innerHTML) - price;
+        newMoney = oldMoney + 1;
     }
 
     currentCoins.innerHTML = newMoney;
