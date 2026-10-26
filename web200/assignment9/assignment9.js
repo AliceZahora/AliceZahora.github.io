@@ -159,6 +159,7 @@ function updateCoins(didSell, price)
     currentCoins.innerHTML = newMoney;
 
     checkBuyButtons(newMoney);
+    checkSellButtons();
 }
 function checkBuyButtons(newMoney)
 {
@@ -183,6 +184,31 @@ function checkBuyButtons(newMoney)
         else
         {
             break;
+        }
+    }
+}
+function checkSellButtons()
+{
+    for(let i = 0; i!= sellButtons.length; i++)
+    {
+        //if animal type says the current button's animal exists,
+        //allow player to sell via making button active
+        if(animalTypes[sellButtons[i].getAttribute("data-type")])
+        {
+            //remove inactive only if button isnt currently active
+            if(sellButtons[i].classList.contains("inactive"))
+            {
+                sellButtons[i].classList.remove("inactive");
+            }
+        }
+        //if player doesn't own animal, make button inactive
+        else
+        {
+            //add inactive only if button isnt currently inactive
+            if(!sellButtons[i].classList.contains("inactive"))
+            {
+                sellButtons[i].classList.add("inactive");
+            }
         }
     }
 }
