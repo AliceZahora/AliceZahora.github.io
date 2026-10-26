@@ -21,6 +21,8 @@ let animalTypes = {crow: 5, cat: 0, fish: 0, cow: 0};
 
 //keep track of total animals spawned number
 let animalNumbers = 5;
+//interval spawns coin every 5 seconds
+let coinInterval = setInterval(spawnCoin, 5000);
 //output beginning array
 updateArray();
 
@@ -90,8 +92,6 @@ function updateArray()
         }
     });
     arrayHTML.innerHTML += "]";
-
-    spawnCoin();
 }
 function buyAnimal(event)
 {
@@ -108,7 +108,7 @@ function buyAnimal(event)
     animalNumbers++;
     newAnimal.classList.add("fa-solid", icon, "farmAnimal");
     newAnimal.setAttribute("data-price", price);
-    farmContainer.appendChild(newElement);
+    farmContainer.appendChild(newAnimal);
 
     randomMove(newAnimal);
 
