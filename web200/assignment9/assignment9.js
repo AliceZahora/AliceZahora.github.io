@@ -16,6 +16,8 @@ let currentCoins = document.getElementById("currentCoins");
 
 let ownedAnimals = [originalAnimals[0], originalAnimals[1], originalAnimals[2],
                     originalAnimals[3], originalAnimals[4]];
+//number of each animal owned
+let animalTypes = {crow: 5, cat: 0, fish: 0, cow: 0};
 
 //keep track of total animals spawned number
 let animalNumbers = 5;
@@ -74,16 +76,22 @@ function updateArray()
         }
     });
     arrayHTML.innerHTML += "]";
+
+    for (const key in animalTypes) {
+        console.log(key + ": " + animalTypes[key] )
+    }
 }
 function buyAnimal(event)
 {
     //identify what kind of animal player is buying
-    let icon = "fa-" + event.target.getAttribute("data-type");
+    let type = event.target.getAttribute("data-type");
+    let icon = "fa-" + type
     let price = parseInt(event.target.getAttribute("data-price"));
 
     //create icon html element
     let newAnimal = document.createElement("i");
-    newAnimal.id = event.target.getAttribute("data-type") + animalNumbers;
+    newAnimal.id = type + animalNumbers;
+    newAnimal.setAttribute("data-type", type);
 
     animalNumbers++;
     newAnimal.classList.add("fa-solid", icon, "farmAnimal");
@@ -93,6 +101,7 @@ function buyAnimal(event)
 
     //add animal element and details to array
     ownedAnimals.push(newAnimal);
+    animalTypes[type] += 1;
 
     //output updated array
     updateArray();
@@ -109,6 +118,7 @@ function sellAnimal(event)
         if(animalHTML.classList[1] == ("fa-" + event.target.getAttribute("data-type")))
         {
             price = parseInt(animalHTML.getAttribute("data-price"));
+            animalTypes[animalHTML.getAttribute("data-type")] -= 1;
             animalHTML.remove();
 
             return false;
