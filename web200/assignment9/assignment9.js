@@ -29,6 +29,10 @@ for(let i = 0; i!= sellButtons.length; i++)
 {
     sellButtons[i].addEventListener("click", sellAnimal);
 }
+//move the original animals to random location
+ownedAnimals.forEach(animal => {
+    randomMove(animal);
+});
 
 sortButton.addEventListener("click", sort);
 
