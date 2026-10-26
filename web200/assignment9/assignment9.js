@@ -117,7 +117,8 @@ function sellAnimal(event)
         //if animal found, delete html element from dom, save index, leave loop
         if(animalHTML.classList[1] == ("fa-" + event.target.getAttribute("data-type")))
         {
-            price = parseInt(animalHTML.getAttribute("data-price"));
+            //get selling price
+            price = parseInt(event.target.getAttribute("data-price"));
             animalTypes[animalHTML.getAttribute("data-type")] -= 1;
             animalHTML.remove();
 
