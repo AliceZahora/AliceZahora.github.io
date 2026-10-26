@@ -46,7 +46,18 @@
             </div>
             <div id="gameboard">
                 <i class="fa-solid fa-house"></i>
-                <i class="fa-solid fa-sun"></i>
+                <div id="pauseArea">
+                    <button id="pauseButton" command="show-modal" commandFor="pauseMenu">
+                        <i class="fa-solid fa-pause"></i>
+                    </button>
+                    <i class="fa-solid fa-sun"></i>
+                    <dialog id="pauseMenu">
+                        <button id="playButton" command="close" commandFor="pauseMenu">
+                            Resume
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    </dialog>
+                </div>
                 <div id="shopContainer">
                     <div id="shopHeader">
                         <h3> Shop </h3>
