@@ -13,6 +13,8 @@ let arrayHTML = document.getElementById("array");
 let originalAnimals = farmContainer.children;
 let sortButton = document.getElementById("sortButton");
 let currentCoins = document.getElementById("currentCoins");
+let pauseButton = document.getElementById("pauseButton");
+let playButton = document.getElementById("playButton");
 
 let ownedAnimals = [originalAnimals[0], originalAnimals[1], originalAnimals[2],
                     originalAnimals[3], originalAnimals[4]];
@@ -41,6 +43,14 @@ ownedAnimals.forEach(animal => {
 });
 
 sortButton.addEventListener("click", sort);
+pauseButton.addEventListener("click", function ()
+{
+    clearInterval(coinInterval);
+})
+playButton.addEventListener("click", function ()
+{
+    coinInterval = setInterval(spawnCoin, 5000);
+})
 
 function spawnCoin()
 {

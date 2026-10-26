@@ -68,6 +68,25 @@
     gap: 2%;
     width: 100%;
 }
+#pauseArea {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 10vw;
+    justify-content: space-evenly;
+}
+#pauseButton {
+    border: none;
+    background-color:rgb(189, 230, 255);
+}
+#pauseButton:hover, #playButton:hover {
+    cursor: pointer;
+}
+#pauseMenu::backdrop {
+    background-color: rgba(0, 0, 0, 0.451);
+}
 .listing {
     display: flex;
     flex-direction: row;
@@ -85,9 +104,9 @@
 .fa-sun {
     color: rgb(234, 189, 10);
     font-size: 10vh;
-    position: absolute;
-    top: 10px;
-    right: 20px;
+}
+.fa-pause {
+    font-size: 10vh;
 }
 .buyButton {
     background-color: rgb(185, 252, 185);
