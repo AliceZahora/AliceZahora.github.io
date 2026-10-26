@@ -12,6 +12,7 @@ let arrayHTML = document.getElementById("array");
 //5 originally spawned animals
 let originalAnimals = farmContainer.children;
 let sortButton = document.getElementById("sortButton");
+let currentCoins = document.getElementById("currentCoins");
 
 let ownedAnimals = [originalAnimals[0], originalAnimals[1], originalAnimals[2],
                     originalAnimals[3], originalAnimals[4]];
@@ -78,6 +79,7 @@ function buyAnimal(event)
 {
     //identify what kind of animal player is buying
     let icon = "fa-" + event.target.getAttribute("data-type");
+    let price = parseInt(event.target.getAttribute("data-price"));
 
     //create icon html element
     let newAnimal = document.createElement("i");
@@ -85,7 +87,7 @@ function buyAnimal(event)
 
     animalNumbers++;
     newAnimal.classList.add("fa-solid", icon, "farmAnimal");
-    newAnimal.setAttribute("data-price", event.target.getAttribute("data-price"));
+    newAnimal.setAttribute("data-price", price);
     farmContainer.appendChild(newAnimal);
     randomMove(newAnimal);
 
@@ -94,16 +96,19 @@ function buyAnimal(event)
 
     //output updated array
     updateArray();
+    updateCoins(0, price);
 }
 function sellAnimal(event)
 {
     let index = 0;
+    let price = 0;
 
     //find index of animal player is selling
     ownedAnimals.every(animalHTML => {
         //if animal found, delete html element from dom, save index, leave loop
         if(animalHTML.classList[1] == ("fa-" + event.target.getAttribute("data-type")))
         {
+            price = parseInt(animalHTML.getAttribute("data-price"));
             animalHTML.remove();
 
             return false;
@@ -125,6 +130,51 @@ function sellAnimal(event)
 
     //output updated array
     updateArray();
+    updateCoins(1, price);
+}
+//updateType 1 = sell, 0 = buy
+function updateCoins(didSell, price)
+{
+    let newMoney;
+
+    if(didSell)
+    {
+        newMoney = parseInt(currentCoins.innerHTML) + price;
+    }
+    else
+    {
+        newMoney = parseInt(currentCoins.innerHTML) - price;
+    }
+
+    currentCoins.innerHTML = newMoney;
+
+    checkBuyButtons(newMoney);
+}
+function checkBuyButtons(newMoney)
+{
+    for(let i = 0; i!= buyButtons.length; i++)
+    {
+        //if button is for item that is in budget
+        if(parseInt(buyButtons[i].getAttribute("data-price")) <= newMoney)
+        {
+            //remove inactive only if button isnt currently active
+            if(buyButtons[i].classList.contains("inactive"))
+            {
+                buyButtons[i].classList.remove("inactive");
+            }
+        }
+        //if button isnt in budget but isnt inactive, deactivate it
+        else if(!(buyButtons[i].classList.contains("inactive")))
+        {
+            buyButtons[i].classList.add("inactive");
+        }
+        //if button isnt in budget but IS inactive, then all following
+        //will also not be in budget and inactive, so can stop loop here
+        else
+        {
+            break;
+        }
+    }
 }
 function comparePrice(a, b)
 {
