@@ -76,10 +76,6 @@ function updateArray()
         }
     });
     arrayHTML.innerHTML += "]";
-
-    for (const key in animalTypes) {
-        console.log(key + ": " + animalTypes[key] )
-    }
 }
 function buyAnimal(event)
 {
