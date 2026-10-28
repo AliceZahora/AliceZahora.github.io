@@ -394,7 +394,7 @@ function endGame(place)
     }
     else
     {
-        placeString += place + "th!";
+        placeString += "4th!";
     }
 
     endText.innerHTML = placeString;
@@ -421,4 +421,5 @@ function resetGame()
     }
 
     playerCar.style.left = racetrack.value + "px";
+    place = 0;
 }
