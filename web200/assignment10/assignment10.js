@@ -15,6 +15,7 @@ let flavors = ["chocolate", "vanilla", "red velvet"];
 let frosting = ["chocolate", "vanilla", "lemon"];
 let message = ["Happy Birthday","Love You", "Congrats!"];
 
+wholeCard = document.getElementsByClassName("wholeCard")
 randomCake();
 
 function Cake(size, layers, flavor, frosting, message)
@@ -26,15 +27,11 @@ function Cake(size, layers, flavor, frosting, message)
     this.message = message;
 }
 //creates detail card for cake
-function createCard(object)
+function createCard(object, wholeCard)
 {
-    let cakeElement = document.createElement("div");
-    cakeElement.classList.add("wholeCard");
     let cakeTable = document.createElement("table");
     cakeTable.classList.add("precakeTable");
 
-    let frontCard = document.createElement("div");
-    frontCard.classList.add("frontCard");
     let backCard = document.createElement("div");
     backCard.classList.add("backCard");
 
@@ -60,10 +57,9 @@ function createCard(object)
     //add info sheet to back of card
     backCard.appendChild(cakeTable);
     //combine card front and back in one div
-    cakeElement.appendChild(frontCard);
-    cakeElement.appendChild(backCard);
+    wholeCard.appendChild(backCard);
     //add card div to premade cake section
-    premadeCakes.appendChild(cakeElement);
+    premadeCakes.appendChild(wholeCard);
 }
 function randomCake()
 {
@@ -100,6 +96,6 @@ function randomCake()
         console.log(fullOrder);
         console.log(newCake);
 
-        createCard(newCake);
+        createCard(newCake, wholeCard[x]);
     }
 }
