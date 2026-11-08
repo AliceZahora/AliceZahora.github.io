@@ -40,6 +40,9 @@
     transform: rotateY(180deg);
 }
 .frontCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -67,4 +70,45 @@
 .precakeTable {
     height: 100%;
     width: 100%;
+}
+.frosting {
+    position: relative;
+    background-color: rgb(54, 54, 255);
+    border-radius: 50%;
+    width: 30%;
+    height: 30%;
+    z-index: 5;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+.frostingDrip {
+    position: relative;
+    background-color: blue;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 30%;
+    height: 30%;
+    margin-top: -6%;
+    z-index: 4;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.wavy {
+  mask:
+    radial-gradient(11.66px at 50% calc(100% - 16px),#000 99%,#0000 101%) calc(50% - 20px) 0/40px 100%,
+    radial-gradient(11.66px at 50% calc(100% + 6px),#0000 99%,#000 101%) 50% calc(100% - 10px)/40px 100% repeat-x;
+}
+.flavor {
+    position: relative;
+    background-color: rgb(255, 247, 210);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 30%;
+    height: 30%;
+    margin-top: -6%;
+    z-index: 3;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
 }
