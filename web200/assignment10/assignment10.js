@@ -58,8 +58,6 @@ function createCard(object, wholeCard)
     backCard.appendChild(cakeTable);
     //combine card front and back in one div
     wholeCard.appendChild(backCard);
-    //add card div to premade cake section
-    premadeCakes.appendChild(wholeCard);
 }
 function randomCake()
 {
@@ -96,6 +94,7 @@ function randomCake()
         console.log(fullOrder);
         console.log(newCake);
 
+        console.log(x)
         createCard(newCake, wholeCard[x]);
     }
 }
