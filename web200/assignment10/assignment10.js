@@ -21,18 +21,25 @@ function createCard(object)
 {
     let cakeElement = document.createElement("div");
     let cakeTable = document.createElement("table");
+    cakeTable.classList.add("precakeTable");
+
+    let backElement = document.createElement("div");
+    backElement.classList.add("backCard");
 
     //iterates over all key value pairs for single cake object
     for (let key in object)
     {
         let newRow = document.createElement("tr")
+        newRow.classList.add("precakeRow");
 
         let tableHead = document.createElement("th");
         tableHead.innerHTML = key;
+        tableHead.classList.add("precakeHead");
         newRow.appendChild(tableHead);
 
         let newCell = document.createElement("td");
         newCell.innerHTML = object[key];
+        newCell.classList.add("precakeCell");
         newRow.appendChild(newCell);
 
         cakeTable.appendChild(newRow);

@@ -5,6 +5,7 @@
 #premadeCakes {
     display: flex;
     flex-direction: row;
+    flex: 1;
 }
 #premadeCakes div {
     border-radius: 10px;
@@ -13,10 +14,13 @@
     overflow: hidden;
     flex: 1;
 }
-tr {
+.precakeRow {
     background-color: aliceblue;
 }
-table {
+.precakeCell {
+    padding: 2%;
+}
+.precakeTable {
     height: 100%;
     width: 100%;
 }
