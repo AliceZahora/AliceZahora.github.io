@@ -8,6 +8,15 @@
 let premadeCakes = document.getElementById("premadeCakes");
 let cakeObjects = [];
 
+//premade choices for each section
+let sizes = ["small", "medium", "large"];
+let layers = [1, 2, 3];
+let flavors = ["chocolate", "vanilla", "red velvet"];
+let frosting = ["chocolate", "vanilla", "lemon"];
+let message = ["Happy Birthday","Love You", "Congrats!"];
+
+randomCake();
+
 function Cake(size, layers, flavor, frosting, message)
 {
     this.size = size;
@@ -20,11 +29,14 @@ function Cake(size, layers, flavor, frosting, message)
 function createCard(object)
 {
     let cakeElement = document.createElement("div");
+    cakeElement.classList.add("wholeCard");
     let cakeTable = document.createElement("table");
     cakeTable.classList.add("precakeTable");
 
-    let backElement = document.createElement("div");
-    backElement.classList.add("backCard");
+    let frontCard = document.createElement("div");
+    frontCard.classList.add("frontCard");
+    let backCard = document.createElement("div");
+    backCard.classList.add("backCard");
 
     //iterates over all key value pairs for single cake object
     for (let key in object)
@@ -45,49 +57,49 @@ function createCard(object)
         cakeTable.appendChild(newRow);
     }
 
-    cakeElement.appendChild(cakeTable);
+    //add info sheet to back of card
+    backCard.appendChild(cakeTable);
+    //combine card front and back in one div
+    cakeElement.appendChild(frontCard);
+    cakeElement.appendChild(backCard);
+    //add card div to premade cake section
     premadeCakes.appendChild(cakeElement);
 }
-
-//premade choices for each section
-let sizes = ["small", "medium", "large"];
-let layers = [1, 2, 3];
-let flavors = ["chocolate", "vanilla", "red velvet"];
-let frosting = ["chocolate", "vanilla", "lemon"];
-let message = ["Happy Birthday","Love You", "Congrats!"];
-
-//used to ensure the three premade cakes arent identical
-let orderHistory = [];
-let fullOrder;
-
-//make three cake objects
-for(let x = 0; x != 3; x++)
+function randomCake()
 {
-    do
+    //used to ensure the three premade cakes arent identical
+    let orderHistory = [];
+    let fullOrder;
+
+    //make three cake objects
+    for(let x = 0; x != 3; x++)
     {
-        //reset order string
-        fullOrder = "";
-
-        //set each detail for the order using random
-        for(let i = 0; i != 5; i++)
+        do
         {
-            //each random number will represent item in array for each section
-            let rand = Math.floor(Math.random() * 3);
-            fullOrder += rand.toString();
-        }
+            //reset order string
+            fullOrder = "";
 
-    } //if cake already premade, restart loop (prevents repeat cakes)
-    while(orderHistory.indexOf(fullOrder) != -1)
+            //set each detail for the order using random
+            for(let i = 0; i != 5; i++)
+            {
+                //each random number will represent item in array for each section
+                let rand = Math.floor(Math.random() * 3);
+                fullOrder += rand.toString();
+            }
 
-    //if cake unique, add it to the premade cakes
-    orderHistory[x] = fullOrder;
+        } //if cake already premade, restart loop (prevents repeat cakes)
+        while(orderHistory.indexOf(fullOrder) != -1)
 
-    //make cake object using random values
-    let newCake = new Cake(sizes[fullOrder[0]], layers[fullOrder[1]], flavors[fullOrder[2]],
-        frosting[fullOrder[3]], message[fullOrder[4]]);
+        //if cake unique, add it to the premade cakes
+        orderHistory[x] = fullOrder;
 
-    console.log(fullOrder);
-    console.log(newCake);
+        //make cake object using random values
+        let newCake = new Cake(sizes[fullOrder[0]], layers[fullOrder[1]], flavors[fullOrder[2]],
+            frosting[fullOrder[3]], message[fullOrder[4]]);
 
-    createCard(newCake);
+        console.log(fullOrder);
+        console.log(newCake);
+
+        createCard(newCake);
+    }
 }
