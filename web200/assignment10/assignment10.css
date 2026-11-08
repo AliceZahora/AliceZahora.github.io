@@ -1,0 +1,10 @@
+#allCakes {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 1px 1px;
+}
+#premadeCakes {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 1px 1px;
+}

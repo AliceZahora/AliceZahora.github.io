@@ -5,6 +5,9 @@
     Date: 11/03/2026
 */
 
+let premadeCakes = document.getElementById("premadeCakes");
+let cakeObjects = [];
+
 function Cake(size, layers, flavor, frosting, message)
 {
     this.size = size;
@@ -12,6 +15,31 @@ function Cake(size, layers, flavor, frosting, message)
     this.flavor = flavor;
     this.frosting = frosting;
     this.message = message;
+}
+//creates detail card for cake
+function createCard(object)
+{
+    let cakeElement = document.createElement("div");
+    let cakeTable = document.createElement("table");
+
+    //iterates over all key value pairs for single cake object
+    for (let key in object)
+    {
+        let newRow = document.createElement("tr")
+
+        let tableHead = document.createElement("th");
+        tableHead.innerHTML = key;
+        newRow.appendChild(tableHead);
+
+        let newCell = document.createElement("td");
+        newCell.innerHTML = object[key];
+        newRow.appendChild(newCell);
+
+        cakeTable.appendChild(newRow);
+    }
+
+    cakeElement.appendChild(cakeTable);
+    premadeCakes.appendChild(cakeElement);
 }
 
 //premade choices for each section
@@ -37,7 +65,7 @@ for(let x = 0; x != 3; x++)
         for(let i = 0; i != 5; i++)
         {
             //each random number will represent item in array for each section
-            let rand = Math.floor(Math.random() * 2);
+            let rand = Math.floor(Math.random() * 3);
             fullOrder += rand.toString();
         }
 
@@ -53,6 +81,6 @@ for(let x = 0; x != 3; x++)
 
     console.log(fullOrder);
     console.log(newCake);
+
+    createCard(newCake);
 }
-
-
