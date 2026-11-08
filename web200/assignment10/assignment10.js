@@ -45,7 +45,7 @@ function createCard(object)
 //premade choices for each section
 let sizes = ["small", "medium", "large"];
 let layers = [1, 2, 3];
-let flavors = ["chocalate", "vanilla", "redVelvet"];
+let flavors = ["chocolate", "vanilla", "red velvet"];
 let frosting = ["chocolate", "vanilla", "lemon"];
 let message = ["Happy Birthday","Love You", "Congrats!"];
 

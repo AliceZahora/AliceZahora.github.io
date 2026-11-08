@@ -1,10 +1,22 @@
 #allCakes {
     display: flex;
     flex-direction: row;
-    box-shadow: 1px 1px;
 }
 #premadeCakes {
     display: flex;
     flex-direction: row;
-    box-shadow: 1px 1px;
+}
+#premadeCakes div {
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 1px;
+    overflow: hidden;
+    flex: 1;
+}
+tr {
+    background-color: aliceblue;
+}
+table {
+    height: 100%;
+    width: 100%;
 }
