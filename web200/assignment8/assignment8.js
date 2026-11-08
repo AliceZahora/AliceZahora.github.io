@@ -394,7 +394,7 @@ function endGame(place)
     }
     else
     {
-        placeString += "4th!";
+        placeString += place + "th!";
     }
 
     endText.innerHTML = placeString;
