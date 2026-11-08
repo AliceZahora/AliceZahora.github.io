@@ -18,7 +18,7 @@ function Cake(size, layers, flavor, frosting, message)
 let sizes = ["small", "medium", "large"];
 let layers = [1, 2, 3];
 let flavors = ["chocalate", "vanilla", "redVelvet"];
-let frosting = ["chocolate", "vanilla", "lemmon"];
+let frosting = ["chocolate", "vanilla", "lemon"];
 let message = ["Happy Birthday","Love You", "Congrats!"];
 
 //used to ensure the three premade cakes arent identical
@@ -37,7 +37,7 @@ for(let x = 0; x != 3; x++)
         for(let i = 0; i != 5; i++)
         {
             //each random number will represent item in array for each section
-            let rand = Math.floor(Math.random() * 3) + 1;
+            let rand = Math.floor(Math.random() * 2);
             fullOrder += rand.toString();
         }
 
@@ -46,6 +46,13 @@ for(let x = 0; x != 3; x++)
 
     //if cake unique, add it to the premade cakes
     orderHistory[x] = fullOrder;
+
+    //make cake object using random values
+    let newCake = new Cake(sizes[fullOrder[0]], layers[fullOrder[1]], flavors[fullOrder[2]],
+        frosting[fullOrder[3]], message[fullOrder[4]]);
+
+    console.log(fullOrder);
+    console.log(newCake);
 }
 
-console.log(orderHistory);
+
