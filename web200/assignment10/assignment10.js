@@ -78,6 +78,11 @@ function createCard(object, wholeCard)
         {
             wholeCake[2].style.height = object[key] * 20 + "%";
         }
+        //change message on cake
+        else
+        {
+            wholeCake[0].children[0].innerHTML = object[key];
+        }
         let newRow = document.createElement("tr")
         newRow.classList.add("precakeRow");
 
