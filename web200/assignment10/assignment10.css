@@ -40,7 +40,7 @@
 #customControls > * {
     width: 50%;
 }
-.wholeCard, .customCard {
+.wholeCard, #customCard {
     border-radius: 10px;
     width: 33%;
     height: 100%;
@@ -152,7 +152,7 @@
     margin-bottom: 1%;
     text-align: center;
 }
-.customCard {
+#customCard {
     display: flex;
     flex-direction: column;
     justify-content: center;

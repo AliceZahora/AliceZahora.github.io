@@ -31,17 +31,21 @@ const allFrosting =
 const allMessage = ["Happy Birthday!","Love You!", "Congrats!"];
 const wholeCard = document.getElementsByClassName("wholeCard")
 const allInputs = document.getElementsByTagName("input");
+const customCard = document.getElementById("customCard");
 
 randomCake();
 
 const customCake = new Cake();
-customCake.changeOne("size", "small");
+//retrieve all cake visuals from this card
+//0 = frosting, 1 = frosting drip, 2 = flavor, 3 = name
+const wholeCustom = customCard.children;
 
 //add input listener for all input fields
 for(let y = 0; y != allInputs.length; y++)
 {
     allInputs[y].addEventListener("input", function () {
         customCake.changeOne(this.name, this.value);
+        setStyles(wholeCustom, customCake, this.name, this.value);
     });
 }
 
@@ -67,6 +71,11 @@ function Cake(size = "small", layers = 1, flavor = "Chocolate", frosting = "Choc
 //creates detail card for cake
 function createCard(object, wholeCard)
 {
+    //retrieve all cake visuals from this card
+    //0 = frosting, 1 = frosting drip, 2 = flavor, 3 = name
+    const wholeCake = wholeCard.children[0].children;
+    wholeCake[3].innerHTML = object.fullFlavor();
+
     const cakeTable = document.createElement("table");
     cakeTable.classList.add("precakeTable");
 
@@ -79,7 +88,7 @@ function createCard(object, wholeCard)
         //ignore methods
         if(typeof(object[key]) != "function")
         {
-            setStyles(wholeCard, object, key, object[key]);
+            setStyles(wholeCake, object, key, object[key]);
 
             let newRow = document.createElement("tr")
             newRow.classList.add("precakeRow");
@@ -103,13 +112,8 @@ function createCard(object, wholeCard)
     //combine card front and back in one div
     wholeCard.appendChild(backCard);
 }
-function setStyles(wholeCard, object, key, value)
+function setStyles(wholeCake, object, key, value)
 {
-    //retrieve all cake visuals from this card
-    //0 = frosting, 1 = frosting drip, 2 = flavor, 3 = name
-    const wholeCake = wholeCard.children[0].children;
-    wholeCake[3].innerHTML = object.fullFlavor();
-
     if(key == "frosting")
     {
         wholeCake[0].style.backgroundColor = allFrosting[value];
