@@ -65,7 +65,7 @@ function Cake(size = "small", layers = 1, flavor = "Chocolate", frosting = "Choc
     //returns full name of cake
     this.fullFlavor = function ()
     {
-        return this.frosting + " Frosted " + this.flavor + " Cake"
+        return this.frosting + " Frosted " + this.flavor + " Cake";
     }
 }
 //creates detail card for cake
