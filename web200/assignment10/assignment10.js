@@ -30,7 +30,7 @@ const allFrosting =
 };
 const allMessage = ["Happy Birthday","Love You", "Congrats!"];
 
-wholeCard = document.getElementsByClassName("wholeCard")
+const wholeCard = document.getElementsByClassName("wholeCard")
 randomCake();
 
 function Cake(size, layers, flavor, frosting, message)
@@ -44,15 +44,24 @@ function Cake(size, layers, flavor, frosting, message)
 //creates detail card for cake
 function createCard(object, wholeCard)
 {
-    let cakeTable = document.createElement("table");
+    //retrieve all cake visuals from this card
+    //0 = frosting, 1 = frosting drip, 2 = flavor
+    const wholeCake = wholeCard.children[0].children;
+
+    const cakeTable = document.createElement("table");
     cakeTable.classList.add("precakeTable");
 
-    let backCard = document.createElement("div");
+    const backCard = document.createElement("div");
     backCard.classList.add("backCard");
 
     //iterates over all key value pairs for single cake object
     for (let key in object)
     {
+        if(key == "frosting")
+        {
+            wholeCake[0].style.backgroundColor = allFrosting[object[key]];
+            wholeCake[1].style.backgroundColor = allFrosting[object[key]];
+        }
         let newRow = document.createElement("tr")
         newRow.classList.add("precakeRow");
 
@@ -109,10 +118,6 @@ function randomCake()
         let newCake = new Cake(Object.keys(allSize)[(fullOrder[0])], allLayer[fullOrder[1]], Object.keys(allFlavor)[(fullOrder[2])],
             Object.keys(allFrosting)[(fullOrder[3])], allMessage[fullOrder[4]]);
 
-        console.log(fullOrder);
-        console.log(newCake);
-
-        console.log(x)
         createCard(newCake, wholeCard[x]);
     }
 }
