@@ -88,11 +88,12 @@
     container-type: size;
 }
 .message {
-    color: black;
     text-align: center;
     font-size: 10cqw;
     transform: skew(10deg);
     text-wrap: wrap;
+    filter: invert(1);
+    mix-blend-mode: difference;
 }
 .frostingDrip {
     position: relative;
