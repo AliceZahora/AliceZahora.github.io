@@ -161,6 +161,9 @@
     text-align: center;
     color: black;
 }
+.hide {
+    display: none;
+}
 legend {
     font-weight: bold;
 }
