@@ -30,10 +30,18 @@ const allFrosting =
 };
 const allMessage = ["Happy Birthday!","Love You!", "Congrats!"];
 const wholeCard = document.getElementsByClassName("wholeCard")
+const allInputs = document.getElementsByTagName("input");
 
 randomCake();
+customCake();
 
-function Cake(size, layers, flavor, frosting, message)
+for(let y = 0; y != allInputs.length; y++)
+{
+    allInputs[y].addEventListener("input", function () {
+        console.log("hi");
+    });
+}
+function Cake(size = "small", layers = 1, flavor = "chocolate", frosting = "chocolate", message)
 {
     this.size = size;
     this.layers = layers;
@@ -162,4 +170,10 @@ function randomCake()
 
         createCard(newCake, wholeCard[x]);
     }
+}
+function customCake()
+{
+    let custom = new Cake();
+    console.log(custom);
+
 }
