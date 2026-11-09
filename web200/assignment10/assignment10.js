@@ -18,19 +18,19 @@ const allSize =
 const allLayer = [1, 2, 3];
 const allFlavor =
 {
-    "chocolate" : "#583821",
-    "vanilla" : "#fbf6e1",
-    "red velvet" : "#7e3437"
+    "Chocolate" : "#583821",
+    "Vanilla" : "#fbf6e1",
+    "Red Velvet" : "#7e3437"
 };
 const allFrosting =
 {
-    "chocolate" : "#412714",
-    "vanilla" : "#fff7d2",
-    "lemon" : "#fff879"
+    "Chocolate" : "#412714",
+    "Vanilla" : "#fff7d2",
+    "Lemon" : "#fff879"
 };
 const allMessage = ["Happy Birthday!","Love You!", "Congrats!"];
-
 const wholeCard = document.getElementsByClassName("wholeCard")
+
 randomCake();
 
 function Cake(size, layers, flavor, frosting, message)
@@ -40,13 +40,25 @@ function Cake(size, layers, flavor, frosting, message)
     this.flavor = flavor;
     this.frosting = frosting;
     this.message = message;
+
+    //changes any one object key to a new value
+    this.changeOne = function (keyName, value)
+    {
+        this[keyName] = value;
+    }
+    //returns full name of cake
+    this.fullFlavor = function ()
+    {
+        return this.frosting + " frosted " + this.flavor + " cake"
+    }
 }
 //creates detail card for cake
 function createCard(object, wholeCard)
 {
     //retrieve all cake visuals from this card
-    //0 = frosting, 1 = frosting drip, 2 = flavor
+    //0 = frosting, 1 = frosting drip, 2 = flavor, 3 = name
     const wholeCake = wholeCard.children[0].children;
+    wholeCake[3].innerHTML = object.fullFlavor();
 
     const cakeTable = document.createElement("table");
     cakeTable.classList.add("precakeTable");
@@ -57,46 +69,51 @@ function createCard(object, wholeCard)
     //iterates over all key value pairs for single cake object
     for (let key in object)
     {
-        if(key == "frosting")
+        //ignore methods
+        if(typeof(object[key]) != "function")
         {
-            wholeCake[0].style.backgroundColor = allFrosting[object[key]];
-            wholeCake[1].style.backgroundColor = allFrosting[object[key]];
-        }
-        else if(key == "flavor")
-        {
-            wholeCake[2].style.backgroundColor = allFlavor[object[key]];
-        }
-        else if(key == "size")
-        {
-            //change size of each part of cake graphic
-            for(let i = 0; i != wholeCake.length; i++)
+            if(key == "frosting")
             {
-                wholeCake[i].style.width = allSize[object[key]];
+                wholeCake[0].style.backgroundColor = allFrosting[object[key]];
+                wholeCake[1].style.backgroundColor = allFrosting[object[key]];
             }
-        }
-        else if(key == "layers")
-        {
-            wholeCake[2].style.height = object[key] * 20 + "%";
-        }
-        //change message on cake
-        else
-        {
-            wholeCake[0].children[0].innerHTML = object[key];
-        }
-        let newRow = document.createElement("tr")
-        newRow.classList.add("precakeRow");
+            else if(key == "flavor")
+            {
+                wholeCake[2].style.backgroundColor = allFlavor[object[key]];
+            }
+            else if(key == "size")
+            {
+                //change size of each part of cake graphic
+                for(let i = 0; i != wholeCake.length - 1; i++)
+                {
+                    wholeCake[i].style.width = allSize[object[key]];
+                }
+            }
+            else if(key == "layers")
+            {
+                wholeCake[2].style.height = object[key] * 20 + "%";
+            }
+            //change message on cake
+            else
+            {
+                wholeCake[0].children[0].innerHTML = object[key];
+            }
 
-        let tableHead = document.createElement("th");
-        tableHead.innerHTML = key;
-        tableHead.classList.add("precakeHead");
-        newRow.appendChild(tableHead);
+            let newRow = document.createElement("tr")
+            newRow.classList.add("precakeRow");
 
-        let newCell = document.createElement("td");
-        newCell.innerHTML = object[key];
-        newCell.classList.add("precakeCell");
-        newRow.appendChild(newCell);
+            let tableHead = document.createElement("th");
+            tableHead.innerHTML = key;
+            tableHead.classList.add("precakeHead");
+            newRow.appendChild(tableHead);
 
-        cakeTable.appendChild(newRow);
+            let newCell = document.createElement("td");
+            newCell.innerHTML = object[key];
+            newCell.classList.add("precakeCell");
+            newRow.appendChild(newCell);
+
+            cakeTable.appendChild(newRow);
+        }
     }
 
     //add info sheet to back of card

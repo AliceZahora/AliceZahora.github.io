@@ -158,6 +158,10 @@
     justify-content: center;
     align-items: center;
 }
+.cakeName {
+    text-align: center;
+    color: black;
+}
 legend {
     font-weight: bold;
 }
