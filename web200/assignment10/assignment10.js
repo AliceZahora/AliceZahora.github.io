@@ -20,7 +20,7 @@ const allFlavor =
 {
     "chocolate" : "#583821",
     "vanilla" : "#fbf6e1",
-    "red velvet" : "#5d2225"
+    "red velvet" : "#7e3437"
 };
 const allFrosting =
 {
@@ -61,6 +61,10 @@ function createCard(object, wholeCard)
         {
             wholeCake[0].style.backgroundColor = allFrosting[object[key]];
             wholeCake[1].style.backgroundColor = allFrosting[object[key]];
+        }
+        else if(key == "flavor")
+        {
+            wholeCake[2].style.backgroundColor = allFlavor[object[key]];
         }
         let newRow = document.createElement("tr")
         newRow.classList.add("precakeRow");
