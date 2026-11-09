@@ -74,6 +74,10 @@ function createCard(object, wholeCard)
                 wholeCake[i].style.width = allSize[object[key]];
             }
         }
+        else if(key == "layers")
+        {
+            wholeCake[2].style.height = object[key] * 20 + "%";
+        }
         let newRow = document.createElement("tr")
         newRow.classList.add("precakeRow");
 
