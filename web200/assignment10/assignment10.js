@@ -66,6 +66,14 @@ function createCard(object, wholeCard)
         {
             wholeCake[2].style.backgroundColor = allFlavor[object[key]];
         }
+        else if(key == "size")
+        {
+            //change size of each part of cake graphic
+            for(let i = 0; i != wholeCake.length; i++)
+            {
+                wholeCake[i].style.width = allSize[object[key]];
+            }
+        }
         let newRow = document.createElement("tr")
         newRow.classList.add("precakeRow");
 
