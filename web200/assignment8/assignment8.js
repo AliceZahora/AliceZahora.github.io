@@ -421,4 +421,5 @@ function resetGame()
     }
 
     playerCar.style.left = racetrack.value + "px";
+    place = 0;
 }
