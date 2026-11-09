@@ -49,17 +49,12 @@ function Cake(size, layers, flavor, frosting, message)
     //returns full name of cake
     this.fullFlavor = function ()
     {
-        return this.frosting + " frosted " + this.flavor + " cake"
+        return this.frosting + " Frosted " + this.flavor + " Cake"
     }
 }
 //creates detail card for cake
 function createCard(object, wholeCard)
 {
-    //retrieve all cake visuals from this card
-    //0 = frosting, 1 = frosting drip, 2 = flavor, 3 = name
-    const wholeCake = wholeCard.children[0].children;
-    wholeCake[3].innerHTML = object.fullFlavor();
-
     const cakeTable = document.createElement("table");
     cakeTable.classList.add("precakeTable");
 
@@ -72,32 +67,7 @@ function createCard(object, wholeCard)
         //ignore methods
         if(typeof(object[key]) != "function")
         {
-            if(key == "frosting")
-            {
-                wholeCake[0].style.backgroundColor = allFrosting[object[key]];
-                wholeCake[1].style.backgroundColor = allFrosting[object[key]];
-            }
-            else if(key == "flavor")
-            {
-                wholeCake[2].style.backgroundColor = allFlavor[object[key]];
-            }
-            else if(key == "size")
-            {
-                //change size of each part of cake graphic
-                for(let i = 0; i != wholeCake.length - 1; i++)
-                {
-                    wholeCake[i].style.width = allSize[object[key]];
-                }
-            }
-            else if(key == "layers")
-            {
-                wholeCake[2].style.height = object[key] * 20 + "%";
-            }
-            //change message on cake
-            else
-            {
-                wholeCake[0].children[0].innerHTML = object[key];
-            }
+            setStyles(wholeCard, object, key, object[key]);
 
             let newRow = document.createElement("tr")
             newRow.classList.add("precakeRow");
@@ -120,6 +90,40 @@ function createCard(object, wholeCard)
     backCard.appendChild(cakeTable);
     //combine card front and back in one div
     wholeCard.appendChild(backCard);
+}
+function setStyles(wholeCard, object, key, value)
+{
+    //retrieve all cake visuals from this card
+    //0 = frosting, 1 = frosting drip, 2 = flavor, 3 = name
+    const wholeCake = wholeCard.children[0].children;
+    wholeCake[3].innerHTML = object.fullFlavor();
+
+    if(key == "frosting")
+    {
+        wholeCake[0].style.backgroundColor = allFrosting[value];
+        wholeCake[1].style.backgroundColor = allFrosting[value];
+    }
+    else if(key == "flavor")
+    {
+        wholeCake[2].style.backgroundColor = allFlavor[value];
+    }
+    else if(key == "size")
+    {
+        //change size of each part of cake graphic
+        for(let i = 0; i != wholeCake.length - 1; i++)
+        {
+            wholeCake[i].style.width = allSize[value];
+        }
+    }
+    else if(key == "layers")
+    {
+        wholeCake[2].style.height = value * 20 + "%";
+    }
+    //change message on cake
+    else
+    {
+        wholeCake[0].children[0].innerHTML = value;
+    }
 }
 function randomCake()
 {
