@@ -90,7 +90,9 @@
 .message {
     color: black;
     text-align: center;
-    font-size: 20cqw;
+    font-size: 10cqw;
+    transform: skew(10deg);
+    text-wrap: wrap;
 }
 .frostingDrip {
     position: relative;
