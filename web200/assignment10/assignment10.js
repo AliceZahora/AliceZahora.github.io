@@ -9,11 +9,26 @@ let premadeCakes = document.getElementById("premadeCakes");
 let cakeObjects = [];
 
 //premade choices for each section
-let sizes = ["small", "medium", "large"];
-let layers = [1, 2, 3];
-let flavors = ["chocolate", "vanilla", "red velvet"];
-let frosting = ["chocolate", "vanilla", "lemon"];
-let message = ["Happy Birthday","Love You", "Congrats!"];
+const allSize =
+{
+    "small" : "20%",
+    "medium" : "30%",
+    "large" : "40%"
+};
+const allLayer = [1, 2, 3];
+const allFlavor =
+{
+    "chocolate" : "#583821",
+    "vanilla" : "#fbf6e1",
+    "red velvet" : "#5d2225"
+};
+const allFrosting =
+{
+    "chocolate" : "#412714",
+    "vanilla" : "#fff7d2",
+    "lemon" : "#fff879"
+};
+const allMessage = ["Happy Birthday","Love You", "Congrats!"];
 
 wholeCard = document.getElementsByClassName("wholeCard")
 randomCake();
@@ -63,6 +78,7 @@ function randomCake()
 {
     //used to ensure the three premade cakes arent identical
     let orderHistory = [];
+    //0 = size, 1 = layers, 2 = flavors, 3 = frosting, 4 = message
     let fullOrder;
 
     //make three cake objects
@@ -88,8 +104,10 @@ function randomCake()
         orderHistory[x] = fullOrder;
 
         //make cake object using random values
-        let newCake = new Cake(sizes[fullOrder[0]], layers[fullOrder[1]], flavors[fullOrder[2]],
-            frosting[fullOrder[3]], message[fullOrder[4]]);
+        //uses fullOrder to find index for each section, so fullOrder[0] = index num for size array
+        //then takes that index and finds it key, passes THAT to Cake constructor
+        let newCake = new Cake(Object.keys(allSize)[(fullOrder[0])], allLayer[fullOrder[1]], Object.keys(allFlavor)[(fullOrder[2])],
+            Object.keys(allFrosting)[(fullOrder[3])], allMessage[fullOrder[4]]);
 
         console.log(fullOrder);
         console.log(newCake);
