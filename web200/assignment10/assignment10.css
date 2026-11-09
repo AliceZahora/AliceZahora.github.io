@@ -28,12 +28,12 @@
     flex-direction: row;
     perspective: 2000px;
     height: 40%;
+    margin-bottom: 1%;
 }
 #customControls {
     display: flex;
     flex-direction: row;
     flex: 2;
-    border: 1px solid black;
     border-radius: 10px;
     padding: 1%;
 }
@@ -150,7 +150,6 @@
     padding: 0;
     margin: 0;
     margin-bottom: 1%;
-    text-align: center;
 }
 #customCard {
     display: flex;
