@@ -11,7 +11,7 @@
     border-bottom: 2;
 }
 #header * {
-    margin: 1%;
+    margin: .5%;
 }
 #main {
     padding-left: 2%;
@@ -20,13 +20,25 @@
 #allCakes {
     display: flex;
     flex-direction: column;
-    height: 75vh;
+    justify-content: space-evenly;
+    height: 80vh;
 }
 #premadeCakes, #createCake {
     display: flex;
     flex-direction: row;
     perspective: 2000px;
     height: 40%;
+}
+#customControls {
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1%;
+}
+#customControls > * {
+    width: 50%;
 }
 .wholeCard, .customCard {
     border-radius: 10px;
@@ -132,16 +144,20 @@
     text-align: center;
     margin: auto;
     font-size: x-large;
-    padding-top: 1%;
+    padding: 1%;
 }
 .instructions {
     padding: 0;
     margin: 0;
     margin-bottom: 1%;
+    text-align: center;
 }
 .customCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+legend {
+    font-weight: bold;
 }

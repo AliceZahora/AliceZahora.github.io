@@ -28,7 +28,7 @@ const allFrosting =
     "vanilla" : "#fff7d2",
     "lemon" : "#fff879"
 };
-const allMessage = ["Happy Birthday","Love You", "Congrats!"];
+const allMessage = ["Happy Birthday!","Love You!", "Congrats!"];
 
 const wholeCard = document.getElementsByClassName("wholeCard")
 randomCake();
