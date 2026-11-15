@@ -97,3 +97,22 @@ a {
     justify-content: space-evenly;
     width: 100%;
 }
+#toppings1, #toppings2 {
+    display: flex;
+    flex-direction: row;
+}
+.buildField {
+    display: flex;
+    flex-direction: row;
+    border: 0;
+}
+.buildLabel {
+    background-color: #FFEAC8;
+    border-radius: 10px;
+    flex: 1;
+}
+.toppingField {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+}
