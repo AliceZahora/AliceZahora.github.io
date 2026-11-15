@@ -56,3 +56,10 @@
     text-align: center;
     margin: .5%
 }
+#banner {
+    width: 100vw;
+    height: auto;
+    --v: 35;
+    clip-path: shape(from top left, line to top right, line to bottom right,
+    arc to bottom left of 250%)
+}
