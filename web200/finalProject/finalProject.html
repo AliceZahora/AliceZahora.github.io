@@ -169,14 +169,24 @@
                     <p class="shipping"> $1.99 </p>
                     <p class="total"> $4.98 </p>
                 </div>
-                <div class="customerInfo">
-                    <input type="text" id="custName">
-                    <input type="email" id="custEmail">
-                    <input type="tel" id="custTel">
-                    <input type="text" id="custAddr">
-                    <input type="textarea" id="custNotes">
+                <div id="customerInfo">
+                    <label for="custName"> Name
+                        <input type="text" id="custName">
+                     </label>
+                    <label for="custEmail"> Email
+                        <input type="email" id="custEmail">
+                     </label>
+                    <label for="custPhone"> Phone
+                        <input type="tel" id="custTel">
+                     </label>
+                    <label for="custAddr"> Address
+                        <input type="text" id="custAddr">
+                     </label>
+                    <label for="custNotes"> Additional Notes
+                        <input type="textarea" id="custNotes">
+                    </label>
                 </div>
-                <input type="button" id="checkout">
+                <input type="button" id="checkout" value="CHECKOUT">
             </dialog>
         </main>
         <footer id="footer">

@@ -138,6 +138,10 @@ a {
 #closeCart:hover {
     cursor: pointer;
 }
+#customerInfo > * {
+    display: flex;
+    flex-direction: column;
+}
 .buildField {
     display: flex;
     flex-direction: row;
