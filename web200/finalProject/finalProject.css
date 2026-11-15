@@ -100,16 +100,26 @@ a {
 #toppings1, #toppings2 {
     display: flex;
     flex-direction: row;
+    gap: 1%;
+    margin-bottom: 1%;
 }
 .buildField {
     display: flex;
     flex-direction: row;
     border: 0;
+    gap: 1%;
+}
+.buildField *, .toppingField * {
+    font-family: "Roboto", sans-serif;
 }
 .buildLabel {
     background-color: #FFEAC8;
     border-radius: 10px;
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1%;
 }
 .toppingField {
     display: flex;
