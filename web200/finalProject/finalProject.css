@@ -83,6 +83,9 @@ a {
     clip-path: shape(from top left, line to top right, line to 100% 90%,
     arc to 0% 90% of 400%);
 }
+#main {
+    position: relative;
+}
 #content {
     display: flex;
     flex-direction: column;
@@ -114,6 +117,23 @@ a {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+#cartStatus {
+    position: absolute;
+    height: 100%;
+    width: 20vw;
+    top: 0;
+    right: 0;
+    margin-right: 0;
+    background-color: white;
+}
+#closeCart {
+    background-color: white;
+    border: none;
+    font-size: x-large;
+}
+#closeCart:hover {
+    cursor: pointer;
 }
 .buildField {
     display: flex;
