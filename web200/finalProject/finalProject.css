@@ -74,8 +74,8 @@ a {
 #banner {
     width: 100%;
     height: auto;
-    clip-path: shape(from top left, line to top right, line to 100% 80%,
-    arc to 0% 80% of 400%);
+    clip-path: shape(from top left, line to top right, line to 100% 90%,
+    arc to 0% 90% of 400%);
 }
 #content {
     display: flex;
