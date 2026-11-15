@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+#header {
+    width: 100vw;
+}
 #menu1 {
     display: flex;
     flex-direction: row;
@@ -11,17 +14,45 @@
     font-family: "Montserrat", sans-serif;
     padding-left: 5%;
     padding-right: 5%;
-    font-size: 24px;
 }
 #menu2 {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
     background-color: #FFC362;
     font-family: "Roboto", sans-serif;
+    font-size: 1em;
+}
+#menu2 > * {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    flex: 1;
+    text-align: center;
+}
+#menu2 > *:hover {
+    background-color: #f19500;
+}
+#brandName {
+    font-size: 1.5em;
 }
 #rightMenu {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    font-size: .9em;
+    font-weight: bold;
+    width: 25%;
+}
+#footer {
+    background-color: #FFAD29;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    padding-top: .5%;
+    padding-bottom: .5%;
+}
+#footer > * {
+    text-align: center;
+    margin: .5%
 }
