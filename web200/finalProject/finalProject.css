@@ -74,7 +74,26 @@ a {
 #banner {
     width: 100%;
     height: auto;
-    --v: 35;
-    clip-path: shape(from top left, line to top right, line to bottom right,
-    arc to bottom left of 250%);
+    clip-path: shape(from top left, line to top right, line to 100% 80%,
+    arc to 0% 80% of 400%);
+}
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+#buildHeader {
+    width: 100%;
+    text-align: left;
+    font-family: "Roboto", sans-serif;
+    font-size: 2.2em;
+}
+#buildArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
 }
