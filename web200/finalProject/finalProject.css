@@ -24,6 +24,9 @@ a {
     padding-left: 5%;
     padding-right: 5%;
 }
+#menu1 a:hover, #menu1 a:focus {
+    text-decoration: underline;
+}
 #menu2 {
     position: relative;
     display: flex;
