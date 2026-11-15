@@ -171,4 +171,9 @@ a {
     height: 11vh;
     margin: auto;
     font-size: 120%;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497);
+}
+.roundedButton:hover, .roundedButton:focus {
+    background-color: #458fbb;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497) inset;
 }
