@@ -119,18 +119,21 @@ a {
     background-position: center;
 }
 #cartStatus {
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 20vw;
     top: 0;
     right: 0;
     margin-right: 0;
     background-color: white;
+    border: none;
 }
 #closeCart {
     background-color: white;
     border: none;
     font-size: x-large;
+    position: absolute;
+    right: 5%;
 }
 #closeCart:hover {
     cursor: pointer;
