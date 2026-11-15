@@ -103,6 +103,7 @@ a {
     flex-direction: row;
     gap: 1%;
     margin-bottom: 1%;
+    height: 150px;
 }
 .buildField {
     display: flex;
@@ -128,11 +129,52 @@ a {
     font-weight: bold;
 }
 .cheeseImage {
-    background-image: url(images/CheeseGrateCut.png);
-    background-position: 100% 80%;
-    background-size: 80%;
+    background-image: url(images/CheeseGrate1.png);
+    background-size: contain;
     background-repeat: no-repeat;
-    height: 100px;
+    background-position: center;
+}
+.mushroomImage {
+    background-image: url(images/Mushrooms2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.peppersImage {
+    background-image: url(images/Peppers2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.olivesImage {
+    background-image: url(images/Olives2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.pepperoniImage {
+    background-image: url(images/blurryPeps.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.sausageImage {
+    background-image: url(images/Sausage.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.baconImage {
+    background-image: url(images/Bacon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hamImage {
+    background-image: url(images/Ham.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .toppingField {
     display: flex;
