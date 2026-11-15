@@ -150,6 +150,33 @@
             </div>
             <dialog id="cartStatus">
                 <button id="closeCart" command="close" commandFor="cartStatus"> X </button>
+                <h3> Review Cart </h3>
+                <div class="cartItem">
+                    <div class="pizzaImage">
+
+                    </div>
+                    <div class="nameAndNum">
+                        <p class="pizzaName"> Sample Pizza </p>
+                        <input type="number" class="pizzaQty">
+                    </div>
+                    <div class="deleteAndPrice">
+                        <button class="deletePizza"> X </button>
+                        <p class="pizzaPrice"> $2.99 </p>
+                    </div>
+                </div>
+                <div class="cartSummary">
+                    <p class="subtotal"> $2.99 </p>
+                    <p class="shipping"> $1.99 </p>
+                    <p class="total"> $4.98 </p>
+                </div>
+                <div class="customerInfo">
+                    <input type="text" id="custName">
+                    <input type="email" id="custEmail">
+                    <input type="tel" id="custTel">
+                    <input type="text" id="custAddr">
+                    <input type="textarea" id="custNotes">
+                </div>
+                <input type="button" id="checkout">
             </dialog>
         </main>
         <footer id="footer">
