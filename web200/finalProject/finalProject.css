@@ -105,13 +105,18 @@ a {
     margin-bottom: 1%;
     height: 150px;
 }
+#toppings1 .buildLabel, #toppings2 .buildLabel {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .buildField {
     display: flex;
     flex-direction: row;
     border: 0;
     gap: 1%;
 }
-.buildField *, .toppingField * {
+.buildField *, .toppingField *, .roundedButton {
     font-family: "Roboto", sans-serif;
 }
 .buildLegend {
@@ -130,54 +135,40 @@ a {
 }
 .cheeseImage {
     background-image: url(images/CheeseGrate1.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .mushroomImage {
     background-image: url(images/Mushrooms2.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .peppersImage {
     background-image: url(images/Peppers2.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .olivesImage {
     background-image: url(images/Olives2.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .pepperoniImage {
     background-image: url(images/blurryPeps.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .sausageImage {
     background-image: url(images/Sausage.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .baconImage {
     background-image: url(images/Bacon.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .hamImage {
     background-image: url(images/Ham.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .toppingField {
     display: flex;
     flex-direction: column;
     border: 0;
+}
+.roundedButton {
+    color: white;
+    background-color: #75BDE6;
+    border-radius: 40px;
+    border: 0;
+    width: 15vw;
+    height: 11vh;
+    margin: auto;
+    font-size: 120%;
 }
