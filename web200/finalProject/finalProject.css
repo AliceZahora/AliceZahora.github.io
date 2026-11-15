@@ -56,10 +56,14 @@
     text-align: center;
     margin: .5%
 }
-#banner {
+#bannerWrap {
     width: 100vw;
+    filter: drop-shadow(0px 6px 3px rgba(0, 0, 0, 0.384));
+}
+#banner {
+    width: 100%;
     height: auto;
     --v: 35;
     clip-path: shape(from top left, line to top right, line to bottom right,
-    arc to bottom left of 250%)
+    arc to bottom left of 250%);
 }
