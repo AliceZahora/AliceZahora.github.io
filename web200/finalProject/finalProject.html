@@ -164,13 +164,22 @@
                         <p class="pizzaPrice"> $2.99 </p>
                     </div>
                 </div>
-                <div class="cartSummary">
-                    <p class="subtotal"> $2.99 </p>
-                    <p class="shipping"> $1.99 </p>
-                    <p class="total"> $4.98 </p>
+                <div id="cartSummary">
+                    <div class="summaryDetails">
+                        <p id="subtotalLabel"> SUBTOTAL </p>
+                        <p id="subtotalAmount"> $2.99 </p>
+                    </div>
+                    <div class="summaryDetails">
+                        <p id="shippingLabel"> SHIPPING </p>
+                        <p id="shippingAmount"> $1.99 </p>
+                    </div>
+                    <div class="summaryDetails">
+                        <p id="totalLabel"> TOTAL </p>
+                        <p id="totalAmount"> $4.98 </p>
+                    </div>
                 </div>
                 <div id="customerInfo">
-                    <label for="custName"> Name
+                    <label for="custName"> Full Name
                         <input type="text" id="custName">
                      </label>
                     <label for="custEmail"> Email
