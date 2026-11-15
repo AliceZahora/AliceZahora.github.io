@@ -120,7 +120,7 @@ a {
 }
 #cartStatus {
     position: fixed;
-    height: 100%;
+    height: 100vh;
     width: 20vw;
     top: 0;
     right: 0;
@@ -128,12 +128,28 @@ a {
     background-color: white;
     border: none;
 }
+#mainCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 2vw;
+    min-height: 90vh;
+}
+#mainCart > * {
+    width: 100%;
+    margin: 0;
+}
+#reviewCart {
+    text-align: center;
+}
 #closeCart {
-    background-color: white;
     border: none;
-    font-size: x-large;
+    font-size: 2vw;
     position: absolute;
     right: 5%;
+    background-color: white;
 }
 #closeCart:hover {
     cursor: pointer;
@@ -142,10 +158,47 @@ a {
     display: flex;
     flex-direction: column;
 }
+#checkoutButton {
+    color: white;
+    background-color: #75BDE6;
+    border: 0;
+    width: 100%;
+    height: 7vh;
+    font-size: 100%;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497);
+}
+.cartItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.325);
+}
+.cartItem > * {
+    flex: 1;
+}
+.pizzaImage {
+    background-color: orange;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.nameAndNum, .deleteAndPrice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.nameAndNum *, .deleteAndPrice * {
+    height: 50%;
+    margin: 0;
+}
 .summaryDetails {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.pizzaQty {
+    width: fit-content;
 }
 .buildField {
     display: flex;
@@ -214,7 +267,7 @@ a {
     font-size: 120%;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497);
 }
-.roundedButton:hover, .roundedButton:focus-visible {
+.roundedButton:hover, .roundedButton:focus-visible, #checkoutButton:hover, #checkoutButton:focus-visible {
     background-color: #458fbb;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497) inset;
     cursor: pointer;
