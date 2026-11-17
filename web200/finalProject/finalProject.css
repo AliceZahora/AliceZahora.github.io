@@ -227,6 +227,9 @@ a {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497);
     cursor: pointer;
 }
+.buildLabel:has(input:checked) {
+    background-color: #FFC362;
+}
 .cheeseImage {
     background-image: url(images/CheeseGrate1.png);
 }
