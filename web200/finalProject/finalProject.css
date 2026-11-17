@@ -231,28 +231,28 @@ a {
     background-color: #FFC362;
 }
 .cheeseImage {
-    background-image: url(images/CheeseGrate1.png);
+    background-image: url(images/CheeseGrate1.webp);
 }
 .mushroomImage {
-    background-image: url(images/Mushrooms2.png);
+    background-image: url(images/Mushrooms2.webp);
 }
 .peppersImage {
-    background-image: url(images/Peppers2.png);
+    background-image: url(images/Peppers2.webp);
 }
 .olivesImage {
-    background-image: url(images/Olives2.png);
+    background-image: url(images/Olives2.webp);
 }
 .pepperoniImage {
-    background-image: url(images/blurryPeps.png);
+    background-image: url(images/blurryPeps.webp);
 }
 .sausageImage {
-    background-image: url(images/Sausage.png);
+    background-image: url(images/Sausage.webp);
 }
 .baconImage {
-    background-image: url(images/Bacon.png);
+    background-image: url(images/Bacon.webp);
 }
 .hamImage {
-    background-image: url(images/Ham.png);
+    background-image: url(images/Ham.webp);
 }
 .toppingField {
     display: flex;
