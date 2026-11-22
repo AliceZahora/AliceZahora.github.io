@@ -2,7 +2,25 @@ label:has(+ input:required)::before {
     content: "*";
     color: red;
 }
+input:focus {
+    background-color: aliceblue;
+}
+#fullForm {
+    width: 50vw;
+    margin: auto;
+}
 .formFieldset, .formContainer {
     display: flex;
     flex-direction: column;
 }
+.inputBoxShort {
+    width: 6%;
+}
+.inputBoxMedium {
+    width: 30%;
+}
+.inputBoxLong {
+    width: 50%;
+}
+
+
