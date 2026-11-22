@@ -45,13 +45,13 @@
                     <legend> Personal Details </legend>
                     <div id="fullName" class="formContainer">
                         <label for="fname"> First Name </label>
-                        <input type="text" name="fname" id="fname" autocomplete="given-name" placeholder="John" required>
+                        <input type="text" name="fname" id="fname" autocomplete="given-name" placeholder="John" pattern="[A-Za-z]" required>
 
                         <label for="middleInitial"> MI </label>
-                        <input type="text" name="middleInitial" id="middleInitial" autocomplete="additional-name" placeholder="D" maxlength="1">
+                        <input type="text" name="middleInitial" id="middleInitial" autocomplete="additional-name" placeholder="D" pattern="[A-Za-z]{1}" maxlength="1">
 
                         <label for="lname"> Last Name </label>
-                        <input type="text" name="lname" id="lname" autocomplete="family-name" placeholder="Doe" required>
+                        <input type="text" name="lname" id="lname" autocomplete="family-name" placeholder="Doe" pattern="[A-Za-z]" required>
                     </div>
                     <div id="fullAdress" class="formContainer">
                         <label for="addrLine"> Address </label>
@@ -63,7 +63,7 @@
                             <label for="city"> City </label>
                             <input type="text" name="city" id="city" autocomplete="address-level2" placeholder="City" required>
 
-                            <label for="state"> State </label>
+                            <label for="state" hidden> State </label>
                             <select name="state" name="state" id="state" autocomplete="address-level1" hidden required>
                                 <option value="alabama"> Alabama </option>
                                 <option value="alaska"> Alaska </option>
@@ -118,17 +118,17 @@
                             </select>
 
                             <label for="zip"> Zip </label>
-                            <input type="num" name="zip" id="zip" maxlength="5" autocomplete="postal-code" placeholder="12345" required>
+                            <input type="num" name="zip" id="zip" maxlength="5" autocomplete="postal-code" placeholder="12345" pattern="[0-9]{5}" required>
                         </div>
                     </div>
                 </fieldset>
                 <fieldset class="formFieldset">
                     <legend> Contact Information </legend>
                     <label for="email"> Email </label>
-                    <input type="email" name="email" id="email" autocomplete="email" placeholder="sample@email.com" required>
+                    <input type="email" name="email" id="email" autocomplete="email" placeholder="sample@email.com" pattern="[A-Za-z._%+\-]+@[A-Za-z0-9.\-]+\.[a-zA-Z]{2,}$" required>
 
                     <label for="phone"> Phone Number </label>
-                    <input type="tel" name="phone" id="phone" autocomplete="tel" placeholder="1-444-555-6789" required>
+                    <input type="tel" name="phone" id="phone" autocomplete="tel" placeholder="1-444-555-6789" pattern="[0-9]{1,3}+[0-9]{3,15}$" required>
                 </fieldset>
                 <fieldset class="formFieldset">
                     <legend> Account Security </legend>
