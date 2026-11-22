@@ -43,14 +43,14 @@
             <form method="post" id="fullForm">
                 <fieldset id="personalInfo" class="formFieldset">
                     <legend> Personal Details </legend>
-                    <div id="fullName">
+                    <div class="groupedInputs">
                         <div>
                             <label for="fname"> First Name </label>
                             <input type="text" name="fname" id="fname" autocomplete="given-name" placeholder="John" pattern="[A-Za-z]" required>
                         </div>
                         <div>
                             <label for="middleInitial"> MI </label>
-                            <input type="text" name="middleInitial" id="middleInitial" autocomplete="additional-name" placeholder="D" pattern="[A-Za-z]{1}" maxlength="1">
+                            <input type="text" name="middleInitial" id="middleInitial" class="flexrowShort" autocomplete="additional-name" placeholder="D" pattern="[A-Za-z]{1}" maxlength="1">
                         </div>
                         <div>
                             <label for="lname"> Last Name </label>
@@ -59,13 +59,15 @@
                     </div>
                     <label for="addrLine"> Address </label>
                     <input type="text" name="addrLine" id="addrLine" class="inputBoxLong" autocomplete="address-line1" placeholder="123 Sample Street" required>
-                    <div>
-                        <label for="country"> Country </label>
-                        <input type="text" name="country" id="country" class="inputBoxMedium" autocomplete="country" placeholder="Country" required>
-
-                        <label for="city"> City </label>
-                        <input type="text" name="city" id="city" class="inputBoxMedium" autocomplete="address-level2" placeholder="City" required>
-
+                    <div class="groupedInputs">
+                        <div>
+                            <label for="country"> Country </label>
+                            <input type="text" name="country" id="country" autocomplete="country" placeholder="Country" required>
+                        </div>
+                        <div>
+                            <label for="city"> City </label>
+                            <input type="text" name="city" id="city" autocomplete="address-level2" placeholder="City" required>
+                        </div>
                         <label for="state" hidden> State </label>
                         <select name="state" name="state" id="state" autocomplete="address-level1" hidden required>
                             <option value="alabama"> Alabama </option>
@@ -119,9 +121,10 @@
                             <option value="wisconsin"> Wisconsin </option>
                             <option value="wyoming"> Wyoming </option>
                         </select>
-
-                        <label for="zip"> Zip </label>
-                        <input type="num" name="zip" id="zip" class="inputBoxShort" maxlength="5" autocomplete="postal-code" placeholder="12345" pattern="[0-9]{5}" required>
+                        <div>
+                            <label for="zip"> Zip </label>
+                            <input type="num" name="zip" id="zip" class="flexrowShort" maxlength="5" autocomplete="postal-code" placeholder="12345" pattern="[0-9]{5}" required>
+                        </div>
                     </div>
                 </fieldset>
                 <fieldset id="contactInfo" class="formFieldset">

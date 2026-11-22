@@ -19,20 +19,20 @@ input:focus {
 #contactInfo, #accountSecurity {
     flex: 2;
 }
-#fullName {
+.groupedInputs {
     display: flex;
     flex-direction: row;
     width: 100%;
     gap: 5%;
 }
-#fullName > div {
+.groupedInputs > div {
     display: flex;
     flex-direction: column;
 }
-#fullName > div:has(#middleInitial) {
+.groupedInputs > div:has(.flexrowShort) {
     width: 10%
 }
-#fullName > :not(div:has(#middleInitial)) {
+.groupedInputs > :not(div:has(.flexrowShort)) {
     width: 40%;
 }
 .formFieldset, .formContainer {
