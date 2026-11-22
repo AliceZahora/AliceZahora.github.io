@@ -1,4 +1,8 @@
-.formFieldset {
+label:has(+ input:required)::before {
+    content: "*";
+    color: red;
+}
+.formFieldset, .formContainer {
     display: flex;
     flex-direction: column;
 }
