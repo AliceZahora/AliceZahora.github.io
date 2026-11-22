@@ -31,7 +31,6 @@
             password
             confirm password
 
-
             use HTML placeholder text, inline alerts when validation fails
         -->
     </head>
@@ -41,6 +40,34 @@
             <h2> Assignment 11 </h2>
         </header>
         <main id="main">
+            <form method="post">
+                <fieldset>
+                    <legend> Personal Details </legend>
+                    <div id="fullName">
+                        <input type="text" name="fname" id="fname" autocomplete="given-name">
+                        <input type="text" name="lname" id="lname" autocomplete="family-name">
+                    </div>
+                    <div id="fullAdress">
+                        <input type="text" name="addrLine" id="addrLine" autocomplete="address-line1">
+                        <div class="flexRow">
+                            <input type="text" name="country" id="country" autocomplete="country">
+                            <select name="state" name="state" id="state" autocomplete="address-level1"></select>
+                            <input type="text" name="city" id="city" autocomplete="address-level2">
+                            <input type="num" name="zip" id="zip" max="5" autocomplete="postal-code">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend> Contact Information </legend>
+                    <input type="email" name="email" id="email" autocomplete="email">
+                    <input type="tel" name="phone" id="phone" autocomplete="tel">
+                </fieldset>
+                <fieldset>
+                    <legend> Account Security </legend>
+                    <input type="password" name="passOG" id="passOG" autocomplete="new-password">
+                    <input type="password" name="passConfirm" id="passConfirm" autocomplete="new-password">
+                </fieldset>
+            </form>
         </main>
     </body>
 </html>
