@@ -1,4 +1,4 @@
-label:has(+ input:required)::before {
+label:has(+ input:required)::after {
     content: "*";
     color: red;
 }
@@ -7,20 +7,51 @@ input:focus {
 }
 #fullForm {
     width: 50vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     margin: auto;
+}
+#personalInfo {
+    flex: 3;
+}
+#contactInfo, #accountSecurity {
+    flex: 2;
+}
+#fullName {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5%;
+}
+#fullName > div {
+    display: flex;
+    flex-direction: column;
+}
+#fullName > div:has(#middleInitial) {
+    width: 10%
+}
+#fullName > :not(div:has(#middleInitial)) {
+    width: 40%;
 }
 .formFieldset, .formContainer {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 .inputBoxShort {
     width: 6%;
 }
 .inputBoxMedium {
-    width: 30%;
+    width: 25%;
 }
 .inputBoxLong {
     width: 50%;
+}
+.error::after {
+    content: "Please complete required field";
+    color: red;
 }
 
 
