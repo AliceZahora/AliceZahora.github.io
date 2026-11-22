@@ -41,26 +41,26 @@
         </header>
         <main id="main">
             <form method="post">
-                <fieldset>
+                <fieldset class="formFieldset">
                     <legend> Personal Details </legend>
                     <div id="fullName">
                         <label for="fname"> First Name
-                            <input type="text" name="fname" id="fname" autocomplete="given-name">
+                            <input type="text" name="fname" id="fname" autocomplete="given-name" placeholder="John">
                         </label>
                         <label for="lname"> Last Name
-                            <input type="text" name="lname" id="lname" autocomplete="family-name">
+                            <input type="text" name="lname" id="lname" autocomplete="family-name" placeholder="Doe">
                         </label>
                     </div>
                     <div id="fullAdress">
                         <label for="addrLine"> Address
-                            <input type="text" name="addrLine" id="addrLine" autocomplete="address-line1">
+                            <input type="text" name="addrLine" id="addrLine" autocomplete="address-line1" placeholder="123 Sample Street">
                         </label>
                         <div class="flexRow">
                             <label for="country"> Country
-                                <input type="text" name="country" id="country" autocomplete="country">
+                                <input type="text" name="country" id="country" autocomplete="country" placeholder="Country">
                             </label>
                             <label for="city"> City
-                                <input type="text" name="city" id="city" autocomplete="address-level2">
+                                <input type="text" name="city" id="city" autocomplete="address-level2" placeholder="City">
                             </label>
                             <label for="state"> State
                                 <select name="state" name="state" id="state" autocomplete="address-level1">
@@ -117,21 +117,21 @@
                                 </select>
                             </label>
                             <label for="zip"> Zip
-                                <input type="num" name="zip" id="zip" max="5" autocomplete="postal-code">
+                                <input type="num" name="zip" id="zip" max="5" autocomplete="postal-code" placeholder="12345">
                             </label>
                         </div>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset class="formFieldset">
                     <legend> Contact Information </legend>
                     <label for="email"> Email
-                        <input type="email" name="email" id="email" autocomplete="email">
+                        <input type="email" name="email" id="email" autocomplete="email" placeholder="sample@email.com">
                     </label>
                     <label for="phone"> Phone Number
-                        <input type="tel" name="phone" id="phone" autocomplete="tel">
+                        <input type="tel" name="phone" id="phone" autocomplete="tel" placeholder="1-444-555-6789">
                     </label>
                 </fieldset>
-                <fieldset>
+                <fieldset class="formFieldset">
                     <legend> Account Security </legend>
                     <label for="passOG"> Password
                         <input type="password" name="passOG" id="passOG" autocomplete="new-password">
