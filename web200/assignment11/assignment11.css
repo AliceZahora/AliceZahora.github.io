@@ -1,0 +1,94 @@
+body {
+    background-color: antiquewhite;
+}
+label:has(+ :required)::after {
+    content: "*";
+    color: red;
+}
+label {
+    width: fit-content;
+}
+input:focus {
+    background-color: aliceblue;
+}
+legend {
+    font-weight: bold;
+}
+#wrapper {
+    width: 60vw;
+    margin: auto;
+    background-color: white;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    box-shadow: 2px 2px 5px black;
+}
+#fullForm {
+    position: relative;
+    width: 50vw;
+    height: 72vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+}
+#formTitle {
+    margin: auto;
+    font-size: x-large;
+}
+#personalInfo {
+    flex: 3;
+}
+#contactInfo, #accountSecurity {
+    flex: 2;
+}
+#submitButton {
+    width: 10%;
+    height: 8%;
+    background-color: rgb(169, 214, 254);
+    margin-top: 2%;
+    border: none;
+    box-shadow: 2px 2px black;
+}
+#submitButton:hover, #submitButton:focus {
+    cursor: pointer;
+    background-color: rgb(69, 131, 186);
+    color: white;
+    box-shadow: inset 2px 2px black;
+}
+#stateDiv {
+    display: none;
+}
+.groupedInputs {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5%;
+}
+.groupedInputs > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.groupedInputs > div:has(.flexrowShort) {
+    width: 10%;
+}
+.groupedInputs > :not(div:has(.flexrowShort)) {
+    flex: 1;
+}
+.formFieldset, .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 90%;
+    min-width: 0;
+}
+.inputBoxShort {
+    width: 6%;
+}
+.inputBoxMedium {
+    width: 25%;
+}
+.inputBoxLong {
+    width: 50%;
+}
+
