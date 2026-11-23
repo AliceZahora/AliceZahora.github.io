@@ -27,7 +27,6 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     margin: auto;
-    overflow: hidden;
 }
 #personalInfo {
     flex: 3;
