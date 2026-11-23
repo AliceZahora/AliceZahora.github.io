@@ -7,6 +7,15 @@
 
 let password = document.getElementById("passOG");
 let confirm = document.getElementById("passConfirm");
+let phone = document.getElementById("phone");
+let country = document.getElementById("country");
+let zip = document.getElementById("zip");
+
+password.addEventListener("input", checkInput);
+confirm.addEventListener("input", checkMatch);
+phone.addEventListener("keydown", editInput);
+country.addEventListener("blur", checkStateView);
+zip.addEventListener("input", checkInput);
 
 function checkMatch()
 {
@@ -19,8 +28,10 @@ function checkMatch()
         confirm.setCustomValidity("");
     }
 }
-function checkInput(input)
+function checkInput()
 {
+    input = event.currentTarget;
+
     if(!input.validity.patternMismatch)
     {
         input.setCustomValidity("");
@@ -30,9 +41,9 @@ function checkInput(input)
         input.setCustomValidity(input.getAttribute("data-message"));
     }
 }
-function checkStateView(evt)
+function checkStateView()
 {
-    let country = evt.value.toLowerCase();
+    let country = event.currentTarget.value.toLowerCase();
 
     //only ask for state if in the usa
     if(country == "usa" || country == "us" || country == "united states" ||
@@ -44,8 +55,10 @@ function checkStateView(evt)
         document.getElementById("stateDiv").style.display = "none";
     }
 }
-function editInput(input)
+function editInput()
 {
+    let input = event.currentTarget;
+
     //auto add - for phone number formatting
     if((input.value.length == 1 || input.value.length == 5 || input.value.length == 9) &&
         (event.key != "Backspace"))

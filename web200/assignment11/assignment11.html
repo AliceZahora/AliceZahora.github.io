@@ -64,7 +64,7 @@
                         <div class="groupedInputs">
                             <div>
                                 <label for="country"> Country </label>
-                                <input type="text" name="country" id="country" autocomplete="country" pattern="[A-Za-z ]{2,}" placeholder="Country" onblur="checkStateView(this)" required>
+                                <input type="text" name="country" id="country" autocomplete="country" pattern="[A-Za-z ]{2,}" placeholder="Country" required>
                             </div>
                             <div>
                                 <label for="city"> City </label>
@@ -127,7 +127,7 @@
                             </div>
                             <div>
                                 <label for="zip"> Zip </label>
-                                <input type="num" name="zip" id="zip" class="flexrowShort" maxlength="5" autocomplete="postal-code" placeholder="12345" pattern="[0-9]{5}" oninput="checkInput(this)" data-message="Must be 5 digits" required>
+                                <input type="num" name="zip" id="zip" class="flexrowShort" maxlength="5" autocomplete="postal-code" placeholder="12345" pattern="[0-9]{5}" data-message="Must be 5 digits" required>
                             </div>
                         </div>
                     </fieldset>
@@ -137,15 +137,15 @@
                         <input type="email" name="email" id="email" class="inputBoxMedium" autocomplete="email" placeholder="sample@email.com" pattern="[A-Za-z._%+\-]+@[A-Za-z0-9.\-]+\.[a-zA-Z]{2,}$" required>
 
                         <label for="phone"> Phone Number </label>
-                        <input type="tel" name="phone" id="phone" class="inputBoxMedium" autocomplete="tel" placeholder="1-444-555-6789" onkeydown="editInput(this)" pattern="1-{1}[0-9]{3}-{1}[0-9]{3}-{1}[0-9]{4}" maxlength="14" required>
+                        <input type="tel" name="phone" id="phone" class="inputBoxMedium" autocomplete="tel" placeholder="1-444-555-6789" pattern="1-{1}[0-9]{3}-{1}[0-9]{3}-{1}[0-9]{4}" maxlength="14" required>
                     </fieldset>
                     <fieldset id="accountSecurity" class="formFieldset">
                         <legend> Account Security </legend>
                         <label for="passOG"> Password </label>
-                        <input type="password" name="passOG" id="passOG" class="inputBoxMedium"  pattern="^.{8,}" autocomplete="new-password" data-message="Must be at least 8 characters" oninput="checkInput(this)" required>
+                        <input type="password" name="passOG" id="passOG" class="inputBoxMedium"  pattern="^.{8,}" autocomplete="new-password" data-message="Must be at least 8 characters" required>
 
                         <label for="passConfirm"> Confirm Password </label>
-                        <input type="password" name="passConfirm" id="passConfirm" class="inputBoxMedium" autocomplete="new-password" pattern="^.{8,}" oninput="checkMatch()" required>
+                        <input type="password" name="passConfirm" id="passConfirm" class="inputBoxMedium" autocomplete="new-password" pattern="^.{8,}" required>
                     </fieldset>
                     <button id="submitButton"> Submit </button>
                 </form>
