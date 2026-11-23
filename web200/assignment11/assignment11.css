@@ -84,9 +84,4 @@ body {
 .inputBoxLong {
     width: 50%;
 }
-.error::after {
-    content: "Please complete required field";
-    color: red;
-}
-
 

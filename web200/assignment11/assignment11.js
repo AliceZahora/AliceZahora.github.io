@@ -13,10 +13,20 @@ function checkMatch()
     if(password.value != confirm.value )
     {
         confirm.setCustomValidity("Passwords must match");
-        confirm.valid = false;
     }
     else
     {
         confirm.setCustomValidity("");
+    }
+}
+function checkInput(input)
+{
+    if(!input.validity.patternMismatch)
+    {
+        input.setCustomValidity("");
+    }
+    else
+    {
+        input.setCustomValidity(input.getAttribute("data-message"));
     }
 }

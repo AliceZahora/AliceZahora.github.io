@@ -126,7 +126,7 @@
                             </div>
                             <div>
                                 <label for="zip"> Zip </label>
-                                <input type="num" name="zip" id="zip" class="flexrowShort" maxlength="5" autocomplete="postal-code" placeholder="12345" pattern="[0-9]{5}" required>
+                                <input type="num" name="zip" id="zip" class="flexrowShort" maxlength="5" autocomplete="postal-code" placeholder="12345" pattern="[0-9]{5}" oninput="checkInput(this)" data-message="Must be 5 digits" required>
                             </div>
                         </div>
                     </fieldset>
