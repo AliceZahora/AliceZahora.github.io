@@ -10,12 +10,15 @@ let confirm = document.getElementById("passConfirm");
 let phone = document.getElementById("phone");
 let country = document.getElementById("country");
 let zip = document.getElementById("zip");
+let form = document.getElementById("fullForm");
 
 password.addEventListener("input", checkInput);
 confirm.addEventListener("input", checkMatch);
 phone.addEventListener("keydown", editInput);
 country.addEventListener("blur", checkStateView);
 zip.addEventListener("input", checkInput);
+
+form.addEventListener("submit", submitSuccess);
 
 function checkMatch()
 {
@@ -65,4 +68,8 @@ function editInput()
     {
         input.value += "-";
     }
+}
+function submitSuccess()
+{
+    alert("Thank you for submitting your form!");
 }
