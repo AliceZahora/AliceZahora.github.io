@@ -145,7 +145,7 @@
                         <input type="password" name="passOG" id="passOG" class="inputBoxMedium"  pattern="^.{8,}" autocomplete="new-password" required>
 
                         <label for="passConfirm"> Confirm Password </label>
-                        <input type="password" name="passConfirm" id="passConfirm" class="inputBoxMedium" autocomplete="new-password" pattern="^.{8,}" onblur="checkMatch()" required>
+                        <input type="password" name="passConfirm" id="passConfirm" class="inputBoxMedium" autocomplete="new-password" pattern="^.{8,}" oninput="checkMatch()" required>
                     </fieldset>
                     <button id="submitButton"> Submit </button>
                 </form>

@@ -1,3 +1,6 @@
+body {
+    background-color: antiquewhite;
+}
 label:has(+ :required)::after {
     content: "*";
     color: red;
@@ -8,8 +11,8 @@ label {
 input:focus {
     background-color: aliceblue;
 }
-body {
-    background-color: antiquewhite;
+legend {
+    font-weight: bold;
 }
 #wrapper {
     width: 60vw;
