@@ -137,12 +137,12 @@
                         <input type="email" name="email" id="email" class="inputBoxMedium" autocomplete="email" placeholder="sample@email.com" pattern="[A-Za-z._%+\-]+@[A-Za-z0-9.\-]+\.[a-zA-Z]{2,}$" required>
 
                         <label for="phone"> Phone Number </label>
-                        <input type="tel" name="phone" id="phone" class="inputBoxMedium" autocomplete="tel" placeholder="1-444-555-6789" oninput="editInput(this)" pattern="[0-9]{1}-{1}[0-9]{3}-{1}[0-9]{3}-{1}[0-9]{4}" maxlength="14" required>
+                        <input type="tel" name="phone" id="phone" class="inputBoxMedium" autocomplete="tel" placeholder="1-444-555-6789" oninput="editInput(this)" pattern="1-{1}[0-9]{3}-{1}[0-9]{3}-{1}[0-9]{4}" maxlength="14" required>
                     </fieldset>
                     <fieldset id="accountSecurity" class="formFieldset">
                         <legend> Account Security </legend>
                         <label for="passOG"> Password </label>
-                        <input type="password" name="passOG" id="passOG" class="inputBoxMedium"  pattern="^.{8,}" autocomplete="new-password" required>
+                        <input type="password" name="passOG" id="passOG" class="inputBoxMedium"  pattern="^.{8,}" autocomplete="new-password" data-message="Must be at least 8 characters" oninput="checkInput(this)" required>
 
                         <label for="passConfirm"> Confirm Password </label>
                         <input type="password" name="passConfirm" id="passConfirm" class="inputBoxMedium" autocomplete="new-password" pattern="^.{8,}" oninput="checkMatch()" required>
