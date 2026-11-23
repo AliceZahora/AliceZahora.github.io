@@ -22,11 +22,15 @@ body {
 #fullForm {
     position: relative;
     width: 50vw;
-    height: 70vh;
+    height: 72vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin: auto;
+}
+#formTitle {
+    margin: auto;
+    font-size: x-large;
 }
 #personalInfo {
     flex: 3;
@@ -36,7 +40,7 @@ body {
 }
 #submitButton {
     width: 10%;
-    height: 10%;
+    height: 8%;
     background-color: rgb(169, 214, 254);
     margin-top: 2%;
     border: none;
