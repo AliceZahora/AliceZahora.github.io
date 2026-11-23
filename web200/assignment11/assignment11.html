@@ -137,7 +137,7 @@
                         <input type="email" name="email" id="email" class="inputBoxMedium" autocomplete="email" placeholder="sample@email.com" pattern="[A-Za-z._%+\-]+@[A-Za-z0-9.\-]+\.[a-zA-Z]{2,}$" required>
 
                         <label for="phone"> Phone Number </label>
-                        <input type="tel" name="phone" id="phone" class="inputBoxMedium" autocomplete="tel" placeholder="1-444-555-6789" oninput="editInput(this)" pattern="[0-9]{11}" maxlength="14" required>
+                        <input type="tel" name="phone" id="phone" class="inputBoxMedium" autocomplete="tel" placeholder="1-444-555-6789" oninput="editInput(this)" pattern="[0-9]{1}-{1}[0-9]{3}-{1}[0-9]{3}-{1}[0-9]{4}" maxlength="14" required>
                     </fieldset>
                     <fieldset id="accountSecurity" class="formFieldset">
                         <legend> Account Security </legend>
