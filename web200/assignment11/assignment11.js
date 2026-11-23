@@ -47,7 +47,8 @@ function checkStateView(evt)
 function editInput(input)
 {
     //auto add - for phone number formatting
-    if(input.value.length == 1 || input.value.length == 5 || input.value.length == 9)
+    if((input.value.length == 1 || input.value.length == 5 || input.value.length == 9) &&
+        (event.key != "Backspace"))
     {
         input.value += "-";
     }
