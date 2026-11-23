@@ -108,19 +108,25 @@
                     <fieldset class="buildField">
                         <legend id="cheeseLegend" class="buildLegend"> CHEESE </legend>
                         <label for="cheeseNone" class="buildLabel">
-                            <input type="radio" name="cheese" id="cheeseNone" value="none"> NONE
+                            <input type="radio" name="cheese" id="cheeseNone" value="none" class="noRadio"> NONE
                         </label>
                         <label for="cheeseHalfLeft" class="buildLabel">
-                            <input type="radio" name="cheese" id="cheeseHalfLeft" value="halfLeft"> 1/2 LEFT
+                            <i class="fa-solid fa-circle-half-stroke coverageDetail"></i>
+                            <input type="radio" name="cheese" id="cheeseHalfLeft" value="halfLeft" class="noRadio"> 1/2 LEFT
                         </label>
                         <label for="cheeseHalfRight" class="buildLabel">
-                            <input type="radio" name="cheese" id="cheeseHalfRight" value="halfRight"> 1/2 RIGHT
+                            <i class="fa-solid fa-circle-half-stroke fa-rotate-180 coverageDetail"></i>
+                            <input type="radio" name="cheese" id="cheeseHalfRight" value="halfRight" class="noRadio"> 1/2 RIGHT
                         </label>
                         <label for="cheeseFull" class="buildLabel">
-                            <input type="radio" name="cheese" id="cheeseFull" value="full"> FULL
+                            <i class="fa-solid fa-circle coverageDetail"></i>
+                            <input type="radio" name="cheese" id="cheeseFull" value="full" class="noRadio"> FULL
                         </label>
                         <label for="cheeseExtra" class="buildLabel">
-                            <input type="radio" name="cheese" id="cheeseExtra" value="extra"> EXTRA
+                            <i class="fa-solid fa-circle coverageDetail">
+                                <i class="fa-solid fa-circle coverageDetail"></i>
+                            </i>
+                            <input type="radio" name="cheese" id="cheeseExtra" value="extra" class="noRadio"> EXTRA
                         </label>
                     </fieldset>
                     <fieldset class="toppingField">

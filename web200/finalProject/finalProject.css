@@ -177,6 +177,12 @@ a {
 .cartItem > * {
     flex: 1;
 }
+.noRadio {
+    appearance: none;
+}
+.coverageDetail {
+    font-size: x-large;
+}
 .pizzaImage {
     background-color: orange;
     height: 30px;
