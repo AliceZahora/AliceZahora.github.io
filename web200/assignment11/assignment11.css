@@ -48,6 +48,9 @@ body {
     color: white;
     box-shadow: inset 2px 2px black;
 }
+#stateDiv {
+    display: none;
+}
 .groupedInputs {
     display: flex;
     flex-direction: row;
