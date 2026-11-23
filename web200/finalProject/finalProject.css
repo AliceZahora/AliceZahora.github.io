@@ -105,6 +105,7 @@ a {
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
+    gap: 1vh;
 }
 #toppings1, #toppings2 {
     display: flex;
@@ -243,6 +244,11 @@ a {
 .buildPrice {
     margin: 0;
     padding: 0;
+}
+.subtitle {
+    padding: 0;
+    margin-top: 0;
+    font-family: "Roboto", sans-serif;
 }
 .cheeseImage {
     background-image: url(images/CheeseGrate1.webp);
