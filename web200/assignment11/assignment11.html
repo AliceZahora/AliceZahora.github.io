@@ -47,7 +47,7 @@
                         <div class="groupedInputs">
                             <div>
                                 <label for="fname"> First Name </label>
-                                <input type="text" name="fname" id="fname" autocomplete="given-name" placeholder="John" pattern="[A-Za-z]{1,}" required>
+                                <input type="text" name="fname" id="fname" autocomplete="given-name" placeholder="John" pattern="^[A-Za-z ]{1,}(?:-[A-Za-z ]{1,}|$)" required>
                             </div>
                             <div>
                                 <label for="middleInitial"> MI </label>
@@ -55,7 +55,7 @@
                             </div>
                             <div>
                                 <label for="lname"> Last Name </label>
-                                <input type="text" name="lname" id="lname" autocomplete="family-name" placeholder="Doe" pattern="[A-Za-z]{1,}" required>
+                                <input type="text" name="lname" id="lname" autocomplete="family-name" placeholder="Doe" pattern="^[A-Za-z ]{1,}(?:-[A-Za-z ]{1,}|$)" required>
                             </div>
                         </div>
                         <label for="addrLine"> Address </label>
@@ -63,11 +63,11 @@
                         <div class="groupedInputs">
                             <div>
                                 <label for="country"> Country </label>
-                                <input type="text" name="country" id="country" autocomplete="country" pattern="[A-Za-z]{4,}" placeholder="Country" required>
+                                <input type="text" name="country" id="country" autocomplete="country" pattern="[A-Za-z ]{4,}" placeholder="Country" required>
                             </div>
                             <div>
                                 <label for="city"> City </label>
-                                <input type="text" name="city" id="city" autocomplete="address-level2"  pattern="[A-Za-z]{2,}" placeholder="City" required>
+                                <input type="text" name="city" id="city" autocomplete="address-level2"  pattern="[A-Za-z ]{2,}" placeholder="City" required>
                             </div>
                             <div id="stateDiv">
                                 <label for="state"> State </label>
