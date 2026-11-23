@@ -1,6 +1,9 @@
-label:has(+ input:required)::after {
+label:has(+ :required)::after {
     content: "*";
     color: red;
+}
+label {
+    width: fit-content;
 }
 input:focus {
     background-color: aliceblue;
@@ -17,12 +20,14 @@ body {
     box-shadow: 2px 2px 5px black;
 }
 #fullForm {
+    position: relative;
     width: 50vw;
     height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin: auto;
+    overflow: hidden;
 }
 #personalInfo {
     flex: 3;
@@ -53,17 +58,20 @@ body {
 .groupedInputs > div {
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 .groupedInputs > div:has(.flexrowShort) {
-    width: 10%
+    width: 10%;
 }
 .groupedInputs > :not(div:has(.flexrowShort)) {
-    width: 40%;
+    flex: 1;
 }
 .formFieldset, .formContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    width: 90%;
+    min-width: 0;
 }
 .inputBoxShort {
     width: 6%;
