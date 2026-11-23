@@ -30,3 +30,17 @@ function checkInput(input)
         input.setCustomValidity(input.getAttribute("data-message"));
     }
 }
+function checkStateView(evt)
+{
+    let country = evt.value.toLowerCase();
+
+    //only ask for state if in the usa
+    if(country == "usa" || country == "us" || country == "united states" ||
+        country == "united states of america" || country == "united states (us)")
+    {
+        document.getElementById("stateDiv").style.display = "flex";
+    }
+    else {
+        document.getElementById("stateDiv").style.display = "none";
+    }
+}

@@ -63,7 +63,7 @@
                         <div class="groupedInputs">
                             <div>
                                 <label for="country"> Country </label>
-                                <input type="text" name="country" id="country" autocomplete="country" pattern="[A-Za-z ]{4,}" placeholder="Country" required>
+                                <input type="text" name="country" id="country" autocomplete="country" pattern="[A-Za-z ]{2,}" placeholder="Country" onblur="checkStateView(this)" required>
                             </div>
                             <div>
                                 <label for="city"> City </label>
@@ -144,7 +144,7 @@
                         <input type="password" name="passOG" id="passOG" class="inputBoxMedium"  pattern="^.{8,}" autocomplete="new-password" required>
 
                         <label for="passConfirm"> Confirm Password </label>
-                        <input type="password" name="passConfirm" id="passConfirm" class="inputBoxMedium" autocomplete="new-password" pattern="^.{8,}" oninput="checkMatch()" required>
+                        <input type="password" name="passConfirm" id="passConfirm" class="inputBoxMedium" autocomplete="new-password" pattern="^.{8,}" onblur="checkMatch()" required>
                     </fieldset>
                     <button id="submitButton"> Submit </button>
                 </form>
