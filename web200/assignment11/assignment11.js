@@ -44,3 +44,11 @@ function checkStateView(evt)
         document.getElementById("stateDiv").style.display = "none";
     }
 }
+function editInput(input)
+{
+    //auto add - for phone number formatting
+    if(input.value.length == 1 || input.value.length == 5 || input.value.length == 9)
+    {
+        input.value += "-";
+    }
+}
