@@ -111,7 +111,7 @@ a {
     display: flex;
     flex-direction: row;
     gap: 1%;
-    margin-bottom: 2%;
+    margin-bottom: 1.5%;
     height: 150px;
 }
 #toppings1 .buildLabel, #toppings2 .buildLabel {
@@ -234,6 +234,7 @@ a {
     flex-direction: row;
     align-items: center;
     overflow: hidden;
+    display: none;
 }
 .coverageButtonLabel i {
     padding: 0;
