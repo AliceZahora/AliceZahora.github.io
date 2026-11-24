@@ -122,6 +122,11 @@ a {
     padding-left: 3%;
     padding-right: 3%;
 }
+#toppings1 .buildLabel:has(input:checked), #toppings2 .buildLabel:has(input:checked)
+{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
 #cartStatus {
     position: fixed;
     height: 100vh;
@@ -279,7 +284,6 @@ a {
 .buildLabel:has(input:checked) {
     background-color: #FFC362;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.392) inset;
-    border-radius: 0px;
 }
 .leftRadio {
     display: flex;
