@@ -111,7 +111,7 @@ a {
     display: flex;
     flex-direction: row;
     gap: 1%;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     height: 150px;
 }
 #toppings1 .buildLabel, #toppings2 .buildLabel {
@@ -119,7 +119,8 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     height: 80%;
-    padding: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 #cartStatus {
     position: fixed;
@@ -215,14 +216,14 @@ a {
     border: 0;
     gap: 1%;
 }
-.buildField *, .toppingField *, .roundedButton {
+.buildField *, .toppingField *, .roundedButton, .subtitle {
     font-family: "Roboto", sans-serif;
 }
 .buildLegend {
     font-size: 1.5em;
 }
 .toppingDiv {
-    flex: 1;
+    flex: 3;
 }
 .coverageOptions {
     background-color: #458fbb;
@@ -232,7 +233,7 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    display: none;
+    overflow: hidden;
 }
 .coverageButtonLabel i {
     padding: 0;
@@ -295,7 +296,6 @@ a {
 .subtitle {
     padding: 0;
     margin-top: 0;
-    font-family: "Roboto", sans-serif;
 }
 .cheeseImage {
     background-image: url(images/CheeseGrate1.webp);
