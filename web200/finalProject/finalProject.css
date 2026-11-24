@@ -90,15 +90,8 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     width: 90%;
     margin: auto;
-}
-#buildHeader {
-    width: 100%;
-    text-align: left;
-    font-family: "Roboto", sans-serif;
-    font-size: 2.2em;
 }
 #buildArea {
     display: flex;
@@ -176,6 +169,15 @@ a {
     font-size: 100%;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497);
 }
+.centeredFlex {
+    align-items: center;
+}
+.h2 {
+    width: 100%;
+    text-align: left;
+    font-family: "Roboto", sans-serif;
+    font-size: 2.2em;
+}
 .cartItem {
     display: flex;
     flex-direction: row;
@@ -221,7 +223,7 @@ a {
     border: 0;
     gap: 1%;
 }
-.buildField *, .toppingField *, .roundedButton, .subtitle {
+.buildField *, .toppingField *, .roundedButton, .subtitle, .h2, #fullForm * {
     font-family: "Roboto", sans-serif;
 }
 .buildLegend {
@@ -342,8 +344,89 @@ a {
     font-size: 120%;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497);
 }
-.roundedButton:hover, .roundedButton:focus-visible, #checkoutButton:hover, #checkoutButton:focus-visible {
+.roundedButton:hover, .roundedButton:focus-visible, #checkoutButton:hover, #checkoutButton:focus-visible,
+#submitButton:hover, #submitButton:focus-visible {
     background-color: #458fbb;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497) inset;
     cursor: pointer;
+}
+
+#checkoutArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#fullForm label:has(+ :required)::after {
+    content: "*";
+    color: red;
+}
+#fullForm label {
+    width: fit-content;
+}
+#fullForm legend {
+    font-weight: bold;
+}
+#fullForm {
+    position: relative;
+    height: 60vh;
+    gap: 5%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#formTitle {
+    margin: auto;
+    font-size: x-large;
+}
+#personalInfo {
+    flex: 2.5;
+}
+#contactInfo {
+    flex: 2;
+}
+#stateDiv {
+    display: none;
+}
+#submitButton {
+    color: white;
+    background-color: #75BDE6;
+    border: 0;
+    width: 10vw;
+    height: 5vh;
+    font-size: 100%;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497);
+}
+.contactInput:focus {
+    background-color: aliceblue;
+}
+.groupedInputs {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2%;
+}
+.groupedInputs > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.groupedInputs > div:has(.flexrowShort) {
+    width: 10%;
+}
+.groupedInputs > :not(div:has(.flexrowShort)) {
+    flex: 1;
+}
+.formFieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 90%;
+    min-width: 0;
+}
+.inputBoxMedium {
+    width: 25%;
+}
+.inputBoxLong {
+    width: 50%;
 }

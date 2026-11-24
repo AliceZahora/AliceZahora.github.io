@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+            Alice Zahora
+            Class: Web 200
+            Assignment: Final Project
+            Date: 11/15/2026
+        -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Web 200 - Final Project">
+        <link rel="stylesheet" href="finalProject.css" type="text/css">
+        <script src="checkout.js" defer></script>
+        <script src="https://kit.fontawesome.com/e558e0301a.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <title> Web 200 - Zahora Final </title>
+        <!--
+            INSTRUCTIONS
+
+            Create your Pizza page concept design:
+            - Layout
+            - At least 3 crust sizes (i.e. radio buttons)
+            - At least 6 options for toppings (checkboxes... should be able to select or deselect options)
+            - Form fields for customer information (name, email, phone, address, textbox for notes)
+            - Place for order details to be displayed (# of pizzas, Prices, etc.)
+        -->
+    </head>
+    <body id="body">
+        <header id="header">
+            <nav id="menu1" aria-label="accountLinks">
+                <h1 id="brandName">
+                    <a href=""> Its Za Pizza </a>
+                </h1>
+                <div id="rightMenu">
+                    <a href=""> Rewards </a>
+                    <a href=""> <i class="fa-solid fa-user"></i> Account </a>
+                    <a href=""> <i class="fa-solid fa-cart-shopping"></i> Cart </a>
+                </div>
+            </nav>
+            <nav id="menu2" aria-label="shopNavigation">
+                <a href=""> MENU </a>
+                <a href=""> START ORDER </a>
+                <a href=""> TRACKING </a>
+                <a href=""> DEALS </a>
+            </nav>
+        </header>
+        <main id="main">
+            <div id="bannerWrap">
+                <img id="banner" src="images/pizzaBanner.jpg" alt="Pizza with one slice being taken">
+            </div>
+            <div id="content">
+                <h2 class="h2"> CHECKOUT </h2>
+                <div id="checkoutArea">
+                    <form method="post" id="fullForm">
+                        <fieldset id="personalInfo" class="formFieldset">
+                            <legend> Personal Details </legend>
+                            <div class="groupedInputs">
+                                <div>
+                                    <label for="fname"> First Name </label>
+                                    <input type="text" name="fname" id="fname" class="contactInput" autocomplete="given-name" placeholder="John" pattern="^[A-Za-z ]{1,}(?:-[A-Za-z ]{1,}|$)" required>
+                                </div>
+                                <div>
+                                    <label for="middleInitial"> MI </label>
+                                    <input type="text" name="middleInitial" id="middleInitial" class="flexrowShort contactInput" autocomplete="additional-name" placeholder="D" pattern="[A-Za-z]{1}" maxlength="1">
+                                </div>
+                                <div>
+                                    <label for="lname"> Last Name </label>
+                                    <input type="text" name="lname" id="lname" class="contactInput" autocomplete="family-name" placeholder="Doe" pattern="^[A-Za-z ]{1,}(?:-[A-Za-z ]{1,}|$)" required>
+                                </div>
+                            </div>
+                            <label for="addrLine"> Address </label>
+                            <input type="text" name="addrLine" id="addrLine" class="inputBoxLong contactInput" autocomplete="address-line1" placeholder="123 Sample Street" required>
+                            <div class="groupedInputs">
+                                <div>
+                                    <label for="country"> Country </label>
+                                    <input type="text" name="country" id="country" class="contactInput" autocomplete="country" pattern="[A-Za-z ]{2,}" placeholder="Country" required>
+                                </div>
+                                <div>
+                                    <label for="city"> City </label>
+                                    <input type="text" name="city" id="city" class="contactInput" autocomplete="address-level2"  pattern="[A-Za-z ]{2,}" placeholder="City" required>
+                                </div>
+                                <div id="stateDiv">
+                                    <label for="state"> State </label>
+                                    <select name="state" name="state" id="state" class="flexrowShort" autocomplete="address-level1" required>
+                                        <option value="alabama"> AL </option>
+                                        <option value="alaska"> AK </option>
+                                        <option value="arizona"> AZ </option>
+                                        <option value="arkansas"> AR </option>
+                                        <option value="california"> CA </option>
+                                        <option value="colorado"> CO </option>
+                                        <option value="connecticut"> CT </option>
+                                        <option value="delaware"> DE </option>
+                                        <option value="florida"> FL </option>
+                                        <option value="georgia"> GA </option>
+                                        <option value="hawaii"> HI </option>
+                                        <option value="idaho"> ID </option>
+                                        <option value="illinois"> IL </option>
+                                        <option value="indiana"> IN </option>
+                                        <option value="iowa"> IA </option>
+                                        <option value="kansas"> KS </option>
+                                        <option value="kentucky"> KY </option>
+                                        <option value="louisiana"> LA </option>
+                                        <option value="maine"> ME </option>
+                                        <option value="maryland"> MD </option>
+                                        <option value="massachusetts"> MA </option>
+                                        <option value="michigan"> MI </option>
+                                        <option value="minnesota"> MN </option>
+                                        <option value="mississippi"> MS </option>
+                                        <option value="missouri"> MO </option>
+                                        <option value="montana"> MT </option>
+                                        <option value="nebraska"> NE </option>
+                                        <option value="nevada"> NV </option>
+                                        <option value="newHampshire"> NH </option>
+                                        <option value="newJersey"> NJ </option>
+                                        <option value="newMexico"> NM </option>
+                                        <option value="newYork"> NY </option>
+                                        <option value="northCarolina"> NC </option>
+                                        <option value="northDakota"> ND </option>
+                                        <option value="ohio"> OH </option>
+                                        <option value="oklahoma"> OK </option>
+                                        <option value="oregon"> OR </option>
+                                        <option value="pennsylvania"> PA </option>
+                                        <option value="rhodeIsland"> RI </option>
+                                        <option value="southCarolina"> SC </option>
+                                        <option value="southDakota"> SD </option>
+                                        <option value="tennessee"> TN </option>
+                                        <option value="texas"> TX </option>
+                                        <option value="utah"> UT </option>
+                                        <option value="vermont"> VT </option>
+                                        <option value="virginia"> VA </option>
+                                        <option value="washington"> WA </option>
+                                        <option value="westVirginia"> WV </option>
+                                        <option value="wisconsin"> WI </option>
+                                        <option value="wyoming"> WY </option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="zip"> Zip </label>
+                                    <input type="num" name="zip" id="zip" class="flexrowShort contactInput" maxlength="5" autocomplete="postal-code" placeholder="12345" pattern="[0-9]{5}" data-message="Must be 5 digits" required>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset id="contactInfo" class="formFieldset">
+                            <legend> Contact Information </legend>
+                            <label for="email"> Email </label>
+                            <input type="email" name="email" id="email" class="inputBoxMedium contactInput" autocomplete="email" placeholder="sample@email.com" pattern="[A-Za-z._%+\-]+@[A-Za-z0-9.\-]+\.[a-zA-Z]{2,}$" required>
+
+                            <label for="phone"> Phone Number </label>
+                            <input type="tel" name="phone" id="phone" class="inputBoxMedium contactInput" autocomplete="tel" placeholder="1-444-555-6789" pattern="1-{1}[0-9]{3}-{1}[0-9]{3}-{1}[0-9]{4}" maxlength="14" required>
+                        </fieldset>
+                        <button id="submitButton"> Complete Order </button>
+                    </form>
+                    <div id="orderSummary">
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer id="footer">
+            <p> This is a fake website made for a Harper College final </p>
+            <p> No AI was used </p>
+        </footer>
+    </body>
+</html>
