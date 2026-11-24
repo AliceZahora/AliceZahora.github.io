@@ -146,7 +146,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 #cartSummary {
     margin-top: auto;
@@ -351,8 +351,8 @@ a {
     background-color: #75BDE6;
     border-radius: 40px;
     border: 0;
-    width: 15vw;
-    height: 11vh;
+    width: 12vw;
+    height: 8vh;
     margin: auto;
     font-size: 120%;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.497);
