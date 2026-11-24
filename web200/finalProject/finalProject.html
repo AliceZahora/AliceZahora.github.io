@@ -296,20 +296,23 @@
                 <button id="closeCart" command="close" commandFor="cartStatus"> X </button>
                 <div id="mainCart">
                     <h3 id="reviewCart"> REVIEW CART </h3>
-                    <div class="cartItem">
-                        <div class="pizzaImage">
+                    <div id="allCartItems">
+                        <div class="cartItem">
+                            <div class="pizzaImage">
 
-                        </div>
-                        <div class="nameAndNum">
-                            <p class="pizzaName"> Sample Pizza </p>
-                            <input type="number" id="pizza1Qty" class="pizzaQty" min="1" max="99" value="1">
-                        </div>
-                        <div class="deleteAndPrice">
-                            <button class="deletePizza"> X </button>
-                            <p class="pizzaPrice"> $2.99 </p>
+                            </div>
+                            <div class="nameAndNum">
+                                <p class="pizzaName"> Sample Pizza </p>
+                                <input type="number" id="pizza1Qty" class="pizzaQty" min="1" max="99" value="1">
+                            </div>
+                            <div class="deleteAndPrice">
+                                <button class="deletePizza"> X </button>
+                                <p class="pizzaPrice"> $2.99 </p>
+                            </div>
                         </div>
                     </div>
                     <div id="cartSummary">
+                        <hr>
                         <div class="summaryDetails">
                             <p id="subtotalLabel"> SUBTOTAL </p>
                             <p id="subtotalAmount"> $2.99 </p>
@@ -323,24 +326,9 @@
                             <p id="totalAmount"> $4.98 </p>
                         </div>
                     </div>
-                    <div id="customerInfo">
-                        <label for="custName"> Full Name
-                            <input type="text" id="custName">
-                        </label>
-                        <label for="custEmail"> Email
-                            <input type="email" id="custEmail">
-                        </label>
-                        <label for="custPhone"> Phone
-                            <input type="tel" id="custTel">
-                        </label>
-                        <label for="custAddr"> Address
-                            <input type="text" id="custAddr">
-                        </label>
-                        <label for="custNotes"> Additional Notes
-                            <input type="textarea" id="custNotes">
-                        </label>
-                    </div>
-                    <input type="button" value="CHECKOUT" id="checkoutButton">
+                    <button value="CHECKOUT" id="checkoutButton">
+                        <a href="checkout.html"> CHECKOUT </a>
+                    </button>
                 </div>
             </dialog>
         </main>

@@ -123,7 +123,7 @@ a {
 #cartStatus {
     position: fixed;
     height: 100vh;
-    width: 20vw;
+    width: 30vw;
     top: 0;
     right: 0;
     margin-right: 0;
@@ -133,7 +133,6 @@ a {
 #mainCart {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     font-family: "Montserrat", sans-serif;
     margin-top: 2vw;
@@ -142,6 +141,15 @@ a {
 #mainCart > * {
     width: 100%;
     margin: 0;
+}
+#allCartItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 10%;
+}
+#cartSummary {
+    margin-top: auto;
 }
 #reviewCart {
     text-align: center;
@@ -155,10 +163,6 @@ a {
 }
 #closeCart:hover {
     cursor: pointer;
-}
-#customerInfo > * {
-    display: flex;
-    flex-direction: column;
 }
 #checkoutButton {
     color: white;
@@ -181,11 +185,9 @@ a {
 .cartItem {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.325);
-}
-.cartItem > * {
-    flex: 1;
+    justify-content: space-between;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.325);
+    height: 20vh;
 }
 .noRadio {
     appearance: none;
@@ -195,9 +197,17 @@ a {
 }
 .pizzaImage {
     background-color: orange;
-    height: 30px;
-    width: 30px;
+    height: 8vw;
+    width: 8vw;
     border-radius: 50%;
+    margin: auto;
+    margin-left: 2%;
+}
+.nameAndNum {
+    width: 15vw;
+}
+.deleteAndPrice {
+    width: 5vw;
 }
 .nameAndNum, .deleteAndPrice {
     display: flex;
@@ -205,14 +215,17 @@ a {
     align-items: center;
     text-align: center;
 }
-.nameAndNum *, .deleteAndPrice * {
-    height: 50%;
-    margin: 0;
-}
 .summaryDetails {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.pizzaName, .deletePizza {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+.pizzaPrice {
+    margin: 0;
 }
 .pizzaQty {
     width: fit-content;
