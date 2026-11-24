@@ -119,7 +119,7 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     height: 80%;
-    padding: 1%;
+    padding: 3%;
 }
 #cartStatus {
     position: fixed;
@@ -232,6 +232,7 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
+    display: none;
 }
 .coverageButtonLabel i {
     padding: 0;
