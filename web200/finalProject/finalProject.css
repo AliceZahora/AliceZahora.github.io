@@ -118,6 +118,8 @@ a {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    height: 80%;
+    padding: 1%;
 }
 #cartStatus {
     position: fixed;
@@ -218,6 +220,26 @@ a {
 }
 .buildLegend {
     font-size: 1.5em;
+}
+.toppingDiv {
+    flex: 1;
+}
+.expanded {
+    border-radius: 0px !important;
+}
+.coverageOptions {
+    background-color: #75BDE6;
+    height: 20%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.coverageOptions i {
+    padding: 0;
+    margin: 0;
+    font-size: 120%;
 }
 .buildLabel {
     background-color: #FFEAC8;

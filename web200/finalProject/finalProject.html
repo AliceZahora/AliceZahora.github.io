@@ -133,32 +133,88 @@
                         <legend id="toppingLegend" class="buildLegend"> TOPPINGS </legend>
                         <p class="subtitle"> 2 Free (+ $1.00 each extra) </p>
                         <div id="toppings1">
-                            <label for="toppingCheddar" class="buildLabel cheeseImage">
-                                <input type="checkbox" name="toppings" id="toppingCheddar" value="cheddar"> CHEDDAR
-                            </label>
-                            <label for="toppingMushrooms" class="buildLabel mushroomImage">
-                                <input type="checkbox" name="toppings" id="toppingMushrooms" value="mushrooms"> MUSHROOMS
-                            </label>
-                            <label for="toppingPeppers" class="buildLabel peppersImage">
-                                <input type="checkbox" name="toppings" id="toppingPeppers" value="peppers"> PEPPERS
-                            </label>
-                            <label for="toppingOlives" class="buildLabel olivesImage">
-                                <input type="checkbox" name="toppings" id="toppingOlives" value="olives"> OLIVES
-                            </label>
+                            <div class="toppingDiv">
+                                <label for="toppingCheddar" class="buildLabel cheeseImage">
+                                    <input type="checkbox" name="toppings" id="toppingCheddar" value="cheddar"> CHEDDAR
+                                </label>
+                                <div class="coverageOptions">
+                                    <i class="fa-solid fa-circle-half-stroke coverageDetail"></i>
+                                    <i class="fa-solid fa-circle-half-stroke fa-rotate-180 coverageDetail"></i>
+                                    <i class="fa-solid fa-circle coverageDetail"></i>
+                                </div>
+                            </div>
+                            <div class="toppingDiv">
+                                <label for="toppingMushrooms" class="buildLabel mushroomImage">
+                                    <input type="checkbox" name="toppings" id="toppingMushrooms" value="mushrooms"> MUSHROOMS
+                                </label>
+                                <div class="coverageOptions">
+                                    <i class="fa-solid fa-circle-half-stroke coverageDetail"></i>
+                                    <i class="fa-solid fa-circle-half-stroke fa-rotate-180 coverageDetail"></i>
+                                    <i class="fa-solid fa-circle coverageDetail"></i>
+                                </div>
+                            </div>
+                            <div class="toppingDiv">
+                                <label for="toppingPeppers" class="buildLabel peppersImage">
+                                    <input type="checkbox" name="toppings" id="toppingPeppers" value="peppers"> PEPPERS
+                                </label>
+                                <div class="coverageOptions">
+                                    <i class="fa-solid fa-circle-half-stroke coverageDetail"></i>
+                                    <i class="fa-solid fa-circle-half-stroke fa-rotate-180 coverageDetail"></i>
+                                    <i class="fa-solid fa-circle coverageDetail"></i>
+                                </div>
+                            </div>
+                            <div class="toppingDiv">
+                                <label for="toppingOlives" class="buildLabel olivesImage">
+                                    <input type="checkbox" name="toppings" id="toppingOlives" value="olives"> OLIVES
+                                </label>
+                                <div class="coverageOptions">
+                                    <i class="fa-solid fa-circle-half-stroke coverageDetail"></i>
+                                    <i class="fa-solid fa-circle-half-stroke fa-rotate-180 coverageDetail"></i>
+                                    <i class="fa-solid fa-circle coverageDetail"></i>
+                                </div>
+                            </div>
                         </div>
                         <div id="toppings2">
-                            <label for="toppingPepperoni" class="buildLabel pepperoniImage">
-                                <input type="checkbox" name="toppings" id="toppingPepperoni" value="pepperoni"> PEPPERONI
-                            </label>
-                            <label for="toppingSausage" class="buildLabel sausageImage">
-                                <input type="checkbox" name="toppings" id="toppingSausage" value="sausage"> SAUSAGE
-                            </label>
-                            <label for="toppingBacon" class="buildLabel baconImage">
-                                <input type="checkbox" name="toppings" id="toppingBacon" value="bacon"> BACON
-                            </label>
-                            <label for="toppingHam" class="buildLabel hamImage">
-                                <input type="checkbox" name="toppings" id="toppingHam" value="ham"> HAM
-                            </label>
+                            <div class="toppingDiv">
+                                <label for="toppingPepperoni" class="buildLabel pepperoniImage">
+                                    <input type="checkbox" name="toppings" id="toppingPepperoni" value="pepperoni"> PEPPERONI
+                                </label>
+                                <div class="coverageOptions">
+                                    <i class="fa-solid fa-circle-half-stroke coverageDetail"></i>
+                                    <i class="fa-solid fa-circle-half-stroke fa-rotate-180 coverageDetail"></i>
+                                    <i class="fa-solid fa-circle coverageDetail"></i>
+                                </div>
+                            </div>
+                            <div class="toppingDiv">
+                                <label for="toppingSausage" class="buildLabel sausageImage">
+                                    <input type="checkbox" name="toppings" id="toppingSausage" value="sausage"> SAUSAGE
+                                </label>
+                                <div class="coverageOptions">
+                                    <i class="fa-solid fa-circle-half-stroke coverageDetail"></i>
+                                    <i class="fa-solid fa-circle-half-stroke fa-rotate-180 coverageDetail"></i>
+                                    <i class="fa-solid fa-circle coverageDetail"></i>
+                                </div>
+                            </div>
+                            <div class="toppingDiv">
+                                <label for="toppingBacon" class="buildLabel baconImage">
+                                    <input type="checkbox" name="toppings" id="toppingBacon" value="bacon"> BACON
+                                </label>
+                                <div class="coverageOptions">
+                                    <i class="fa-solid fa-circle-half-stroke coverageDetail"></i>
+                                    <i class="fa-solid fa-circle-half-stroke fa-rotate-180 coverageDetail"></i>
+                                    <i class="fa-solid fa-circle coverageDetail"></i>
+                                </div>
+                            </div>
+                            <div class="toppingDiv">
+                                <label for="toppingHam" class="buildLabel hamImage">
+                                    <input type="checkbox" name="toppings" id="toppingHam" value="ham"> HAM
+                                </label>
+                                <div class="coverageOptions">
+                                    <i class="fa-solid fa-circle-half-stroke coverageDetail"></i>
+                                    <i class="fa-solid fa-circle-half-stroke fa-rotate-180 coverageDetail"></i>
+                                    <i class="fa-solid fa-circle coverageDetail"></i>
+                                </div>
+                            </div>
                         </div>
                     </fieldset>
                     <button id="addToOrder" value="ADD TO ORDER" class="roundedButton" command="show-modal" commandFor="cartStatus"> ADD TO CART </button>
