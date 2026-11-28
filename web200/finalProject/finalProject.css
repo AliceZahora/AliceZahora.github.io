@@ -236,7 +236,7 @@ a {
     border: 0;
     gap: 1%;
 }
-.buildField *, .toppingField *, .roundedButton, .subtitle, .h2, #fullForm * {
+.buildField *, .toppingField *, .roundedButton, .subtitle, .h2, #checkoutArea * {
     font-family: "Roboto", sans-serif;
 }
 .buildLegend {
@@ -369,6 +369,15 @@ a {
     flex-direction: row;
     justify-content: space-around;
 }
+#checkoutArea > * {
+    flex: 1;
+}
+#orderSummary {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    gap: 5%;
+}
 #fullForm label:has(+ :required)::after {
     content: "*";
     color: red;
@@ -376,14 +385,13 @@ a {
 #fullForm label {
     width: fit-content;
 }
-#fullForm legend {
+#fullForm legend, #orderSummary legend {
     font-weight: bold;
 }
 #fullForm {
     position: relative;
-    height: 60vh;
+    height: 70vh;
     gap: 5%;
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
